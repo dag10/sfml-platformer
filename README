@@ -1,0 +1,19 @@
+SFML Platformer
+
+Description:
+
+A simple library in development to serve as a framework for making 2D side-scrolling games using the cross-platform SFML multimedia library.
+This project also includes a simple game with no true purpose as a demonstration of the library. Well actually, it's for testing it.
+Or rather, the library is this default "game", but is easily customizable. It's all a work in progress and is unfinished.
+I am currently not working on it either. If you use it at all, learn from it, or make changes to it, I'd *love* to hear about it!
+
+Contact:
+
+Name:     Drew Gottlieb
+Website:  minipenguin.com
+Email:    drew1313132@gmail.com
+
+License:
+
+GNU GPL v3
+See 'COPYING'
