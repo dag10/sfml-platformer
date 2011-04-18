@@ -2,18 +2,49 @@ SFML Platformer
 
 Description:
 
-A simple library in development to serve as a framework for making 2D side-scrolling games using the cross-platform SFML multimedia library.
-This project also includes a simple game with no true purpose as a demonstration of the library. Well actually, it's for testing it.
-Or rather, the library is this default "game", but is easily customizable. It's all a work in progress and is unfinished.
-I am currently not working on it either. If you use it at all, learn from it, or make changes to it, I'd *love* to hear about it!
+   A simple library in development to serve as a framework for making 2D side-scrolling games using the cross-platform SFML multimedia library.
+   This project also includes a simple game with no true purpose as a demonstration of the library. Well actually, it's for testing it.
+   Or rather, the library is this default "game", but is easily customizable. It's all a work in progress and is unfinished.
+   I am currently not working on it either. If you use it at all, learn from it, or make changes to it, I'd *love* to hear about it!
+
+Compiling (LINUX):
+
+   First, go here: http://www.sfml-dev.org/tutorials/1.6/start-linux.php
+   Go to the section "Compiling SFML (for advanced users)", and make sure you have all packages required installed.
+   As the site suggests, you can run 'sudo apt-get build-dep libsfml'.
+   Then make sure you install the package libsfml-dev by running 'sudo apt-get install libsfml-dev'.
+   Finally, run 'compile_linux.sh'. It is an incredibly crude "make script" I created. I'm terrible at making makefiles.
+
+Compiling (WINDOWS):
+
+   For windows development, I use Code::Blocks. I suggest you do the same.
+   To compile this code on Windows using Code::Blocks, create a new bare C++ project in Code::Blocks,
+   add the source and header files in 'src' and 'include', and then follow the instructions here:
+   http://www.sfml-dev.org/tutorials/1.6/start-cb.php
+
+   Note: I temporarily changed all file paths in the code (such as "resources/level_01.bmp") from
+   "resources\\level_01.bmp" to "resources/level_01.bmp" so that it could run on Unix-based systems.
+   To get the program to run on Windows, you may need to change this back.
+   To see an example of what I'm talking about, look at some of the changes near the bottom of this diff:
+   http://projects.minipenguin.com/projects/sfml-platformer/repository/diff?rev=351cce4f8cbc537196deb718519cb7da9579de18&rev_to=2db1b1b966288bd9cd554d483f183369aa431fbc
+
+Compiling (OSX):
+
+   While Code::Blocks exists for OSX, I have had trouble compiling my project with it.
+   So instead, I recommend you use Xcode. Instructions can be found here:
+   http://www.sfml-dev.org/tutorials/1.6/start-osx.php
 
 Contact:
 
-Name:     Drew Gottlieb
-Website:  minipenguin.com
-Email:    drew1313132@gmail.com
+   Name:     Drew Gottlieb
+   Website:  minipenguin.com
+   Email:    drew1313132@gmail.com
 
 License:
 
-GNU GPL v3
-See 'COPYING'
+   GNU GPL v3
+   See 'COPYING'
+
+Final Notes:
+
+   Again, I apologize for the incredibly un-helpful readme and makefile. I'm very new to the use and creation of makefiles. If you have any comments or suggestions, feel free to email me. I tend to read all received emails within 10 minutes :P
