@@ -18,7 +18,7 @@
  */
 
 #include <SFML/Graphics.hpp>
-#include <Game.h>
+#include "Game.h"
 #include <cstdio>
 #include <iostream>
 using namespace std;

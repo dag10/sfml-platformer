@@ -22,7 +22,7 @@
 #define ANIMATION_H
 
 #include <SFML/Graphics.hpp>
-#include <IRenderable.h>
+#include "IRenderable.h"
 
 namespace pf {
     class Animation : public sf::Sprite, public pf::IRenderable {

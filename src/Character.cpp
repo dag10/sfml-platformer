@@ -18,8 +18,8 @@
  *
  */
 
-#include <Character.h>
-#include <Animation.h>
+#include "Character.h"
+#include "Animation.h"
 
 pf::Character::Character(pf::World *world)
     : pf::PhysicsEntity(world) {
@@ -34,11 +34,13 @@ pf::Character::Character(pf::World *world)
     spriteSheet->SetSmooth(false);
     spriteSheet->CreateMaskFromColor(sf::Color::Magenta);
 
-    animationWalking = new pf::Animation(*spriteSheet, 6, framerate);
-    animationWalking->Pause();
+    image = new pf::Animation(*spriteSheet, 6, framerate);
+    image->Pause();
 
-    width = animationWalking->GetWidth();
-    height = animationWalking->GetHeight();
+    width = image->GetWidth();
+    height = image->GetHeight();
+        
+    SetPushable(true);
 }
 
 pf::Character::~Character() {
@@ -46,8 +48,8 @@ pf::Character::~Character() {
 }
 
 void pf::Character::Tick(float frametime) {
-    if (walking) animationWalking->Play();
-    animationWalking->Tick(frametime);
+    if (walking) image->Play();
+    //animationWalking->Tick(frametime);
     pf::PhysicsEntity::Tick(frametime);
 
     // If stopped moving sideways (hit wall), stop walking
@@ -56,7 +58,8 @@ void pf::Character::Tick(float frametime) {
 }
 
 void pf::Character::Render(sf::RenderTarget& target) {
-    sprite = (sf::Sprite*)animationWalking;
+    image->SetColor(IsInLiquid() ? sf::Color::Red : sf::Color::Green);
+    //image = animationWalking;
     pf::PhysicsEntity::Render(target);
     //animationWalking->SetPosition((int)x, (int)y);
     //animationWalking->Render(target);
@@ -83,26 +86,26 @@ void pf::Character::WalkLeft() {
 void pf::Character::StopWalking() {
     walking = false;
     SetVelocityX(0.f);
-    animationWalking->Pause();
-    animationWalking->SetCurrentFrame(0);
+    image->Pause();
+    image->SetCurrentFrame(0);
 }
 
 void pf::Character::StartWalking() {
     walking = true;
     SetVelocityX(direction * speed);
-    animationWalking->Play();
+    image->Play();
 }
 
 void pf::Character::FaceRight() {
     direction = RIGHT;
     if (walking)
         SetVelocityX(speed);
-    animationWalking->FlipX(false);
+    image->FlipX(false);
 }
 
 void pf::Character::FaceLeft() {
     direction = LEFT;
     if (walking)
         SetVelocityX(-speed);
-    animationWalking->FlipX(true);
+    image->FlipX(true);
 }

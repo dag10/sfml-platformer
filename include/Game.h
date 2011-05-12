@@ -41,9 +41,11 @@ namespace pf {
             sf::View *view;
             float viewX, viewY;
             float viewSpeed;
+            void addBox(int x, int y);
             sf::RenderTarget *lastTarget;
             pf::Character *mainCharacter;
             pf::PhysicsEntity *box;
+            float zoomFactor;
     };
 }; // namespace pf
 

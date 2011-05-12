@@ -18,26 +18,28 @@
  * 
  */
 
-#include <Platform.h>
-#include <World.h>
+#include "Platform.h"
+#include "World.h"
 
-pf::Platform::Platform(pf::World* world, sf::Image& image, sf::IntRect rect)
+pf::Platform::Platform(pf::World* world, sf::Image& image, sf::IntRect rect, float alpha, bool liquid)
     : pf::Entity(world, 0, 0, pf::World::TILE_SIZE, pf::World::TILE_SIZE) {
-    Init(image, rect, 0, 0);
+    Init(image, rect, 0, 0, alpha, liquid);
 }
 
-pf::Platform::Platform(pf::World* world, sf::Image& image, sf::IntRect rect, int x, int y)
+pf::Platform::Platform(pf::World* world, sf::Image& image, sf::IntRect rect, int x, int y, float alpha, bool liquid)
     : pf::Entity(world, (float)x, (float)y, pf::World::TILE_SIZE, pf::World::TILE_SIZE) {
-    Init(image, rect, x, y);
+    Init(image, rect, x, y, alpha, liquid);
 }
 
-void pf::Platform::Init(sf::Image& image, sf::IntRect rect, int x, int y) {
+void pf::Platform::Init(sf::Image& image, sf::IntRect rect, int x, int y, float alpha, bool liquid) {
     this->solid = true;
+    this->liquid = liquid;
 
     this->SetImage(image);
     image.SetSmooth(false);
     this->SetSubRect(rect);
     this->Resize(pf::World::TILE_SIZE, pf::World::TILE_SIZE);
+    this->SetColor(sf::Color(255, 255, 255, (int)(alpha * 255)));
 
     this->sf::Sprite::SetPosition(x, y);
 }
@@ -52,6 +54,10 @@ void pf::Platform::SetSolid(bool solid) {
 
 bool pf::Platform::IsSolid() {
     return this->solid;
+}
+
+bool pf::Platform::IsLiquid() {
+    return this->liquid;
 }
 
 bool pf::Platform::HitTest(pf::Entity& entity) {

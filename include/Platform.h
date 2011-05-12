@@ -22,17 +22,18 @@
 #define PLATFORM_H
 
 #include <SFML/Graphics.hpp>
-#include <Entity.h>
+#include "Entity.h"
 
 namespace pf {
     class Platform : public pf::Entity, public sf::Sprite {
         public:
-            Platform(pf::World* world, sf::Image& image, sf::IntRect rect);
-            Platform(pf::World* world, sf::Image& image, sf::IntRect rect, int x, int y);
+            Platform(pf::World* world, sf::Image& image, sf::IntRect rect, float alpha, bool liquid);
+            Platform(pf::World* world, sf::Image& image, sf::IntRect rect, int x, int y, float alpha, bool liquid);
             ~Platform();
 
             void SetSolid(bool solid);
             bool IsSolid();
+            bool IsLiquid();
 
             // HitTest should be overridden for more complex Platforms that
             // derive off of this class (e.g. slants, stairs, doors, etc)
@@ -41,8 +42,8 @@ namespace pf {
             bool HitTest(float x, float y);
 
         private:
-            void Init(sf::Image& image, sf::IntRect rect, int x, int y);
-            bool solid;
+            void Init(sf::Image& image, sf::IntRect rect, int x, int y, float alpha, bool liquid);
+            bool solid, liquid;
     };
 }; // namespace pf
 

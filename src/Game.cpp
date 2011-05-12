@@ -18,10 +18,13 @@
  *
  */
 
-#include <Game.h>
-#include <PhysicsEntity.h>
-#include <Character.h>
-#include <World.h>
+#include "Game.h"
+#include "PhysicsEntity.h"
+#include "Character.h"
+#include "World.h"
+#include "Elevator.h"
+#include "Animation.h"
+#include "BouncyParticle.h"
 
 #include <iostream>
 using namespace std;
@@ -34,6 +37,7 @@ pf::Game::Game() {
     // Initialize view variables
     viewSpeed = 11.f;
     viewX = viewY = 0;
+    zoomFactor = 1.5f;
 
     // Initialize main character
     mainCharacter = new pf::Character(world);
@@ -43,53 +47,67 @@ pf::Game::Game() {
     mainCharacter->SetCanUseStairs(true);
     world->AddEntity(*mainCharacter);
 
-    // Initialize box image
-    sf::Image *boxImage = new sf::Image();
-    boxImage->LoadFromFile("resources/box.bmp");
-    boxImage->SetSmooth(false);
-
-    // Initialize box
-    box = new pf::PhysicsEntity(world, boxImage, 90, 30);
-    box->SetGravityEnabled(true);
-    box->SetSolid(true);
-    box->SetPushable(true);
-    world->AddEntity(*box);
-
-    // Initialize another block
-    pf::PhysicsEntity *c = new pf::PhysicsEntity(world, boxImage, 100, 30);
-    c->SetGravityEnabled(true);
-    c->SetSolid(true);
-    c->SetPushable(true);
-    world->AddEntity(*c);
+    // Add boxes
+    addBox(85, 30);
+    //addBox(100, 42);
+    //addBox(100, 27);
+    //addBox(115, 40);
+    addBox(130, 30);
 
     // Initialize step image
     sf::Image *stepImage = new sf::Image();
     stepImage->LoadFromFile("resources/step.bmp");
     stepImage->SetSmooth(false);
+    pf::Animation *stepAnimation = new pf::Animation(*stepImage, 1, 0);
 
     // Initialize three steps
-    pf::PhysicsEntity *step1 = new pf::PhysicsEntity(world, stepImage, 50, 30);
+    pf::PhysicsEntity *step1 = new pf::PhysicsEntity(world, stepAnimation, 50, 30);
     step1->SetGravityEnabled(true);
     step1->SetSolid(true);
     step1->SetPushable(false);
     world->AddEntity(*step1);
-    pf::PhysicsEntity *step2 = new pf::PhysicsEntity(world, stepImage, 60, 50);
+    pf::PhysicsEntity *step2 = new pf::PhysicsEntity(world, stepAnimation, 60, 50);
     step2->SetGravityEnabled(true);
     step2->SetSolid(true);
     step2->SetPushable(false);
     world->AddEntity(*step2);
-    pf::PhysicsEntity *step3 = new pf::PhysicsEntity(world, stepImage, 60, 30);
+    pf::PhysicsEntity *step3 = new pf::PhysicsEntity(world, stepAnimation, 60, 30);
     step3->SetGravityEnabled(true);
     step3->SetSolid(true);
     step3->SetPushable(false);
     world->AddEntity(*step3);
 
-    // Initialize another step
-    pf::PhysicsEntity *step4 = new pf::PhysicsEntity(world, stepImage, 130, 50);
-    step4->SetGravityEnabled(true);
-    step4->SetSolid(true);
-    step4->SetPushable(true);
-    world->AddEntity(*step4);
+    // PhysicsEntity another step
+    pf::Elevator *elevator = new pf::Elevator(world, stepAnimation, 130, 55);
+    elevator->SetSolid(true);
+    //world->AddEntity(*elevator);
+    
+    // Add particle
+    sf::Image *particleImage = new sf::Image();
+    particleImage->LoadFromFile("resources/particle_01.bmp");
+    particleImage->SetSmooth(false);
+    pf::Animation *particleAnimation = new pf::Animation(*particleImage, 1, 0);
+    pf::Particle *particle = new pf::BouncyParticle(world, particleAnimation, 80, 40);
+    world->AddEntity(*particle);
+    particle->SetVelocity(60.f, 40.f);
+}
+
+void pf::Game::addBox(int x, int y) {
+    static pf::Animation *boxAnimation;
+    
+    if (!boxAnimation) {
+        sf::Image *boxImage = new sf::Image();
+        boxImage->LoadFromFile("resources/box.bmp");
+        boxImage->SetSmooth(false);
+        //boxImage->CreateMaskFromColor(sf::Color(255, 0, 255));
+        boxAnimation = new pf::Animation(*boxImage, 1, 10);
+    }
+    
+    box = new pf::PhysicsEntity(world, boxAnimation, x, y);
+    box->SetGravityEnabled(true);
+    box->SetSolid(true);
+    box->SetPushable(true);
+    world->AddEntity(*box);
 }
 
 pf::Game::~Game() {
@@ -101,19 +119,17 @@ pf::Game::~Game() {
         delete view;
         view = NULL;
     }
+    // TODO: Is this really neccesary?
+    //       Wouldn't all entities be deleted when the entities list in the World is emptied?
     if (mainCharacter) {
         delete mainCharacter;
         mainCharacter = NULL;
-    }
-    if (box) {
-        delete box;
-        box = NULL;
     }
 }
 
 void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeight) {
     if (lastTarget != &target) {
-        view->SetFromRect(sf::FloatRect(0, 0, renderWidth, renderHeight));
+        view->SetFromRect(sf::FloatRect(0, 0, (int)((float)renderWidth / zoomFactor), (int)((float)renderHeight / zoomFactor)));
         lastTarget = &target;
     }
 

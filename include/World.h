@@ -21,7 +21,7 @@
 #ifndef WORLD_H
 #define WORLD_H
 
-#include <IRenderable.h>
+#include "IRenderable.h"
 #include <vector>
 
 namespace pf {
@@ -48,7 +48,7 @@ namespace pf {
             void AddEntity(pf::Entity& entity);
             pf::Entity *GetEntity(int id);
 
-        private:
+        protected:
             int width, height;
             sf::Image *levelImage;
             pf::Platform **platforms;

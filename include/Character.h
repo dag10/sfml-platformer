@@ -22,7 +22,7 @@
 #define CHARACTER_H
 
 #include <SFML/Graphics.hpp>
-#include <PhysicsEntity.h>
+#include "PhysicsEntity.h"
 
 namespace pf {
     class Animation;

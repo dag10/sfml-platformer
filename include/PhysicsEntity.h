@@ -21,20 +21,22 @@
 #ifndef PHYSICSENTITY_H
 #define PHYSICSENTITY_H
 
-#include <Entity.h>
-#include <IRenderable.h>
-#include <World.h>
+#include "Entity.h"
+#include "IRenderable.h"
+#include "World.h"
 #include <vector>
 
 namespace pf {
+    class Animation;
+    
     class PhysicsEntity : public pf::Entity, public pf::IRenderable {
         public:
             const static float GRAVITY = 9.8f * pf::World::TILE_SIZE;  // 9.8 m/s * pixels per tile
 
             PhysicsEntity(pf::World *world);
-            PhysicsEntity(pf::World *world, sf::Image *image);
+            PhysicsEntity(pf::World *world, pf::Animation *image);
             PhysicsEntity(pf::World *world, float x, float y, int width, int height);
-            PhysicsEntity(pf::World *world, sf::Image *image, float x, float y);
+            PhysicsEntity(pf::World *world, pf::Animation *image, float x, float y);
             ~PhysicsEntity();
 
             void Init();
@@ -53,6 +55,7 @@ namespace pf {
             bool GravityIsEnabled();
             void SetGravityEnabled(bool gravity);
             bool IsOnGround();
+            bool IsInLiquid();
             bool IsPushable();
             void SetPushable(bool pushable);
             bool CanUseStairs();
@@ -65,14 +68,12 @@ namespace pf {
             bool AlreadyHit(pf::Entity *entity);
             void Push(float offsetX, float offsetY);
 
-        private:
-            friend class Character;
-
-            sf::Sprite *sprite;
+        protected:
+            pf::Animation *image;
             bool solid, gravity, pushable, canUseStairs;
             float veloX, veloY;
             bool wasHittingVerticalSurface, wasHittingHorizontalSurface;
-            bool onGround;
+            bool onGround, inLiquid;
             std::vector<pf::Entity*> *hitEntities;
             void Move(float offsetX, float offsetY);
     };

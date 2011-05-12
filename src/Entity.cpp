@@ -19,8 +19,8 @@
  * 
  */
 
-#include <Entity.h>
-#include <World.h>
+#include "Entity.h"
+#include "World.h"
 
 unsigned int pf::Entity::NEXT_ENT_ID = 0;
 

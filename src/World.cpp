@@ -20,11 +20,12 @@
 
 #define xy(x,y) (y)*(this->width)+(x)
 
-#include <World.h>
-#include <Tileset.h>
-#include <Entity.h>
-#include <PhysicsEntity.h>
-#include <Platform.h>
+#include "World.h"
+#include "Tileset.h"
+#include "Entity.h"
+#include "PhysicsEntity.h"
+#include "Platform.h"
+#include <vector>
 
 pf::World::World(char *level) {
     // Load level layout
@@ -54,9 +55,12 @@ pf::World::World(char *level) {
                 if (Tileset[i].levelColor == levelColor) {
                     platforms[xy(x, y)] = new pf::Platform(
                                             this,
-                                            *tileset, Tileset[i].coords,
+                                            *tileset,
+                                            Tileset[i].coords,
                                             x * TILE_SIZE,
-                                            y * TILE_SIZE);
+                                            y * TILE_SIZE,
+                                            Tileset[i].alpha,
+                                            Tileset[i].liquid);
                     platforms[xy(x, y)]->SetSolid(Tileset[i].solid);
                     break;
                 }
@@ -74,18 +78,26 @@ void pf::World::Tick(float frametime) {
 }
 
 void pf::World::Render(sf::RenderTarget& target) {
+    std::vector<pf::Platform*> liquidPlatforms;
+    
     // Draw platforms
     for (int x = 0; x < width; x++)
         for (int y = 0; y < height; y++)
             if (platforms[xy(x, y)])
-                target.Draw((sf::Sprite)*(platforms[xy(x, y)]));
+                if (platforms[xy(x, y)]->IsLiquid())
+                    liquidPlatforms.push_back(platforms[xy(x, y)]);
+                else
+                    target.Draw((sf::Sprite)*(platforms[xy(x, y)]));
 
     // Draw renderable entities
     for (int i = 0; i < entities->size(); i++) {
         pf::IRenderable *ent = dynamic_cast<IRenderable*>(entities->at(i));
-        if (ent)
-            ent->Render(target);
+        if (ent) ent->Render(target);
     }
+    
+    // Draw front-most platforms
+    for (int i = 0; i < liquidPlatforms.size(); i++)
+        target.Draw((sf::Sprite)*(liquidPlatforms.at(i)));
 }
 
 std::vector<pf::Entity*> pf::World::HitsLevel(pf::Entity& entity) {
