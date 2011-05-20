@@ -27,10 +27,10 @@
 #include "Platform.h"
 #include <vector>
 
-pf::World::World(char *level) {
+pf::World::World(Resource *levelImageResource) {
     // Load level layout
     levelImage = new sf::Image();
-    if (!(levelImage->LoadFromFile(level))) return;
+    if (!(levelImage->LoadFromMemory(levelImageResource->GetData(), levelImageResource->GetLength()))) return;
 
     // Set level width
     width = levelImage->GetWidth();
@@ -53,6 +53,7 @@ pf::World::World(char *level) {
             sf::Color levelColor = levelImage->GetPixel(x, y);
             for (int i = 0; i < TilesetCount; i++) {
                 if (Tileset[i].levelColor == levelColor) {
+                //if (!strcmp(Tileset[i].name, "water")) {
                     platforms[xy(x, y)] = new pf::Platform(
                                             this,
                                             *tileset,
@@ -238,4 +239,20 @@ pf::World::~World() {
         delete [] platforms;
         platforms = NULL;
     }
+}
+
+int pf::World::GetPixelWidth() {
+    return width * TILE_SIZE;
+}
+
+int pf::World::GetPixelHeight() {
+    return height * TILE_SIZE;
+}
+
+int pf::World::GetWidth() {
+    return width;
+}
+
+int pf::World::GetHeight() {
+    return height;
 }

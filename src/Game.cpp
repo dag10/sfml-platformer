@@ -25,19 +25,25 @@
 #include "Elevator.h"
 #include "Animation.h"
 #include "BouncyParticle.h"
+#include "Resource.h"
 
 #include <iostream>
 using namespace std;
 
 pf::Game::Game() {
+    // Initialize resources
+    Resource *stepImageResource = Resource::GetOrLoadResource("resources/step.bmp");
+    Resource *levelImageResource = Resource::GetOrLoadResource("resources/wheel.bmp");
+    
     // Initialize World and view
-    world = new pf::World("resources/level_01.bmp");
+    world = new pf::World(levelImageResource);
     view = new sf::View(sf::FloatRect(0, 0, 0, 0));
 
     // Initialize view variables
     viewSpeed = 11.f;
     viewX = viewY = 0;
     zoomFactor = 1.5f;
+    //zoomFactor = 0.2f;
 
     // Initialize main character
     mainCharacter = new pf::Character(world);
@@ -56,7 +62,7 @@ pf::Game::Game() {
 
     // Initialize step image
     sf::Image *stepImage = new sf::Image();
-    stepImage->LoadFromFile("resources/step.bmp");
+    stepImage->LoadFromMemory(stepImageResource->GetData(), stepImageResource->GetLength());
     stepImage->SetSmooth(false);
     pf::Animation *stepAnimation = new pf::Animation(*stepImage, 1, 0);
 
@@ -97,7 +103,8 @@ void pf::Game::addBox(int x, int y) {
     
     if (!boxAnimation) {
         sf::Image *boxImage = new sf::Image();
-        boxImage->LoadFromFile("resources/box.bmp");
+        Resource *boxImageResource = Resource::GetOrLoadResource("resources/box.bmp");
+        boxImage->LoadFromMemory(boxImageResource->GetData(), boxImageResource->GetLength());
         boxImage->SetSmooth(false);
         //boxImage->CreateMaskFromColor(sf::Color(255, 0, 255));
         boxAnimation = new pf::Animation(*boxImage, 1, 10);
@@ -151,7 +158,7 @@ void pf::Game::Tick(sf::Input& input, float frametime) {
 
     if (input.IsKeyDown(sf::Key::Up)
         && mainCharacter->IsOnGround())
-        mainCharacter->SetVelocityY(-100);
+        mainCharacter->SetVelocityY(mainCharacter->IsInLiquid() ? -30 : -100);
 
     // Update view position
     float targetViewX = mainCharacter->GetX() + (mainCharacter->GetWidth() / 2);

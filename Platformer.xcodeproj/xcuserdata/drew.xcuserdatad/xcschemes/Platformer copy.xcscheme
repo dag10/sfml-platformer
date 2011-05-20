@@ -13,9 +13,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A01FB7790F07D2C5000AAC7B"
-               BuildableName = "Platformer.app"
-               BlueprintName = "Platformer"
+               BlueprintIdentifier = "3AEA295713816B9F0039D314"
+               BuildableName = "Platformer copy.app"
+               BlueprintName = "Platformer Server"
                ReferencedContainer = "container:Platformer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -35,15 +35,14 @@
       displayScaleIsEnabled = "NO"
       displayScale = "1.00"
       launchStyle = "0"
-      useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/drew/Desktop/sfml-platformer"
+      useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A01FB7790F07D2C5000AAC7B"
-            BuildableName = "Platformer.app"
-            BlueprintName = "Platformer"
+            BlueprintIdentifier = "3AEA295713816B9F0039D314"
+            BuildableName = "Platformer copy.app"
+            BlueprintName = "Platformer Server"
             ReferencedContainer = "container:Platformer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -60,9 +59,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A01FB7790F07D2C5000AAC7B"
-            BuildableName = "Platformer.app"
-            BlueprintName = "Platformer"
+            BlueprintIdentifier = "3AEA295713816B9F0039D314"
+            BuildableName = "Platformer copy.app"
+            BlueprintName = "Platformer Server"
             ReferencedContainer = "container:Platformer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

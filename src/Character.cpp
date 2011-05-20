@@ -23,7 +23,7 @@
 
 pf::Character::Character(pf::World *world)
     : pf::PhysicsEntity(world) {
-    speed = 110.f;
+    speed = WALK_SPEED;
     walking = false;
     direction = RIGHT;
 
@@ -48,8 +48,14 @@ pf::Character::~Character() {
 }
 
 void pf::Character::Tick(float frametime) {
+    // Set horizontal speed
+    //speed = inLiquid ? SWIM_SPEED : WALK_SPEED;
+    if (inLiquid)
+        speed = SWIM_SPEED;
+    else
+        speed = WALK_SPEED;
+    
     if (walking) image->Play();
-    //animationWalking->Tick(frametime);
     pf::PhysicsEntity::Tick(frametime);
 
     // If stopped moving sideways (hit wall), stop walking
@@ -58,7 +64,7 @@ void pf::Character::Tick(float frametime) {
 }
 
 void pf::Character::Render(sf::RenderTarget& target) {
-    image->SetColor(IsInLiquid() ? sf::Color::Red : sf::Color::Green);
+    //image->SetColor(IsInLiquid() ? sf::Color::Red : sf::Color::Green);
     //image = animationWalking;
     pf::PhysicsEntity::Render(target);
     //animationWalking->SetPosition((int)x, (int)y);

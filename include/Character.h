@@ -29,6 +29,10 @@ namespace pf {
 
     class Character : public pf::PhysicsEntity {
         public:
+            // Speed
+            const static float WALK_SPEED = 110.f;
+            const static float SWIM_SPEED = 50.f;
+        
             // Direction
             const static int LEFT = -1;
             const static int RIGHT = 1;

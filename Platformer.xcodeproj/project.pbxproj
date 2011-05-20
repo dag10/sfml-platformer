@@ -16,17 +16,47 @@
 		3A614A381364E1A500A7FE66 /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A311364E1A500A7FE66 /* Platform.cpp */; };
 		3A614A391364E1A500A7FE66 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A321364E1A500A7FE66 /* World.cpp */; };
 		3A98FCEF1364F41C0083FA20 /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A98FCEE1364F41C0083FA20 /* sfml-graphics.framework */; };
+		3AB3DCCC1382BEED00F937A6 /* Resource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3DCCB1382BEED00F937A6 /* Resource.cpp */; };
 		3AC9984313671FDA0010C5C3 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9984213671FDA0010C5C3 /* Particle.cpp */; };
 		3AC99846136723A50010C5C3 /* BouncyParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AC99845136723A40010C5C3 /* BouncyParticle.cpp */; };
+		3AEA295B13816B9F0039D314 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A2C1364E1A500A7FE66 /* Animation.cpp */; };
+		3AEA295C13816B9F0039D314 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A2D1364E1A500A7FE66 /* Character.cpp */; };
+		3AEA295D13816B9F0039D314 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A2E1364E1A500A7FE66 /* Entity.cpp */; };
+		3AEA295E13816B9F0039D314 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A2F1364E1A500A7FE66 /* Game.cpp */; };
+		3AEA295F13816B9F0039D314 /* PhysicsEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A301364E1A500A7FE66 /* PhysicsEntity.cpp */; };
+		3AEA296013816B9F0039D314 /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A311364E1A500A7FE66 /* Platform.cpp */; };
+		3AEA296113816B9F0039D314 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A321364E1A500A7FE66 /* World.cpp */; };
+		3AEA296213816B9F0039D314 /* Elevator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F0DF5136507AE00AE0F08 /* Elevator.cpp */; };
+		3AEA296313816B9F0039D314 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9984213671FDA0010C5C3 /* Particle.cpp */; };
+		3AEA296413816B9F0039D314 /* BouncyParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AC99845136723A40010C5C3 /* BouncyParticle.cpp */; };
+		3AEA296613816B9F0039D314 /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A98FCEE1364F41C0083FA20 /* sfml-graphics.framework */; };
+		3AEA296713816B9F0039D314 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB7880F07D338000AAC7B /* sfml-system.framework */; };
+		3AEA296813816B9F0039D314 /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB7890F07D338000AAC7B /* sfml-window.framework */; };
+		3AEA296913816B9F0039D314 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB7F60F07D381000AAC7B /* OpenGL.framework */; };
+		3AEA296B13816B9F0039D314 /* sfml-system.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB7880F07D338000AAC7B /* sfml-system.framework */; };
+		3AEA296C13816B9F0039D314 /* sfml-window.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB7890F07D338000AAC7B /* sfml-window.framework */; };
+		3AEA297513816D5F0039D314 /* main_server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AEA297213816D400039D314 /* main_server.cpp */; };
 		A0072B1B0F1D0FCD00B4A594 /* sfml-system.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB7880F07D338000AAC7B /* sfml-system.framework */; };
 		A0072B1C0F1D0FCD00B4A594 /* sfml-window.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB7890F07D338000AAC7B /* sfml-window.framework */; };
-		A01FB7870F07D328000AAC7B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A01FB7860F07D328000AAC7B /* main.cpp */; };
+		A01FB7870F07D328000AAC7B /* main_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A01FB7860F07D328000AAC7B /* main_client.cpp */; };
 		A01FB78B0F07D338000AAC7B /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB7880F07D338000AAC7B /* sfml-system.framework */; };
 		A01FB78C0F07D338000AAC7B /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB7890F07D338000AAC7B /* sfml-window.framework */; };
 		A01FB7F70F07D381000AAC7B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB7F60F07D381000AAC7B /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		3AEA296A13816B9F0039D314 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3AEA296B13816B9F0039D314 /* sfml-system.framework in Copy Frameworks */,
+				3AEA296C13816B9F0039D314 /* sfml-window.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A0072B2B0F1D0FD800B4A594 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -61,13 +91,19 @@
 		3A614A311364E1A500A7FE66 /* Platform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Platform.cpp; path = src/Platform.cpp; sourceTree = "<group>"; };
 		3A614A321364E1A500A7FE66 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = World.cpp; path = src/World.cpp; sourceTree = "<group>"; };
 		3A98FCEE1364F41C0083FA20 /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64/sfml-graphics.framework"; sourceTree = "<group>"; };
+		3AB3DCC91382BE4B00F937A6 /* Resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resource.h; sourceTree = "<group>"; };
+		3AB3DCCB1382BEED00F937A6 /* Resource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Resource.cpp; sourceTree = "<group>"; };
 		3AC99840136717280010C5C3 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
 		3AC9984213671FDA0010C5C3 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
 		3AC99844136722F30010C5C3 /* BouncyParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BouncyParticle.h; sourceTree = "<group>"; };
 		3AC99845136723A40010C5C3 /* BouncyParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BouncyParticle.cpp; sourceTree = "<group>"; };
+		3AEA295113816B6D0039D314 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3AEA295313816B6D0039D314 /* Platformer_Server.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Platformer_Server.1; sourceTree = "<group>"; };
+		3AEA297013816B9F0039D314 /* Platformer copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Platformer copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AEA297213816D400039D314 /* main_server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_server.cpp; sourceTree = "<group>"; };
 		A01FB77A0F07D2C5000AAC7B /* Platformer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Platformer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01FB77D0F07D2C5000AAC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A01FB7860F07D328000AAC7B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A01FB7860F07D328000AAC7B /* main_client.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = main_client.cpp; sourceTree = "<group>"; };
 		A01FB7880F07D338000AAC7B /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "/Library/Frameworks/sfml-system.framework"; sourceTree = "<absolute>"; };
 		A01FB7890F07D338000AAC7B /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "/Library/Frameworks/sfml-window.framework"; sourceTree = "<absolute>"; };
 		A01FB78A0F07D338000AAC7B /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = /Library/Frameworks/SFML.framework; sourceTree = "<absolute>"; };
@@ -75,6 +111,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3AEA296513816B9F0039D314 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AEA296613816B9F0039D314 /* sfml-graphics.framework in Frameworks */,
+				3AEA296713816B9F0039D314 /* sfml-system.framework in Frameworks */,
+				3AEA296813816B9F0039D314 /* sfml-window.framework in Frameworks */,
+				3AEA296913816B9F0039D314 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A01FB7780F07D2C5000AAC7B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -89,12 +136,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3AEA294813816A890039D314 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				3A614A221364E1A500A7FE66 /* Animation.h */,
+				3A614A231364E1A500A7FE66 /* Character.h */,
+				3A614A241364E1A500A7FE66 /* Entity.h */,
+				3A614A251364E1A500A7FE66 /* Game.h */,
+				3A614A261364E1A500A7FE66 /* IRenderable.h */,
+				3A614A271364E1A500A7FE66 /* PhysicsEntity.h */,
+				3A614A281364E1A500A7FE66 /* Platform.h */,
+				3A614A291364E1A500A7FE66 /* Tileset.h */,
+				3A614A2A1364E1A500A7FE66 /* World.h */,
+				3A5F0DF3136506BD00AE0F08 /* Elevator.h */,
+				3AC99840136717280010C5C3 /* Particle.h */,
+				3AC99844136722F30010C5C3 /* BouncyParticle.h */,
+				3AB3DCC91382BE4B00F937A6 /* Resource.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		3AEA295013816B6D0039D314 /* Platformer Server */ = {
+			isa = PBXGroup;
+			children = (
+				3AEA295113816B6D0039D314 /* main.cpp */,
+				3AEA295313816B6D0039D314 /* Platformer_Server.1 */,
+			);
+			path = "Platformer Server";
+			sourceTree = "<group>";
+		};
 		A01FB76B0F07D2BC000AAC7B = {
 			isa = PBXGroup;
 			children = (
-				3A98FCEE1364F41C0083FA20 /* sfml-graphics.framework */,
+				3AEA294813816A890039D314 /* Headers */,
 				A01FB7830F07D30C000AAC7B /* Sources */,
 				A01FB7820F07D309000AAC7B /* Resources */,
+				3AEA295013816B6D0039D314 /* Platformer Server */,
 				A01FB7810F07D304000AAC7B /* Frameworks */,
 				A01FB77B0F07D2C5000AAC7B /* Products */,
 			);
@@ -104,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				A01FB77A0F07D2C5000AAC7B /* Platformer.app */,
+				3AEA297013816B9F0039D314 /* Platformer copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,15 +208,6 @@
 		A01FB7830F07D30C000AAC7B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3A614A221364E1A500A7FE66 /* Animation.h */,
-				3A614A231364E1A500A7FE66 /* Character.h */,
-				3A614A241364E1A500A7FE66 /* Entity.h */,
-				3A614A251364E1A500A7FE66 /* Game.h */,
-				3A614A261364E1A500A7FE66 /* IRenderable.h */,
-				3A614A271364E1A500A7FE66 /* PhysicsEntity.h */,
-				3A614A281364E1A500A7FE66 /* Platform.h */,
-				3A614A291364E1A500A7FE66 /* Tileset.h */,
-				3A614A2A1364E1A500A7FE66 /* World.h */,
 				3A614A2C1364E1A500A7FE66 /* Animation.cpp */,
 				3A614A2D1364E1A500A7FE66 /* Character.cpp */,
 				3A614A2E1364E1A500A7FE66 /* Entity.cpp */,
@@ -146,13 +215,13 @@
 				3A614A301364E1A500A7FE66 /* PhysicsEntity.cpp */,
 				3A614A311364E1A500A7FE66 /* Platform.cpp */,
 				3A614A321364E1A500A7FE66 /* World.cpp */,
-				A01FB7860F07D328000AAC7B /* main.cpp */,
-				3A5F0DF3136506BD00AE0F08 /* Elevator.h */,
+				A01FB7860F07D328000AAC7B /* main_client.cpp */,
+				3AEA297213816D400039D314 /* main_server.cpp */,
 				3A5F0DF5136507AE00AE0F08 /* Elevator.cpp */,
-				3AC99840136717280010C5C3 /* Particle.h */,
 				3AC9984213671FDA0010C5C3 /* Particle.cpp */,
-				3AC99844136722F30010C5C3 /* BouncyParticle.h */,
 				3AC99845136723A40010C5C3 /* BouncyParticle.cpp */,
+				3AB3DCCB1382BEED00F937A6 /* Resource.cpp */,
+				3A98FCEE1364F41C0083FA20 /* sfml-graphics.framework */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -160,9 +229,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A01FB7790F07D2C5000AAC7B /* «PROJECTNAME» */ = {
+		3AEA295713816B9F0039D314 /* Platformer Server */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A01FB7800F07D2C6000AAC7B /* Build configuration list for PBXNativeTarget "«PROJECTNAME»" */;
+			buildConfigurationList = 3AEA296D13816B9F0039D314 /* Build configuration list for PBXNativeTarget "Platformer Server" */;
+			buildPhases = (
+				3AEA295813816B9F0039D314 /* Resources */,
+				3AEA295913816B9F0039D314 /* Sources */,
+				3AEA296513816B9F0039D314 /* Frameworks */,
+				3AEA296A13816B9F0039D314 /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Platformer Server";
+			productName = "«PROJECTNAME»";
+			productReference = 3AEA297013816B9F0039D314 /* Platformer copy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A01FB7790F07D2C5000AAC7B /* Platformer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A01FB7800F07D2C6000AAC7B /* Build configuration list for PBXNativeTarget "Platformer" */;
 			buildPhases = (
 				A01FB7760F07D2C5000AAC7B /* Resources */,
 				A01FB7770F07D2C5000AAC7B /* Sources */,
@@ -173,7 +260,7 @@
 			);
 			dependencies = (
 			);
-			name = "«PROJECTNAME»";
+			name = Platformer;
 			productName = "«PROJECTNAME»";
 			productReference = A01FB77A0F07D2C5000AAC7B /* Platformer.app */;
 			productType = "com.apple.product-type.application";
@@ -195,12 +282,20 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A01FB7790F07D2C5000AAC7B /* «PROJECTNAME» */,
+				A01FB7790F07D2C5000AAC7B /* Platformer */,
+				3AEA295713816B9F0039D314 /* Platformer Server */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3AEA295813816B9F0039D314 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A01FB7760F07D2C5000AAC7B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -211,11 +306,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3AEA295913816B9F0039D314 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AEA297513816D5F0039D314 /* main_server.cpp in Sources */,
+				3AEA295B13816B9F0039D314 /* Animation.cpp in Sources */,
+				3AEA295C13816B9F0039D314 /* Character.cpp in Sources */,
+				3AEA295D13816B9F0039D314 /* Entity.cpp in Sources */,
+				3AEA295E13816B9F0039D314 /* Game.cpp in Sources */,
+				3AEA295F13816B9F0039D314 /* PhysicsEntity.cpp in Sources */,
+				3AEA296013816B9F0039D314 /* Platform.cpp in Sources */,
+				3AEA296113816B9F0039D314 /* World.cpp in Sources */,
+				3AEA296213816B9F0039D314 /* Elevator.cpp in Sources */,
+				3AEA296313816B9F0039D314 /* Particle.cpp in Sources */,
+				3AEA296413816B9F0039D314 /* BouncyParticle.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A01FB7770F07D2C5000AAC7B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A01FB7870F07D328000AAC7B /* main.cpp in Sources */,
+				A01FB7870F07D328000AAC7B /* main_client.cpp in Sources */,
 				3A614A331364E1A500A7FE66 /* Animation.cpp in Sources */,
 				3A614A341364E1A500A7FE66 /* Character.cpp in Sources */,
 				3A614A351364E1A500A7FE66 /* Entity.cpp in Sources */,
@@ -226,12 +339,57 @@
 				3A5F0DF6136507AE00AE0F08 /* Elevator.cpp in Sources */,
 				3AC9984313671FDA0010C5C3 /* Particle.cpp in Sources */,
 				3AC99846136723A50010C5C3 /* BouncyParticle.cpp in Sources */,
+				3AB3DCCC1382BEED00F937A6 /* Resource.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		3AEA296E13816B9F0039D314 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = PLATFORMER_SERVER;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PREBINDING = NO;
+				PRODUCT_NAME = "Platformer copy";
+			};
+			name = Debug;
+		};
+		3AEA296F13816B9F0039D314 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64\"";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = PLATFORMER_SERVER;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PREBINDING = NO;
+				PRODUCT_NAME = "Platformer copy";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		A01FB76E0F07D2BC000AAC7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -260,6 +418,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = PLATFORMER_CLIENT;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PREBINDING = NO;
@@ -280,6 +439,7 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = PLATFORMER_CLIENT;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PREBINDING = NO;
@@ -291,6 +451,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3AEA296D13816B9F0039D314 /* Build configuration list for PBXNativeTarget "Platformer Server" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AEA296E13816B9F0039D314 /* Debug */,
+				3AEA296F13816B9F0039D314 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A01FB7700F07D2BC000AAC7B /* Build configuration list for PBXProject "Platformer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -300,7 +469,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A01FB7800F07D2C6000AAC7B /* Build configuration list for PBXNativeTarget "«PROJECTNAME»" */ = {
+		A01FB7800F07D2C6000AAC7B /* Build configuration list for PBXNativeTarget "Platformer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A01FB77E0F07D2C6000AAC7B /* Debug */,

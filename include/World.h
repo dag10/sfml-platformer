@@ -22,6 +22,7 @@
 #define WORLD_H
 
 #include "IRenderable.h"
+#include "Resource.h"
 #include <vector>
 
 namespace pf {
@@ -33,7 +34,7 @@ namespace pf {
             const static int TILE_SIZE = 16;
             const static int STEP_HEIGHT = 6;
 
-            World(char *level);
+            World(Resource *levelImageResource);
             ~World();
 
             void Tick(float frametime);
@@ -47,12 +48,19 @@ namespace pf {
 
             void AddEntity(pf::Entity& entity);
             pf::Entity *GetEntity(int id);
+            std::map<int, pf::Entity*> *getEntityMap();
+        
+            int GetPixelWidth();
+            int GetPixelHeight();
+            int GetWidth();
+            int GetHeight();
 
         protected:
             int width, height;
             sf::Image *levelImage;
             pf::Platform **platforms;
             std::vector<pf::Entity*> *entities;
+            std::map<int, pf::Entity*> *entityMap;
     };
 }; // namespace pf
 

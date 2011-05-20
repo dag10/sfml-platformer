@@ -35,11 +35,17 @@ void pf::Platform::Init(sf::Image& image, sf::IntRect rect, int x, int y, float 
     this->solid = true;
     this->liquid = liquid;
 
+    char tintR, tintG, tintB;
+    if (liquid)
+        tintR = tintG = tintB = (200 - (int)(((float)y / (float)world->GetPixelHeight()) * (float)200)) + 55;
+    else
+        tintR = tintG = tintB = 255;
+    
     this->SetImage(image);
     image.SetSmooth(false);
     this->SetSubRect(rect);
     this->Resize(pf::World::TILE_SIZE, pf::World::TILE_SIZE);
-    this->SetColor(sf::Color(255, 255, 255, (int)(alpha * 255)));
+    this->SetColor(sf::Color(tintR, tintG, tintB, (int)(alpha * 255)));
 
     this->sf::Sprite::SetPosition(x, y);
 }

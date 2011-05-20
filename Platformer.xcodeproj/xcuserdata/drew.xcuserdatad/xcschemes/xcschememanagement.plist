@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Platformer Server.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Platformer copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>«PROJECTNAME».xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +22,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>3AEA294D13816B6C0039D314</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3AEA295713816B9F0039D314</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A01FB7790F07D2C5000AAC7B</key>
 		<dict>
 			<key>primary</key>

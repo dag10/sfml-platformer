@@ -69,8 +69,8 @@ void pf::PhysicsEntity::Init() {
 }
 
 void pf::PhysicsEntity::Tick(float frametime) {
-    static float terminalLiquidX = 4.0f;
-    static float terminalLiquidY = 4.0f;
+    static float terminalLiquidX = 5.0f;
+    static float terminalLiquidY = 5.0f;
     
     hitEntities->clear();
     
@@ -84,8 +84,8 @@ void pf::PhysicsEntity::Tick(float frametime) {
     
     // Liquid resistance
     if (inLiquid) {
-        if (veloX > terminalLiquidX || veloX < -terminalLiquidX) veloX *= 0.9f;
-        if (veloY > terminalLiquidY || veloY < -terminalLiquidY) veloY *= 0.9f;
+        if (veloX > terminalLiquidX || veloX < -terminalLiquidX) veloX *= 0.8f;
+        if (veloY > terminalLiquidY || veloY < -terminalLiquidY) veloY *= 0.8f;
     }
     
     Move(veloX * frametime, veloY * frametime);

@@ -46,8 +46,9 @@ namespace pf {
         Tile("engraved", true, sf::IntRect(0, 0, 16, 16), sf::Color(0, 0, 0),  1.f, false),
         Tile("dirt", true, sf::IntRect(16, 0, 32, 16), sf::Color(128, 64, 0), 1.f, false),
         Tile("grass", true, sf::IntRect(32, 0, 48, 16), sf::Color(0, 255, 0), 1.f, false),
-        Tile("redflower", false, sf::IntRect(48, 0, 64, 16), sf::Color(255, 0, 128), 1.f, false),
-        Tile("water", true, sf::IntRect(64, 0, 80, 16), sf::Color(0, 0, 255), 0.3f, true)
+        Tile("bg_redflower", false, sf::IntRect(48, 0, 64, 16), sf::Color(255, 0, 128), 1.f, false),
+        Tile("water", true, sf::IntRect(64, 0, 80, 16), sf::Color(0, 0, 255), 0.3f, true),
+        Tile("bg_wall1", false, sf::IntRect(80, 0, 96, 16), sf::Color(40, 50, 40), 1.f, false)
     };
 
     const static int TilesetCount = sizeof(Tileset) / sizeof(Tile);

@@ -1,5 +1,5 @@
 /*
- * main.cpp
+ * main_client.cpp
  * Copyright (c) 2010-2011 Drew Gottlieb
  *
  * This program is free software: you can redistribute it and/or modify
