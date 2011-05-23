@@ -21,8 +21,11 @@
 #include "Character.h"
 #include "Animation.h"
 
-pf::Character::Character(pf::World *world)
-    : pf::PhysicsEntity(world) {
+sf::Font *pf::Character::nameFont = 0;
+
+pf::Character::Character(pf::World *world, pf::Resource *spriteResource, const char *name)
+    : pf::PhysicsEntity(world)
+{
     speed = WALK_SPEED;
     walking = false;
     direction = RIGHT;
@@ -30,7 +33,7 @@ pf::Character::Character(pf::World *world)
     const int framerate = speed / 15;
 
     spriteSheet = new sf::Image();
-    spriteSheet->LoadFromFile("resources/character_01.bmp");
+    spriteSheet->LoadFromMemory(spriteResource->GetData(), spriteResource->GetLength());
     spriteSheet->SetSmooth(false);
     spriteSheet->CreateMaskFromColor(sf::Color::Magenta);
 
@@ -40,6 +43,27 @@ pf::Character::Character(pf::World *world)
     width = image->GetWidth();
     height = image->GetHeight();
         
+    if (nameFont == NULL) {
+        pf::Resource *fontResource = pf::Resource::GetOrLoadResource("resources/MIASWFTE.TTF");
+        nameFont = new sf::Font();
+        nameFont->LoadFromMemory(fontResource->GetData(), fontResource->GetLength(), 30);
+    }
+    
+    this->name = new sf::String(name);
+    this->name->SetSize(6.f);
+    //this->name->SetCenter(this->name->GetRect().GetWidth() / 2, this->name->GetRect().GetHeight() / 2);
+    this->name->SetFont(*nameFont);
+        
+    sf::Color *nameBackgroundFill = new sf::Color(0, 0, 0, 100);
+    
+    nameBackground = new sf::Shape();
+    nameBackground->AddPoint(0, 0, *nameBackgroundFill);
+    nameBackground->AddPoint(this->name->GetRect().GetWidth(), 0, *nameBackgroundFill);
+    nameBackground->AddPoint(this->name->GetRect().GetWidth(), this->name->GetRect().GetHeight(), *nameBackgroundFill);
+    nameBackground->AddPoint(0, this->name->GetRect().GetHeight(), *nameBackgroundFill);
+    nameBackground->EnableFill(true);
+    nameBackground->SetCenter(this->name->GetCenter());
+    
     SetPushable(true);
 }
 
@@ -49,7 +73,7 @@ pf::Character::~Character() {
 
 void pf::Character::Tick(float frametime) {
     // Set horizontal speed
-    //speed = inLiquid ? SWIM_SPEED : WALK_SPEED;
+    //speed = inLiquid ? SWIM_SPEED : WALK_SPEED; // Why doesn't this work?
     if (inLiquid)
         speed = SWIM_SPEED;
     else
@@ -64,11 +88,22 @@ void pf::Character::Tick(float frametime) {
 }
 
 void pf::Character::Render(sf::RenderTarget& target) {
-    //image->SetColor(IsInLiquid() ? sf::Color::Red : sf::Color::Green);
-    //image = animationWalking;
     pf::PhysicsEntity::Render(target);
-    //animationWalking->SetPosition((int)x, (int)y);
-    //animationWalking->Render(target);
+}
+
+void pf::Character::RenderOverlays(sf::RenderTarget& target) {
+    name->SetPosition(x + (width / 2) - (name->GetRect().GetWidth() / 2), y - name->GetRect().GetHeight() - 2);
+    
+    nameBackground->SetPosition(name->GetPosition());
+    nameBackground->Move(0.f, 1.5f);
+    target.Draw(*nameBackground);
+    
+    name->SetColor(sf::Color(50, 50, 50));
+    target.Draw(*name);
+    
+    name->SetColor(sf::Color::White);
+    name->Move(0.5f, 0.5f);
+    target.Draw(*name);
 }
 
 int pf::Character::GetDirection() {

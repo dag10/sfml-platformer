@@ -39,6 +39,7 @@ namespace pf {
 
             void Tick(float frametime);
             void Render(sf::RenderTarget& target);
+            void RenderOverlays(sf::RenderTarget& target);
             std::vector<pf::Entity*> HitsLevel(pf::Entity& entity);
             std::vector<pf::Entity*> HitsLevel(float x, float y, float width, float height, pf::Entity *skip);
             std::vector<pf::Entity*> HitsLevel(float x, float y, pf::Entity *skip);

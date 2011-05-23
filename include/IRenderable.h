@@ -28,6 +28,7 @@ namespace pf {
         public:
             virtual void Tick(float frametime) {};
             virtual void Render(sf::RenderTarget& target) = 0;
+            virtual void RenderOverlays(sf::RenderTarget& target) {};
     };
 }; // namespace pf
 

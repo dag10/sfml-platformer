@@ -23,6 +23,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "PhysicsEntity.h"
+#include "Resource.h"
 
 namespace pf {
     class Animation;
@@ -36,12 +37,13 @@ namespace pf {
             // Direction
             const static int LEFT = -1;
             const static int RIGHT = 1;
-
-            Character(pf::World *world);
+        
+            Character(pf::World *world, pf::Resource *spriteResource, const char *name);
             ~Character();
 
             void Tick(float frametime);
             void Render(sf::RenderTarget& target);
+            void RenderOverlays(sf::RenderTarget& target);
 
             int GetDirection();
             bool IsWalking();
@@ -54,12 +56,16 @@ namespace pf {
             void FaceLeft();
 
         private:
+            static sf::Font *nameFont;
+        
             sf::Image *spriteSheet;
             pf::Animation *animationWalking;
 
             float speed;
             bool walking;
             int direction;
+            sf::String *name;
+            sf::Shape *nameBackground;
     };
 }; // namespace pf
 

@@ -89,7 +89,7 @@ void pf::World::Render(sf::RenderTarget& target) {
                     liquidPlatforms.push_back(platforms[xy(x, y)]);
                 else
                     target.Draw((sf::Sprite)*(platforms[xy(x, y)]));
-
+    
     // Draw renderable entities
     for (int i = 0; i < entities->size(); i++) {
         pf::IRenderable *ent = dynamic_cast<IRenderable*>(entities->at(i));
@@ -99,6 +99,14 @@ void pf::World::Render(sf::RenderTarget& target) {
     // Draw front-most platforms
     for (int i = 0; i < liquidPlatforms.size(); i++)
         target.Draw((sf::Sprite)*(liquidPlatforms.at(i)));
+}
+
+void pf::World::RenderOverlays(sf::RenderTarget& target) {
+    // Draw renderable entities
+    for (int i = 0; i < entities->size(); i++) {
+        pf::IRenderable *ent = dynamic_cast<IRenderable*>(entities->at(i));
+        if (ent) ent->RenderOverlays(target);
+    }
 }
 
 std::vector<pf::Entity*> pf::World::HitsLevel(pf::Entity& entity) {

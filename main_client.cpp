@@ -70,8 +70,8 @@ bool loop() {
     float frameTime = window.GetFrameTime();
     if (frameTime > 0.15f) frameTime = 0.f;
     game->Tick(*input, frameTime);
-
-    game->Render(window, width / 2, height / 2);
+    
+    game->Render(window, width, height);
 
     // Update FPS
     char fpsText[16];

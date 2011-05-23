@@ -33,7 +33,7 @@ using namespace std;
 pf::Game::Game() {
     // Initialize resources
     Resource *stepImageResource = Resource::GetOrLoadResource("resources/step.bmp");
-    Resource *levelImageResource = Resource::GetOrLoadResource("resources/wheel.bmp");
+    Resource *levelImageResource = Resource::GetOrLoadResource("resources/level_01.bmp");
     
     // Initialize World and view
     world = new pf::World(levelImageResource);
@@ -42,16 +42,25 @@ pf::Game::Game() {
     // Initialize view variables
     viewSpeed = 11.f;
     viewX = viewY = 0;
-    zoomFactor = 1.5f;
-    //zoomFactor = 0.2f;
-
+    zoomFactor = 1.f;
+    zoomFactor = 2.5f;
+    //zoomFactor = 0.1f;
+    
     // Initialize main character
-    mainCharacter = new pf::Character(world);
+    mainCharacter = new pf::Character(world, pf::Resource::GetOrLoadResource("resources/character_01.bmp"), "Drew");
     mainCharacter->SetPosition(30, 30);
     mainCharacter->SetGravityEnabled(true);
     mainCharacter->SetSolid(true);
     mainCharacter->SetCanUseStairs(true);
     world->AddEntity(*mainCharacter);
+    
+    // Initialize secondary character
+    pf::Character *secondCharacter = new pf::Character(world, pf::Resource::GetOrLoadResource("resources/character_01.bmp"), "Some Hacker");
+    secondCharacter->SetPosition(160, 30);
+    secondCharacter->SetGravityEnabled(true);
+    secondCharacter->SetSolid(true);
+    secondCharacter->SetCanUseStairs(true);
+    world->AddEntity(*secondCharacter);
 
     // Add boxes
     addBox(85, 30);
@@ -146,6 +155,7 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
 
     target.Clear(sf::Color(100, 149, 237));
     world->Render(target);
+    world->RenderOverlays(target);
 }
 
 void pf::Game::Tick(sf::Input& input, float frametime) {
