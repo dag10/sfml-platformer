@@ -111,5 +111,8 @@ void handleEvent(sf::Event *event) {
         case sf::Event::LostFocus:
             cout << "LOST FOCUS" << endl;
             break;
+        case sf::Event::MouseButtonPressed:
+            game->HandleClick(*input);
+            break;
     }
 }

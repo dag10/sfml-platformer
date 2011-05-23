@@ -20,6 +20,7 @@
 
 #include "Character.h"
 #include "Animation.h"
+#include <string>
 
 sf::Font *pf::Character::nameFont = 0;
 
@@ -48,21 +49,25 @@ pf::Character::Character(pf::World *world, pf::Resource *spriteResource, const c
         nameFont = new sf::Font();
         nameFont->LoadFromMemory(fontResource->GetData(), fontResource->GetLength(), 30);
     }
-    
-    this->name = new sf::String(name);
-    this->name->SetSize(6.f);
-    //this->name->SetCenter(this->name->GetRect().GetWidth() / 2, this->name->GetRect().GetHeight() / 2);
-    this->name->SetFont(*nameFont);
         
-    sf::Color *nameBackgroundFill = new sf::Color(0, 0, 0, 100);
-    
+    static sf::Color nameBackgroundFill = sf::Color(0, 0, 0, 100);
     nameBackground = new sf::Shape();
-    nameBackground->AddPoint(0, 0, *nameBackgroundFill);
-    nameBackground->AddPoint(this->name->GetRect().GetWidth(), 0, *nameBackgroundFill);
-    nameBackground->AddPoint(this->name->GetRect().GetWidth(), this->name->GetRect().GetHeight(), *nameBackgroundFill);
-    nameBackground->AddPoint(0, this->name->GetRect().GetHeight(), *nameBackgroundFill);
+    nameBackground->AddPoint(0, 0, nameBackgroundFill);
+    nameBackground->AddPoint(1, 0, nameBackgroundFill);
+    nameBackground->AddPoint(1, 1, nameBackgroundFill);
+    nameBackground->AddPoint(0, 1, nameBackgroundFill);
     nameBackground->EnableFill(true);
-    nameBackground->SetCenter(this->name->GetCenter());
+    
+    this->name = new sf::String();
+    this->name->SetSize(6.f);
+    this->name->SetFont(*nameFont);
+    
+    if (name) {
+        SetName(name);
+        ShowName();
+    } else {
+        HideName();
+    }
     
     SetPushable(true);
 }
@@ -92,18 +97,41 @@ void pf::Character::Render(sf::RenderTarget& target) {
 }
 
 void pf::Character::RenderOverlays(sf::RenderTarget& target) {
-    name->SetPosition(x + (width / 2) - (name->GetRect().GetWidth() / 2), y - name->GetRect().GetHeight() - 2);
-    
-    nameBackground->SetPosition(name->GetPosition());
-    nameBackground->Move(0.f, 1.5f);
-    target.Draw(*nameBackground);
-    
-    name->SetColor(sf::Color(50, 50, 50));
-    target.Draw(*name);
-    
-    name->SetColor(sf::Color::White);
-    name->Move(0.5f, 0.5f);
-    target.Draw(*name);
+    if (showName) {
+        name->SetPosition(x + (width / 2) - (name->GetRect().GetWidth() / 2), y - name->GetRect().GetHeight() - 2);
+        
+        nameBackground->SetPosition(name->GetPosition());
+        nameBackground->Move(0.f, 1.5f);
+        target.Draw(*nameBackground);
+        
+        name->SetColor(sf::Color(50, 50, 50));
+        target.Draw(*name);
+        
+        name->SetColor(sf::Color::White);
+        name->Move(0.5f, 0.5f);
+        target.Draw(*name);
+    }
+}
+
+void pf::Character::SetName(const char *name) {
+    this->name->SetText(name);
+    nameBackground->SetScale(this->name->GetRect().GetWidth(), this->name->GetRect().GetHeight());
+}
+
+char *pf::Character::GetName() {
+    return (char *)((std::string)name->GetText()).c_str();
+}
+
+void pf::Character::ShowName() {
+    showName = true;
+}
+
+void pf::Character::HideName() {
+    showName = false;
+}
+
+bool pf::Character::IsShowingName() {
+    return showName;
 }
 
 int pf::Character::GetDirection() {

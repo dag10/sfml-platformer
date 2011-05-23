@@ -26,6 +26,7 @@
 namespace pf {
     class Character;
     class PhysicsEntity;
+    class Particle;
     class World;
 
     class Game {
@@ -35,6 +36,10 @@ namespace pf {
 
             void Render(sf::RenderTarget& target, int renderWidth, int renderHeight);
             void Tick(sf::Input& input, float frametime);
+            
+            void HandleClick(sf::Input& input);
+            
+            sf::Vector2f GetCursorPosition();
 
         private:
             pf::World *world;
@@ -43,9 +48,11 @@ namespace pf {
             float viewSpeed;
             void addBox(int x, int y);
             sf::RenderTarget *lastTarget;
-            pf::Character *mainCharacter;
+            pf::Character *mainCharacter, *secondCharacter;
             pf::PhysicsEntity *box;
+            pf::Particle *particle;
             float zoomFactor;
+            sf::Vector2f cursorPosition;
     };
 }; // namespace pf
 

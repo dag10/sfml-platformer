@@ -25,6 +25,7 @@
 #include "Elevator.h"
 #include "Animation.h"
 #include "BouncyParticle.h"
+#include "Platform.h"
 #include "Resource.h"
 
 #include <iostream>
@@ -55,7 +56,7 @@ pf::Game::Game() {
     world->AddEntity(*mainCharacter);
     
     // Initialize secondary character
-    pf::Character *secondCharacter = new pf::Character(world, pf::Resource::GetOrLoadResource("resources/character_01.bmp"), "Some Hacker");
+    secondCharacter = new pf::Character(world, pf::Resource::GetOrLoadResource("resources/character_01.bmp"), "Some Hacker");
     secondCharacter->SetPosition(160, 30);
     secondCharacter->SetGravityEnabled(true);
     secondCharacter->SetSolid(true);
@@ -102,9 +103,9 @@ pf::Game::Game() {
     particleImage->LoadFromFile("resources/particle_01.bmp");
     particleImage->SetSmooth(false);
     pf::Animation *particleAnimation = new pf::Animation(*particleImage, 1, 0);
-    pf::Particle *particle = new pf::BouncyParticle(world, particleAnimation, 80, 40);
-    world->AddEntity(*particle);
-    particle->SetVelocity(60.f, 40.f);
+    this->particle = new pf::BouncyParticle(world, particleAnimation, 80, 40);
+    world->AddEntity(*this->particle);
+    this->particle->SetVelocity(60.f, 40.f);
 }
 
 void pf::Game::addBox(int x, int y) {
@@ -159,6 +160,7 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
 }
 
 void pf::Game::Tick(sf::Input& input, float frametime) {
+    // Moving left, right, or stopping
     if (input.IsKeyDown(sf::Key::Left))
         mainCharacter->WalkLeft();
     else if (input.IsKeyDown(sf::Key::Right))
@@ -166,9 +168,25 @@ void pf::Game::Tick(sf::Input& input, float frametime) {
     else if (mainCharacter->IsWalking())
         mainCharacter->StopWalking();
 
+    // Jumping or swimming upwards
     if (input.IsKeyDown(sf::Key::Up)
         && mainCharacter->IsOnGround())
         mainCharacter->SetVelocityY(mainCharacter->IsInLiquid() ? -30 : -100);
+        
+    // Temporarily swaps focused character on [space] - For teh lulz
+    static bool swapping = false;
+    if (input.IsKeyDown(sf::Key::Space)) {
+        if (!swapping) {
+            pf::Character *temp = mainCharacter;
+            mainCharacter = secondCharacter;
+            secondCharacter = temp;
+            swapping = true;
+        }
+    } else swapping = false;
+    
+    // Update cursor position
+    sf::Vector2f halfSize = view->GetHalfSize();
+    cursorPosition = sf::Vector2f(input.GetMouseX() / zoomFactor + (viewX - halfSize.x), input.GetMouseY() / zoomFactor + (viewY - halfSize.y));
 
     // Update view position
     float targetViewX = mainCharacter->GetX() + (mainCharacter->GetWidth() / 2);
@@ -178,4 +196,21 @@ void pf::Game::Tick(sf::Input& input, float frametime) {
 
     // Tick world
     world->Tick(frametime);
+}
+
+void pf::Game::HandleClick(sf::Input& input) {
+    //mainCharacter->SetPosition(cursorPosition.x, cursorPosition.y);
+    std::vector<pf::Entity*> ents = world->HitsPlatform((float)cursorPosition.x, (float)cursorPosition.y);
+    for (int i = 0; i < ents.size(); i++) {
+        pf::Entity *ent = ents.at(i);
+        if (((pf::Platform*)ent)->HitTest((float)cursorPosition.x, (float)cursorPosition.y, 0.f, 0.f)) {
+            world->RemoveEntity(*ent);
+            world->RemovePlatform((pf::Platform&)*ent);
+            delete ent;
+        }
+    }
+}
+
+sf::Vector2f pf::Game::GetCursorPosition() {
+    return cursorPosition;
 }

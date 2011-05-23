@@ -39,11 +39,18 @@ namespace pf {
             const static int RIGHT = 1;
         
             Character(pf::World *world, pf::Resource *spriteResource, const char *name);
+            //Character(pf::World *world, pf::Resource *spriteResource) : name(0), pf::PhysicsEntity(world) {};
             ~Character();
 
             void Tick(float frametime);
             void Render(sf::RenderTarget& target);
             void RenderOverlays(sf::RenderTarget& target);
+            
+            void SetName(const char *name);
+            char *GetName();
+            void ShowName();
+            void HideName();
+            bool IsShowingName();
 
             int GetDirection();
             bool IsWalking();
@@ -64,8 +71,10 @@ namespace pf {
             float speed;
             bool walking;
             int direction;
+            
             sf::String *name;
             sf::Shape *nameBackground;
+            bool showName;
     };
 }; // namespace pf
 

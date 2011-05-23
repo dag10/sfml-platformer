@@ -7,7 +7,8 @@ mkdir bin
 cd obj
 
 echo "COMPILING"
-g++ -Wall -c ../main.cpp ../src/*.cpp -I../include/
+g++ -Wall -c ../main_client.cpp ../src/*.cpp ../src/cpGUI/*.cpp -I../include/ -I../include/cpGUI/
+#g++ -Wall -c ../main_client.cpp ../src/*.cpp -I../include/
 
 echo "LINKING"
 g++ *.o -o ../bin/Platformer -lsfml-graphics -lsfml-window -lsfml-system

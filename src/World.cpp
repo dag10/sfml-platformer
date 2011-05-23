@@ -233,6 +233,20 @@ pf::Entity *pf::World::GetEntity(int id) {
     return NULL;
 }
 
+bool pf::World::RemoveEntity(pf::Entity& entity) {
+    for (std::vector<pf::Entity*>::iterator it = entities->begin(); it < entities->end(); it++) {
+        if (&entity == (*it)) {
+            entities->erase(it);
+            return true;
+        }
+    }
+    return false;
+}
+
+void pf::World::RemovePlatform(pf::Platform& platform) {
+    platforms[xy((int)platform.GetX() / TILE_SIZE, (int)platform.GetY() / TILE_SIZE)] = 0;
+}
+
 pf::World::~World() {
     if (entities) {
         entities->empty();

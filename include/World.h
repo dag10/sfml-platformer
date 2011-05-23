@@ -49,7 +49,10 @@ namespace pf {
 
             void AddEntity(pf::Entity& entity);
             pf::Entity *GetEntity(int id);
+            bool RemoveEntity(pf::Entity& entity);
             std::map<int, pf::Entity*> *getEntityMap();
+            
+            void RemovePlatform(pf::Platform& platform);
         
             int GetPixelWidth();
             int GetPixelHeight();
