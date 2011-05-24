@@ -34,7 +34,7 @@
 using namespace std;
 
 pf::Game::Game(sf::RenderWindow& renderWindow) {
-    screen = Screen::Main;
+    screen = Screen_Main;
     
     // Initialize resources
     Resource *stepImageResource = Resource::GetOrLoadResource("resources/step.bmp");
@@ -63,11 +63,7 @@ pf::Game::Game(sf::RenderWindow& renderWindow) {
     world->AddEntity(*mainCharacter);
     
     // Initialize secondary character
-<<<<<<< HEAD
     secondCharacter = new pf::Character(world, pf::Resource::GetOrLoadResource("resources/character_02.bmp"), "Some Hacker");
-=======
-    secondCharacter = new pf::Character(world, pf::Resource::GetOrLoadResource("resources/character_01.bmp"), "Some Hacker");
->>>>>>> e3d2598a43b9c4f236013e80defb0dd51730ca59
     secondCharacter->SetPosition(160, 30);
     secondCharacter->SetGravityEnabled(true);
     secondCharacter->SetSolid(true);
@@ -117,7 +113,6 @@ pf::Game::Game(sf::RenderWindow& renderWindow) {
     this->particle = new pf::BouncyParticle(world, particleAnimation, 80, 40);
     world->AddEntity(*this->particle);
     this->particle->SetVelocity(60.f, 40.f);
-<<<<<<< HEAD
 }
 
 void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
@@ -132,8 +127,6 @@ void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
     screenBackground->AddPoint(0, 1, screenBackgroundFill);
     screenBackground->SetScale(renderWindow.GetWidth(), renderWindow.GetHeight());
     screenBackground->EnableFill(true);
-=======
->>>>>>> e3d2598a43b9c4f236013e80defb0dd51730ca59
 }
 
 void pf::Game::addBox(int x, int y) {
@@ -174,7 +167,7 @@ pf::Game::~Game() {
 
 void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeight) {
     switch (screen) {
-        case Screen::Game:
+        case Screen_Game:
             view->SetFromRect(sf::FloatRect(0, 0, (int)((float)renderWidth / zoomFactor), (int)((float)renderHeight / zoomFactor)));
 
             view->SetCenter(viewX, viewY);
@@ -185,8 +178,8 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             world->RenderOverlays(target);
             
             break;
-        case Screen::Main:
-            target.Draw(screenBackground);
+        case Screen_Main:
+            target.Draw(*screenBackground);
             // Reset view
             target.SetView(target.GetDefaultView());
             
@@ -196,7 +189,7 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             mainCharacter->SetName(nameBox->GetLabelText().c_str());
             
             break;
-        case Screen::Joining:
+        case Screen_Joining:
             break;
     }
 }
@@ -256,17 +249,16 @@ void pf::Game::HandleClick(sf::Input& input) {
 sf::Vector2f pf::Game::GetCursorPosition() {
     return cursorPosition;
 }
-<<<<<<< HEAD
 
 void pf::Game::HandleEvent(sf::Event *event) {
     switch (screen) {
-        case Screen::Game:
+        case Screen_Game:
             break;
-        case Screen::Main:
+        case Screen_Main:
             nameBox->ProcessTextInput(event);
             menuContainer->ProcessKeys(event);
             break;
-        case Screen::Joining:
+        case Screen_Joining:
             break;
     }
 }
@@ -275,11 +267,11 @@ void pf::Game::SetScreen(pf::Screen screen) {
     if (screen == this->screen) return;
     
     switch (screen) {
-        case Screen::Game:
+        case Screen_Game:
             break;
-        case Screen::Main:
+        case Screen_Main:
             break;
-        case Screen::Joining:
+        case Screen_Joining:
             break;
     }
 }
@@ -287,5 +279,3 @@ void pf::Game::SetScreen(pf::Screen screen) {
 pf::Screen pf::Game::GetScreen() {
     return screen;
 }
-=======
->>>>>>> e3d2598a43b9c4f236013e80defb0dd51730ca59

@@ -25,6 +25,7 @@
 #include "Entity.h"
 #include "PhysicsEntity.h"
 #include "Platform.h"
+#include "Resource.h"
 #include <vector>
 
 pf::World::World(Resource *levelImageResource) {

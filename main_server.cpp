@@ -46,10 +46,10 @@ int main() {
 }
 
 bool init() {
-    game = new pf::Game();
     window.Create(sf::VideoMode(width / 1, height / 1, 32),
                   "Platform Game Server",
                   sf::Style::Close);
+    game = new pf::Game(window);
     window.SetFramerateLimit(60);
     window.UseVerticalSync(true);
     ((sf::Window*)&window)->SetSize(width, height);
@@ -108,7 +108,7 @@ void handleEvent(sf::Event *event) {
             window.Close();
             break;
         case sf::Event::LostFocus:
-            cout << "LOST FOCUS" << endl;
+            std::cout << "LOST FOCUS" << std::endl;
             break;
     }
 }

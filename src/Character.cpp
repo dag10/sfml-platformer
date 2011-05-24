@@ -20,6 +20,7 @@
 
 #include "Character.h"
 #include "Animation.h"
+#include "Resource.h"
 #include <string>
 
 sf::Font *pf::Character::nameFont = 0;

@@ -23,10 +23,10 @@
 
 #include <SFML/Graphics.hpp>
 #include "PhysicsEntity.h"
-#include "Resource.h"
 
 namespace pf {
     class Animation;
+    class Resource;
 
     class Character : public pf::PhysicsEntity {
         public:
