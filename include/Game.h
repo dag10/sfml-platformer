@@ -23,23 +23,45 @@
 
 #include <SFML/Graphics.hpp>
 
+namespace cp {
+    class cpGuiContainer;
+    class cpTextInputBox;
+}
+
+class sf::Event;
+
 namespace pf {
     class Character;
     class PhysicsEntity;
     class Particle;
     class World;
+    
+    enum Screen {
+        Game,
+        Main,
+        Joining
+    }
 
     class Game {
         public:
-            Game();
+            Game(sf::RenderWindow& renderWindow);
             ~Game();
 
             void Render(sf::RenderTarget& target, int renderWidth, int renderHeight);
             void Tick(sf::Input& input, float frametime);
             
             void HandleClick(sf::Input& input);
+<<<<<<< HEAD
+            void HandleEvent(sf::Event *event);
             
             sf::Vector2f GetCursorPosition();
+            
+            void SetScreen(Screen screen);
+            Screen GetScreen();
+=======
+            
+            sf::Vector2f GetCursorPosition();
+>>>>>>> e3d2598a43b9c4f236013e80defb0dd51730ca59
 
         private:
             pf::World *world;
@@ -53,6 +75,16 @@ namespace pf {
             pf::Particle *particle;
             float zoomFactor;
             sf::Vector2f cursorPosition;
+<<<<<<< HEAD
+            
+            void InitGUI(sf::RenderWindow& renderWindow);
+            cp::cpGuiContainer *gui;
+            cp::cpTextInputBox *nameBox;
+            
+            pf::Screen screen;
+            sf::Shape *screenBackground;
+=======
+>>>>>>> e3d2598a43b9c4f236013e80defb0dd51730ca59
     };
 }; // namespace pf
 

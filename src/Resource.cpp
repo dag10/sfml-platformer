@@ -26,7 +26,12 @@
 pf::ResourceMap *pf::Resource::resources = new pf::ResourceMap();
 
 pf::Resource *pf::Resource::GetResource(char *name) {
-    return NULL;
+    ResourceMap::iterator iter = resources->find(std::string(name));
+    
+    if (iter == resources->end())
+        return NULL;
+    
+    return iter->second;
 };
 
 pf::Resource *pf::Resource::GetOrLoadResource(char *name) {
@@ -65,7 +70,9 @@ pf::Resource::Resource(char *filename, char *data, int length) {
     this->filename = filename;
     this->data = data;
     this->length = length;
-    resources->insert(std::pair<std::string, pf::Resource*>(filename, this));
+    resources->insert(std::pair<std::string, pf::Resource*>(std::string(filename), this));
+    
+    std::cout << "Created resource: " << filename << " ( " << length << " bytes )" << std::endl;
 }
 
 pf::Resource::~Resource() {

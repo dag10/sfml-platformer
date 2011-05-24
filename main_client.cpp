@@ -46,7 +46,7 @@ int main() {
 }
 
 bool init() {
-    game = new pf::Game();
+    game = new pf::Game(window);
     window.Create(sf::VideoMode(width / 1, height / 1, 32),
                   "A Platform Game",
                   sf::Style::Close);
@@ -115,4 +115,6 @@ void handleEvent(sf::Event *event) {
             game->HandleClick(*input);
             break;
     }
+    
+    game->HandleEvent(event);
 }

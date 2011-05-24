@@ -27,14 +27,21 @@
 #include "BouncyParticle.h"
 #include "Platform.h"
 #include "Resource.h"
+#include "cpGUI.h"
+#include <SFML/Window.hpp>
 
 #include <iostream>
 using namespace std;
 
-pf::Game::Game() {
+pf::Game::Game(sf::RenderWindow& renderWindow) {
+    screen = Screen::Main;
+    
     // Initialize resources
     Resource *stepImageResource = Resource::GetOrLoadResource("resources/step.bmp");
     Resource *levelImageResource = Resource::GetOrLoadResource("resources/level_01.bmp");
+    
+    // Initialize GUI
+    InitGUI(renderWindow);
     
     // Initialize World and view
     world = new pf::World(levelImageResource);
@@ -56,7 +63,11 @@ pf::Game::Game() {
     world->AddEntity(*mainCharacter);
     
     // Initialize secondary character
+<<<<<<< HEAD
+    secondCharacter = new pf::Character(world, pf::Resource::GetOrLoadResource("resources/character_02.bmp"), "Some Hacker");
+=======
     secondCharacter = new pf::Character(world, pf::Resource::GetOrLoadResource("resources/character_01.bmp"), "Some Hacker");
+>>>>>>> e3d2598a43b9c4f236013e80defb0dd51730ca59
     secondCharacter->SetPosition(160, 30);
     secondCharacter->SetGravityEnabled(true);
     secondCharacter->SetSolid(true);
@@ -106,6 +117,23 @@ pf::Game::Game() {
     this->particle = new pf::BouncyParticle(world, particleAnimation, 80, 40);
     world->AddEntity(*this->particle);
     this->particle->SetVelocity(60.f, 40.f);
+<<<<<<< HEAD
+}
+
+void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
+    menuContainer = new cp::cpGuiContainer();
+    nameBox = new cp::cpTextInputBox(&renderWindow, menuContainer, "Drew", 0, 0, 100, 16);
+    
+    static sf::Color screenBackgroundFill = sf::Color(100, 100, 100, 255);
+    screenBackground = new sf::Shape();
+    screenBackground->AddPoint(0, 0, screenBackgroundFill);
+    screenBackground->AddPoint(1, 0, screenBackgroundFill);
+    screenBackground->AddPoint(1, 1, screenBackgroundFill);
+    screenBackground->AddPoint(0, 1, screenBackgroundFill);
+    screenBackground->SetScale(renderWindow.GetWidth(), renderWindow.GetHeight());
+    screenBackground->EnableFill(true);
+=======
+>>>>>>> e3d2598a43b9c4f236013e80defb0dd51730ca59
 }
 
 void pf::Game::addBox(int x, int y) {
@@ -145,18 +173,32 @@ pf::Game::~Game() {
 }
 
 void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeight) {
-    if (lastTarget != &target) {
-        view->SetFromRect(sf::FloatRect(0, 0, (int)((float)renderWidth / zoomFactor), (int)((float)renderHeight / zoomFactor)));
-        lastTarget = &target;
+    switch (screen) {
+        case Screen::Game:
+            view->SetFromRect(sf::FloatRect(0, 0, (int)((float)renderWidth / zoomFactor), (int)((float)renderHeight / zoomFactor)));
+
+            view->SetCenter(viewX, viewY);
+            target.SetView(*view);
+
+            target.Clear(sf::Color(100, 149, 237));
+            world->Render(target);
+            world->RenderOverlays(target);
+            
+            break;
+        case Screen::Main:
+            target.Draw(screenBackground);
+            // Reset view
+            target.SetView(target.GetDefaultView());
+            
+            // Render GUI
+            nameBox->SetPosition(100, 10);
+            nameBox->Draw();
+            mainCharacter->SetName(nameBox->GetLabelText().c_str());
+            
+            break;
+        case Screen::Joining:
+            break;
     }
-
-    //view->SetCenter((int)viewX, (int)viewY);
-    view->SetCenter(viewX, viewY);
-    target.SetView(*view);
-
-    target.Clear(sf::Color(100, 149, 237));
-    world->Render(target);
-    world->RenderOverlays(target);
 }
 
 void pf::Game::Tick(sf::Input& input, float frametime) {
@@ -214,3 +256,36 @@ void pf::Game::HandleClick(sf::Input& input) {
 sf::Vector2f pf::Game::GetCursorPosition() {
     return cursorPosition;
 }
+<<<<<<< HEAD
+
+void pf::Game::HandleEvent(sf::Event *event) {
+    switch (screen) {
+        case Screen::Game:
+            break;
+        case Screen::Main:
+            nameBox->ProcessTextInput(event);
+            menuContainer->ProcessKeys(event);
+            break;
+        case Screen::Joining:
+            break;
+    }
+}
+
+void pf::Game::SetScreen(pf::Screen screen) {
+    if (screen == this->screen) return;
+    
+    switch (screen) {
+        case Screen::Game:
+            break;
+        case Screen::Main:
+            break;
+        case Screen::Joining:
+            break;
+    }
+}
+
+pf::Screen pf::Game::GetScreen() {
+    return screen;
+}
+=======
+>>>>>>> e3d2598a43b9c4f236013e80defb0dd51730ca59
