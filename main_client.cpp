@@ -51,7 +51,7 @@ bool init() {
     game = new pf::Game(window);
     window.Create(sf::VideoMode(width / 1, height / 1, 32),
                   "A Platform Game",
-                  sf::Style::Close);
+                  sf::Style::Close | sf::Style::Resize);
     window.SetFramerateLimit(60);
     window.UseVerticalSync(true);
     ((sf::Window*)&window)->SetSize(width, height);
@@ -73,7 +73,7 @@ bool loop() {
     if (frameTime > 0.15f) frameTime = 0.f;
     game->Tick(*input, frameTime);
     
-    game->Render(window, width, height);
+    game->Render(window, window.GetWidth(), window.GetHeight());
 
     // Update FPS
     char fpsText[16];

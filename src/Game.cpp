@@ -36,6 +36,8 @@ using namespace std;
 sf::Font *pf::Game::labelFont = 0;
 
 pf::Game::Game(sf::RenderWindow& renderWindow) {
+    localCharacter = NULL;
+    
     // Initial game state
     screen = Screen_Main;
     
@@ -46,10 +48,12 @@ pf::Game::Game(sf::RenderWindow& renderWindow) {
     //world = new pf::World(levelImageResource);
     view = new sf::View(sf::FloatRect(0, 0, 0, 0));
 
-    // Initialize view variables
+    // Set view variables
     viewSpeed = 11.f;
+    zoomSpeed = 11.f;
     viewX = viewY = 0;
-    zoomFactor = 2.5f;
+    targetZoomFactor = zoomFactor = DEFAULT_ZOOM;
+    followCharacter = false;
 }
 
 void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
@@ -61,7 +65,7 @@ void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
     
     menuContainer = new cp::cpGuiContainer();
     
-    nameBox = new cp::cpTextInputBox(&renderWindow, menuContainer, "Drew", 0, 0, 200, 16);
+    nameBox = new cp::cpTextInputBox(&renderWindow, menuContainer, "", 0, 0, 200, 16);
     nameLabel = new sf::String("Username");
     nameLabel->SetColor(sf::Color::White);
     nameLabel->SetSize(16);
@@ -129,6 +133,14 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             world->Render(target);
             world->RenderOverlays(target);
             
+            if (!(localCharacter && followCharacter)) {
+                float widthScale = (float)renderWidth / (float)world->GetPixelWidth();
+                float heightScale = (float)renderHeight / (float)world->GetPixelHeight();
+                targetZoomFactor = ( widthScale < heightScale ? widthScale : heightScale );
+            } else {
+                targetZoomFactor = DEFAULT_ZOOM;
+            }
+            
             break;
         case Screen_Main:
             target.SetView(target.GetDefaultView());
@@ -168,14 +180,29 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
 void pf::Game::JoinGame() {
     if (screen != Screen_Main)
         return;
+                
+    // Set up variables
+    playerName = (char *)(nameBox->GetLabelText().c_str());
+    
+    // Verify inputs
+    if (!playerName || !strlen(playerName)) {
+        nameBox->SetFocus(true);
+        return;
+    }
+    
+    // TEMPORARY: Initialize tileset resource
+    pf::Resource *tileset = pf::Resource::GetOrLoadResource("resources/tileset.bmp");
     
     // Initialize world
-    world = new World(Resource::GetOrLoadResource("resources/level_01.bmp"));
+    world = new World(Resource::GetOrLoadResource("resources/level_01.bmp"), tileset);
     
     // Spawn local character
-    localCharacter = new pf::Character(world, Resource::GetOrLoadResource("resources/character_02.bmp"), nameBox->GetLabelText().c_str());
+    localCharacter = new pf::Character(world, Resource::GetOrLoadResource("resources/character_02.bmp"), playerName);
     localCharacter->SetPosition(60, 30);
     world->AddEntity(*localCharacter);
+    
+    // Set zoom level
+    followCharacter = true;
     
     // Change screen to game screenBackground
     SetScreen(Screen_Game);
@@ -200,18 +227,21 @@ void pf::Game::Tick(sf::Input& input, float frametime) {
                     localCharacter->SetVelocityY(localCharacter->IsInLiquid() ? -30 : -100);
             }
             
+            // Update zoom factor
+            zoomFactor += (targetZoomFactor - zoomFactor) / zoomSpeed;
+            
             // Update cursor position
             sf::Vector2f halfSize = view->GetHalfSize();
             cursorPosition = sf::Vector2f(input.GetMouseX() / zoomFactor + (viewX - halfSize.x), input.GetMouseY() / zoomFactor + (viewY - halfSize.y));
 
             // Update view position
             float targetViewX, targetViewY;
-            if (localCharacter) {
+            if (localCharacter && followCharacter) {
                 targetViewX = localCharacter->GetX() + (localCharacter->GetWidth() / 2);
                 targetViewY = localCharacter->GetY() + (localCharacter->GetHeight() / 2);
             } else {
-                targetViewX = world->GetWidth() / 2;
-                targetViewY = world->GetHeight() / 2;
+                targetViewX = world->GetPixelWidth() / 2;
+                targetViewY = world->GetPixelHeight() / 2;
             }
             viewX += (targetViewX - viewX) / viewSpeed;
             viewY += (targetViewY - viewY) / viewSpeed;
@@ -262,6 +292,13 @@ void pf::Game::HandleEvent(sf::Event *event, sf::Input *input) {
     switch (screen) {
         case Screen_Game:
             switch (event->Type) {
+                case sf::Event::KeyPressed:
+                    switch (event->Key.Code) {
+                        case sf::Key::Space:
+                            followCharacter = !followCharacter;
+                            break;
+                    }
+                    break;
                 case sf::Event::MouseButtonPressed:
                     HandleClick(*input);
                     break;

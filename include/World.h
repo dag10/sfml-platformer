@@ -22,19 +22,19 @@
 #define WORLD_H
 
 #include "IRenderable.h"
-#include "Resource.h"
 #include <vector>
 
 namespace pf {
     class Entity;
     class Platform;
+    class Resource;
 
     class World : public pf::IRenderable {
         public:
             const static int TILE_SIZE = 16;
             const static int STEP_HEIGHT = 6;
 
-            World(Resource *levelImageResource);
+            World(pf::Resource *levelImageResource, pf::Resource *tilesetResource);
             ~World();
 
             void Tick(float frametime);

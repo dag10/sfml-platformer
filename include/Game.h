@@ -46,6 +46,7 @@ namespace pf {
     class Game {
         public:
             static const int UI_SPACING = 10;
+            static const float DEFAULT_ZOOM = 2.5f;
         
             Game(sf::RenderWindow& renderWindow);
             ~Game();
@@ -64,15 +65,18 @@ namespace pf {
             pf::World *world;
             sf::View *view;
             float viewX, viewY;
-            float viewSpeed;
+            float viewSpeed, zoomSpeed;
+            bool followCharacter;
             void addBox(int x, int y);  // FOR TESTING STUFF ONLY. NOT TO BE USED IN FINAL CODE.
             sf::RenderTarget *lastTarget;
             pf::Character *localCharacter;
-            float zoomFactor;
+            float zoomFactor, targetZoomFactor;
             sf::Vector2f cursorPosition;
             
             void HandleClick(sf::Input& input);
             void JoinGame();
+            
+            char *playerName;
             
             static sf::Font *labelFont;
             void InitGUI(sf::RenderWindow& renderWindow);

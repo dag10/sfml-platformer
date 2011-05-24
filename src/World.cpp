@@ -28,7 +28,7 @@
 #include "Resource.h"
 #include <vector>
 
-pf::World::World(Resource *levelImageResource) {
+pf::World::World(pf::Resource *levelImageResource, pf::Resource *tilesetResource) {
     // Load level layout
     levelImage = new sf::Image();
     if (!(levelImage->LoadFromMemory(levelImageResource->GetData(), levelImageResource->GetLength()))) return;
@@ -43,7 +43,7 @@ pf::World::World(Resource *levelImageResource) {
 
     // Load platform tileset
     sf::Image *tileset = new sf::Image();
-    tileset->LoadFromFile("resources/tileset.bmp");
+    tileset->LoadFromMemory(tilesetResource->GetData(), tilesetResource->GetLength());
     if (!tileset) return;
     tileset->CreateMaskFromColor(sf::Color::Magenta);
 
@@ -211,6 +211,7 @@ std::vector<pf::Entity*> pf::World::HitsPlatform(float x, float y) {
             if (xy(baseX + i, baseY + j) < 0 || xy(baseX + i, baseY + j) >= this->width * this->height)
                 continue;
             pf::Platform *platform = platforms[xy(baseX + i, baseY + j)];
+
             if (platform && platform->HitTest(x, y))
                 retVec.push_back((pf::Entity*)platform);
         }
