@@ -33,6 +33,8 @@
 #include <iostream>
 using namespace std;
 
+sf::Font *pf::Game::labelFont = 0;
+
 pf::Game::Game(sf::RenderWindow& renderWindow) {
     screen = Screen_Main;
     
@@ -116,16 +118,37 @@ pf::Game::Game(sf::RenderWindow& renderWindow) {
 }
 
 void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
-    menuContainer = new cp::cpGuiContainer();
-    nameBox = new cp::cpTextInputBox(&renderWindow, menuContainer, "Drew", 0, 0, 100, 16);
+    pf::Resource *fontResource = pf::Resource::GetOrLoadResource("resources/MIASWFTE.TTF");
+    labelFont = new sf::Font();
+    labelFont->LoadFromMemory(fontResource->GetData(), fontResource->GetLength(), 30);
     
-    static sf::Color screenBackgroundFill = sf::Color(100, 100, 100, 255);
+    // Main Menu
+    
+    menuContainer = new cp::cpGuiContainer();
+    
+    nameBox = new cp::cpTextInputBox(&renderWindow, menuContainer, "Drew", 0, 0, 200, 16);
+    nameLabel = new sf::String("Username");
+    nameLabel->SetColor(sf::Color::White);
+    nameLabel->SetSize(16);
+    nameLabel->SetCenter(nameLabel->GetRect().GetWidth(), 0);
+    
+    ipBox = new cp::cpTextInputBox(&renderWindow, menuContainer, "127.0.0.1", 0, 0, 200, 16);
+    ipLabel = new sf::String("Server");
+    ipLabel->SetColor(sf::Color::White);
+    ipLabel->SetSize(16);
+    ipLabel->SetCenter(ipLabel->GetRect().GetWidth(), 0);
+    
+    joinButton = new cp::cpButton(&renderWindow, menuContainer, "Join Game", 0, 0, 50, 16);
+    
+    // Menu background shape/sprite
+    
+    static sf::Color screenBackgroundFill = sf::Color(100, 100, 100);
     screenBackground = new sf::Shape();
     screenBackground->AddPoint(0, 0, screenBackgroundFill);
     screenBackground->AddPoint(1, 0, screenBackgroundFill);
     screenBackground->AddPoint(1, 1, screenBackgroundFill);
     screenBackground->AddPoint(0, 1, screenBackgroundFill);
-    screenBackground->SetScale(renderWindow.GetWidth(), renderWindow.GetHeight());
+    screenBackground->SetPosition(0, 0);
     screenBackground->EnableFill(true);
 }
 
@@ -179,14 +202,32 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             
             break;
         case Screen_Main:
-            target.Draw(*screenBackground);
-            // Reset view
             target.SetView(target.GetDefaultView());
+            target.Clear(sf::Color::Black);
             
-            // Render GUI
-            nameBox->SetPosition(100, 10);
+            screenBackground->SetScale(target.GetWidth(), target.GetHeight());
+            target.Draw(*screenBackground);
+            
+            // Render name label
+            nameLabel->SetPosition(100, 100);
+            target.Draw(*nameLabel);
+            
+            // Render name box
+            nameBox->SetPosition(nameLabel->GetPosition().x + UI_SPACING, nameLabel->GetPosition().y + 2);
             nameBox->Draw();
             mainCharacter->SetName(nameBox->GetLabelText().c_str());
+            
+            // Render server label
+            ipLabel->SetPosition(nameLabel->GetPosition().x, nameLabel->GetPosition().y + nameLabel->GetRect().GetHeight() + UI_SPACING);
+            target.Draw(*ipLabel);
+            
+            // Render server box
+            ipBox->SetPosition(ipLabel->GetPosition().x + UI_SPACING, ipLabel->GetPosition().y + 2);
+            ipBox->Draw();
+            
+            // Render join button
+            joinButton->SetPosition(ipLabel->GetPosition().x, ipLabel->GetPosition().y + ipLabel->GetRect().GetHeight() + UI_SPACING);
+            joinButton->Draw();
             
             break;
         case Screen_Joining:
@@ -195,53 +236,64 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
 }
 
 void pf::Game::Tick(sf::Input& input, float frametime) {
-    // Moving left, right, or stopping
-    if (input.IsKeyDown(sf::Key::Left))
-        mainCharacter->WalkLeft();
-    else if (input.IsKeyDown(sf::Key::Right))
-        mainCharacter->WalkRight();
-    else if (mainCharacter->IsWalking())
-        mainCharacter->StopWalking();
+    if (screen == Screen_Game) {
+        // Moving left, right, or stopping
+        if (input.IsKeyDown(sf::Key::Left))
+            mainCharacter->WalkLeft();
+        else if (input.IsKeyDown(sf::Key::Right))
+            mainCharacter->WalkRight();
+        else if (mainCharacter->IsWalking())
+            mainCharacter->StopWalking();
 
-    // Jumping or swimming upwards
-    if (input.IsKeyDown(sf::Key::Up)
-        && mainCharacter->IsOnGround())
-        mainCharacter->SetVelocityY(mainCharacter->IsInLiquid() ? -30 : -100);
+        // Jumping or swimming upwards
+        if (input.IsKeyDown(sf::Key::Up)
+            && mainCharacter->IsOnGround())
+            mainCharacter->SetVelocityY(mainCharacter->IsInLiquid() ? -30 : -100);
+            
+        // Temporarily swaps focused character on [space] - For teh lulz
+        static bool swapping = false;
+        if (input.IsKeyDown(sf::Key::Space)) {
+            if (!swapping) {
+                //pf::Character *temp = mainCharacter;
+                //mainCharacter = secondCharacter;
+                //secondCharacter = temp;
+                
+                screen = Screen_Main;
+                
+                swapping = true;
+            }
+        } else swapping = false;
         
-    // Temporarily swaps focused character on [space] - For teh lulz
-    static bool swapping = false;
-    if (input.IsKeyDown(sf::Key::Space)) {
-        if (!swapping) {
-            pf::Character *temp = mainCharacter;
-            mainCharacter = secondCharacter;
-            secondCharacter = temp;
-            swapping = true;
-        }
-    } else swapping = false;
-    
-    // Update cursor position
-    sf::Vector2f halfSize = view->GetHalfSize();
-    cursorPosition = sf::Vector2f(input.GetMouseX() / zoomFactor + (viewX - halfSize.x), input.GetMouseY() / zoomFactor + (viewY - halfSize.y));
+        // Update cursor position
+        sf::Vector2f halfSize = view->GetHalfSize();
+        cursorPosition = sf::Vector2f(input.GetMouseX() / zoomFactor + (viewX - halfSize.x), input.GetMouseY() / zoomFactor + (viewY - halfSize.y));
 
-    // Update view position
-    float targetViewX = mainCharacter->GetX() + (mainCharacter->GetWidth() / 2);
-    float targetViewY = mainCharacter->GetY() + (mainCharacter->GetHeight() / 2);
-    viewX += (targetViewX - viewX) / viewSpeed;
-    viewY += (targetViewY - viewY) / viewSpeed;
+        // Update view position
+        float targetViewX = mainCharacter->GetX() + (mainCharacter->GetWidth() / 2);
+        float targetViewY = mainCharacter->GetY() + (mainCharacter->GetHeight() / 2);
+        viewX += (targetViewX - viewX) / viewSpeed;
+        viewY += (targetViewY - viewY) / viewSpeed;
 
-    // Tick world
-    world->Tick(frametime);
+        // Tick world
+        world->Tick(frametime);
+    } else if (screen == Screen_Main) {
+        nameBox->CheckState(&input);
+        ipBox->CheckState(&input);
+        joinButton->CheckState(&input);
+    }
 }
 
 void pf::Game::HandleClick(sf::Input& input) {
-    //mainCharacter->SetPosition(cursorPosition.x, cursorPosition.y);
-    std::vector<pf::Entity*> ents = world->HitsPlatform((float)cursorPosition.x, (float)cursorPosition.y);
-    for (int i = 0; i < ents.size(); i++) {
-        pf::Entity *ent = ents.at(i);
-        if (((pf::Platform*)ent)->HitTest((float)cursorPosition.x, (float)cursorPosition.y, 0.f, 0.f)) {
-            world->RemoveEntity(*ent);
-            world->RemovePlatform((pf::Platform&)*ent);
-            delete ent;
+    if (screen == Screen_Game) {
+        //mainCharacter->SetPosition(cursorPosition.x, cursorPosition.y);
+        std::vector<pf::Entity*> ents = world->HitsPlatform((float)cursorPosition.x, (float)cursorPosition.y);
+        for (int i = 0; i < ents.size(); i++) {
+            pf::Entity *ent = ents.at(i);
+            if (((pf::Platform*)ent)->HitTest((float)cursorPosition.x, (float)cursorPosition.y, 0.f, 0.f)) {
+                world->RemoveEntity(*ent);
+                world->RemovePlatform((pf::Platform&)*ent);
+                delete ent;
+            }
         }
     }
 }
@@ -256,6 +308,7 @@ void pf::Game::HandleEvent(sf::Event *event) {
             break;
         case Screen_Main:
             nameBox->ProcessTextInput(event);
+            ipBox->ProcessTextInput(event);
             menuContainer->ProcessKeys(event);
             break;
         case Screen_Joining:

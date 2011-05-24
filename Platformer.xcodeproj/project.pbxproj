@@ -15,6 +15,8 @@
 		3A614A381364E1A500A7FE66 /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A311364E1A500A7FE66 /* Platform.cpp */; };
 		3A614A391364E1A500A7FE66 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A321364E1A500A7FE66 /* World.cpp */; };
 		3A98FCEF1364F41C0083FA20 /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A98FCEE1364F41C0083FA20 /* sfml-graphics.framework */; };
+		3ABE8FAD138C0DD5006D0F43 /* character_02.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 3ABE8FAC138C0DD5006D0F43 /* character_02.bmp */; };
+		3ABE8FAF138C0DFC006D0F43 /* character_02.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3ABE8FAC138C0DD5006D0F43 /* character_02.bmp */; };
 		3AD6318D138BF47400D5806E /* BouncyParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD63180138BF47400D5806E /* BouncyParticle.cpp */; };
 		3AD6318E138BF47400D5806E /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD63182138BF47400D5806E /* CMakeLists.txt */; };
 		3AD6318F138BF47400D5806E /* cpCheckBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD63183138BF47400D5806E /* cpCheckBox.cpp */; };
@@ -65,6 +67,7 @@
 			dstPath = resources;
 			dstSubfolderSpec = 7;
 			files = (
+				3ABE8FAF138C0DFC006D0F43 /* character_02.bmp in CopyFiles */,
 				3AD631CA138C0C9300D5806E /* box.bmp in CopyFiles */,
 				3AD631CB138C0C9300D5806E /* character_01.bmp in CopyFiles */,
 				3AD631CC138C0C9300D5806E /* level_01.bmp in CopyFiles */,
@@ -112,6 +115,7 @@
 		3A614A311364E1A500A7FE66 /* Platform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Platform.cpp; path = src/Platform.cpp; sourceTree = "<group>"; };
 		3A614A321364E1A500A7FE66 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = World.cpp; path = src/World.cpp; sourceTree = "<group>"; };
 		3A98FCEE1364F41C0083FA20 /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64/sfml-graphics.framework"; sourceTree = "<group>"; };
+		3ABE8FAC138C0DD5006D0F43 /* character_02.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = character_02.bmp; sourceTree = "<group>"; };
 		3AD6316F138BF46500D5806E /* BouncyParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BouncyParticle.h; path = include/BouncyParticle.h; sourceTree = "<group>"; };
 		3AD63171138BF46500D5806E /* cpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpButton.h; sourceTree = "<group>"; };
 		3AD63172138BF46500D5806E /* cpCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpCheckBox.h; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 		3AD631B3138C0C8000D5806E /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				3ABE8FAC138C0DD5006D0F43 /* character_02.bmp */,
 				3AD631B4138C0C8000D5806E /* box.bmp */,
 				3AD631B5138C0C8000D5806E /* character_01.bmp */,
 				3AD631B6138C0C8000D5806E /* level_01.bmp */,
@@ -387,6 +392,7 @@
 				3AD631C7138C0C8000D5806E /* tileset.bmp in Resources */,
 				3AD631C8138C0C8000D5806E /* Untitled.pxi in Resources */,
 				3AD631C9138C0C8000D5806E /* wheel.bmp in Resources */,
+				3ABE8FAD138C0DD5006D0F43 /* character_02.bmp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

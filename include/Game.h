@@ -26,6 +26,7 @@
 namespace cp {
     class cpGuiContainer;
     class cpTextInputBox;
+    class cpButton;
 }
 
 class sf::Event;
@@ -44,6 +45,8 @@ namespace pf {
 
     class Game {
         public:
+            static const int UI_SPACING = 10;
+        
             Game(sf::RenderWindow& renderWindow);
             ~Game();
 
@@ -71,9 +74,14 @@ namespace pf {
             float zoomFactor;
             sf::Vector2f cursorPosition;
             
+            static sf::Font *labelFont;
             void InitGUI(sf::RenderWindow& renderWindow);
             cp::cpGuiContainer *menuContainer;
             cp::cpTextInputBox *nameBox;
+            sf::String *nameLabel;
+            cp::cpTextInputBox *ipBox;
+            sf::String *ipLabel;
+            cp::cpButton *joinButton;
             
             pf::Screen screen;
             sf::Shape *screenBackground;
