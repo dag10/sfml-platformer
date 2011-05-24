@@ -36,85 +36,20 @@ using namespace std;
 sf::Font *pf::Game::labelFont = 0;
 
 pf::Game::Game(sf::RenderWindow& renderWindow) {
+    // Initial game state
     screen = Screen_Main;
-    
-    // Initialize resources
-    Resource *stepImageResource = Resource::GetOrLoadResource("resources/step.bmp");
-    Resource *levelImageResource = Resource::GetOrLoadResource("resources/level_01.bmp");
     
     // Initialize GUI
     InitGUI(renderWindow);
     
     // Initialize World and view
-    world = new pf::World(levelImageResource);
+    //world = new pf::World(levelImageResource);
     view = new sf::View(sf::FloatRect(0, 0, 0, 0));
 
     // Initialize view variables
     viewSpeed = 11.f;
     viewX = viewY = 0;
-    zoomFactor = 1.f;
     zoomFactor = 2.5f;
-    //zoomFactor = 0.1f;
-    
-    // Initialize main character
-    mainCharacter = new pf::Character(world, pf::Resource::GetOrLoadResource("resources/character_01.bmp"), "Drew");
-    mainCharacter->SetPosition(30, 30);
-    mainCharacter->SetGravityEnabled(true);
-    mainCharacter->SetSolid(true);
-    mainCharacter->SetCanUseStairs(true);
-    world->AddEntity(*mainCharacter);
-    
-    // Initialize secondary character
-    secondCharacter = new pf::Character(world, pf::Resource::GetOrLoadResource("resources/character_02.bmp"), "Some Hacker");
-    secondCharacter->SetPosition(160, 30);
-    secondCharacter->SetGravityEnabled(true);
-    secondCharacter->SetSolid(true);
-    secondCharacter->SetCanUseStairs(true);
-    world->AddEntity(*secondCharacter);
-
-    // Add boxes
-    addBox(85, 30);
-    //addBox(100, 42);
-    //addBox(100, 27);
-    //addBox(115, 40);
-    addBox(130, 30);
-
-    // Initialize step image
-    sf::Image *stepImage = new sf::Image();
-    stepImage->LoadFromMemory(stepImageResource->GetData(), stepImageResource->GetLength());
-    stepImage->SetSmooth(false);
-    pf::Animation *stepAnimation = new pf::Animation(*stepImage, 1, 0);
-
-    // Initialize three steps
-    pf::PhysicsEntity *step1 = new pf::PhysicsEntity(world, stepAnimation, 50, 30);
-    step1->SetGravityEnabled(true);
-    step1->SetSolid(true);
-    step1->SetPushable(false);
-    world->AddEntity(*step1);
-    pf::PhysicsEntity *step2 = new pf::PhysicsEntity(world, stepAnimation, 60, 50);
-    step2->SetGravityEnabled(true);
-    step2->SetSolid(true);
-    step2->SetPushable(false);
-    world->AddEntity(*step2);
-    pf::PhysicsEntity *step3 = new pf::PhysicsEntity(world, stepAnimation, 60, 30);
-    step3->SetGravityEnabled(true);
-    step3->SetSolid(true);
-    step3->SetPushable(false);
-    world->AddEntity(*step3);
-
-    // PhysicsEntity another step
-    pf::Elevator *elevator = new pf::Elevator(world, stepAnimation, 130, 55);
-    elevator->SetSolid(true);
-    //world->AddEntity(*elevator);
-    
-    // Add particle
-    sf::Image *particleImage = new sf::Image();
-    particleImage->LoadFromFile("resources/particle_01.bmp");
-    particleImage->SetSmooth(false);
-    pf::Animation *particleAnimation = new pf::Animation(*particleImage, 1, 0);
-    this->particle = new pf::BouncyParticle(world, particleAnimation, 80, 40);
-    world->AddEntity(*this->particle);
-    this->particle->SetVelocity(60.f, 40.f);
 }
 
 void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
@@ -164,7 +99,7 @@ void pf::Game::addBox(int x, int y) {
         boxAnimation = new pf::Animation(*boxImage, 1, 10);
     }
     
-    box = new pf::PhysicsEntity(world, boxAnimation, x, y);
+    pf::PhysicsEntity *box = new pf::PhysicsEntity(world, boxAnimation, x, y);
     box->SetGravityEnabled(true);
     box->SetSolid(true);
     box->SetPushable(true);
@@ -179,12 +114,6 @@ pf::Game::~Game() {
     if (view) {
         delete view;
         view = NULL;
-    }
-    // TODO: Is this really neccesary?
-    //       Wouldn't all entities be deleted when the entities list in the World is emptied?
-    if (mainCharacter) {
-        delete mainCharacter;
-        mainCharacter = NULL;
     }
 }
 
@@ -215,7 +144,6 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             // Render name box
             nameBox->SetPosition(nameLabel->GetPosition().x + UI_SPACING, nameLabel->GetPosition().y + 2);
             nameBox->Draw();
-            mainCharacter->SetName(nameBox->GetLabelText().c_str());
             
             // Render server label
             ipLabel->SetPosition(nameLabel->GetPosition().x, nameLabel->GetPosition().y + nameLabel->GetRect().GetHeight() + UI_SPACING);
@@ -226,7 +154,9 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             ipBox->Draw();
             
             // Render join button
-            joinButton->SetPosition(ipLabel->GetPosition().x, ipLabel->GetPosition().y + ipLabel->GetRect().GetHeight() + UI_SPACING);
+            joinButton->SetPosition(ipBox->GetPosition().x, ipBox->GetPosition().y + ipBox->GetSize().y + UI_SPACING);
+            joinButton->SetSize(80, 20);
+            joinButton->SetFontSize(14);
             joinButton->Draw();
             
             break;
@@ -235,51 +165,77 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
     }
 }
 
+void pf::Game::JoinGame() {
+    if (screen != Screen_Main)
+        return;
+    
+    // Initialize world
+    world = new World(Resource::GetOrLoadResource("resources/level_01.bmp"));
+    
+    // Spawn local character
+    localCharacter = new pf::Character(world, Resource::GetOrLoadResource("resources/character_02.bmp"), nameBox->GetLabelText().c_str());
+    localCharacter->SetPosition(60, 30);
+    world->AddEntity(*localCharacter);
+    
+    // Change screen to game screenBackground
+    SetScreen(Screen_Game);
+}
+
 void pf::Game::Tick(sf::Input& input, float frametime) {
-    if (screen == Screen_Game) {
-        // Moving left, right, or stopping
-        if (input.IsKeyDown(sf::Key::Left))
-            mainCharacter->WalkLeft();
-        else if (input.IsKeyDown(sf::Key::Right))
-            mainCharacter->WalkRight();
-        else if (mainCharacter->IsWalking())
-            mainCharacter->StopWalking();
+    switch (screen) {
+        case Screen_Game: {
+            // Character controls
+            if (localCharacter) {
+                // Moving left, right, or stopping
+                if (input.IsKeyDown(sf::Key::Left))
+                    localCharacter->WalkLeft();
+                else if (input.IsKeyDown(sf::Key::Right))
+                    localCharacter->WalkRight();
+                else if (localCharacter->IsWalking())
+                    localCharacter->StopWalking();
 
-        // Jumping or swimming upwards
-        if (input.IsKeyDown(sf::Key::Up)
-            && mainCharacter->IsOnGround())
-            mainCharacter->SetVelocityY(mainCharacter->IsInLiquid() ? -30 : -100);
-            
-        // Temporarily swaps focused character on [space] - For teh lulz
-        static bool swapping = false;
-        if (input.IsKeyDown(sf::Key::Space)) {
-            if (!swapping) {
-                //pf::Character *temp = mainCharacter;
-                //mainCharacter = secondCharacter;
-                //secondCharacter = temp;
-                
-                screen = Screen_Main;
-                
-                swapping = true;
+                // Jumping or swimming upwards
+                if (input.IsKeyDown(sf::Key::Up)
+                    && localCharacter->IsOnGround())
+                    localCharacter->SetVelocityY(localCharacter->IsInLiquid() ? -30 : -100);
             }
-        } else swapping = false;
-        
-        // Update cursor position
-        sf::Vector2f halfSize = view->GetHalfSize();
-        cursorPosition = sf::Vector2f(input.GetMouseX() / zoomFactor + (viewX - halfSize.x), input.GetMouseY() / zoomFactor + (viewY - halfSize.y));
+            
+            // Update cursor position
+            sf::Vector2f halfSize = view->GetHalfSize();
+            cursorPosition = sf::Vector2f(input.GetMouseX() / zoomFactor + (viewX - halfSize.x), input.GetMouseY() / zoomFactor + (viewY - halfSize.y));
 
-        // Update view position
-        float targetViewX = mainCharacter->GetX() + (mainCharacter->GetWidth() / 2);
-        float targetViewY = mainCharacter->GetY() + (mainCharacter->GetHeight() / 2);
-        viewX += (targetViewX - viewX) / viewSpeed;
-        viewY += (targetViewY - viewY) / viewSpeed;
+            // Update view position
+            float targetViewX, targetViewY;
+            if (localCharacter) {
+                targetViewX = localCharacter->GetX() + (localCharacter->GetWidth() / 2);
+                targetViewY = localCharacter->GetY() + (localCharacter->GetHeight() / 2);
+            } else {
+                targetViewX = world->GetWidth() / 2;
+                targetViewY = world->GetHeight() / 2;
+            }
+            viewX += (targetViewX - viewX) / viewSpeed;
+            viewY += (targetViewY - viewY) / viewSpeed;
 
-        // Tick world
-        world->Tick(frametime);
-    } else if (screen == Screen_Main) {
-        nameBox->CheckState(&input);
-        ipBox->CheckState(&input);
-        joinButton->CheckState(&input);
+            // Tick world
+            world->Tick(frametime);
+            
+            break;
+            
+        } case Screen_Main: {
+            // Get GUI widget states
+            nameBox->CheckState(&input);
+            ipBox->CheckState(&input);
+            int joinButtonState = joinButton->CheckState(&input);
+            
+            // Join button clicked
+            if (joinButtonState == cp::CP_ST_MOUSE_LBUTTON_RELEASED)
+                JoinGame();
+            
+            break;
+            
+        } case Screen_Joining: {
+            break;
+        }
     }
 }
 
@@ -302,9 +258,14 @@ sf::Vector2f pf::Game::GetCursorPosition() {
     return cursorPosition;
 }
 
-void pf::Game::HandleEvent(sf::Event *event) {
+void pf::Game::HandleEvent(sf::Event *event, sf::Input *input) {
     switch (screen) {
         case Screen_Game:
+            switch (event->Type) {
+                case sf::Event::MouseButtonPressed:
+                    HandleClick(*input);
+                    break;
+            }
             break;
         case Screen_Main:
             nameBox->ProcessTextInput(event);
@@ -327,6 +288,8 @@ void pf::Game::SetScreen(pf::Screen screen) {
         case Screen_Joining:
             break;
     }
+    
+    this->screen = screen;
 }
 
 pf::Screen pf::Game::GetScreen() {

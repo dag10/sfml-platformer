@@ -71,6 +71,8 @@ pf::Character::Character(pf::World *world, pf::Resource *spriteResource, const c
     }
     
     SetPushable(true);
+    SetGravityEnabled(true);
+    SetSolid(true);
 }
 
 pf::Character::~Character() {

@@ -53,8 +53,7 @@ namespace pf {
             void Render(sf::RenderTarget& target, int renderWidth, int renderHeight);
             void Tick(sf::Input& input, float frametime);
             
-            void HandleClick(sf::Input& input);
-            void HandleEvent(sf::Event *event);
+            void HandleEvent(sf::Event *event, sf::Input *input);
             
             sf::Vector2f GetCursorPosition();
             
@@ -66,13 +65,14 @@ namespace pf {
             sf::View *view;
             float viewX, viewY;
             float viewSpeed;
-            void addBox(int x, int y);
+            void addBox(int x, int y);  // FOR TESTING STUFF ONLY. NOT TO BE USED IN FINAL CODE.
             sf::RenderTarget *lastTarget;
-            pf::Character *mainCharacter, *secondCharacter;
-            pf::PhysicsEntity *box;
-            pf::Particle *particle;
+            pf::Character *localCharacter;
             float zoomFactor;
             sf::Vector2f cursorPosition;
+            
+            void HandleClick(sf::Input& input);
+            void JoinGame();
             
             static sf::Font *labelFont;
             void InitGUI(sf::RenderWindow& renderWindow);

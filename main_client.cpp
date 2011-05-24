@@ -32,6 +32,8 @@ pf::Game *game;
 sf::String FPStext;
 sf::View HUDview;
 
+bool showingFPS = false;
+
 bool init();
 bool loop();
 void cleanup();
@@ -78,7 +80,7 @@ bool loop() {
     sprintf(fpsText, "FPS: %d", (int)(1.f / frameTime));
     FPStext.SetText(fpsText);
     window.SetView(HUDview);
-    window.Draw(FPStext);
+    if (showingFPS) window.Draw(FPStext);
 
     window.Display();
 
@@ -103,18 +105,15 @@ void handleEvent(sf::Event *event) {
                 case sf::Key::Escape:
                     window.Close();
                     break;
+                case sf::Key::F5:
+                    showingFPS = !showingFPS;
+                    break;
             }
             break;
         case sf::Event::Closed:
             window.Close();
             break;
-        case sf::Event::LostFocus:
-            cout << "LOST FOCUS" << endl;
-            break;
-        case sf::Event::MouseButtonPressed:
-            game->HandleClick(*input);
-            break;
     }
     
-    game->HandleEvent(event);
+    game->HandleEvent(event, input);
 }
