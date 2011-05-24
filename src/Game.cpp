@@ -182,7 +182,9 @@ void pf::Game::JoinGame() {
         return;
                 
     // Set up variables
-    playerName = (char *)(nameBox->GetLabelText().c_str());
+    const char *tempName = nameBox->GetLabelText().c_str();
+    playerName = new char[strlen(tempName)];
+    strcpy(playerName, tempName);
     
     // Verify inputs
     if (!playerName || !strlen(playerName)) {
@@ -271,15 +273,20 @@ void pf::Game::Tick(sf::Input& input, float frametime) {
 
 void pf::Game::HandleClick(sf::Input& input) {
     if (screen == Screen_Game) {
-        //mainCharacter->SetPosition(cursorPosition.x, cursorPosition.y);
-        std::vector<pf::Entity*> ents = world->HitsPlatform((float)cursorPosition.x, (float)cursorPosition.y);
-        for (int i = 0; i < ents.size(); i++) {
-            pf::Entity *ent = ents.at(i);
-            if (((pf::Platform*)ent)->HitTest((float)cursorPosition.x, (float)cursorPosition.y, 0.f, 0.f)) {
-                world->RemoveEntity(*ent);
-                world->RemovePlatform((pf::Platform&)*ent);
-                delete ent;
+        if (input.IsMouseButtonDown(sf::Mouse::Right)) {
+            std::vector<pf::Entity*> ents = world->HitsPlatform((float)cursorPosition.x, (float)cursorPosition.y);
+            for (int i = 0; i < ents.size(); i++) {
+                pf::Entity *ent = ents.at(i);
+                if (((pf::Platform*)ent)->HitTest((float)cursorPosition.x, (float)cursorPosition.y, 0.f, 0.f)) {
+                    world->RemoveEntity(*ent);
+                    world->RemovePlatform((pf::Platform&)*ent);
+                    delete ent;
+                }
             }
+        } else if (input.IsMouseButtonDown(sf::Mouse::Left)) {
+            addBox(cursorPosition.x, cursorPosition.y);
+        } else if (input.IsMouseButtonDown(sf::Mouse::Middle)) {
+            localCharacter->SetPosition(cursorPosition.x, cursorPosition.y);
         }
     }
 }
