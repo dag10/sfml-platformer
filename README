@@ -30,8 +30,11 @@ Compiling (WINDOWS):
 
 Compiling (OSX):
 
-   While Code::Blocks exists for OSX, I have had trouble compiling my project with it.
-   So instead, I recommend you use Xcode. Instructions can be found here:
+   For compiling on OSX I use Xcode 4. Just use the included Xcode project to get you started.
+   The Xcode project has two targets/schemes: Client and Server.
+   However, unless you have the SFML framework installed in /Library/Frameworks, you will need to
+   edit the targets to include the necessary libraries.
+   Additional instructions can be found here:
    http://www.sfml-dev.org/tutorials/1.6/start-osx.php
 
 Contact:
