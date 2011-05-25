@@ -19,6 +19,7 @@
  */
 
 #include "Resource.h"
+#include "Logger.h"
 #include <fstream>
 #include <sys/stat.h>
 #include <iostream>
@@ -44,7 +45,7 @@ pf::Resource *pf::Resource::GetOrLoadResource(char *name) {
     if (stat(name, &results) == 0)
         length = results.st_size;
     else {
-        std::cerr << "Failed to stat file: " << name << std::endl;
+        pf::Logger::LogError("Failed to stat file: %s", name);
         return NULL;
     }
     
@@ -53,7 +54,7 @@ pf::Resource *pf::Resource::GetOrLoadResource(char *name) {
     std::ifstream *in_stream = new std::ifstream(name, std::ifstream::in | std::ifstream::binary);
     
     if (!in_stream->read(buffer, length)) {
-        std::cerr << "Failed to read file: " << name << std::endl;
+        pf::Logger::LogError("Failed to read file: %s", name);
         delete [] buffer;
         in_stream->close();
         delete in_stream;
@@ -72,7 +73,7 @@ pf::Resource::Resource(char *filename, char *data, int length) {
     this->length = length;
     resources->insert(std::pair<std::string, pf::Resource*>(std::string(filename), this));
     
-    std::cout << "Created resource: " << filename << " ( " << length << " bytes )" << std::endl;
+    pf::Logger::LogInfo("Created resource: %s ( %d bytes )", filename, length);
 }
 
 pf::Resource::~Resource() {

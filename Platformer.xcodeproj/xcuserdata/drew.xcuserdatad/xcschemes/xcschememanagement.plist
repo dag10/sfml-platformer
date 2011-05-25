@@ -4,14 +4,24 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>«PROJECTNAME».xcscheme</key>
+		<key>Client.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Server.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>3A01C06E138D48C800813C5A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3AEA294D13816B6C0039D314</key>
 		<dict>
 			<key>primary</key>
