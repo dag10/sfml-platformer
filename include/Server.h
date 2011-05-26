@@ -27,6 +27,7 @@
 
 namespace pf {
     class World;
+    class ClientInstance;
     
     class Server {
     public:
@@ -34,11 +35,13 @@ namespace pf {
         ~Server();
         
     private:
+        sf::SelectorTCP socketSelector;
         sf::SocketTCP *listenSocket;
         sf::IPAddress serverIP;
         unsigned short serverPort;
         
         std::map<std::string, std::string> properties;
+        std::map<sf::SocketTCP, pf::ClientInstance*> clientMap;
         
         bool shouldQuit;
         pf::World *world;

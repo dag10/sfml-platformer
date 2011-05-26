@@ -24,8 +24,26 @@ pf::ClientInstance::ClientInstance(pf::Server *server, sf::SocketTCP *socket, sf
     this->server = server;
     this->socket = socket;
     this->clientIP = *clientIP;
+    this->username = NULL;
 }
 
 pf::ClientInstance::~ClientInstance() {
     
+}
+
+sf::SocketTCP *pf::ClientInstance::GetSocket() {
+    return socket;
+}
+
+sf::IPAddress *pf::ClientInstance::GetAddress() {
+    return &clientIP;
+}
+
+void pf::ClientInstance::SetUsername(char *username) {
+    this->username = new char[strlen(username) + 1];
+    strcpy(this->username, username);
+}
+
+char *pf::ClientInstance::GetUsername() {
+    return username;
 }

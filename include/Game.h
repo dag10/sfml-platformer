@@ -22,6 +22,7 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Network.hpp>
 
 namespace cp {
     class cpGuiContainer;
@@ -77,6 +78,9 @@ namespace pf {
             void JoinGame();
             
             char *playerName;
+            sf::IPAddress serverIP;
+            unsigned short serverPort;
+            sf::SocketTCP *socket;
             
             static sf::Font *labelFont;
             void InitGUI(sf::RenderWindow& renderWindow);
@@ -86,6 +90,8 @@ namespace pf {
             cp::cpTextInputBox *ipBox;
             sf::String *ipLabel;
             cp::cpButton *joinButton;
+            sf::String *joiningLabel;
+            void SetJoiningLabelText(char *text);
             
             pf::Screen screen;
             sf::Shape *screenBackground;

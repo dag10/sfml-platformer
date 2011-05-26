@@ -22,7 +22,7 @@
 #include <iostream>
 
 int main() {
-    new pf::Server(12345);
+    new pf::Server(25565);
     
     return EXIT_SUCCESS;
 }

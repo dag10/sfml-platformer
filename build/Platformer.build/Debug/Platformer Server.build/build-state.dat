@@ -2,20 +2,20 @@ TPlatformer Server
 v3
 r1
 cCheck dependencies
-cProcessInfoPlistFile "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Info.plist" Info.plist
-cCpResource src/cpGUI/CMakeLists.txt "./Platformer copy.app/Contents/Resources/CMakeLists.txt"
-cCpResource resources/box.bmp "./Platformer copy.app/Contents/Resources/box.bmp"
-cCpResource resources/character_01.bmp "./Platformer copy.app/Contents/Resources/character_01.bmp"
-cCpResource resources/level_01.bmp "./Platformer copy.app/Contents/Resources/level_01.bmp"
-cCpResource resources/level_solid.bmp "./Platformer copy.app/Contents/Resources/level_solid.bmp"
-cCpResource resources/MIASWFTE.TTF "./Platformer copy.app/Contents/Resources/MIASWFTE.TTF"
-cCpResource resources/particle_01.bmp "./Platformer copy.app/Contents/Resources/particle_01.bmp"
-cCpResource resources/particle_01.png "./Platformer copy.app/Contents/Resources/particle_01.png"
-cCpResource resources/step.bmp "./Platformer copy.app/Contents/Resources/step.bmp"
-cCpResource resources/tileset.bmp "./Platformer copy.app/Contents/Resources/tileset.bmp"
-cCpResource resources/Untitled.pxi "./Platformer copy.app/Contents/Resources/Untitled.pxi"
-cCpResource resources/wheel.bmp "./Platformer copy.app/Contents/Resources/wheel.bmp"
-cCpResource resources/character_02.bmp "./Platformer copy.app/Contents/Resources/character_02.bmp"
+cProcessInfoPlistFile /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Info.plist Info.plist
+cCpResource src/cpGUI/CMakeLists.txt ./Platformer_Server.app/Contents/Resources/CMakeLists.txt
+cCpResource resources/box.bmp ./Platformer_Server.app/Contents/Resources/box.bmp
+cCpResource resources/character_01.bmp ./Platformer_Server.app/Contents/Resources/character_01.bmp
+cCpResource resources/level_01.bmp ./Platformer_Server.app/Contents/Resources/level_01.bmp
+cCpResource resources/level_solid.bmp ./Platformer_Server.app/Contents/Resources/level_solid.bmp
+cCpResource resources/MIASWFTE.TTF ./Platformer_Server.app/Contents/Resources/MIASWFTE.TTF
+cCpResource resources/particle_01.bmp ./Platformer_Server.app/Contents/Resources/particle_01.bmp
+cCpResource resources/particle_01.png ./Platformer_Server.app/Contents/Resources/particle_01.png
+cCpResource resources/step.bmp ./Platformer_Server.app/Contents/Resources/step.bmp
+cCpResource resources/tileset.bmp ./Platformer_Server.app/Contents/Resources/tileset.bmp
+cCpResource resources/Untitled.pxi ./Platformer_Server.app/Contents/Resources/Untitled.pxi
+cCpResource resources/wheel.bmp ./Platformer_Server.app/Contents/Resources/wheel.bmp
+cCpResource resources/character_02.bmp ./Platformer_Server.app/Contents/Resources/character_02.bmp
 cCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/main_server.o" /Users/drew/Desktop/sfml-platformer/main_server.cpp normal i386 c++ com.apple.compilers.llvmgcc42
 cCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Animation.o" /Users/drew/Desktop/sfml-platformer/src/Animation.cpp normal i386 c++ com.apple.compilers.llvmgcc42
 cCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Character.o" /Users/drew/Desktop/sfml-platformer/src/Character.cpp normal i386 c++ com.apple.compilers.llvmgcc42
@@ -38,28 +38,34 @@ cCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i
 cCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Server.o" /Users/drew/Desktop/sfml-platformer/src/Server.cpp normal i386 c++ com.apple.compilers.llvmgcc42
 cCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/ClientInstance.o" /Users/drew/Desktop/sfml-platformer/src/ClientInstance.cpp normal i386 c++ com.apple.compilers.llvmgcc42
 cCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Logger.o" /Users/drew/Desktop/sfml-platformer/Logger.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-cLd "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/MacOS/Platformer copy" normal i386
-cPBXCp /Library/Frameworks/sfml-graphics.framework "./Platformer copy.app/Contents/Frameworks/sfml-graphics.framework"
-cPBXCp /Library/Frameworks/sfml-system.framework "./Platformer copy.app/Contents/Frameworks/sfml-system.framework"
-cPBXCp /Library/Frameworks/sfml-window.framework "./Platformer copy.app/Contents/Frameworks/sfml-window.framework"
-cPBXCp resources/character_02.bmp "./Platformer copy.app/Contents/Resources/resources/character_02.bmp"
-cPBXCp resources/box.bmp "./Platformer copy.app/Contents/Resources/resources/box.bmp"
-cPBXCp resources/character_01.bmp "./Platformer copy.app/Contents/Resources/resources/character_01.bmp"
-cPBXCp resources/level_01.bmp "./Platformer copy.app/Contents/Resources/resources/level_01.bmp"
-cPBXCp resources/level_solid.bmp "./Platformer copy.app/Contents/Resources/resources/level_solid.bmp"
-cPBXCp resources/MIASWFTE.TTF "./Platformer copy.app/Contents/Resources/resources/MIASWFTE.TTF"
-cPBXCp resources/particle_01.bmp "./Platformer copy.app/Contents/Resources/resources/particle_01.bmp"
-cPBXCp resources/particle_01.png "./Platformer copy.app/Contents/Resources/resources/particle_01.png"
-cPBXCp resources/step.bmp "./Platformer copy.app/Contents/Resources/resources/step.bmp"
-cPBXCp resources/tileset.bmp "./Platformer copy.app/Contents/Resources/resources/tileset.bmp"
-cPBXCp resources/Untitled.pxi "./Platformer copy.app/Contents/Resources/resources/Untitled.pxi"
-cPBXCp resources/wheel.bmp "./Platformer copy.app/Contents/Resources/resources/wheel.bmp"
-cTouch "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app"
+cCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Packet.o" /Users/drew/Desktop/sfml-platformer/Packet.cpp normal i386 c++ com.apple.compilers.llvmgcc42
+cLd /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/MacOS/Platformer_Server normal i386
+cPBXCp /Library/Frameworks/sfml-graphics.framework ./Platformer_Server.app/Contents/Frameworks/sfml-graphics.framework
+cPBXCp /Library/Frameworks/sfml-system.framework ./Platformer_Server.app/Contents/Frameworks/sfml-system.framework
+cPBXCp /Library/Frameworks/sfml-window.framework ./Platformer_Server.app/Contents/Frameworks/sfml-window.framework
+cPBXCp resources/character_02.bmp ./Platformer_Server.app/Contents/Resources/resources/character_02.bmp
+cPBXCp resources/box.bmp ./Platformer_Server.app/Contents/Resources/resources/box.bmp
+cPBXCp resources/character_01.bmp ./Platformer_Server.app/Contents/Resources/resources/character_01.bmp
+cPBXCp resources/level_01.bmp ./Platformer_Server.app/Contents/Resources/resources/level_01.bmp
+cPBXCp resources/level_solid.bmp ./Platformer_Server.app/Contents/Resources/resources/level_solid.bmp
+cPBXCp resources/MIASWFTE.TTF ./Platformer_Server.app/Contents/Resources/resources/MIASWFTE.TTF
+cPBXCp resources/particle_01.bmp ./Platformer_Server.app/Contents/Resources/resources/particle_01.bmp
+cPBXCp resources/particle_01.png ./Platformer_Server.app/Contents/Resources/resources/particle_01.png
+cPBXCp resources/step.bmp ./Platformer_Server.app/Contents/Resources/resources/step.bmp
+cPBXCp resources/tileset.bmp ./Platformer_Server.app/Contents/Resources/resources/tileset.bmp
+cPBXCp resources/Untitled.pxi ./Platformer_Server.app/Contents/Resources/resources/Untitled.pxi
+cPBXCp resources/wheel.bmp ./Platformer_Server.app/Contents/Resources/resources/wheel.bmp
+cTouch /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app
 
 N/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin10/4.2.1/include/stdarg.h
 c000000004D55C82600000000000010DD
 t1297467430
 s4317
+
+N/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin10/4.2.1/include/stdint.h
+c000000004D55CD3B000000000000190C
+t1297468731
+s6412
 
 N/Library/Frameworks/sfml-graphics.framework
 c000000004BBA050600000000000000AA
@@ -122,7 +128,7 @@ t1270482182
 s5229632
 
 N/Users/drew/Desktop/sfml-platformer/./Platformer copy.app
-t1306339809
+t1306364884
 s102
 
 N/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Frameworks/sfml-graphics.framework
@@ -142,8 +148,8 @@ t1306333589
 s1005
 
 N/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/MacOS/Platformer copy
-t1306339809
-s605420
+t1306364884
+s682340
 
 N/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/PkgInfo
 t1306333589
@@ -249,10 +255,138 @@ N/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources/wh
 t1306333589
 s9462
 
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app
+t1306438237
+s102
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Frameworks/sfml-graphics.framework
+t1306418325
+s170
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Frameworks/sfml-system.framework
+t1306418325
+s170
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Frameworks/sfml-window.framework
+t1306418325
+s170
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Info.plist
+t1306418313
+s1009
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/MacOS/Platformer_Server
+t1306438237
+s692824
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/PkgInfo
+t1306418313
+s8
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/CMakeLists.txt
+t1306418313
+s407
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/MIASWFTE.TTF
+t1306418313
+s20464
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/Untitled.pxi
+t1306418313
+s3447
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/box.bmp
+t1306418313
+s374
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/character_01.bmp
+t1306418313
+s3510
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/character_02.bmp
+t1306418313
+s3510
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/level_01.bmp
+t1306418313
+s1271
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/level_solid.bmp
+t1306418313
+s5430
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/particle_01.bmp
+t1306418313
+s90
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/particle_01.png
+t1306418313
+s102
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/MIASWFTE.TTF
+t1306418325
+s20464
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/Untitled.pxi
+t1306418325
+s3447
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/box.bmp
+t1306418325
+s374
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/character_01.bmp
+t1306418325
+s3510
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/character_02.bmp
+t1306418325
+s3510
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/level_01.bmp
+t1306418325
+s1271
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/level_solid.bmp
+t1306418325
+s5430
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/particle_01.bmp
+t1306418325
+s90
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/particle_01.png
+t1306418325
+s102
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/step.bmp
+t1306418325
+s246
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/tileset.bmp
+t1306418325
+s3553
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/wheel.bmp
+t1306418325
+s9462
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/step.bmp
+t1306418313
+s246
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/tileset.bmp
+t1306418313
+s3553
+
+N/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/wheel.bmp
+t1306418313
+s9462
+
 N/Users/drew/Desktop/sfml-platformer/ClientInstance.h
-c000000004DDD14C000000000000004C6
-t1306334400
-s1222
+c000000004DDEAB150000000000000580
+t1306438421
+s1408
 i<SFML/Network.hpp>
 i"Server.h"
 
@@ -270,48 +404,65 @@ c000000004DDD19DF0000000000000089
 t1306335711
 s137
 
+N/Users/drew/Desktop/sfml-platformer/Packet.cpp
+c000000004DDEA9E100000000000006B0
+t1306438113
+s1712
+i"Packet.h"
+i<SFML/Network.hpp>
+
+N/Users/drew/Desktop/sfml-platformer/Packet.h
+c000000004DDE83040000000000000806
+t1306428164
+s2054
+i<string>
+
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Animation.o
-t1306339401
+t1306418315
 s119060
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/BouncyParticle.o
-t1306333593
+t1306418317
 s84492
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Character.o
-t1306339401
+t1306418315
 s216056
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/ClientInstance.o
-t1306338776
-s62412
+t1306419100
+s104060
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Elevator.o
-t1306333596
+t1306418321
 s79136
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Entity.o
-t1306333591
+t1306418315
 s78520
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Game.o
-t1306339403
-s251028
+t1306437870
+s297556
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Logger.o
-t1306339809
+t1306418322
 s27832
 
+N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Packet.o
+t1306438141
+s43056
+
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Particle.o
-t1306339403
+t1306418321
 s86944
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/PhysicsEntity.o
-t1306339403
+t1306418316
 s197848
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Platform.o
-t1306333592
+t1306418316
 s111356
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Platformer copy.LinkFileList
@@ -319,48 +470,53 @@ c000000004DDD235A0000000000000A7D
 t1306338138
 s2685
 
+N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Platformer_Server.LinkFileList
+c000000004DDEA8EC0000000000000AF3
+t1306437868
+s2803
+
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Resource.o
-t1306338662
+t1306418321
 s131800
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Server.o
-t1306339499
-s178676
+t1306438237
+s352232
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/World.o
-t1306333592
+t1306418317
 s222060
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpCheckBox.o
-t1306333593
+t1306418318
 s301208
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpGUI_base.o
-t1306333594
+t1306418319
 s578256
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpImageButton.o
-t1306333594
+t1306418318
 s262692
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpSelection-DropDownBox.o
-t1306333595
+t1306418319
 s419596
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpShapeButton.o
-t1306333595
+t1306418319
 s264264
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextBox.o
-t1306333596
+t1306418320
 s420396
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextInputBox.o
-t1306333596
-s336304
+t1306437870
+s336336
 
 N/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/main_server.o
-t1306339809
+t1306419100
 s23340
 
 N/Users/drew/Desktop/sfml-platformer/include/Animation.h
@@ -377,8 +533,8 @@ s1275
 i"Particle.h"
 
 N/Users/drew/Desktop/sfml-platformer/include/Character.h
-c000000004DDBC17D00000000000009C6
-t1306247549
+c000000004DDE5C8800000000000009C6
+t1306418312
 s2502
 i<SFML/Graphics.hpp>
 i"PhysicsEntity.h"
@@ -396,10 +552,11 @@ t1306246154
 s1809
 
 N/Users/drew/Desktop/sfml-platformer/include/Game.h
-c000000004DDD06830000000000000B41
-t1306330755
-s2881
+c000000004DDEA1DC0000000000000C29
+t1306436060
+s3113
 i<SFML/Graphics.hpp>
+i<SFML/Network.hpp>
 
 N/Users/drew/Desktop/sfml-platformer/include/IRenderable.h
 c000000004DDBBC0A000000000000048D
@@ -443,9 +600,9 @@ i<map>
 i<string>
 
 N/Users/drew/Desktop/sfml-platformer/include/Server.h
-c000000004DDD245000000000000004F5
-t1306338384
-s1269
+c000000004DDE5F790000000000000577
+t1306419065
+s1399
 i<SFML/Network.hpp>
 i<vector>
 i<map>
@@ -557,8 +714,8 @@ i"cpGuiContainer.h"
 i"cpObject.h"
 
 N/Users/drew/Desktop/sfml-platformer/main_server.cpp
-c000000004DDD29E00000000000000352
-t1306339808
+c000000004DDE5D4F0000000000000352
+t1306418511
 s850
 i"Server.h"
 i<cstdio>
@@ -646,9 +803,9 @@ i"Resource.h"
 i<string>
 
 N/Users/drew/Desktop/sfml-platformer/src/ClientInstance.cpp
-c000000004DDD25D5000000000000041D
-t1306338773
-s1053
+c000000004DDEAB9C00000000000005A1
+t1306438556
+s1441
 i"ClientInstance.h"
 
 N/Users/drew/Desktop/sfml-platformer/src/ClientInstance.h
@@ -670,9 +827,9 @@ i"Entity.h"
 i"World.h"
 
 N/Users/drew/Desktop/sfml-platformer/src/Game.cpp
-c000000004DDD06C30000000000002EFA
-t1306330819
-s12026
+c000000004DDEA7FB00000000000034BC
+t1306437627
+s13500
 i"Game.h"
 i"PhysicsEntity.h"
 i"Character.h"
@@ -683,7 +840,11 @@ i"BouncyParticle.h"
 i"Platform.h"
 i"Resource.h"
 i"cpGUI.h"
+i"Logger.h"
+i"Packet.h"
+i<sstream>
 i<SFML/Window.hpp>
+i<SFML/Graphics.hpp>
 i<iostream>
 
 N/Users/drew/Desktop/sfml-platformer/src/Particle.cpp
@@ -710,8 +871,8 @@ i"Platform.h"
 i"World.h"
 
 N/Users/drew/Desktop/sfml-platformer/src/Resource.cpp
-c000000004DDD23E40000000000000A08
-t1306338276
+c000000004DDD536D0000000000000A08
+t1306350445
 s2568
 i"Resource.h"
 i"Logger.h"
@@ -720,13 +881,15 @@ i<sys/stat.h>
 i<iostream>
 
 N/Users/drew/Desktop/sfml-platformer/src/Server.cpp
-c000000004DDD51AB0000000000000963
-t1306349995
-s2403
+c000000004DDEAC0B00000000000011C7
+t1306438667
+s4551
 i"Server.h"
 i"Logger.h"
 i"World.h"
 i"Resource.h"
+i"ClientInstance.h"
+i"Packet.h"
 
 N/Users/drew/Desktop/sfml-platformer/src/World.cpp
 c000000004DDD0B360000000000002622
@@ -793,9 +956,9 @@ i"cpTextBox.h"
 i<cstring>
 
 N/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextInputBox.cpp
-c000000004DDBBC0A0000000000001AFC
-t1306246154
-s6908
+c000000004DDEA0820000000000001B0E
+t1306435714
+s6926
 i"cpGUI_base.h"
 i"cpTextInputBox.h"
 
@@ -1353,6 +1516,9 @@ s634
 CBuild AST from /Users/drew/Desktop/sfml-platformer/Logger.cpp
 r0
 
+CBuild AST from /Users/drew/Desktop/sfml-platformer/Packet.cpp
+r0
+
 CBuild AST from /Users/drew/Desktop/sfml-platformer/main_server.cpp
 r0
 
@@ -1418,11 +1584,11 @@ r0
 
 CCheck dependencies
 r0
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies9294c02d898db341^1459c32d898db341^---0#1#0#--18"Check dependencies
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesbff3c78ee38eb341^274ece8ee38eb341^---0#1#0#--18"Check dependencies
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Animation.o" /Users/drew/Desktop/sfml-platformer/src/Animation.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328032200.462780
-e328032201.914986
+s328111113.211985
+e328111115.124755
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Animation.o
@@ -1431,11 +1597,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Compile /Users/drew/Desktop/sfml-platformer/src/Animation.cpp97ac76c85f8db341^de3beac95f8db341^---0#0#0#-19%DVTDocumentLocation2@69"file://localhost/Users/drew/Desktop/sfml-platformer/src/Animation.cpp0000000000000000^1554"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Animation.o" src/Animation.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Animation.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Animation.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Compile /Users/drew/Desktop/sfml-platformer/src/Animation.cpp11723609948eb341^35f01f0b948eb341^---0#0#0#-19%DVTDocumentLocation2@69"file://localhost/Users/drew/Desktop/sfml-platformer/src/Animation.cpp0000000000000000^1562"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Animation.o" src/Animation.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Animation.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Animation.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/BouncyParticle.o" /Users/drew/Desktop/sfml-platformer/src/BouncyParticle.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328026392.560703
-e328026393.085175
+s328111116.976927
+e328111117.702169
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/BouncyParticle.o
@@ -1444,11 +1610,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"Compile /Users/drew/Desktop/sfml-platformer/src/BouncyParticle.cppa5a48f18498db341^1ccd1519498db341^---0#0#0#-19%DVTDocumentLocation2@74"file://localhost/Users/drew/Desktop/sfml-platformer/src/BouncyParticle.cpp0000000000000000^1574"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/BouncyParticle.o" src/BouncyParticle.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/BouncyParticle.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/BouncyParticle.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"Compile /Users/drew/Desktop/sfml-platformer/src/BouncyParticle.cppf52efa0c948eb341^a9f8b30d948eb341^---0#0#0#-19%DVTDocumentLocation2@74"file://localhost/Users/drew/Desktop/sfml-platformer/src/BouncyParticle.cpp0000000000000000^1582"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/BouncyParticle.o" src/BouncyParticle.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/BouncyParticle.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/BouncyParticle.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Character.o" /Users/drew/Desktop/sfml-platformer/src/Character.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328032200.462894
-e328032201.877351
+s328111114.967389
+e328111115.689098
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Character.o
@@ -1459,11 +1625,11 @@ xc++
 xcom.apple.compilers.llvmgcc42
 o/Users/drew/Desktop/sfml-platformer/src/Character.cpp: In constructor 'pf::Character::Character(pf::World*, pf::Resource*, const char*)':
 o/Users/drew/Desktop/sfml-platformer/src/Character.cpp:49: warning: deprecated conversion from string constant to 'char*'
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Compile /Users/drew/Desktop/sfml-platformer/src/Character.cpp579476c85f8db341^1093e0c95f8db341^-259"/Users/drew/Desktop/sfml-platformer/src/Character.cpp: In constructor 'pf::Character::Character(pf::World*, pf::Resource*, const char*)':/Users/drew/Desktop/sfml-platformer/src/Character.cpp:49: warning: deprecated conversion from string constant to 'char*'1(21%IDEActivityLogMessage2@53"Deprecated conversion from string constant to 'char*'-328032201#138#121#-1#-23%DVTTextDocumentLocation3@69"file://localhost/Users/drew/Desktop/sfml-platformer/src/Character.cpp0000000000000000^48#18446744073709551615#48#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--0#0#0#-19%DVTDocumentLocation4@69"file://localhost/Users/drew/Desktop/sfml-platformer/src/Character.cpp0000000000000000^1554"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Character.o" src/Character.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Character.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Character.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Compile /Users/drew/Desktop/sfml-platformer/src/Character.cpp51bff70a948eb341^1a6eb00b948eb341^-259"/Users/drew/Desktop/sfml-platformer/src/Character.cpp: In constructor 'pf::Character::Character(pf::World*, pf::Resource*, const char*)':/Users/drew/Desktop/sfml-platformer/src/Character.cpp:49: warning: deprecated conversion from string constant to 'char*'1(21%IDEActivityLogMessage2@53"Deprecated conversion from string constant to 'char*'-328111115#138#121#-1#-23%DVTTextDocumentLocation3@69"file://localhost/Users/drew/Desktop/sfml-platformer/src/Character.cpp0000000000000000^48#18446744073709551615#48#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--0#0#0#-19%DVTDocumentLocation4@69"file://localhost/Users/drew/Desktop/sfml-platformer/src/Character.cpp0000000000000000^1562"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Character.o" src/Character.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Character.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Character.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/ClientInstance.o" /Users/drew/Desktop/sfml-platformer/src/ClientInstance.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328031576.413983
-e328031576.960150
+s328131470.825326
+e328131471.302781
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/ClientInstance.o
@@ -1472,11 +1638,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"Compile /Users/drew/Desktop/sfml-platformer/src/ClientInstance.cppc7126a585d8db341^47cbf5585d8db341^---0#0#0#-19%DVTDocumentLocation2@74"file://localhost/Users/drew/Desktop/sfml-platformer/src/ClientInstance.cpp0000000000000000^1574"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/ClientInstance.o" src/ClientInstance.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/ClientInstance.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/ClientInstance.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"Compile /Users/drew/Desktop/sfml-platformer/src/ClientInstance.cpp4f5bd38ee38eb341^558a4d8fe38eb341^---0#0#0#-19%DVTDocumentLocation2@74"file://localhost/Users/drew/Desktop/sfml-platformer/src/ClientInstance.cpp0000000000000000^1582"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/ClientInstance.o" src/ClientInstance.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/ClientInstance.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/ClientInstance.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Elevator.o" /Users/drew/Desktop/sfml-platformer/src/Elevator.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328026396.131191
-e328026396.648274
+s328111120.693451
+e328111121.229077
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Elevator.o
@@ -1485,11 +1651,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Compile /Users/drew/Desktop/sfml-platformer/src/Elevator.cppacac211c498db341^6efca51c498db341^---0#0#0#-19%DVTDocumentLocation2@68"file://localhost/Users/drew/Desktop/sfml-platformer/src/Elevator.cpp0000000000000000^1550"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Elevator.o" src/Elevator.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Elevator.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Elevator.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Compile /Users/drew/Desktop/sfml-platformer/src/Elevator.cppc39bb110948eb341^f0a33a11948eb341^---0#0#0#-19%DVTDocumentLocation2@68"file://localhost/Users/drew/Desktop/sfml-platformer/src/Elevator.cpp0000000000000000^1558"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Elevator.o" src/Elevator.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Elevator.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Elevator.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Entity.o" /Users/drew/Desktop/sfml-platformer/src/Entity.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328026390.378940
-e328026391.176937
+s328111115.125085
+e328111115.682593
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Entity.o
@@ -1498,11 +1664,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Compile /Users/drew/Desktop/sfml-platformer/src/Entity.cppe3186116498db341^72512d17498db341^---0#0#0#-19%DVTDocumentLocation2@66"file://localhost/Users/drew/Desktop/sfml-platformer/src/Entity.cpp0000000000000000^1542"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Entity.o" src/Entity.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Entity.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Entity.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Compile /Users/drew/Desktop/sfml-platformer/src/Entity.cppfc1b200b948eb341^68caae0b948eb341^---0#0#0#-19%DVTDocumentLocation2@66"file://localhost/Users/drew/Desktop/sfml-platformer/src/Entity.cpp0000000000000000^1550"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Entity.o" src/Entity.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Entity.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Entity.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Game.o" /Users/drew/Desktop/sfml-platformer/src/Game.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328032201.877631
-e328032203.204988
+s328130668.823857
+e328130670.654596
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Game.o
@@ -1512,18 +1678,17 @@ xi386
 xc++
 xcom.apple.compilers.llvmgcc42
 o/Users/drew/Desktop/sfml-platformer/src/Game.cpp: In member function 'void pf::Game::InitGUI(sf::RenderWindow&)':
-o/Users/drew/Desktop/sfml-platformer/src/Game.cpp:60: warning: deprecated conversion from string constant to 'char*'
+o/Users/drew/Desktop/sfml-platformer/src/Game.cpp:65: warning: deprecated conversion from string constant to 'char*'
+o/Users/drew/Desktop/sfml-platformer/src/Game.cpp:92: warning: deprecated conversion from string constant to 'char*'
 o/Users/drew/Desktop/sfml-platformer/src/Game.cpp: In member function 'void pf::Game::addBox(int, int)':
-o/Users/drew/Desktop/sfml-platformer/src/Game.cpp:99: warning: deprecated conversion from string constant to 'char*'
+o/Users/drew/Desktop/sfml-platformer/src/Game.cpp:111: warning: deprecated conversion from string constant to 'char*'
 o/Users/drew/Desktop/sfml-platformer/src/Game.cpp: In member function 'void pf::Game::JoinGame()':
-o/Users/drew/Desktop/sfml-platformer/src/Game.cpp:196: warning: deprecated conversion from string constant to 'char*'
-o/Users/drew/Desktop/sfml-platformer/src/Game.cpp:199: warning: deprecated conversion from string constant to 'char*'
-o/Users/drew/Desktop/sfml-platformer/src/Game.cpp:202: warning: deprecated conversion from string constant to 'char*'
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection56"Compile /Users/drew/Desktop/sfml-platformer/src/Game.cppfdc1e0c95f8db341^0c7934cb5f8db341^-899"/Users/drew/Desktop/sfml-platformer/src/Game.cpp: In member function 'void pf::Game::InitGUI(sf::RenderWindow&)':/Users/drew/Desktop/sfml-platformer/src/Game.cpp:60: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/src/Game.cpp: In member function 'void pf::Game::addBox(int, int)':/Users/drew/Desktop/sfml-platformer/src/Game.cpp:99: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/src/Game.cpp: In member function 'void pf::Game::JoinGame()':/Users/drew/Desktop/sfml-platformer/src/Game.cpp:196: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/src/Game.cpp:199: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/src/Game.cpp:202: warning: deprecated conversion from string constant to 'char*'5(21%IDEActivityLogMessage2@53"Deprecated conversion from string constant to 'char*'-328032202#114#116#-1#-23%DVTTextDocumentLocation3@64"file://localhost/Users/drew/Desktop/sfml-platformer/src/Game.cpp0000000000000000^59#18446744073709551615#59#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328032202#334#116#-1#-3@64"file://localhost/Users/drew/Desktop/sfml-platformer/src/Game.cpp0000000000000000^98#18446744073709551615#98#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328032202#548#117#-1#-3@64"file://localhost/Users/drew/Desktop/sfml-platformer/src/Game.cpp0000000000000000^195#18446744073709551615#195#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328032202#665#117#-1#-3@64"file://localhost/Users/drew/Desktop/sfml-platformer/src/Game.cpp0000000000000000^198#18446744073709551615#198#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328032202#782#117#-1#-3@64"file://localhost/Users/drew/Desktop/sfml-platformer/src/Game.cpp0000000000000000^201#18446744073709551615#201#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--0#0#0#-19%DVTDocumentLocation4@64"file://localhost/Users/drew/Desktop/sfml-platformer/src/Game.cpp0000000000000000^1534"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Game.o" src/Game.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Game.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Game.o"
+o/Users/drew/Desktop/sfml-platformer/src/Game.cpp:250: warning: deprecated conversion from string constant to 'char*'
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection56"Compile /Users/drew/Desktop/sfml-platformer/src/Game.cpp3f02d36ce08eb341^639ca76ee08eb341^-782"/Users/drew/Desktop/sfml-platformer/src/Game.cpp: In member function 'void pf::Game::InitGUI(sf::RenderWindow&)':/Users/drew/Desktop/sfml-platformer/src/Game.cpp:65: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/src/Game.cpp:92: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/src/Game.cpp: In member function 'void pf::Game::addBox(int, int)':/Users/drew/Desktop/sfml-platformer/src/Game.cpp:111: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/src/Game.cpp: In member function 'void pf::Game::JoinGame()':/Users/drew/Desktop/sfml-platformer/src/Game.cpp:250: warning: deprecated conversion from string constant to 'char*'4(21%IDEActivityLogMessage2@53"Deprecated conversion from string constant to 'char*'-328130669#114#116#-1#-23%DVTTextDocumentLocation3@64"file://localhost/Users/drew/Desktop/sfml-platformer/src/Game.cpp0000000000000000^64#18446744073709551615#64#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328130669#230#116#-1#-3@64"file://localhost/Users/drew/Desktop/sfml-platformer/src/Game.cpp0000000000000000^91#18446744073709551615#91#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328130669#450#117#-1#-3@64"file://localhost/Users/drew/Desktop/sfml-platformer/src/Game.cpp0000000000000000^110#18446744073709551615#110#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328130669#665#117#-1#-3@64"file://localhost/Users/drew/Desktop/sfml-platformer/src/Game.cpp0000000000000000^249#18446744073709551615#249#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--0#0#0#-19%DVTDocumentLocation4@64"file://localhost/Users/drew/Desktop/sfml-platformer/src/Game.cpp0000000000000000^1542"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Game.o" src/Game.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Game.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Game.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Logger.o" /Users/drew/Desktop/sfml-platformer/Logger.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328032608.695112
-e328032609.075489
+s328111122.195921
+e328111122.490061
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Logger.o
@@ -1532,11 +1697,24 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection54"Compile /Users/drew/Desktop/sfml-platformer/Logger.cpp0309b260618db341^3d5f1361618db341^---0#0#0#-19%DVTDocumentLocation2@62"file://localhost/Users/drew/Desktop/sfml-platformer/Logger.cpp0000000000000000^1534"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Logger.o" Logger.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/Logger.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Logger.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection54"Compile /Users/drew/Desktop/sfml-platformer/Logger.cppcd3f3212948eb341^92747d12948eb341^---0#0#0#-19%DVTDocumentLocation2@62"file://localhost/Users/drew/Desktop/sfml-platformer/Logger.cpp0000000000000000^1542"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Logger.o" Logger.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/Logger.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Logger.o"
+
+CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Packet.o" /Users/drew/Desktop/sfml-platformer/Packet.cpp normal i386 c++ com.apple.compilers.llvmgcc42
+s328130941.163050
+e328130941.580684
+r1
+xCompileC
+xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Packet.o
+x/Users/drew/Desktop/sfml-platformer/Packet.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvmgcc42
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection54"Compile /Users/drew/Desktop/sfml-platformer/Packet.cpp0bd1297de18eb341^25b1947de18eb341^---0#0#0#-19%DVTDocumentLocation2@62"file://localhost/Users/drew/Desktop/sfml-platformer/Packet.cpp0000000000000000^1542"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Packet.o" Packet.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/Packet.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Packet.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Particle.o" /Users/drew/Desktop/sfml-platformer/src/Particle.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328032203.206563
-e328032203.756659
+s328111120.768993
+e328111121.272424
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Particle.o
@@ -1545,11 +1723,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Compile /Users/drew/Desktop/sfml-platformer/src/Particle.cpp7bf634cb5f8db341^49bbc1cb5f8db341^---0#0#0#-19%DVTDocumentLocation2@68"file://localhost/Users/drew/Desktop/sfml-platformer/src/Particle.cpp0000000000000000^1550"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Particle.o" src/Particle.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Particle.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Particle.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Compile /Users/drew/Desktop/sfml-platformer/src/Particle.cppaef2c410948eb341^1fbd4511948eb341^---0#0#0#-19%DVTDocumentLocation2@68"file://localhost/Users/drew/Desktop/sfml-platformer/src/Particle.cpp0000000000000000^1558"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Particle.o" src/Particle.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Particle.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Particle.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/PhysicsEntity.o" /Users/drew/Desktop/sfml-platformer/src/PhysicsEntity.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328032201.918284
-e328032203.262662
+s328111115.689386
+e328111116.394381
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/PhysicsEntity.o
@@ -1558,11 +1736,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Compile /Users/drew/Desktop/sfml-platformer/src/PhysicsEntity.cpp492aebc95f8db341^d53c43cb5f8db341^---0#0#0#-19%DVTDocumentLocation2@73"file://localhost/Users/drew/Desktop/sfml-platformer/src/PhysicsEntity.cpp0000000000000000^1570"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/PhysicsEntity.o" src/PhysicsEntity.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/PhysicsEntity.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/PhysicsEntity.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Compile /Users/drew/Desktop/sfml-platformer/src/PhysicsEntity.cpp9f91b00b948eb341^37fe640c948eb341^---0#0#0#-19%DVTDocumentLocation2@73"file://localhost/Users/drew/Desktop/sfml-platformer/src/PhysicsEntity.cpp0000000000000000^1578"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/PhysicsEntity.o" src/PhysicsEntity.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/PhysicsEntity.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/PhysicsEntity.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Platform.o" /Users/drew/Desktop/sfml-platformer/src/Platform.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328026391.908733
-e328026392.560426
+s328111116.394974
+e328111116.976779
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Platform.o
@@ -1571,11 +1749,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Compile /Users/drew/Desktop/sfml-platformer/src/Platform.cppc3bbe817498db341^92768f18498db341^---0#0#0#-19%DVTDocumentLocation2@68"file://localhost/Users/drew/Desktop/sfml-platformer/src/Platform.cpp0000000000000000^1550"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Platform.o" src/Platform.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Platform.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Platform.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Compile /Users/drew/Desktop/sfml-platformer/src/Platform.cpp9739650c948eb341^450dfa0c948eb341^---0#0#0#-19%DVTDocumentLocation2@68"file://localhost/Users/drew/Desktop/sfml-platformer/src/Platform.cpp0000000000000000^1558"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Platform.o" src/Platform.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Platform.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Platform.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Resource.o" /Users/drew/Desktop/sfml-platformer/src/Resource.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328031461.458856
-e328031462.310606
+s328111121.229402
+e328111121.756628
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Resource.o
@@ -1584,11 +1762,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Compile /Users/drew/Desktop/sfml-platformer/src/Resource.cpp0c8f75e55c8db341^fed54fe65c8db341^---0#0#0#-19%DVTDocumentLocation2@68"file://localhost/Users/drew/Desktop/sfml-platformer/src/Resource.cpp0000000000000000^1550"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Resource.o" src/Resource.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Resource.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Resource.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Compile /Users/drew/Desktop/sfml-platformer/src/Resource.cpp81d03a11948eb341^c7b9c111948eb341^---0#0#0#-19%DVTDocumentLocation2@68"file://localhost/Users/drew/Desktop/sfml-platformer/src/Resource.cpp0000000000000000^1558"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Resource.o" src/Resource.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Resource.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Resource.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Server.o" /Users/drew/Desktop/sfml-platformer/src/Server.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328042797.784498
-e328042798.755551
+s328131470.824807
+e328131471.713971
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Server.o
@@ -1597,11 +1775,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Compile /Users/drew/Desktop/sfml-platformer/src/Server.cppbcebc82d898db341^126bc12e898db341^---0#0#0#-19%DVTDocumentLocation2@66"file://localhost/Users/drew/Desktop/sfml-platformer/src/Server.cpp0000000000000000^1542"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Server.o" src/Server.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Server.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Server.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Compile /Users/drew/Desktop/sfml-platformer/src/Server.cppb43cd38ee38eb341^7ac6b68fe38eb341^---0#0#0#-19%DVTDocumentLocation2@66"file://localhost/Users/drew/Desktop/sfml-platformer/src/Server.cpp0000000000000000^1550"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Server.o" src/Server.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/Server.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Server.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/World.o" /Users/drew/Desktop/sfml-platformer/src/World.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328026391.945716
-e328026392.673304
+s328111116.440138
+e328111117.219994
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/World.o
@@ -1617,11 +1795,11 @@ o/Users/drew/Desktop/sfml-platformer/include/Tileset.h:48: warning: deprecated c
 o/Users/drew/Desktop/sfml-platformer/include/Tileset.h:49: warning: deprecated conversion from string constant to 'char*'
 o/Users/drew/Desktop/sfml-platformer/include/Tileset.h:50: warning: deprecated conversion from string constant to 'char*'
 o/Users/drew/Desktop/sfml-platformer/include/Tileset.h:51: warning: deprecated conversion from string constant to 'char*'
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection57"Compile /Users/drew/Desktop/sfml-platformer/src/World.cpp2637f217498db341^a569ac18498db341^-802"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp:24:/Users/drew/Desktop/sfml-platformer/include/Tileset.h:46: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/include/Tileset.h:47: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/include/Tileset.h:48: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/include/Tileset.h:49: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/include/Tileset.h:50: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/include/Tileset.h:51: warning: deprecated conversion from string constant to 'char*'6(21%IDEActivityLogMessage2@53"Deprecated conversion from string constant to 'char*'-328026392#76#121#2(36%IDEActivityLogHeaderInclusionMessage3@71"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp-328026392#18446744073709551615#0#-0#-23%DVTTextDocumentLocation4@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^23#18446744073709551615#23#18446744073709551615#18446744073709551615#0#---2@110"Deprecated conversion from string constant to 'char*' in /Users/drew/Desktop/sfml-platformer/include/Tileset.h-328026392#18446744073709551615#0#-0#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^45#18446744073709551615#45#18446744073709551615#18446744073709551615#0#---1#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^45#18446744073709551615#45#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328026392#197#121#2(3@71"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp-328026392#18446744073709551615#0#-0#-4@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^23#18446744073709551615#23#18446744073709551615#18446744073709551615#0#---2@110"Deprecated conversion from string constant to 'char*' in /Users/drew/Desktop/sfml-platformer/include/Tileset.h-328026392#18446744073709551615#0#-0#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^46#18446744073709551615#46#18446744073709551615#18446744073709551615#0#---1#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^46#18446744073709551615#46#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328026392#318#121#2(3@71"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp-328026392#18446744073709551615#0#-0#-4@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^23#18446744073709551615#23#18446744073709551615#18446744073709551615#0#---2@110"Deprecated conversion from string constant to 'char*' in /Users/drew/Desktop/sfml-platformer/include/Tileset.h-328026392#18446744073709551615#0#-0#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^47#18446744073709551615#47#18446744073709551615#18446744073709551615#0#---1#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^47#18446744073709551615#47#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328026392#439#121#2(3@71"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp-328026392#18446744073709551615#0#-0#-4@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^23#18446744073709551615#23#18446744073709551615#18446744073709551615#0#---2@110"Deprecated conversion from string constant to 'char*' in /Users/drew/Desktop/sfml-platformer/include/Tileset.h-328026392#18446744073709551615#0#-0#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^48#18446744073709551615#48#18446744073709551615#18446744073709551615#0#---1#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^48#18446744073709551615#48#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328026392#560#121#2(3@71"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp-328026392#18446744073709551615#0#-0#-4@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^23#18446744073709551615#23#18446744073709551615#18446744073709551615#0#---2@110"Deprecated conversion from string constant to 'char*' in /Users/drew/Desktop/sfml-platformer/include/Tileset.h-328026392#18446744073709551615#0#-0#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^49#18446744073709551615#49#18446744073709551615#18446744073709551615#0#---1#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^49#18446744073709551615#49#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328026392#681#121#2(3@71"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp-328026392#18446744073709551615#0#-0#-4@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^23#18446744073709551615#23#18446744073709551615#18446744073709551615#0#---2@110"Deprecated conversion from string constant to 'char*' in /Users/drew/Desktop/sfml-platformer/include/Tileset.h-328026392#18446744073709551615#0#-0#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^50#18446744073709551615#50#18446744073709551615#18446744073709551615#0#---1#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^50#18446744073709551615#50#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--0#0#0#-19%DVTDocumentLocation5@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^1538"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/World.o" src/World.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/World.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/World.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection57"Compile /Users/drew/Desktop/sfml-platformer/src/World.cpp7ec3700c948eb341^2ba3510d948eb341^-802"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp:24:/Users/drew/Desktop/sfml-platformer/include/Tileset.h:46: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/include/Tileset.h:47: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/include/Tileset.h:48: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/include/Tileset.h:49: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/include/Tileset.h:50: warning: deprecated conversion from string constant to 'char*'/Users/drew/Desktop/sfml-platformer/include/Tileset.h:51: warning: deprecated conversion from string constant to 'char*'6(21%IDEActivityLogMessage2@53"Deprecated conversion from string constant to 'char*'-328111116#76#121#2(36%IDEActivityLogHeaderInclusionMessage3@71"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp-328111116#18446744073709551615#0#-0#-23%DVTTextDocumentLocation4@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^23#18446744073709551615#23#18446744073709551615#18446744073709551615#0#---2@110"Deprecated conversion from string constant to 'char*' in /Users/drew/Desktop/sfml-platformer/include/Tileset.h-328111116#18446744073709551615#0#-0#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^45#18446744073709551615#45#18446744073709551615#18446744073709551615#0#---1#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^45#18446744073709551615#45#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328111116#197#121#2(3@71"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp-328111116#18446744073709551615#0#-0#-4@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^23#18446744073709551615#23#18446744073709551615#18446744073709551615#0#---2@110"Deprecated conversion from string constant to 'char*' in /Users/drew/Desktop/sfml-platformer/include/Tileset.h-328111116#18446744073709551615#0#-0#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^46#18446744073709551615#46#18446744073709551615#18446744073709551615#0#---1#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^46#18446744073709551615#46#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328111116#318#121#2(3@71"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp-328111116#18446744073709551615#0#-0#-4@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^23#18446744073709551615#23#18446744073709551615#18446744073709551615#0#---2@110"Deprecated conversion from string constant to 'char*' in /Users/drew/Desktop/sfml-platformer/include/Tileset.h-328111116#18446744073709551615#0#-0#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^47#18446744073709551615#47#18446744073709551615#18446744073709551615#0#---1#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^47#18446744073709551615#47#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328111116#439#121#2(3@71"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp-328111116#18446744073709551615#0#-0#-4@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^23#18446744073709551615#23#18446744073709551615#18446744073709551615#0#---2@110"Deprecated conversion from string constant to 'char*' in /Users/drew/Desktop/sfml-platformer/include/Tileset.h-328111116#18446744073709551615#0#-0#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^48#18446744073709551615#48#18446744073709551615#18446744073709551615#0#---1#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^48#18446744073709551615#48#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328111116#560#121#2(3@71"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp-328111116#18446744073709551615#0#-0#-4@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^23#18446744073709551615#23#18446744073709551615#18446744073709551615#0#---2@110"Deprecated conversion from string constant to 'char*' in /Users/drew/Desktop/sfml-platformer/include/Tileset.h-328111116#18446744073709551615#0#-0#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^49#18446744073709551615#49#18446744073709551615#18446744073709551615#0#---1#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^49#18446744073709551615#49#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--2@53"Deprecated conversion from string constant to 'char*'-328111116#681#121#2(3@71"In file included from /Users/drew/Desktop/sfml-platformer/src/World.cpp-328111116#18446744073709551615#0#-0#-4@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^23#18446744073709551615#23#18446744073709551615#18446744073709551615#0#---2@110"Deprecated conversion from string constant to 'char*' in /Users/drew/Desktop/sfml-platformer/include/Tileset.h-328111116#18446744073709551615#0#-0#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^50#18446744073709551615#50#18446744073709551615#18446744073709551615#0#---1#-4@69"file://localhost/Users/drew/Desktop/sfml-platformer/include/Tileset.h0000000000000000^50#18446744073709551615#50#18446744073709551615#18446744073709551615#0#49"Deprecated conversion from string constant to '*'--0#0#0#-19%DVTDocumentLocation5@65"file://localhost/Users/drew/Desktop/sfml-platformer/src/World.cpp0000000000000000^1546"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/World.o" src/World.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/World.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/World.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpCheckBox.o" /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpCheckBox.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328026392.673764
-e328026393.502207
+s328111117.220137
+e328111118.031972
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpCheckBox.o
@@ -1630,11 +1808,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpCheckBox.cppd191ac18498db341^a88f8019498db341^---0#0#0#-19%DVTDocumentLocation2@76"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpCheckBox.cpp0000000000000000^1570"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpCheckBox.o" src/cpGUI/cpCheckBox.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpCheckBox.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpCheckBox.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpCheckBox.cppbd73380d948eb341^965d080e948eb341^---0#0#0#-19%DVTDocumentLocation2@76"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpCheckBox.cpp0000000000000000^1578"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpCheckBox.o" src/cpGUI/cpCheckBox.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpCheckBox.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpCheckBox.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpGUI_base.o" /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpGUI_base.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328026393.085381
-e328026394.354056
+s328111117.702335
+e328111119.057508
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpGUI_base.o
@@ -1643,11 +1821,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpGUI_base.cppf1f11519498db341^9faa5a1a498db341^---0#0#0#-19%DVTDocumentLocation2@76"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpGUI_base.cpp0000000000000000^1570"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpGUI_base.o" src/cpGUI/cpGUI_base.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpGUI_base.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpGUI_base.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpGUI_base.cpp68e8b30d948eb341^dcb70e0f948eb341^---0#0#0#-19%DVTDocumentLocation2@76"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpGUI_base.cpp0000000000000000^1578"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpGUI_base.o" src/cpGUI/cpGUI_base.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpGUI_base.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpGUI_base.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpImageButton.o" /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpImageButton.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328026393.502410
-e328026394.187782
+s328111118.032126
+e328111118.787022
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpImageButton.o
@@ -1656,11 +1834,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpImageButton.cpp5bb48019498db341^5d19301a498db341^---0#0#0#-19%DVTDocumentLocation2@79"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpImageButton.cpp0000000000000000^1582"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpImageButton.o" src/cpGUI/cpImageButton.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpImageButton.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpImageButton.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpImageButton.cppce50080e948eb341^8c81c90e948eb341^---0#0#0#-19%DVTDocumentLocation2@79"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpImageButton.cpp0000000000000000^1590"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpImageButton.o" src/cpGUI/cpImageButton.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpImageButton.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpImageButton.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpSelection-DropDownBox.o" /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpSelection-DropDownBox.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328026394.188244
-e328026395.312925
+s328111118.787509
+e328111119.809395
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpSelection-DropDownBox.o
@@ -1669,11 +1847,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpSelection-DropDownBox.cpp3848301a498db341^2123501b498db341^---0#0#0#-19%DVTDocumentLocation2@89"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpSelection-DropDownBox.cpp0000000000000000^1622"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpSelection-DropDownBox.o" src/cpGUI/cpSelection-DropDownBox.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpSelection-DropDownBox.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpSelection-DropDownBox.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpSelection-DropDownBox.cppb8b1c90e948eb341^4034cf0f948eb341^---0#0#0#-19%DVTDocumentLocation2@89"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpSelection-DropDownBox.cpp0000000000000000^1630"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpSelection-DropDownBox.o" src/cpGUI/cpSelection-DropDownBox.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpSelection-DropDownBox.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpSelection-DropDownBox.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpShapeButton.o" /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpShapeButton.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328026394.354552
-e328026395.316745
+s328111119.057648
+e328111119.778625
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpShapeButton.o
@@ -1682,11 +1860,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpShapeButton.cppa9de5a1a498db341^331a511b498db341^---0#0#0#-19%DVTDocumentLocation2@79"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpShapeButton.cpp0000000000000000^1582"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpShapeButton.o" src/cpGUI/cpShapeButton.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpShapeButton.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpShapeButton.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpShapeButton.cppc3d80e0f948eb341^fc52c70f948eb341^---0#0#0#-19%DVTDocumentLocation2@79"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpShapeButton.cpp0000000000000000^1590"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpShapeButton.o" src/cpGUI/cpShapeButton.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpShapeButton.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpShapeButton.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextBox.o" /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextBox.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328026395.313243
-e328026396.238131
+s328111119.778824
+e328111120.768851
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextBox.o
@@ -1695,11 +1873,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextBox.cppcf48501b498db341^3bfd3c1c498db341^---0#0#0#-19%DVTDocumentLocation2@75"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextBox.cpp0000000000000000^1566"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextBox.o" src/cpGUI/cpTextBox.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextBox.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextBox.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextBox.cpp9f77c70f948eb341^4ed2c410948eb341^---0#0#0#-19%DVTDocumentLocation2@75"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextBox.cpp0000000000000000^1574"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextBox.o" src/cpGUI/cpTextBox.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextBox.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextBox.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextInputBox.o" /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextInputBox.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328026395.317042
-e328026396.131026
+s328130668.826490
+e328130670.513973
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextInputBox.o
@@ -1708,11 +1886,11 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextInputBox.cppc43e511b498db341^df89211c498db341^---0#0#0#-19%DVTDocumentLocation2@80"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextInputBox.cpp0000000000000000^1586"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextInputBox.o" src/cpGUI/cpTextInputBox.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextInputBox.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextInputBox.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextInputBox.cpp2bdfd36ce08eb341^14ae836ee08eb341^---0#0#0#-19%DVTDocumentLocation2@80"file://localhost/Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextInputBox.cpp0000000000000000^1594"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextInputBox.o" src/cpGUI/cpTextInputBox.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/src/cpGUI/cpTextInputBox.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/cpTextInputBox.o"
 
 CCompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/main_server.o" /Users/drew/Desktop/sfml-platformer/main_server.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-s328032608.690691
-e328032609.153552
+s328111899.698049
+e328111900.145942
 r1
 xCompileC
 xbuild/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/main_server.o
@@ -1721,7 +1899,7 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection59"Compile /Users/drew/Desktop/sfml-platformer/main_server.cpp68e7b060618db341^ec4e2761618db341^---0#0#0#-19%DVTDocumentLocation2@67"file://localhost/Users/drew/Desktop/sfml-platformer/main_server.cpp0000000000000000^1554"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/main_server.o" main_server.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer copy-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/main_server.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/main_server.o"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection59"Compile /Users/drew/Desktop/sfml-platformer/main_server.cpp25cab21b978eb341^9a5b251c978eb341^---0#0#0#-19%DVTDocumentLocation2@67"file://localhost/Users/drew/Desktop/sfml-platformer/main_server.cpp0000000000000000^1562"CompileC "build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/main_server.o" main_server.cpp normal i386 c++ com.apple.compilers.llvmgcc42    cd /Users/drew/Desktop/sfml-platformer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -DPLATFORMER_CLIENT -fasm-blocks -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-generated-files.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-own-target-headers.hmap" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-all-target-headers.hmap" -iquote "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Platformer_Server-project-headers.hmap" -I/Users/drew/Desktop/sfml-platformer/include "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources/i386" "-I/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/DerivedSources" -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -c /Users/drew/Desktop/sfml-platformer/main_server.cpp -o "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/main_server.o"
 
 CCpResource resources/MIASWFTE.TTF "./Platformer copy.app/Contents/Resources/MIASWFTE.TTF"
 s328026389.647010
@@ -1732,6 +1910,15 @@ xresources/MIASWFTE.TTF
 x./Platformer copy.app/Contents/Resources/MIASWFTE.TTF
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Copy ./Platformer copy.app/Contents/Resources/MIASWFTE.TTFd2aba515498db341^b77ea615498db341^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/MIASWFTE.TTF0000204d2205f041^370"CpResource resources/MIASWFTE.TTF "./Platformer copy.app/Contents/Resources/MIASWFTE.TTF"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/MIASWFTE.TTF "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources"
 
+CCpResource resources/MIASWFTE.TTF ./Platformer_Server.app/Contents/Resources/MIASWFTE.TTF
+s328111113.148517
+e328111113.151306
+r1
+xCpResource
+xresources/MIASWFTE.TTF
+x./Platformer_Server.app/Contents/Resources/MIASWFTE.TTF
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Copy ./Platformer_Server.app/Contents/Resources/MIASWFTE.TTFc30f2609948eb341^23bf2609948eb341^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/MIASWFTE.TTF0000204d2205f041^370"CpResource resources/MIASWFTE.TTF ./Platformer_Server.app/Contents/Resources/MIASWFTE.TTF    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/MIASWFTE.TTF /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources
+
 CCpResource resources/Untitled.pxi "./Platformer copy.app/Contents/Resources/Untitled.pxi"
 s328026389.654225
 e328026389.656369
@@ -1740,6 +1927,15 @@ xCpResource
 xresources/Untitled.pxi
 x./Platformer copy.app/Contents/Resources/Untitled.pxi
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Copy ./Platformer copy.app/Contents/Resources/Untitled.pxiec84a715498db341^cc07a815498db341^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/Untitled.pxi0000204d2205f041^370"CpResource resources/Untitled.pxi "./Platformer copy.app/Contents/Resources/Untitled.pxi"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/Untitled.pxi "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources"
+
+CCpResource resources/Untitled.pxi ./Platformer_Server.app/Contents/Resources/Untitled.pxi
+s328111113.172414
+e328111113.175538
+r1
+xCpResource
+xresources/Untitled.pxi
+x./Platformer_Server.app/Contents/Resources/Untitled.pxi
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Copy ./Platformer_Server.app/Contents/Resources/Untitled.pxi2f332c09948eb341^bfee2c09948eb341^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/Untitled.pxi0000204d2205f041^370"CpResource resources/Untitled.pxi ./Platformer_Server.app/Contents/Resources/Untitled.pxi    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/Untitled.pxi /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources
 
 CCpResource resources/box.bmp "./Platformer copy.app/Contents/Resources/box.bmp"
 s328026389.631812
@@ -1750,6 +1946,15 @@ xresources/box.bmp
 x./Platformer copy.app/Contents/Resources/box.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"Copy ./Platformer copy.app/Contents/Resources/box.bmp81d1a115498db341^200ca415498db341^---0#0#0#-19%DVTDocumentLocation2@102"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/box.bmp0000204d2205f041^355"CpResource resources/box.bmp "./Platformer copy.app/Contents/Resources/box.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/box.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources"
 
+CCpResource resources/box.bmp ./Platformer_Server.app/Contents/Resources/box.bmp
+s328111113.102029
+e328111113.143154
+r1
+xCpResource
+xresources/box.bmp
+x./Platformer_Server.app/Contents/Resources/box.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection55"Copy ./Platformer_Server.app/Contents/Resources/box.bmp562c1a09948eb341^d2a82409948eb341^---0#0#0#-19%DVTDocumentLocation2@102"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/box.bmp0000204d2205f041^355"CpResource resources/box.bmp ./Platformer_Server.app/Contents/Resources/box.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/box.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources
+
 CCpResource resources/character_01.bmp "./Platformer copy.app/Contents/Resources/character_01.bmp"
 s328026389.640950
 e328026389.646619
@@ -1758,6 +1963,15 @@ xCpResource
 xresources/character_01.bmp
 x./Platformer copy.app/Contents/Resources/character_01.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection62"Copy ./Platformer copy.app/Contents/Resources/character_01.bmp5b25a415498db341^228aa515498db341^---0#0#0#-19%DVTDocumentLocation2@111"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/character_01.bmp0000204d2205f041^382"CpResource resources/character_01.bmp "./Platformer copy.app/Contents/Resources/character_01.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/character_01.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources"
+
+CCpResource resources/character_01.bmp ./Platformer_Server.app/Contents/Resources/character_01.bmp
+s328111113.142648
+e328111113.147475
+r1
+xCpResource
+xresources/character_01.bmp
+x./Platformer_Server.app/Contents/Resources/character_01.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection64"Copy ./Platformer_Server.app/Contents/Resources/character_01.bmp64932409948eb341^11c42509948eb341^---0#0#0#-19%DVTDocumentLocation2@111"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/character_01.bmp0000204d2205f041^382"CpResource resources/character_01.bmp ./Platformer_Server.app/Contents/Resources/character_01.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/character_01.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources
 
 CCpResource resources/character_02.bmp "./Platformer copy.app/Contents/Resources/character_02.bmp"
 s328026389.656658
@@ -1768,6 +1982,15 @@ xresources/character_02.bmp
 x./Platformer copy.app/Contents/Resources/character_02.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection62"Copy ./Platformer copy.app/Contents/Resources/character_02.bmp0326a815498db341^2657ad15498db341^---0#0#0#-19%DVTDocumentLocation2@111"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/character_02.bmp0000204d2205f041^382"CpResource resources/character_02.bmp "./Platformer copy.app/Contents/Resources/character_02.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/character_02.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources"
 
+CCpResource resources/character_02.bmp ./Platformer_Server.app/Contents/Resources/character_02.bmp
+s328111113.175657
+e328111113.209859
+r1
+xCpResource
+xresources/character_02.bmp
+x./Platformer_Server.app/Contents/Resources/character_02.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection64"Copy ./Platformer_Server.app/Contents/Resources/character_02.bmpe2052d09948eb341^1bba3509948eb341^---0#0#0#-19%DVTDocumentLocation2@111"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/character_02.bmp0000204d2205f041^382"CpResource resources/character_02.bmp ./Platformer_Server.app/Contents/Resources/character_02.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/character_02.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources
+
 CCpResource resources/level_01.bmp "./Platformer copy.app/Contents/Resources/level_01.bmp"
 s328026389.641054
 e328026389.646831
@@ -1776,6 +1999,15 @@ xCpResource
 xresources/level_01.bmp
 x./Platformer copy.app/Contents/Resources/level_01.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Copy ./Platformer copy.app/Contents/Resources/level_01.bmp4626a415498db341^9a99a515498db341^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/level_01.bmp0000204d2205f041^370"CpResource resources/level_01.bmp "./Platformer copy.app/Contents/Resources/level_01.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/level_01.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources"
+
+CCpResource resources/level_01.bmp ./Platformer_Server.app/Contents/Resources/level_01.bmp
+s328111113.143318
+e328111113.147697
+r1
+xCpResource
+xresources/level_01.bmp
+x./Platformer_Server.app/Contents/Resources/level_01.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Copy ./Platformer_Server.app/Contents/Resources/level_01.bmpfeb92409948eb341^5bd22509948eb341^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/level_01.bmp0000204d2205f041^370"CpResource resources/level_01.bmp ./Platformer_Server.app/Contents/Resources/level_01.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/level_01.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources
 
 CCpResource resources/level_solid.bmp "./Platformer copy.app/Contents/Resources/level_solid.bmp"
 s328026389.646713
@@ -1786,6 +2018,15 @@ xresources/level_solid.bmp
 x./Platformer copy.app/Contents/Resources/level_solid.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Copy ./Platformer copy.app/Contents/Resources/level_solid.bmp319aa515498db341^f06da615498db341^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/level_solid.bmp0000204d2205f041^379"CpResource resources/level_solid.bmp "./Platformer copy.app/Contents/Resources/level_solid.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/level_solid.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources"
 
+CCpResource resources/level_solid.bmp ./Platformer_Server.app/Contents/Resources/level_solid.bmp
+s328111113.147553
+e328111113.149805
+r1
+xCpResource
+xresources/level_solid.bmp
+x./Platformer_Server.app/Contents/Resources/level_solid.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection63"Copy ./Platformer_Server.app/Contents/Resources/level_solid.bmp35d32509948eb341^a35c2609948eb341^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/level_solid.bmp0000204d2205f041^379"CpResource resources/level_solid.bmp ./Platformer_Server.app/Contents/Resources/level_solid.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/level_solid.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources
+
 CCpResource resources/particle_01.bmp "./Platformer copy.app/Contents/Resources/particle_01.bmp"
 s328026389.650164
 e328026389.652560
@@ -1794,6 +2035,15 @@ xCpResource
 xresources/particle_01.bmp
 x./Platformer copy.app/Contents/Resources/particle_01.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Copy ./Platformer copy.app/Contents/Resources/particle_01.bmpe17ca615498db341^170fa715498db341^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/particle_01.bmp0000204d2205f041^379"CpResource resources/particle_01.bmp "./Platformer copy.app/Contents/Resources/particle_01.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/particle_01.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources"
+
+CCpResource resources/particle_01.bmp ./Platformer_Server.app/Contents/Resources/particle_01.bmp
+s328111113.150121
+e328111113.169287
+r1
+xCpResource
+xresources/particle_01.bmp
+x./Platformer_Server.app/Contents/Resources/particle_01.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection63"Copy ./Platformer_Server.app/Contents/Resources/particle_01.bmp68792609948eb341^4f5b2b09948eb341^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/particle_01.bmp0000204d2205f041^379"CpResource resources/particle_01.bmp ./Platformer_Server.app/Contents/Resources/particle_01.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/particle_01.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources
 
 CCpResource resources/particle_01.png "./Platformer copy.app/Contents/Resources/particle_01.png"
 s328026389.651570
@@ -1804,6 +2054,15 @@ xresources/particle_01.png
 x./Platformer copy.app/Contents/Resources/particle_01.png
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Copy ./Platformer copy.app/Contents/Resources/particle_01.png6fd8a615498db341^8e5ca715498db341^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/particle_01.png0000204d2205f041^379"CpResource resources/particle_01.png "./Platformer copy.app/Contents/Resources/particle_01.png"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/particle_01.png "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources"
 
+CCpResource resources/particle_01.png ./Platformer_Server.app/Contents/Resources/particle_01.png
+s328111113.151490
+e328111113.170053
+r1
+xCpResource
+xresources/particle_01.png
+x./Platformer_Server.app/Contents/Resources/particle_01.png
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection63"Copy ./Platformer_Server.app/Contents/Resources/particle_01.png9ed12609948eb341^938d2b09948eb341^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/particle_01.png0000204d2205f041^379"CpResource resources/particle_01.png ./Platformer_Server.app/Contents/Resources/particle_01.png    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/particle_01.png /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources
+
 CCpResource resources/step.bmp "./Platformer copy.app/Contents/Resources/step.bmp"
 s328026389.652655
 e328026389.654128
@@ -1812,6 +2071,15 @@ xCpResource
 xresources/step.bmp
 x./Platformer copy.app/Contents/Resources/step.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection54"Copy ./Platformer copy.app/Contents/Resources/step.bmp081ea715498db341^7575a715498db341^---0#0#0#-19%DVTDocumentLocation2@103"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/step.bmp0000204d2205f041^358"CpResource resources/step.bmp "./Platformer copy.app/Contents/Resources/step.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/step.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources"
+
+CCpResource resources/step.bmp ./Platformer_Server.app/Contents/Resources/step.bmp
+s328111113.169476
+e328111113.172141
+r1
+xCpResource
+xresources/step.bmp
+x./Platformer_Server.app/Contents/Resources/step.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection56"Copy ./Platformer_Server.app/Contents/Resources/step.bmpa7752b09948eb341^c6182c09948eb341^---0#0#0#-19%DVTDocumentLocation2@103"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/step.bmp0000204d2205f041^358"CpResource resources/step.bmp ./Platformer_Server.app/Contents/Resources/step.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/step.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources
 
 CCpResource resources/tileset.bmp "./Platformer copy.app/Contents/Resources/tileset.bmp"
 s328026389.653767
@@ -1822,6 +2090,15 @@ xresources/tileset.bmp
 x./Platformer copy.app/Contents/Resources/tileset.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection57"Copy ./Platformer copy.app/Contents/Resources/tileset.bmp0a67a715498db341^f112a815498db341^---0#0#0#-19%DVTDocumentLocation2@106"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/tileset.bmp0000204d2205f041^367"CpResource resources/tileset.bmp "./Platformer copy.app/Contents/Resources/tileset.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/tileset.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources"
 
+CCpResource resources/tileset.bmp ./Platformer_Server.app/Contents/Resources/tileset.bmp
+s328111113.170156
+e328111113.172869
+r1
+xCpResource
+xresources/tileset.bmp
+x./Platformer_Server.app/Contents/Resources/tileset.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection59"Copy ./Platformer_Server.app/Contents/Resources/tileset.bmp1b9d2b09948eb341^63422c09948eb341^---0#0#0#-19%DVTDocumentLocation2@106"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/tileset.bmp0000204d2205f041^367"CpResource resources/tileset.bmp ./Platformer_Server.app/Contents/Resources/tileset.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/tileset.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources
+
 CCpResource resources/wheel.bmp "./Platformer copy.app/Contents/Resources/wheel.bmp"
 s328026389.656593
 e328026389.659448
@@ -1830,6 +2107,15 @@ xCpResource
 xresources/wheel.bmp
 x./Platformer copy.app/Contents/Resources/wheel.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection55"Copy ./Platformer copy.app/Contents/Resources/wheel.bmpc827a815498db341^1bd6a815498db341^---0#0#0#-19%DVTDocumentLocation2@104"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/wheel.bmp0000204d2205f041^361"CpResource resources/wheel.bmp "./Platformer copy.app/Contents/Resources/wheel.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/wheel.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources"
+
+CCpResource resources/wheel.bmp ./Platformer_Server.app/Contents/Resources/wheel.bmp
+s328111113.172958
+e328111113.175886
+r1
+xCpResource
+xresources/wheel.bmp
+x./Platformer_Server.app/Contents/Resources/wheel.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection57"Copy ./Platformer_Server.app/Contents/Resources/wheel.bmpe7522c09948eb341^570a2d09948eb341^---0#0#0#-19%DVTDocumentLocation2@104"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/wheel.bmp0000204d2205f041^361"CpResource resources/wheel.bmp ./Platformer_Server.app/Contents/Resources/wheel.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/wheel.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources
 
 CCpResource src/cpGUI/CMakeLists.txt "./Platformer copy.app/Contents/Resources/CMakeLists.txt"
 s328026389.632119
@@ -1840,15 +2126,34 @@ xsrc/cpGUI/CMakeLists.txt
 x./Platformer copy.app/Contents/Resources/CMakeLists.txt
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Copy ./Platformer copy.app/Contents/Resources/CMakeLists.txtf4dda115498db341^a510a415498db341^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/CMakeLists.txt0000204d2205f041^376"CpResource src/cpGUI/CMakeLists.txt "./Platformer copy.app/Contents/Resources/CMakeLists.txt"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/src/cpGUI/CMakeLists.txt "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources"
 
+CCpResource src/cpGUI/CMakeLists.txt ./Platformer_Server.app/Contents/Resources/CMakeLists.txt
+s328111113.101160
+e328111113.142144
+r1
+xCpResource
+xsrc/cpGUI/CMakeLists.txt
+x./Platformer_Server.app/Contents/Resources/CMakeLists.txt
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection62"Copy ./Platformer_Server.app/Contents/Resources/CMakeLists.txt32021a09948eb341^2f692409948eb341^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/CMakeLists.txt0000204d2205f041^376"CpResource src/cpGUI/CMakeLists.txt ./Platformer_Server.app/Contents/Resources/CMakeLists.txt    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/src/cpGUI/CMakeLists.txt /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources
+
 CLd "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/MacOS/Platformer copy" normal i386
-s328042798.755946
-e328042798.805884
+s328057684.587507
+e328057684.642153
 r1
 xLd
 x/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/MacOS/Platformer copy
 xnormal
 xi386
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection93"Link /Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/MacOS/Platformer copyee95c12e898db341^7b69ce2e898db341^---0#0#0#--681"Ld "./Platformer copy.app/Contents/MacOS/Platformer copy" normal i386    cd /Users/drew/Desktop/sfml-platformer    /Developer/usr/bin/llvm-g++-4.2 -arch i386 -L/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -filelist "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Platformer copy.LinkFileList" -framework sfml-graphics -framework sfml-system -framework sfml-window -framework sfml-network -framework OpenGL -o "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/MacOS/Platformer copy"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection93"Link /Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/MacOS/Platformer copy10769654c38db341^8d63a454c38db341^---0#0#0#--681"Ld "./Platformer copy.app/Contents/MacOS/Platformer copy" normal i386    cd /Users/drew/Desktop/sfml-platformer    /Developer/usr/bin/llvm-g++-4.2 -arch i386 -L/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -filelist "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Platformer copy.LinkFileList" -framework sfml-graphics -framework sfml-system -framework sfml-window -framework sfml-network -framework OpenGL -o "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/MacOS/Platformer copy"
+
+CLd /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/MacOS/Platformer_Server normal i386
+s328131471.714749
+e328131471.764334
+r1
+xLd
+x/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/MacOS/Platformer_Server
+xnormal
+xi386
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection97"Link /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/MacOS/Platformer_Serverc809b78fe38eb341^afb1c38fe38eb341^---0#0#0#--687"Ld ./Platformer_Server.app/Contents/MacOS/Platformer_Server normal i386    cd /Users/drew/Desktop/sfml-platformer    /Developer/usr/bin/llvm-g++-4.2 -arch i386 -L/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer -F/Users/drew/Desktop/sfml-platformer/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64 -filelist "/Users/drew/Desktop/sfml-platformer/build/Platformer.build/Debug/Platformer Server.build/Objects-normal/i386/Platformer_Server.LinkFileList" -framework sfml-graphics -framework sfml-system -framework sfml-window -framework sfml-network -framework OpenGL -o /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/MacOS/Platformer_Server
 
 CPBXCp ../../../../Library/Frameworks/sfml-graphics.framework "./Platformer copy.app/Contents/Frameworks/sfml-graphics.framework"
 s328026397.107989
@@ -1868,6 +2173,15 @@ x/Library/Frameworks/sfml-graphics.framework
 x./Platformer copy.app/Contents/Frameworks/sfml-graphics.framework
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Copy ./Platformer copy.app/Contents/Frameworks/sfml-graphics.framework54e6ba43608db341^c956cb43608db341^---0#0#0#-19%DVTDocumentLocation2@120"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Frameworks/sfml-graphics.framework/0000000000000000^384"PBXCp /Library/Frameworks/sfml-graphics.framework "./Platformer copy.app/Contents/Frameworks/sfml-graphics.framework"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Library/Frameworks/sfml-graphics.framework "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Frameworks"
 
+CPBXCp /Library/Frameworks/sfml-graphics.framework ./Platformer_Server.app/Contents/Frameworks/sfml-graphics.framework
+s328111125.168560
+e328111125.899975
+r1
+xPBXCp
+x/Library/Frameworks/sfml-graphics.framework
+x./Platformer_Server.app/Contents/Frameworks/sfml-graphics.framework
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Copy ./Platformer_Server.app/Contents/Frameworks/sfml-graphics.framework15362b15948eb341^ae65e615948eb341^---0#0#0#-19%DVTDocumentLocation2@119"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Frameworks/sfml-graphics.framework0000204d2205f041^384"PBXCp /Library/Frameworks/sfml-graphics.framework ./Platformer_Server.app/Contents/Frameworks/sfml-graphics.framework    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Library/Frameworks/sfml-graphics.framework /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Frameworks
+
 CPBXCp /Library/Frameworks/sfml-system.framework "./Platformer copy.app/Contents/Frameworks/sfml-system.framework"
 s328026397.108182
 e328026397.244108
@@ -1876,6 +2190,15 @@ xPBXCp
 x/Library/Frameworks/sfml-system.framework
 x./Platformer copy.app/Contents/Frameworks/sfml-system.framework
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Copy ./Platformer copy.app/Contents/Frameworks/sfml-system.framework7bbd1b1d498db341^207e3e1d498db341^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Frameworks/sfml-system.framework0000204d2205f041^378"PBXCp /Library/Frameworks/sfml-system.framework "./Platformer copy.app/Contents/Frameworks/sfml-system.framework"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Library/Frameworks/sfml-system.framework "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Frameworks"
+
+CPBXCp /Library/Frameworks/sfml-system.framework ./Platformer_Server.app/Contents/Frameworks/sfml-system.framework
+s328111125.168777
+e328111125.476096
+r1
+xPBXCp
+x/Library/Frameworks/sfml-system.framework
+x./Platformer_Server.app/Contents/Frameworks/sfml-system.framework
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Copy ./Platformer_Server.app/Contents/Frameworks/sfml-system.framework57422b15948eb341^7ae27915948eb341^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Frameworks/sfml-system.framework0000204d2205f041^378"PBXCp /Library/Frameworks/sfml-system.framework ./Platformer_Server.app/Contents/Frameworks/sfml-system.framework    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Library/Frameworks/sfml-system.framework /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Frameworks
 
 CPBXCp /Library/Frameworks/sfml-window.framework "./Platformer copy.app/Contents/Frameworks/sfml-window.framework"
 s328026397.244314
@@ -1886,6 +2209,15 @@ x/Library/Frameworks/sfml-window.framework
 x./Platformer copy.app/Contents/Frameworks/sfml-window.framework
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Copy ./Platformer copy.app/Contents/Frameworks/sfml-window.framework3ca23e1d498db341^abd05c1d498db341^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Frameworks/sfml-window.framework0000204d2205f041^378"PBXCp /Library/Frameworks/sfml-window.framework "./Platformer copy.app/Contents/Frameworks/sfml-window.framework"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Library/Frameworks/sfml-window.framework "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Frameworks"
 
+CPBXCp /Library/Frameworks/sfml-window.framework ./Platformer_Server.app/Contents/Frameworks/sfml-window.framework
+s328111125.476229
+e328111125.823427
+r1
+xPBXCp
+x/Library/Frameworks/sfml-window.framework
+x./Platformer_Server.app/Contents/Frameworks/sfml-window.framework
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Copy ./Platformer_Server.app/Contents/Frameworks/sfml-window.frameworkdff97915948eb341^f7ccd215948eb341^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Frameworks/sfml-window.framework0000204d2205f041^378"PBXCp /Library/Frameworks/sfml-window.framework ./Platformer_Server.app/Contents/Frameworks/sfml-window.framework    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Library/Frameworks/sfml-window.framework /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Frameworks
+
 CPBXCp resources/MIASWFTE.TTF "./Platformer copy.app/Contents/Resources/resources/MIASWFTE.TTF"
 s328026397.403306
 e328026397.406009
@@ -1894,6 +2226,15 @@ xPBXCp
 xresources/MIASWFTE.TTF
 x./Platformer copy.app/Contents/Resources/resources/MIASWFTE.TTF
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Copy ./Platformer copy.app/Contents/Resources/resources/MIASWFTE.TTF7b49671d498db341^62f5671d498db341^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/resources/MIASWFTE.TTF0000204d2205f041^385"PBXCp resources/MIASWFTE.TTF "./Platformer copy.app/Contents/Resources/resources/MIASWFTE.TTF"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/MIASWFTE.TTF "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources/resources"
+
+CPBXCp resources/MIASWFTE.TTF ./Platformer_Server.app/Contents/Resources/resources/MIASWFTE.TTF
+s328111125.909038
+e328111125.911619
+r1
+xPBXCp
+xresources/MIASWFTE.TTF
+x./Platformer_Server.app/Contents/Resources/resources/MIASWFTE.TTF
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Copy ./Platformer_Server.app/Contents/Resources/resources/MIASWFTE.TTFfdc1e815948eb341^8c66e915948eb341^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/MIASWFTE.TTF0000204d2205f041^385"PBXCp resources/MIASWFTE.TTF ./Platformer_Server.app/Contents/Resources/resources/MIASWFTE.TTF    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/MIASWFTE.TTF /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources
 
 CPBXCp resources/Untitled.pxi "./Platformer copy.app/Contents/Resources/resources/Untitled.pxi"
 s328026397.410683
@@ -1904,6 +2245,15 @@ xresources/Untitled.pxi
 x./Platformer copy.app/Contents/Resources/resources/Untitled.pxi
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Copy ./Platformer copy.app/Contents/Resources/resources/Untitled.pxi132d691d498db341^9d126c1d498db341^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/resources/Untitled.pxi0000204d2205f041^385"PBXCp resources/Untitled.pxi "./Platformer copy.app/Contents/Resources/resources/Untitled.pxi"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/Untitled.pxi "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources/resources"
 
+CPBXCp resources/Untitled.pxi ./Platformer_Server.app/Contents/Resources/resources/Untitled.pxi
+s328111125.917448
+e328111125.919605
+r1
+xPBXCp
+xresources/Untitled.pxi
+x./Platformer_Server.app/Contents/Resources/resources/Untitled.pxi
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Copy ./Platformer_Server.app/Contents/Resources/resources/Untitled.pxieee9ea15948eb341^d881eb15948eb341^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/Untitled.pxi0000204d2205f041^385"PBXCp resources/Untitled.pxi ./Platformer_Server.app/Contents/Resources/resources/Untitled.pxi    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/Untitled.pxi /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources
+
 CPBXCp resources/box.bmp "./Platformer copy.app/Contents/Resources/resources/box.bmp"
 s328026397.395286
 e328026397.397633
@@ -1912,6 +2262,15 @@ xPBXCp
 xresources/box.bmp
 x./Platformer copy.app/Contents/Resources/resources/box.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection63"Copy ./Platformer copy.app/Contents/Resources/resources/box.bmpe23b651d498db341^6dca651d498db341^---0#0#0#-19%DVTDocumentLocation2@112"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/resources/box.bmp0000204d2205f041^370"PBXCp resources/box.bmp "./Platformer copy.app/Contents/Resources/resources/box.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/box.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources/resources"
+
+CPBXCp resources/box.bmp ./Platformer_Server.app/Contents/Resources/resources/box.bmp
+s328111125.901951
+e328111125.905492
+r1
+xPBXCp
+xresources/box.bmp
+x./Platformer_Server.app/Contents/Resources/resources/box.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Copy ./Platformer_Server.app/Contents/Resources/resources/box.bmpdcf5e615948eb341^c7dae715948eb341^---0#0#0#-19%DVTDocumentLocation2@112"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/box.bmp0000204d2205f041^370"PBXCp resources/box.bmp ./Platformer_Server.app/Contents/Resources/resources/box.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/box.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources
 
 CPBXCp resources/character_01.bmp "./Platformer copy.app/Contents/Resources/resources/character_01.bmp"
 s328026397.397929
@@ -1922,6 +2281,15 @@ xresources/character_01.bmp
 x./Platformer copy.app/Contents/Resources/resources/character_01.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Copy ./Platformer copy.app/Contents/Resources/resources/character_01.bmp6ce9651d498db341^460c671d498db341^---0#0#0#-19%DVTDocumentLocation2@121"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/resources/character_01.bmp0000204d2205f041^397"PBXCp resources/character_01.bmp "./Platformer copy.app/Contents/Resources/resources/character_01.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/character_01.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources/resources"
 
+CPBXCp resources/character_01.bmp ./Platformer_Server.app/Contents/Resources/resources/character_01.bmp
+s328111125.905660
+e328111125.908476
+r1
+xPBXCp
+xresources/character_01.bmp
+x./Platformer_Server.app/Contents/Resources/resources/character_01.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Copy ./Platformer_Server.app/Contents/Resources/resources/character_01.bmp6cebe715948eb341^b797e815948eb341^---0#0#0#-19%DVTDocumentLocation2@121"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/character_01.bmp0000204d2205f041^397"PBXCp resources/character_01.bmp ./Platformer_Server.app/Contents/Resources/resources/character_01.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/character_01.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources
+
 CPBXCp resources/character_02.bmp "./Platformer copy.app/Contents/Resources/resources/character_02.bmp"
 s328026397.395097
 e328026397.397590
@@ -1930,6 +2298,15 @@ xPBXCp
 xresources/character_02.bmp
 x./Platformer copy.app/Contents/Resources/resources/character_02.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Copy ./Platformer copy.app/Contents/Resources/resources/character_02.bmp2235651d498db341^9bc7651d498db341^---0#0#0#-19%DVTDocumentLocation2@121"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/resources/character_02.bmp0000204d2205f041^397"PBXCp resources/character_02.bmp "./Platformer copy.app/Contents/Resources/resources/character_02.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/character_02.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources/resources"
+
+CPBXCp resources/character_02.bmp ./Platformer_Server.app/Contents/Resources/resources/character_02.bmp
+s328111125.901763
+e328111125.905526
+r1
+xPBXCp
+xresources/character_02.bmp
+x./Platformer_Server.app/Contents/Resources/resources/character_02.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Copy ./Platformer_Server.app/Contents/Resources/resources/character_02.bmp35f1e615948eb341^78d5e715948eb341^---0#0#0#-19%DVTDocumentLocation2@121"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/character_02.bmp0000204d2205f041^397"PBXCp resources/character_02.bmp ./Platformer_Server.app/Contents/Resources/resources/character_02.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/character_02.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources
 
 CPBXCp resources/level_01.bmp "./Platformer copy.app/Contents/Resources/resources/level_01.bmp"
 s328026397.397977
@@ -1940,6 +2317,15 @@ xresources/level_01.bmp
 x./Platformer copy.app/Contents/Resources/resources/level_01.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Copy ./Platformer copy.app/Contents/Resources/resources/level_01.bmpb3f0651d498db341^6134671d498db341^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/resources/level_01.bmp0000204d2205f041^385"PBXCp resources/level_01.bmp "./Platformer copy.app/Contents/Resources/resources/level_01.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/level_01.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources/resources"
 
+CPBXCp resources/level_01.bmp ./Platformer_Server.app/Contents/Resources/resources/level_01.bmp
+s328111125.905853
+e328111125.908897
+r1
+xPBXCp
+xresources/level_01.bmp
+x./Platformer_Server.app/Contents/Resources/resources/level_01.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Copy ./Platformer_Server.app/Contents/Resources/resources/level_01.bmp62f5e715948eb341^57b1e815948eb341^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/level_01.bmp0000204d2205f041^385"PBXCp resources/level_01.bmp ./Platformer_Server.app/Contents/Resources/resources/level_01.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/level_01.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources
+
 CPBXCp resources/level_solid.bmp "./Platformer copy.app/Contents/Resources/resources/level_solid.bmp"
 s328026397.402667
 e328026397.404995
@@ -1948,6 +2334,15 @@ xPBXCp
 xresources/level_solid.bmp
 x./Platformer copy.app/Contents/Resources/resources/level_solid.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Copy ./Platformer copy.app/Contents/Resources/resources/level_solid.bmp8121671d498db341^01c2671d498db341^---0#0#0#-19%DVTDocumentLocation2@120"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/resources/level_solid.bmp0000204d2205f041^394"PBXCp resources/level_solid.bmp "./Platformer copy.app/Contents/Resources/resources/level_solid.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/level_solid.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources/resources"
+
+CPBXCp resources/level_solid.bmp ./Platformer_Server.app/Contents/Resources/resources/level_solid.bmp
+s328111125.908625
+e328111125.911222
+r1
+xPBXCp
+xresources/level_solid.bmp
+x./Platformer_Server.app/Contents/Resources/resources/level_solid.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Copy ./Platformer_Server.app/Contents/Resources/resources/level_solid.bmp04a9e815948eb341^a94ce915948eb341^---0#0#0#-19%DVTDocumentLocation2@120"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/level_solid.bmp0000204d2205f041^394"PBXCp resources/level_solid.bmp ./Platformer_Server.app/Contents/Resources/resources/level_solid.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/level_solid.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources
 
 CPBXCp resources/particle_01.bmp "./Platformer copy.app/Contents/Resources/resources/particle_01.bmp"
 s328026397.405490
@@ -1958,6 +2353,15 @@ xresources/particle_01.bmp
 x./Platformer copy.app/Contents/Resources/resources/particle_01.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Copy ./Platformer copy.app/Contents/Resources/resources/particle_01.bmpe0d8671d498db341^3867681d498db341^---0#0#0#-19%DVTDocumentLocation2@120"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/resources/particle_01.bmp0000204d2205f041^394"PBXCp resources/particle_01.bmp "./Platformer copy.app/Contents/Resources/resources/particle_01.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/particle_01.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources/resources"
 
+CPBXCp resources/particle_01.bmp ./Platformer_Server.app/Contents/Resources/resources/particle_01.bmp
+s328111125.911467
+e328111125.914088
+r1
+xPBXCp
+xresources/particle_01.bmp
+x./Platformer_Server.app/Contents/Resources/resources/particle_01.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Copy ./Platformer_Server.app/Contents/Resources/resources/particle_01.bmp2979e915948eb341^6e17ea15948eb341^---0#0#0#-19%DVTDocumentLocation2@120"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/particle_01.bmp0000204d2205f041^394"PBXCp resources/particle_01.bmp ./Platformer_Server.app/Contents/Resources/resources/particle_01.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/particle_01.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources
+
 CPBXCp resources/particle_01.png "./Platformer copy.app/Contents/Resources/resources/particle_01.png"
 s328026397.406207
 e328026397.408484
@@ -1966,6 +2370,15 @@ xPBXCp
 xresources/particle_01.png
 x./Platformer copy.app/Contents/Resources/resources/particle_01.png
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Copy ./Platformer copy.app/Contents/Resources/resources/particle_01.png1407681d498db341^1496681d498db341^---0#0#0#-19%DVTDocumentLocation2@120"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/resources/particle_01.png0000204d2205f041^394"PBXCp resources/particle_01.png "./Platformer copy.app/Contents/Resources/resources/particle_01.png"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/particle_01.png "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources/resources"
+
+CPBXCp resources/particle_01.png ./Platformer_Server.app/Contents/Resources/resources/particle_01.png
+s328111125.912156
+e328111125.915162
+r1
+xPBXCp
+xresources/particle_01.png
+x./Platformer_Server.app/Contents/Resources/resources/particle_01.png
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Copy ./Platformer_Server.app/Contents/Resources/resources/particle_01.pngfc8ee915948eb341^994bea15948eb341^---0#0#0#-19%DVTDocumentLocation2@120"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/particle_01.png0000204d2205f041^394"PBXCp resources/particle_01.png ./Platformer_Server.app/Contents/Resources/resources/particle_01.png    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/particle_01.png /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources
 
 CPBXCp resources/step.bmp "./Platformer copy.app/Contents/Resources/resources/step.bmp"
 s328026397.408027
@@ -1976,6 +2389,15 @@ xresources/step.bmp
 x./Platformer copy.app/Contents/Resources/resources/step.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection64"Copy ./Platformer copy.app/Contents/Resources/resources/step.bmpd07e681d498db341^f015691d498db341^---0#0#0#-19%DVTDocumentLocation2@113"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/resources/step.bmp0000204d2205f041^373"PBXCp resources/step.bmp "./Platformer copy.app/Contents/Resources/resources/step.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/step.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources/resources"
 
+CPBXCp resources/step.bmp ./Platformer_Server.app/Contents/Resources/resources/step.bmp
+s328111125.914623
+e328111125.916906
+r1
+xPBXCp
+xresources/step.bmp
+x./Platformer_Server.app/Contents/Resources/resources/step.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"Copy ./Platformer_Server.app/Contents/Resources/resources/step.bmp9830ea15948eb341^f6d0ea15948eb341^---0#0#0#-19%DVTDocumentLocation2@113"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/step.bmp0000204d2205f041^373"PBXCp resources/step.bmp ./Platformer_Server.app/Contents/Resources/resources/step.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/step.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources
+
 CPBXCp resources/tileset.bmp "./Platformer copy.app/Contents/Resources/resources/tileset.bmp"
 s328026397.408652
 e328026397.411176
@@ -1984,6 +2406,15 @@ xPBXCp
 xresources/tileset.bmp
 x./Platformer copy.app/Contents/Resources/resources/tileset.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Copy ./Platformer copy.app/Contents/Resources/resources/tileset.bmp61a7681d498db341^b745691d498db341^---0#0#0#-19%DVTDocumentLocation2@116"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/resources/tileset.bmp0000204d2205f041^382"PBXCp resources/tileset.bmp "./Platformer copy.app/Contents/Resources/resources/tileset.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/tileset.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources/resources"
+
+CPBXCp resources/tileset.bmp ./Platformer_Server.app/Contents/Resources/resources/tileset.bmp
+s328111125.915357
+e328111125.917958
+r1
+xPBXCp
+xresources/tileset.bmp
+x./Platformer_Server.app/Contents/Resources/resources/tileset.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection69"Copy ./Platformer_Server.app/Contents/Resources/resources/tileset.bmpbf61ea15948eb341^6002eb15948eb341^---0#0#0#-19%DVTDocumentLocation2@116"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/tileset.bmp0000204d2205f041^382"PBXCp resources/tileset.bmp ./Platformer_Server.app/Contents/Resources/resources/tileset.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/tileset.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources
 
 CPBXCp resources/wheel.bmp "./Platformer copy.app/Contents/Resources/resources/wheel.bmp"
 s328026397.411334
@@ -1994,6 +2425,15 @@ xresources/wheel.bmp
 x./Platformer copy.app/Contents/Resources/resources/wheel.bmp
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Copy ./Platformer copy.app/Contents/Resources/resources/wheel.bmp6957691d498db341^f10e6c1d498db341^---0#0#0#-19%DVTDocumentLocation2@114"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer%20copy.app/Contents/Resources/resources/wheel.bmp0000204d2205f041^376"PBXCp resources/wheel.bmp "./Platformer copy.app/Contents/Resources/resources/wheel.bmp"    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/wheel.bmp "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Resources/resources"
 
+CPBXCp resources/wheel.bmp ./Platformer_Server.app/Contents/Resources/resources/wheel.bmp
+s328111125.918163
+e328111125.920284
+r1
+xPBXCp
+xresources/wheel.bmp
+x./Platformer_Server.app/Contents/Resources/resources/wheel.bmp
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Copy ./Platformer_Server.app/Contents/Resources/resources/wheel.bmp3717eb15948eb341^459feb15948eb341^---0#0#0#-19%DVTDocumentLocation2@114"file://localhost/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources/wheel.bmp0000204d2205f041^376"PBXCp resources/wheel.bmp ./Platformer_Server.app/Contents/Resources/resources/wheel.bmp    cd /Users/drew/Desktop/sfml-platformer    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/drew/Desktop/sfml-platformer/resources/wheel.bmp /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Resources/resources
+
 CProcessInfoPlistFile "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Info.plist" Info.plist
 s328026389.616128
 e328026389.621968
@@ -2003,11 +2443,28 @@ x/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Info.plist
 xInfo.plist
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Process Info.plistc7d89d15498db341^90bea115498db341^---0#0#0#-19%DVTDocumentLocation2@62"file://localhost/Users/drew/Desktop/sfml-platformer/Info.plist0000000000000000^369"ProcessInfoPlistFile "./Platformer copy.app/Contents/Info.plist" Info.plist    cd /Users/drew/Desktop/sfml-platformer    builtin-infoPlistUtility Info.plist -genpkginfo "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/PkgInfo" -expandbuildsettings -platform macosx -o "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app/Contents/Info.plist"
 
+CProcessInfoPlistFile /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Info.plist Info.plist
+s328111113.026142
+e328111113.098724
+r1
+xProcessInfoPlistFile
+x/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Info.plist
+xInfo.plist
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Process Info.plist9bca0609948eb341^84451909948eb341^---0#0#0#-19%DVTDocumentLocation2@62"file://localhost/Users/drew/Desktop/sfml-platformer/Info.plist0000000000000000^369"ProcessInfoPlistFile ./Platformer_Server.app/Contents/Info.plist Info.plist    cd /Users/drew/Desktop/sfml-platformer    builtin-infoPlistUtility Info.plist -genpkginfo /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app/Contents/Info.plist
+
 CTouch "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app"
-s328042798.812379
-e328042798.820981
+s328057684.647263
+e328057684.653900
 r1
 xTouch
 x/Users/drew/Desktop/sfml-platformer/./Platformer copy.app
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection63"Touch /Users/drew/Desktop/sfml-platformer/./Platformer copy.app0c05d02e898db341^fd30d22e898db341^---0#0#0#--155"Touch "./Platformer copy.app"    cd /Users/drew/Desktop/sfml-platformer    /usr/bin/touch -c "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app"
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection63"Touch /Users/drew/Desktop/sfml-platformer/./Platformer copy.app12c0a554c38db341^4166a754c38db341^---0#0#0#--155"Touch "./Platformer copy.app"    cd /Users/drew/Desktop/sfml-platformer    /usr/bin/touch -c "/Users/drew/Desktop/sfml-platformer/./Platformer copy.app"
+
+CTouch /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app
+s328131471.769774
+e328131471.777793
+r1
+xTouch
+x/Users/drew/Desktop/sfml-platformer/./Platformer_Server.app
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Touch /Users/drew/Desktop/sfml-platformer/./Platformer_Server.appc11cc58fe38eb341^3a22c78fe38eb341^---0#0#0#--155"Touch ./Platformer_Server.app    cd /Users/drew/Desktop/sfml-platformer    /usr/bin/touch -c /Users/drew/Desktop/sfml-platformer/./Platformer_Server.app
 

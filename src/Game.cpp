@@ -28,7 +28,11 @@
 #include "Platform.h"
 #include "Resource.h"
 #include "cpGUI.h"
+#include "Logger.h"
+#include "Packet.h"
+#include <sstream>
 #include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
 
 #include <iostream>
 using namespace std;
@@ -37,6 +41,7 @@ sf::Font *pf::Game::labelFont = 0;
 
 pf::Game::Game(sf::RenderWindow& renderWindow) {
     localCharacter = NULL;
+    world = NULL;
     
     // Initial game state
     screen = Screen_Main;
@@ -79,6 +84,13 @@ void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
     
     joinButton = new cp::cpButton(&renderWindow, menuContainer, "Join Game", 0, 0, 50, 16);
     
+    // Joining screen
+    
+    joiningLabel = new sf::String();
+    joiningLabel->SetColor(sf::Color::White);
+    joiningLabel->SetSize(24);
+    SetJoiningLabelText("Connecting...");
+    
     // Menu background shape/sprite
     
     static sf::Color screenBackgroundFill = sf::Color(100, 100, 100);
@@ -119,6 +131,12 @@ pf::Game::~Game() {
         delete view;
         view = NULL;
     }
+}
+
+void pf::Game::SetJoiningLabelText(char *text) {
+    joiningLabel->SetText(text);
+    sf::FloatRect rect = joiningLabel->GetRect();
+    joiningLabel->SetCenter(rect.GetWidth() / 2, rect.GetHeight() / 2);
 }
 
 void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeight) {
@@ -173,6 +191,16 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             
             break;
         case Screen_Joining:
+            target.SetView(target.GetDefaultView());
+            target.Clear(sf::Color::Black);
+            
+            screenBackground->SetScale(target.GetWidth(), target.GetHeight());
+            target.Draw(*screenBackground);
+            
+            // Render joining label
+            joiningLabel->SetPosition(renderWidth / 2, renderHeight / 2);
+            target.Draw(*joiningLabel);
+            
             break;
     }
 }
@@ -181,33 +209,49 @@ void pf::Game::JoinGame() {
     if (screen != Screen_Main)
         return;
                 
-    // Set up variables
+    // Get username
     const char *tempName = nameBox->GetLabelText().c_str();
     playerName = new char[strlen(tempName)];
     strcpy(playerName, tempName);
+    
+    // Get server IP
+    serverIP = sf::IPAddress(ipBox->GetLabelText());
     
     // Verify inputs
     if (!playerName || !strlen(playerName)) {
         nameBox->SetFocus(true);
         return;
+    } else if (!serverIP.IsValid()) {
+        ipBox->SetFocus(true);
+        return;
     }
     
-    // TEMPORARY: Initialize tileset resource
-    pf::Resource *tileset = pf::Resource::GetOrLoadResource("resources/tileset.bmp");
+    // Set port
+    serverPort = 25565;
     
-    // Initialize world
-    world = new World(Resource::GetOrLoadResource("resources/level_01.bmp"), tileset);
+    // Set joining label text
+    SetJoiningLabelText((char *)("Connecting to " + serverIP.ToString() + "...").c_str());
     
-    // Spawn local character
-    localCharacter = new pf::Character(world, Resource::GetOrLoadResource("resources/character_02.bmp"), playerName);
-    localCharacter->SetPosition(60, 30);
-    world->AddEntity(*localCharacter);
+    // Change screen to loading screen
+    SetScreen(Screen_Joining);
     
-    // Set zoom level
-    followCharacter = true;
+    // Connect to server
+    socket = new sf::SocketTCP();
+    if (socket->Connect(serverPort, serverIP) != sf::Socket::Done) {
+        std::stringstream portStr;
+        portStr << serverPort;
+        SetJoiningLabelText((char *)("Failed to connect to " + serverIP.ToString() + ":" + portStr.str()).c_str());
+        pf::Logger::LogFatal("Failed to connect to %s:%d", serverIP.ToString().c_str(), serverPort);
+        return;
+    }
+    pf::Logger::LogInfo("Connected to %s:%d", serverIP.ToString().c_str(), serverPort);
     
-    // Change screen to game screenBackground
-    SetScreen(Screen_Game);
+    // Log in
+    SetJoiningLabelText("Logging in...");
+    pf::Logger::LogInfo("Logging in as \"%s\"", playerName);
+    
+    // Send login packet
+    pf::Packet::LoginRequest(playerName).Send(socket);
 }
 
 void pf::Game::Tick(sf::Input& input, float frametime) {

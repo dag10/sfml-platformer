@@ -22,6 +22,8 @@
 #include "Logger.h"
 #include "World.h"
 #include "Resource.h"
+#include "ClientInstance.h"
+#include "Packet.h"
 
 pf::Server::Server(unsigned short port) {
     shouldQuit = false;
@@ -52,20 +54,59 @@ pf::Server::Server(unsigned short port) {
         pf::Logger::LogFatal("Failed to listen on port %d", port);
         return;
     }
+    socketSelector.Add(*listenSocket);
     
-    // Accept connections
+    // Main loop
     
     pf::Logger::LogInfo("Listening on port %d", port);
     while (!shouldQuit) {
-        sf::IPAddress clientAddress;
-        sf::SocketTCP client;
-        if (listenSocket->Accept(client, &clientAddress) != sf::Socket::Done) {
-            pf::Logger::LogError("Failed to accept connection [%s]", clientAddress.ToString().c_str());
-        }
+        int readySockets = socketSelector.Wait(1000.f);
         
-        pf::Logger::LogInfo("A client connected [%s]", clientAddress.ToString().c_str());
-        client.Send("Hello, World!\n\0", 15);
-        client.Close();
+        for (int i = 0; i < readySockets; i++) {
+            sf::SocketTCP socket = socketSelector.GetSocketReady(i);
+            
+            if (socket == *listenSocket) {
+                sf::IPAddress clientAddress;
+                sf::SocketTCP clientSocket;
+                
+                if (listenSocket->Accept(clientSocket, &clientAddress) != sf::Socket::Done) {
+                    pf::Logger::LogError("Failed to accept connection [%s]", clientAddress.ToString().c_str());
+                }
+        
+                pf::ClientInstance *client = new pf::ClientInstance(this, &clientSocket, &clientAddress);
+                socketSelector.Add(clientSocket);
+                clientMap[clientSocket] = client;
+                
+            } else {
+                pf::ClientInstance *client = clientMap[socket];
+                size_t read;
+                char packetType;
+                int status = socket.Receive(&packetType, sizeof(packetType), read);
+                
+                if (status != sf::Socket::Done) {
+                    if (status == sf::Socket::Disconnected)
+                        pf::Logger::LogInfo("A client disconnected: \"%s\" [%s]",
+                                            (client->GetUsername() ? client->GetUsername() : ""),
+                                            client->GetAddress()->ToString().c_str());
+                    else
+                        pf::Logger::LogError("Error while receiving from socket. Disconnecting client: \"%s\" [%s]",
+                                            (client->GetUsername() ? client->GetUsername() : ""),
+                                            client->GetAddress()->ToString().c_str());
+                    
+                    socketSelector.Remove(socket);
+                    socket.Close();
+                    continue;
+                }
+                
+                switch (packetType) {
+                    case pf::Packet::LoginRequest::packetType:
+                        pf::Packet::LoginRequest packet(&socket);
+                        client->SetUsername(packet.username->string);
+                        pf::Logger::LogInfo("Player \"%s\" connected from [%s]", packet.username->string, client->GetAddress()->ToString().c_str());
+                        break;
+                }
+            }
+        }
     }
 }
 

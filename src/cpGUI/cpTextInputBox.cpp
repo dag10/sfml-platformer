@@ -152,7 +152,7 @@ void cpTextInputBox::ProcessTextInput(sf::Event *evt)
         int textSize = tempText.size();
         unsigned short unicode = evt->Text.Unicode;
 
-        if (unicode == 8) //If backspace
+        if (unicode == 8 || unicode == 127) //If backspace
 		{
             if (textSize > 0)
                 tempText.erase(textSize - 1, 1);

@@ -73,6 +73,9 @@
 		3A614A391364E1A500A7FE66 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A321364E1A500A7FE66 /* World.cpp */; };
 		3ABE8FAD138C0DD5006D0F43 /* character_02.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 3ABE8FAC138C0DD5006D0F43 /* character_02.bmp */; };
 		3ABE8FAF138C0DFC006D0F43 /* character_02.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3ABE8FAC138C0DD5006D0F43 /* character_02.bmp */; };
+		3ACCDB61138EA66600C75F0F /* Packet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ACCDB60138EA66600C75F0F /* Packet.cpp */; };
+		3ACCDB62138EA66600C75F0F /* Packet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ACCDB60138EA66600C75F0F /* Packet.cpp */; };
+		3ACCDB64138EB80B00C75F0F /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACCDB63138EB80B00C75F0F /* sfml-network.framework */; };
 		3AD6318D138BF47400D5806E /* BouncyParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD63180138BF47400D5806E /* BouncyParticle.cpp */; };
 		3AD6318E138BF47400D5806E /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD63182138BF47400D5806E /* CMakeLists.txt */; };
 		3AD6318F138BF47400D5806E /* cpCheckBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD63183138BF47400D5806E /* cpCheckBox.cpp */; };
@@ -190,7 +193,7 @@
 /* Begin PBXFileReference section */
 		3A01C06A138D488F00813C5A /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Server.h; path = include/Server.h; sourceTree = "<group>"; };
 		3A01C06B138D48A200813C5A /* Server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Server.cpp; path = src/Server.cpp; sourceTree = "<group>"; };
-		3A01C0AB138D48C800813C5A /* Platformer copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Platformer copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A01C0AB138D48C800813C5A /* Platformer_Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Platformer_Server.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A01C0AE138D4A3800813C5A /* ClientInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientInstance.h; sourceTree = "<group>"; };
 		3A01C0AF138D4A4900813C5A /* ClientInstance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClientInstance.cpp; path = src/ClientInstance.cpp; sourceTree = "<group>"; };
 		3A01C0B2138D4DEE00813C5A /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = include/Logger.h; sourceTree = "<group>"; };
@@ -215,6 +218,9 @@
 		3A614A311364E1A500A7FE66 /* Platform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Platform.cpp; path = src/Platform.cpp; sourceTree = "<group>"; };
 		3A614A321364E1A500A7FE66 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = World.cpp; path = src/World.cpp; sourceTree = "<group>"; };
 		3ABE8FAC138C0DD5006D0F43 /* character_02.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = character_02.bmp; sourceTree = "<group>"; };
+		3ACCDB5F138E9F0800C75F0F /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Packet.h; sourceTree = "<group>"; };
+		3ACCDB60138EA66600C75F0F /* Packet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Packet.cpp; sourceTree = "<group>"; };
+		3ACCDB63138EB80B00C75F0F /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "../../../../Library/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
 		3AD6316F138BF46500D5806E /* BouncyParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BouncyParticle.h; path = include/BouncyParticle.h; sourceTree = "<group>"; };
 		3AD63171138BF46500D5806E /* cpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpButton.h; sourceTree = "<group>"; };
 		3AD63172138BF46500D5806E /* cpCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpCheckBox.h; sourceTree = "<group>"; };
@@ -258,7 +264,7 @@
 		3AEA295113816B6D0039D314 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		3AEA295313816B6D0039D314 /* Platformer_Server.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Platformer_Server.1; sourceTree = "<group>"; };
 		3AEA297213816D400039D314 /* main_server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_server.cpp; sourceTree = "<group>"; };
-		A01FB77A0F07D2C5000AAC7B /* Platformer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Platformer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A01FB77A0F07D2C5000AAC7B /* Platformer_Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Platformer_Client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01FB77D0F07D2C5000AAC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A01FB7860F07D328000AAC7B /* main_client.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = main_client.cpp; sourceTree = "<group>"; };
 		A01FB7880F07D338000AAC7B /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "/Library/Frameworks/sfml-system.framework"; sourceTree = "<absolute>"; };
@@ -287,6 +293,7 @@
 				3A01C0B8138D5F8D00813C5A /* sfml-graphics.framework in Frameworks */,
 				A01FB78B0F07D338000AAC7B /* sfml-system.framework in Frameworks */,
 				A01FB78C0F07D338000AAC7B /* sfml-window.framework in Frameworks */,
+				3ACCDB64138EB80B00C75F0F /* sfml-network.framework in Frameworks */,
 				A01FB7F70F07D381000AAC7B /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +376,7 @@
 				3A01C06A138D488F00813C5A /* Server.h */,
 				3A01C0AE138D4A3800813C5A /* ClientInstance.h */,
 				3A01C0B2138D4DEE00813C5A /* Logger.h */,
+				3ACCDB5F138E9F0800C75F0F /* Packet.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -385,6 +393,7 @@
 		A01FB76B0F07D2BC000AAC7B = {
 			isa = PBXGroup;
 			children = (
+				3ACCDB63138EB80B00C75F0F /* sfml-network.framework */,
 				3A01C0BB138D604000813C5A /* sfml-network.framework */,
 				3A01C0B9138D5FEC00813C5A /* sfml-graphics.framework */,
 				3A01C0B7138D5F8D00813C5A /* sfml-graphics.framework */,
@@ -400,8 +409,8 @@
 		A01FB77B0F07D2C5000AAC7B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A01FB77A0F07D2C5000AAC7B /* Platformer.app */,
-				3A01C0AB138D48C800813C5A /* Platformer copy.app */,
+				A01FB77A0F07D2C5000AAC7B /* Platformer_Client.app */,
+				3A01C0AB138D48C800813C5A /* Platformer_Server.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -447,6 +456,7 @@
 				3A01C06B138D48A200813C5A /* Server.cpp */,
 				3A01C0AF138D4A4900813C5A /* ClientInstance.cpp */,
 				3A01C0B3138D516000813C5A /* Logger.cpp */,
+				3ACCDB60138EA66600C75F0F /* Packet.cpp */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -470,7 +480,7 @@
 			);
 			name = "Platformer Server";
 			productName = "«PROJECTNAME»";
-			productReference = 3A01C0AB138D48C800813C5A /* Platformer copy.app */;
+			productReference = 3A01C0AB138D48C800813C5A /* Platformer_Server.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A01FB7790F07D2C5000AAC7B /* Platformer Client */ = {
@@ -489,7 +499,7 @@
 			);
 			name = "Platformer Client";
 			productName = "«PROJECTNAME»";
-			productReference = A01FB77A0F07D2C5000AAC7B /* Platformer.app */;
+			productReference = A01FB77A0F07D2C5000AAC7B /* Platformer_Client.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -585,6 +595,7 @@
 				3A01C091138D48C800813C5A /* Server.cpp in Sources */,
 				3A01C0B1138D4A4900813C5A /* ClientInstance.cpp in Sources */,
 				3A01C0B6138D516000813C5A /* Logger.cpp in Sources */,
+				3ACCDB62138EA66600C75F0F /* Packet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +623,7 @@
 				3AD63197138BF47400D5806E /* Particle.cpp in Sources */,
 				3AD63198138BF47400D5806E /* Resource.cpp in Sources */,
 				3A01C0B5138D516000813C5A /* Logger.cpp in Sources */,
+				3ACCDB61138EA66600C75F0F /* Packet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,7 +649,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Desktop/sfml-platformer";
 				PREBINDING = NO;
-				PRODUCT_NAME = "Platformer copy";
+				PRODUCT_NAME = Platformer_Server;
 			};
 			name = Debug;
 		};
@@ -659,7 +671,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Desktop/sfml-platformer";
 				PREBINDING = NO;
-				PRODUCT_NAME = "Platformer copy";
+				PRODUCT_NAME = Platformer_Server;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -697,7 +709,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Desktop/sfml-platformer";
 				PREBINDING = NO;
-				PRODUCT_NAME = Platformer;
+				PRODUCT_NAME = Platformer_Client;
 			};
 			name = Debug;
 		};
@@ -719,7 +731,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Desktop/sfml-platformer";
 				PREBINDING = NO;
-				PRODUCT_NAME = Platformer;
+				PRODUCT_NAME = Platformer_Client;
 				ZERO_LINK = NO;
 			};
 			name = Release;

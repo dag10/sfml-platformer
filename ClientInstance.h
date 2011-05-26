@@ -30,10 +30,17 @@ namespace pf {
         ClientInstance(pf::Server *server, sf::SocketTCP *socket, sf::IPAddress *clientIP);
         ~ClientInstance();
         
+        sf::SocketTCP *GetSocket();
+        sf::IPAddress *GetAddress();
+        
+        void SetUsername(char *username);
+        char *GetUsername();
+        
     private:
         sf::SocketTCP *socket;
         sf::IPAddress clientIP;
         pf::Server *server;
+        char *username;
     };
 }; // namespace pf
 
