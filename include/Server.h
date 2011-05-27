@@ -29,10 +29,15 @@ namespace pf {
     class World;
     class ClientInstance;
     
+    typedef std::map<sf::SocketTCP, pf::ClientInstance*> ClientMap;
+    typedef std::map<std::string, std::string> PropertyMap;
+    
     class Server {
     public:
         Server(unsigned short port);
         ~Server();
+        
+        void Kick(pf::ClientInstance *client, char *message);
         
     private:
         sf::SelectorTCP socketSelector;
@@ -40,8 +45,8 @@ namespace pf {
         sf::IPAddress serverIP;
         unsigned short serverPort;
         
-        std::map<std::string, std::string> properties;
-        std::map<sf::SocketTCP, pf::ClientInstance*> clientMap;
+        PropertyMap properties;
+        ClientMap clientMap;
         
         bool shouldQuit;
         pf::World *world;

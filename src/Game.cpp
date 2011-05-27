@@ -34,14 +34,12 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
-#include <iostream>
-using namespace std;
-
-sf::Font *pf::Game::labelFont = 0;
+sf::Font *pf::Game::labelFont = NULL;
 
 pf::Game::Game(sf::RenderWindow& renderWindow) {
     localCharacter = NULL;
     world = NULL;
+    socket = NULL;
     
     // Initial game state
     screen = Screen_Main;
@@ -86,10 +84,17 @@ void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
     
     // Joining screen
     
-    joiningLabel = new sf::String();
-    joiningLabel->SetColor(sf::Color::White);
-    joiningLabel->SetSize(24);
-    SetJoiningLabelText("Connecting...");
+    joiningContainer = new cp::cpGuiContainer();
+    
+    joiningLabel1 = new sf::String();
+    joiningLabel1->SetColor(sf::Color::White);
+    joiningLabel1->SetSize(24);
+    joiningLabel2 = new sf::String();
+    joiningLabel2->SetColor(sf::Color::White);
+    joiningLabel2->SetSize(18);
+    SetJoiningLabelText("Connecting...", NULL);
+    
+    joiningReturnButton = new cp::cpButton(&renderWindow, joiningContainer, "Return to Main Screen");
     
     // Menu background shape/sprite
     
@@ -133,10 +138,20 @@ pf::Game::~Game() {
     }
 }
 
-void pf::Game::SetJoiningLabelText(char *text) {
-    joiningLabel->SetText(text);
-    sf::FloatRect rect = joiningLabel->GetRect();
-    joiningLabel->SetCenter(rect.GetWidth() / 2, rect.GetHeight() / 2);
+void pf::Game::SetJoiningLabelText(char *line1, char *line2) {
+    sf::FloatRect rect;
+    
+    if (line1) {
+        joiningLabel1->SetText(line1);
+        rect = joiningLabel1->GetRect();
+        joiningLabel1->SetCenter(rect.GetWidth() / 2, rect.GetHeight() / 2);
+    }
+    
+    if (line2) {
+        joiningLabel2->SetText(line2);
+        rect = joiningLabel2->GetRect();
+        joiningLabel2->SetCenter(rect.GetWidth() / 2, rect.GetHeight() / 2);
+    }
 }
 
 void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeight) {
@@ -160,6 +175,7 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             }
             
             break;
+            
         case Screen_Main:
             target.SetView(target.GetDefaultView());
             target.Clear(sf::Color::Black);
@@ -190,6 +206,8 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             joinButton->Draw();
             
             break;
+            
+        case Screen_Disconnect:
         case Screen_Joining:
             target.SetView(target.GetDefaultView());
             target.Clear(sf::Color::Black);
@@ -197,9 +215,16 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             screenBackground->SetScale(target.GetWidth(), target.GetHeight());
             target.Draw(*screenBackground);
             
-            // Render joining label
-            joiningLabel->SetPosition(renderWidth / 2, renderHeight / 2);
-            target.Draw(*joiningLabel);
+            // Render joining label2
+            joiningLabel1->SetPosition(renderWidth / 2, renderHeight / 2 - joiningLabel1->GetRect().GetHeight() * 2);
+            joiningLabel2->SetPosition(renderWidth / 2, renderHeight / 2 + joiningLabel2->GetRect().GetHeight());
+            target.Draw(*joiningLabel1);
+            target.Draw(*joiningLabel2);
+            
+            // Render return button
+            joiningReturnButton->SetPosition((renderWidth / 2) - (joiningReturnButton->GetSize().x / 2),
+                                             (renderHeight * 2 / 3) - (joiningReturnButton->GetSize().y / 2));
+            joiningReturnButton->Draw();
             
             break;
     }
@@ -230,7 +255,7 @@ void pf::Game::JoinGame() {
     serverPort = 25565;
     
     // Set joining label text
-    SetJoiningLabelText((char *)("Connecting to " + serverIP.ToString() + "...").c_str());
+    SetJoiningLabelText("", (char *)("Connecting to " + serverIP.ToString() + "...").c_str());
     
     // Change screen to loading screen
     SetScreen(Screen_Joining);
@@ -240,14 +265,16 @@ void pf::Game::JoinGame() {
     if (socket->Connect(serverPort, serverIP) != sf::Socket::Done) {
         std::stringstream portStr;
         portStr << serverPort;
-        SetJoiningLabelText((char *)("Failed to connect to " + serverIP.ToString() + ":" + portStr.str()).c_str());
-        pf::Logger::LogFatal("Failed to connect to %s:%d", serverIP.ToString().c_str(), serverPort);
+        pf::Logger::LogError("Failed to connect to %s:%d", serverIP.ToString().c_str(), serverPort);
+        Disconnect((char *)("Failed to connect to " + serverIP.ToString() + ":" + portStr.str()).c_str());
         return;
     }
+    socketSelector = new sf::SelectorTCP();
+    socketSelector->Add(*socket);
     pf::Logger::LogInfo("Connected to %s:%d", serverIP.ToString().c_str(), serverPort);
     
     // Log in
-    SetJoiningLabelText("Logging in...");
+    SetJoiningLabelText(NULL, "Joining game...");
     pf::Logger::LogInfo("Logging in as \"%s\"", playerName);
     
     // Send login packet
@@ -255,6 +282,62 @@ void pf::Game::JoinGame() {
 }
 
 void pf::Game::Tick(sf::Input& input, float frametime) {
+    if (screen == Screen_Game || screen == Screen_Joining) {
+        if (socketSelector->Wait(0.01f)) {
+            size_t read;
+            char packetType;
+            int status = socket->Receive(&packetType, sizeof(packetType), read);
+            
+            if (status != sf::Socket::Done) {
+                Disconnect("Connection broken or terminated.");
+                return;
+            }
+            
+            switch (packetType) {
+                case pf::Packet::Kick::packetType: {
+                    pf::Packet::Kick packet(socket);
+                    pf::Logger::LogInfo("Server disconnected. Reason: %s", packet.reason->string);
+                    Disconnect(packet.reason->string);
+                    break;
+                }
+                case pf::Packet::BeginLoad::packetType: {
+                    pf::Packet::BeginLoad packet(socket);
+                    resourcesToLoad = packet.numResources;
+                    resourcesLoaded = 1;
+                    SetJoiningLabelText(screen == Screen_Joining ? NULL : (char *)"Loading...", "Getting server info");
+                    pf::Logger::LogInfo("Beginning to load %d resources.", resourcesToLoad);
+                    SetScreen(Screen_Joining);
+                    break;
+                }
+                case pf::Packet::EndLoad::packetType: {
+                    pf::Packet::EndLoad packet(socket);
+                    SetScreen(Screen_Game);
+                    break;
+                }
+                case pf::Packet::Resource::packetType: {
+                    pf::Resource *resource = pf::Packet::Resource(socket).GetResource();
+                    pf::Logger::LogInfo("Received resource \"%s\" ( %d bytes )", resource->GetFilename(), resource->GetLength());
+                    resourcesLoaded++;
+                    std::stringstream resourceStatus;
+                    resourceStatus << "Downloaded resource " << resourcesLoaded << " of " << resourcesToLoad;
+                    SetJoiningLabelText(screen == Screen_Joining ? NULL : (char *)"Loading...", (char *)resourceStatus.str().c_str());
+                    break;
+                }
+                case pf::Packet::Property::packetType: {
+                    pf::Packet::Property packet(socket);
+                    properties[packet.name->string] = packet.value->string;
+                    
+                    if (!strcmp("hostname", packet.name->string)) {
+                        SetJoiningLabelText(packet.value->string, NULL);
+                    }
+                    
+                    break;
+                }
+            }
+
+        }
+    }
+    
     switch (screen) {
         case Screen_Game: {
             // Character controls
@@ -297,7 +380,8 @@ void pf::Game::Tick(sf::Input& input, float frametime) {
             
             break;
             
-        } case Screen_Main: {
+        }
+        case Screen_Main: {
             // Get GUI widget states
             nameBox->CheckState(&input);
             ipBox->CheckState(&input);
@@ -308,29 +392,41 @@ void pf::Game::Tick(sf::Input& input, float frametime) {
                 JoinGame();
             
             break;
+        }
+        case Screen_Joining: {
+        case Screen_Disconnect: 
+            // Get GUI widget states
+            int joiningReturnButtonState = joiningReturnButton->CheckState(&input);
             
-        } case Screen_Joining: {
+            // Return button clicked
+            if (joiningReturnButtonState == cp::CP_ST_MOUSE_LBUTTON_RELEASED)
+                SetScreen(Screen_Main);
+            
             break;
         }
     }
 }
 
 void pf::Game::HandleClick(sf::Input& input) {
-    if (screen == Screen_Game) {
-        if (input.IsMouseButtonDown(sf::Mouse::Right)) {
-            std::vector<pf::Entity*> ents = world->HitsPlatform((float)cursorPosition.x, (float)cursorPosition.y);
-            for (int i = 0; i < ents.size(); i++) {
-                pf::Entity *ent = ents.at(i);
-                if (((pf::Platform*)ent)->HitTest((float)cursorPosition.x, (float)cursorPosition.y, 0.f, 0.f)) {
-                    world->RemoveEntity(*ent);
-                    world->RemovePlatform((pf::Platform&)*ent);
-                    delete ent;
+    switch (screen) {
+        case Screen_Game: {
+            /*if (input.IsMouseButtonDown(sf::Mouse::Right)) {
+                std::vector<pf::Entity*> ents = world->HitsPlatform((float)cursorPosition.x, (float)cursorPosition.y);
+                for (int i = 0; i < ents.size(); i++) {
+                    pf::Entity *ent = ents.at(i);
+                    if (((pf::Platform*)ent)->HitTest((float)cursorPosition.x, (float)cursorPosition.y, 0.f, 0.f)) {
+                        world->RemoveEntity(*ent);
+                        world->RemovePlatform((pf::Platform&)*ent);
+                        delete ent;
+                    }
                 }
-            }
-        } else if (input.IsMouseButtonDown(sf::Mouse::Left)) {
-            addBox(cursorPosition.x, cursorPosition.y);
-        } else if (input.IsMouseButtonDown(sf::Mouse::Middle)) {
-            localCharacter->SetPosition(cursorPosition.x, cursorPosition.y);
+            } else if (input.IsMouseButtonDown(sf::Mouse::Left)) {
+                addBox(cursorPosition.x, cursorPosition.y);
+            } else if (input.IsMouseButtonDown(sf::Mouse::Middle)) {
+                localCharacter->SetPosition(cursorPosition.x, cursorPosition.y);
+            }*/
+            
+            break;
         }
     }
 }
@@ -361,19 +457,58 @@ void pf::Game::HandleEvent(sf::Event *event, sf::Input *input) {
             menuContainer->ProcessKeys(event);
             break;
         case Screen_Joining:
+        case Screen_Disconnect:
             break;
     }
+}
+
+void pf::Game::StopGame() {
+    if (socket && socket->IsValid()) {
+        socket->Close();
+        delete socket;
+        socket = NULL;
+    }
+    if (world) {
+        delete world;
+        world = NULL;
+    }
+}
+
+void pf::Game::Disconnect(char *message) {
+    SetJoiningLabelText("Disconnected from Server", message);
+    SetScreen(Screen_Disconnect);
 }
 
 void pf::Game::SetScreen(pf::Screen screen) {
     if (screen == this->screen) return;
     
-    switch (screen) {
+    // Switching FROM screen
+    switch (this->screen) {
         case Screen_Game:
             break;
         case Screen_Main:
             break;
         case Screen_Joining:
+            break;
+        case Screen_Disconnect:
+            break;
+    }
+    
+    // Switching TO screen
+    switch (screen) {
+        case Screen_Game:
+            InitGame();
+            break;
+        case Screen_Main:
+            StopGame();
+            break;
+        case Screen_Joining:
+            joiningReturnButton->SetFocus(false);
+            joiningReturnButton->Show(false);
+            break;
+        case Screen_Disconnect:
+            joiningReturnButton->SetFocus(true);
+            joiningReturnButton->Show(true);
             break;
     }
     
@@ -382,4 +517,9 @@ void pf::Game::SetScreen(pf::Screen screen) {
 
 pf::Screen pf::Game::GetScreen() {
     return screen;
+}
+
+void pf::Game::InitGame() {
+    world = new pf::World(pf::Resource::GetResource((char *)properties["level"].c_str()),
+                          pf::Resource::GetResource((char *)properties["tileset"].c_str()));
 }

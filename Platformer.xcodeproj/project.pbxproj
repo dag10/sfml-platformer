@@ -23,18 +23,10 @@
 		3A01C07F138D48C800813C5A /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A2C1364E1A500A7FE66 /* Animation.cpp */; };
 		3A01C080138D48C800813C5A /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A2D1364E1A500A7FE66 /* Character.cpp */; };
 		3A01C081138D48C800813C5A /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A2E1364E1A500A7FE66 /* Entity.cpp */; };
-		3A01C082138D48C800813C5A /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A2F1364E1A500A7FE66 /* Game.cpp */; };
 		3A01C083138D48C800813C5A /* PhysicsEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A301364E1A500A7FE66 /* PhysicsEntity.cpp */; };
 		3A01C084138D48C800813C5A /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A311364E1A500A7FE66 /* Platform.cpp */; };
 		3A01C085138D48C800813C5A /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A321364E1A500A7FE66 /* World.cpp */; };
 		3A01C086138D48C800813C5A /* BouncyParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD63180138BF47400D5806E /* BouncyParticle.cpp */; };
-		3A01C087138D48C800813C5A /* cpCheckBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD63183138BF47400D5806E /* cpCheckBox.cpp */; };
-		3A01C088138D48C800813C5A /* cpGUI_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD63184138BF47400D5806E /* cpGUI_base.cpp */; };
-		3A01C089138D48C800813C5A /* cpImageButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD63185138BF47400D5806E /* cpImageButton.cpp */; };
-		3A01C08A138D48C800813C5A /* cpSelection-DropDownBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD63186138BF47400D5806E /* cpSelection-DropDownBox.cpp */; };
-		3A01C08B138D48C800813C5A /* cpShapeButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD63187138BF47400D5806E /* cpShapeButton.cpp */; };
-		3A01C08C138D48C800813C5A /* cpTextBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD63188138BF47400D5806E /* cpTextBox.cpp */; };
-		3A01C08D138D48C800813C5A /* cpTextInputBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD63189138BF47400D5806E /* cpTextInputBox.cpp */; };
 		3A01C08E138D48C800813C5A /* Elevator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD6318A138BF47400D5806E /* Elevator.cpp */; };
 		3A01C08F138D48C800813C5A /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD6318B138BF47400D5806E /* Particle.cpp */; };
 		3A01C090138D48C800813C5A /* Resource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD6318C138BF47400D5806E /* Resource.cpp */; };
@@ -59,11 +51,13 @@
 		3A01C0A7138D48C800813C5A /* wheel.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3AD631BE138C0C8000D5806E /* wheel.bmp */; };
 		3A01C0AD138D48E100813C5A /* main_server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AEA297213816D400039D314 /* main_server.cpp */; };
 		3A01C0B1138D4A4900813C5A /* ClientInstance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C0AF138D4A4900813C5A /* ClientInstance.cpp */; };
-		3A01C0B5138D516000813C5A /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C0B3138D516000813C5A /* Logger.cpp */; };
-		3A01C0B6138D516000813C5A /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C0B3138D516000813C5A /* Logger.cpp */; };
 		3A01C0B8138D5F8D00813C5A /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01C0B7138D5F8D00813C5A /* sfml-graphics.framework */; };
 		3A01C0BA138D5FEC00813C5A /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01C0B9138D5FEC00813C5A /* sfml-graphics.framework */; };
 		3A01C0BC138D604000813C5A /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01C0BB138D604000813C5A /* sfml-network.framework */; };
+		3A22EC4D138F05EF007350A3 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A22EC4B138F05EF007350A3 /* Logger.cpp */; };
+		3A22EC4E138F05EF007350A3 /* Packet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A22EC4C138F05EF007350A3 /* Packet.cpp */; };
+		3A22EC4F138F305D007350A3 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A22EC4B138F05EF007350A3 /* Logger.cpp */; };
+		3A22EC50138F305D007350A3 /* Packet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A22EC4C138F05EF007350A3 /* Packet.cpp */; };
 		3A614A331364E1A500A7FE66 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A2C1364E1A500A7FE66 /* Animation.cpp */; };
 		3A614A341364E1A500A7FE66 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A2D1364E1A500A7FE66 /* Character.cpp */; };
 		3A614A351364E1A500A7FE66 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A2E1364E1A500A7FE66 /* Entity.cpp */; };
@@ -73,8 +67,6 @@
 		3A614A391364E1A500A7FE66 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A321364E1A500A7FE66 /* World.cpp */; };
 		3ABE8FAD138C0DD5006D0F43 /* character_02.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 3ABE8FAC138C0DD5006D0F43 /* character_02.bmp */; };
 		3ABE8FAF138C0DFC006D0F43 /* character_02.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3ABE8FAC138C0DD5006D0F43 /* character_02.bmp */; };
-		3ACCDB61138EA66600C75F0F /* Packet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ACCDB60138EA66600C75F0F /* Packet.cpp */; };
-		3ACCDB62138EA66600C75F0F /* Packet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ACCDB60138EA66600C75F0F /* Packet.cpp */; };
 		3ACCDB64138EB80B00C75F0F /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACCDB63138EB80B00C75F0F /* sfml-network.framework */; };
 		3AD6318D138BF47400D5806E /* BouncyParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD63180138BF47400D5806E /* BouncyParticle.cpp */; };
 		3AD6318E138BF47400D5806E /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD63182138BF47400D5806E /* CMakeLists.txt */; };
@@ -194,13 +186,15 @@
 		3A01C06A138D488F00813C5A /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Server.h; path = include/Server.h; sourceTree = "<group>"; };
 		3A01C06B138D48A200813C5A /* Server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Server.cpp; path = src/Server.cpp; sourceTree = "<group>"; };
 		3A01C0AB138D48C800813C5A /* Platformer_Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Platformer_Server.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A01C0AE138D4A3800813C5A /* ClientInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientInstance.h; sourceTree = "<group>"; };
 		3A01C0AF138D4A4900813C5A /* ClientInstance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClientInstance.cpp; path = src/ClientInstance.cpp; sourceTree = "<group>"; };
 		3A01C0B2138D4DEE00813C5A /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = include/Logger.h; sourceTree = "<group>"; };
-		3A01C0B3138D516000813C5A /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Logger.cpp; sourceTree = "<group>"; };
 		3A01C0B7138D5F8D00813C5A /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "../../../../Library/Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
 		3A01C0B9138D5FEC00813C5A /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "../../../../Library/Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
 		3A01C0BB138D604000813C5A /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "../../../../Library/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
+		3A22EC49138F05E0007350A3 /* ClientInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClientInstance.h; path = include/ClientInstance.h; sourceTree = "<group>"; };
+		3A22EC4A138F05E0007350A3 /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Packet.h; path = include/Packet.h; sourceTree = "<group>"; };
+		3A22EC4B138F05EF007350A3 /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Logger.cpp; path = src/Logger.cpp; sourceTree = "<group>"; };
+		3A22EC4C138F05EF007350A3 /* Packet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Packet.cpp; path = src/Packet.cpp; sourceTree = "<group>"; };
 		3A614A221364E1A500A7FE66 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animation.h; path = include/Animation.h; sourceTree = "<group>"; };
 		3A614A231364E1A500A7FE66 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Character.h; path = include/Character.h; sourceTree = "<group>"; };
 		3A614A241364E1A500A7FE66 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entity.h; path = include/Entity.h; sourceTree = "<group>"; };
@@ -218,8 +212,6 @@
 		3A614A311364E1A500A7FE66 /* Platform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Platform.cpp; path = src/Platform.cpp; sourceTree = "<group>"; };
 		3A614A321364E1A500A7FE66 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = World.cpp; path = src/World.cpp; sourceTree = "<group>"; };
 		3ABE8FAC138C0DD5006D0F43 /* character_02.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = character_02.bmp; sourceTree = "<group>"; };
-		3ACCDB5F138E9F0800C75F0F /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Packet.h; sourceTree = "<group>"; };
-		3ACCDB60138EA66600C75F0F /* Packet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Packet.cpp; sourceTree = "<group>"; };
 		3ACCDB63138EB80B00C75F0F /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "../../../../Library/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
 		3AD6316F138BF46500D5806E /* BouncyParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BouncyParticle.h; path = include/BouncyParticle.h; sourceTree = "<group>"; };
 		3AD63171138BF46500D5806E /* cpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpButton.h; sourceTree = "<group>"; };
@@ -360,6 +352,8 @@
 			isa = PBXGroup;
 			children = (
 				3AD63170138BF46500D5806E /* cpGUI */,
+				3A22EC49138F05E0007350A3 /* ClientInstance.h */,
+				3A22EC4A138F05E0007350A3 /* Packet.h */,
 				3AD6316F138BF46500D5806E /* BouncyParticle.h */,
 				3AD6317D138BF46500D5806E /* Elevator.h */,
 				3AD6317E138BF46500D5806E /* Particle.h */,
@@ -374,9 +368,7 @@
 				3A614A291364E1A500A7FE66 /* Tileset.h */,
 				3A614A2A1364E1A500A7FE66 /* World.h */,
 				3A01C06A138D488F00813C5A /* Server.h */,
-				3A01C0AE138D4A3800813C5A /* ClientInstance.h */,
 				3A01C0B2138D4DEE00813C5A /* Logger.h */,
-				3ACCDB5F138E9F0800C75F0F /* Packet.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -438,8 +430,10 @@
 		A01FB7830F07D30C000AAC7B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3AD631B0138C0C5800D5806E /* sfml-graphics.framework */,
 				3AD63181138BF47400D5806E /* cpGUI */,
+				3AD631B0138C0C5800D5806E /* sfml-graphics.framework */,
+				3A22EC4B138F05EF007350A3 /* Logger.cpp */,
+				3A22EC4C138F05EF007350A3 /* Packet.cpp */,
 				3AD63180138BF47400D5806E /* BouncyParticle.cpp */,
 				3AD6318A138BF47400D5806E /* Elevator.cpp */,
 				3AD6318B138BF47400D5806E /* Particle.cpp */,
@@ -448,15 +442,13 @@
 				3A614A2D1364E1A500A7FE66 /* Character.cpp */,
 				3A614A2E1364E1A500A7FE66 /* Entity.cpp */,
 				3A614A2F1364E1A500A7FE66 /* Game.cpp */,
-				3A614A301364E1A500A7FE66 /* PhysicsEntity.cpp */,
 				3A614A311364E1A500A7FE66 /* Platform.cpp */,
+				3A614A301364E1A500A7FE66 /* PhysicsEntity.cpp */,
 				3A614A321364E1A500A7FE66 /* World.cpp */,
 				A01FB7860F07D328000AAC7B /* main_client.cpp */,
 				3AEA297213816D400039D314 /* main_server.cpp */,
 				3A01C06B138D48A200813C5A /* Server.cpp */,
 				3A01C0AF138D4A4900813C5A /* ClientInstance.cpp */,
-				3A01C0B3138D516000813C5A /* Logger.cpp */,
-				3ACCDB60138EA66600C75F0F /* Packet.cpp */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -573,29 +565,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A22EC4F138F305D007350A3 /* Logger.cpp in Sources */,
+				3A22EC50138F305D007350A3 /* Packet.cpp in Sources */,
 				3A01C0AD138D48E100813C5A /* main_server.cpp in Sources */,
 				3A01C07F138D48C800813C5A /* Animation.cpp in Sources */,
 				3A01C080138D48C800813C5A /* Character.cpp in Sources */,
 				3A01C081138D48C800813C5A /* Entity.cpp in Sources */,
-				3A01C082138D48C800813C5A /* Game.cpp in Sources */,
 				3A01C083138D48C800813C5A /* PhysicsEntity.cpp in Sources */,
 				3A01C084138D48C800813C5A /* Platform.cpp in Sources */,
 				3A01C085138D48C800813C5A /* World.cpp in Sources */,
 				3A01C086138D48C800813C5A /* BouncyParticle.cpp in Sources */,
-				3A01C087138D48C800813C5A /* cpCheckBox.cpp in Sources */,
-				3A01C088138D48C800813C5A /* cpGUI_base.cpp in Sources */,
-				3A01C089138D48C800813C5A /* cpImageButton.cpp in Sources */,
-				3A01C08A138D48C800813C5A /* cpSelection-DropDownBox.cpp in Sources */,
-				3A01C08B138D48C800813C5A /* cpShapeButton.cpp in Sources */,
-				3A01C08C138D48C800813C5A /* cpTextBox.cpp in Sources */,
-				3A01C08D138D48C800813C5A /* cpTextInputBox.cpp in Sources */,
 				3A01C08E138D48C800813C5A /* Elevator.cpp in Sources */,
 				3A01C08F138D48C800813C5A /* Particle.cpp in Sources */,
 				3A01C090138D48C800813C5A /* Resource.cpp in Sources */,
 				3A01C091138D48C800813C5A /* Server.cpp in Sources */,
 				3A01C0B1138D4A4900813C5A /* ClientInstance.cpp in Sources */,
-				3A01C0B6138D516000813C5A /* Logger.cpp in Sources */,
-				3ACCDB62138EA66600C75F0F /* Packet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,8 +606,8 @@
 				3AD63196138BF47400D5806E /* Elevator.cpp in Sources */,
 				3AD63197138BF47400D5806E /* Particle.cpp in Sources */,
 				3AD63198138BF47400D5806E /* Resource.cpp in Sources */,
-				3A01C0B5138D516000813C5A /* Logger.cpp in Sources */,
-				3ACCDB61138EA66600C75F0F /* Packet.cpp in Sources */,
+				3A22EC4D138F05EF007350A3 /* Logger.cpp in Sources */,
+				3A22EC4E138F05EF007350A3 /* Packet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

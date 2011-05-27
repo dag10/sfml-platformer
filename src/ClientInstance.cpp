@@ -19,6 +19,7 @@
  */
 
 #include "ClientInstance.h"
+#include "Packet.h"
 
 pf::ClientInstance::ClientInstance(pf::Server *server, sf::SocketTCP *socket, sf::IPAddress *clientIP) {
     this->server = server;
@@ -46,4 +47,25 @@ void pf::ClientInstance::SetUsername(char *username) {
 
 char *pf::ClientInstance::GetUsername() {
     return username;
+}
+
+void pf::ClientInstance::EnqueueResource(pf::Resource *resource) {
+    resourceQueue.push_back(resource);
+}
+
+pf::Resource *pf::ClientInstance::DequeueResource() {
+    if (!resourceQueue.size())
+        return NULL;
+    
+    pf::Resource *resource = resourceQueue.back();
+    resourceQueue.pop_back();
+    return resource;
+}
+
+int pf::ClientInstance::QueuedResources() {
+    return resourceQueue.size();
+}
+
+void pf::ClientInstance::Kick(char *message) {
+    pf::Packet::Kick(message).Send(socket);
 }

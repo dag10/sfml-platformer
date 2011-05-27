@@ -41,8 +41,11 @@ namespace pf {
     enum Screen {
         Screen_Game,
         Screen_Main,
-        Screen_Joining
+        Screen_Joining,
+        Screen_Disconnect
     };
+    
+    typedef std::map<std::string, std::string> PropertyMap;
 
     class Game {
         public:
@@ -58,6 +61,8 @@ namespace pf {
             void HandleEvent(sf::Event *event, sf::Input *input);
             
             sf::Vector2f GetCursorPosition();
+        
+            void Disconnect(char *message);
             
             void SetScreen(Screen screen);
             Screen GetScreen();
@@ -81,6 +86,13 @@ namespace pf {
             sf::IPAddress serverIP;
             unsigned short serverPort;
             sf::SocketTCP *socket;
+            sf::SelectorTCP *socketSelector;
+        
+            int resourcesToLoad, resourcesLoaded;
+            PropertyMap properties;
+        
+            void StopGame();
+            void InitGame();
             
             static sf::Font *labelFont;
             void InitGUI(sf::RenderWindow& renderWindow);
@@ -90,8 +102,10 @@ namespace pf {
             cp::cpTextInputBox *ipBox;
             sf::String *ipLabel;
             cp::cpButton *joinButton;
-            sf::String *joiningLabel;
-            void SetJoiningLabelText(char *text);
+            cp::cpGuiContainer *joiningContainer;
+            sf::String *joiningLabel1, *joiningLabel2;
+            void SetJoiningLabelText(char *line1, char *line2);
+            cp::cpButton *joiningReturnButton;
             
             pf::Screen screen;
             sf::Shape *screenBackground;

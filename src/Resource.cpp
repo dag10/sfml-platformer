@@ -64,16 +64,16 @@ pf::Resource *pf::Resource::GetOrLoadResource(char *name) {
     in_stream->close();
     delete in_stream;
     
+    pf::Logger::LogInfo("Loaded resource: \"%s\" ( %d bytes )", name, length);
+    
     return new Resource(name, buffer, length);
 };
 
 pf::Resource::Resource(char *filename, char *data, int length) {
     this->filename = filename;
-    this->data = data;
     this->length = length;
+    this->data = data;
     resources->insert(std::pair<std::string, pf::Resource*>(std::string(filename), this));
-    
-    pf::Logger::LogInfo("Created resource: %s ( %d bytes )", filename, length);
 }
 
 pf::Resource::~Resource() {

@@ -23,8 +23,11 @@
 
 #include <SFML/Network.hpp>
 #include "Server.h"
+#include <vector>
 
 namespace pf {
+    class Resource;
+    
     class ClientInstance {
     public:
         ClientInstance(pf::Server *server, sf::SocketTCP *socket, sf::IPAddress *clientIP);
@@ -35,11 +38,20 @@ namespace pf {
         
         void SetUsername(char *username);
         char *GetUsername();
+        int QueuedResources();
+        
+        void Kick(char *message);
+        
+        void EnqueueResource(pf::Resource *resource);
+        pf::Resource *DequeueResource();
         
     private:
         sf::SocketTCP *socket;
         sf::IPAddress clientIP;
+        
         pf::Server *server;
+        std::vector<pf::Resource*> resourceQueue;
+        
         char *username;
     };
 }; // namespace pf

@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A01FB7790F07D2C5000AAC7B"
-               BuildableName = "Platformer.app"
+               BuildableName = "Platformer_Client.app"
                BlueprintName = "Platformer Client"
                ReferencedContainer = "container:Platformer.xcodeproj">
             </BuildableReference>
@@ -42,7 +42,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A01FB7790F07D2C5000AAC7B"
-            BuildableName = "Platformer.app"
+            BuildableName = "Platformer_Client.app"
             BlueprintName = "Platformer Client"
             ReferencedContainer = "container:Platformer.xcodeproj">
          </BuildableReference>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A01FB7790F07D2C5000AAC7B"
-            BuildableName = "Platformer.app"
+            BuildableName = "Platformer_Client.app"
             BlueprintName = "Platformer Client"
             ReferencedContainer = "container:Platformer.xcodeproj">
          </BuildableReference>

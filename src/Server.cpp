@@ -34,6 +34,7 @@ pf::Server::Server(unsigned short port) {
     pf::Logger::LogInfo("Loading default settings");
     properties["level"] = "resources/level_01.bmp";
     properties["tileset"] = "resources/tileset.bmp";
+    properties["hostname"] = "Drew's Test Server";
     
     // Initialize resources
     
@@ -60,8 +61,9 @@ pf::Server::Server(unsigned short port) {
     
     pf::Logger::LogInfo("Listening on port %d", port);
     while (!shouldQuit) {
-        int readySockets = socketSelector.Wait(1000.f);
+        int readySockets = socketSelector.Wait(0.01f);
         
+        // Handle incoming connections/data
         for (int i = 0; i < readySockets; i++) {
             sf::SocketTCP socket = socketSelector.GetSocketReady(i);
             
@@ -95,16 +97,58 @@ pf::Server::Server(unsigned short port) {
                     
                     socketSelector.Remove(socket);
                     socket.Close();
+                    clientMap.erase(socket);
+                    delete client;
                     continue;
                 }
                 
                 switch (packetType) {
                     case pf::Packet::LoginRequest::packetType:
+                        // Break if already logged in
+                        if (client->GetUsername()) break;
+                        
+                        // Read and parse login packet
                         pf::Packet::LoginRequest packet(&socket);
                         client->SetUsername(packet.username->string);
-                        pf::Logger::LogInfo("Player \"%s\" connected from [%s]", packet.username->string, client->GetAddress()->ToString().c_str());
+                        pf::Logger::LogInfo("Player \"%s\" connected from [%s]", client->GetUsername(), client->GetAddress()->ToString().c_str());
+                        
+                        // Kick client if using outdated protocol version
+                        if (packet.clientProtocolVersion < pf::Packet::PROTOCOL_VERSION) {
+                            Kick(client, "You are using an incompatible (outdated) client!");
+                            break;
+                        }
+                        
+                        // Send properties
+                        for (PropertyMap::iterator it = properties.begin(); it != properties.end(); it++) {
+                            const char *propName = it->first.c_str();
+                            const char *propValue = it->second.c_str();
+                            pf::Packet::Property((char *)propName, (char *)propValue).Send(&socket);
+                        }
+                        
+                        // Enqueue resources to send
+                        client->EnqueueResource(pf::Resource::GetResource((char *)properties["level"].c_str()));
+                        client->EnqueueResource(pf::Resource::GetResource((char *)properties["tileset"].c_str()));
+                        
+                        // Send BeginLoad packet
+                        pf::Packet::BeginLoad(client->QueuedResources()).Send(&socket);
+                        
                         break;
                 }
+            }
+        }
+        
+        // Loop through each client
+        for (ClientMap::iterator it = clientMap.begin(); it != clientMap.end(); it++) {
+            pf::ClientInstance *client = it->second;
+            sf::SocketTCP *socket = client->GetSocket();
+            
+            // Send resources as needed
+            pf::Resource *resource = client->DequeueResource();
+            if (resource) {
+                pf::Packet::Resource(resource).Send(socket);
+                pf::Logger::LogInfo("Sending resource \"%s\" to \"%s\".", resource->GetFilename(), client->GetUsername());
+                if (!client->QueuedResources())
+                    pf::Packet::EndLoad().Send(socket);
             }
         }
     }
@@ -112,4 +156,12 @@ pf::Server::Server(unsigned short port) {
 
 pf::Server::~Server() {
     
+}
+
+void pf::Server::Kick(pf::ClientInstance *client, char *message) {
+    client->Kick(message);
+    client->GetSocket()->Close();
+    socketSelector.Remove(*client->GetSocket());
+    clientMap.erase(*client->GetSocket());
+    delete client;
 }
