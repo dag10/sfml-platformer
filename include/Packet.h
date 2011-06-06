@@ -32,6 +32,7 @@ namespace pf {
     class Resource;
     class CharacterSkin;
     class Character;
+    class Entity;
     
     namespace Packet {
         static const char PROTOCOL_VERSION = 1;
@@ -210,6 +211,83 @@ namespace pf {
             }
         };
         
+        struct CharacterAnimation : BasePacket {
+            static const char packetType = 0x0A;
+            char data;
+            uint16_t frame;
+            
+            static char MakeData(bool facingRight, bool playing, bool gotoFrame) {
+                char data = 0;
+                
+                if (facingRight) data |= 0x01;
+                if (playing) data |= 0x02;
+                if (gotoFrame) data |= 0x04;
+                
+                return data;
+            }
+            
+            CharacterAnimation(bool facingRight, bool playing) {
+                this->data = MakeData(facingRight, playing, false);
+                this->frame = 0;
+            }
+            
+            CharacterAnimation(bool facingRight, bool playing, int frame) {
+                this->data = MakeData(facingRight, playing, true);
+                this->frame = frame;
+            }
+            
+            CharacterAnimation(pf::Character *character);
+            
+            CharacterAnimation(sf::SocketTCP *socket);
+            void Send(sf::SocketTCP *socket);
+            
+            bool IsFacingRight();
+            bool IsPlaying();
+            bool ShouldGotoFrame();
+            
+            ~CharacterAnimation() {}
+        };
+        
+        struct OtherCharacterAnimation : BasePacket {
+            static const char packetType = 0x0F;
+            uint32_t entityID;
+            char data;
+            uint16_t frame;
+            
+            static char MakeData(bool facingRight, bool playing, bool gotoFrame) {
+                char data = 0;
+                
+                if (facingRight) data |= 0x01;
+                if (playing) data |= 0x02;
+                if (gotoFrame) data |= 0x04;
+                
+                return data;
+            }
+            
+            OtherCharacterAnimation(int entityID, bool facingRight, bool playing) {
+                this->entityID = entityID;
+                this->data = MakeData(facingRight, playing, false);
+                this->frame = 0;
+            }
+            
+            OtherCharacterAnimation(int entityID, bool facingRight, bool playing, int frame) {
+                this->entityID = entityID;
+                this->data = MakeData(facingRight, playing, true);
+                this->frame = frame;
+            }
+            
+            OtherCharacterAnimation(pf::Character *character);
+            
+            OtherCharacterAnimation(sf::SocketTCP *socket);
+            void Send(sf::SocketTCP *socket);
+            
+            bool IsFacingRight();
+            bool IsPlaying();
+            bool ShouldGotoFrame();
+            
+            ~OtherCharacterAnimation() {}
+        };
+        
         struct StartWorld : BasePacket {
             static const char packetType = 0x0B;
             
@@ -235,6 +313,22 @@ namespace pf {
             void Send(sf::SocketTCP *socket);
             
             ~SetCharacter() {}
+        };
+        
+        struct DespawnEntity : BasePacket {
+            static const char packetType = 0x0D;
+            uint32_t entityID;
+            
+            DespawnEntity(int entityID) {
+                this->entityID = entityID;
+            }
+            
+            DespawnEntity(pf::Entity *entity);
+            
+            DespawnEntity(sf::SocketTCP *socket);
+            void Send(sf::SocketTCP *socket);
+            
+            ~DespawnEntity() {}
         };
     }; // namespace Packet
 }; // namespace pf

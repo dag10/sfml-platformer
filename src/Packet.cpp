@@ -21,6 +21,7 @@
 #include "Packet.h"
 #include "Resource.h"
 #include "CharacterSkin.h"
+#include "Animation.h"
 #include "Character.h"
 #include <SFML/Network.hpp>
 
@@ -145,7 +146,6 @@ void pf::Packet::SpawnCharacter::Send(sf::SocketTCP *socket) {
     skin->Send(socket);
     socket->Send((const char *)&x, sizeof(x));
     socket->Send((const char *)&y, sizeof(y));
-    pf::Logger::LogInfo("SENDING CHARACTER WITH ID: %d", entityID);
 }
 
 pf::Packet::CharacterSkin::CharacterSkin(sf::SocketTCP *socket) {
@@ -202,4 +202,84 @@ void pf::Packet::SetCharacter::Send(sf::SocketTCP *socket) {
     char type = packetType;
     socket->Send((const char *)&type, sizeof(type));
     socket->Send((const char *)&entityID, sizeof(entityID));
+}
+
+pf::Packet::DespawnEntity::DespawnEntity(sf::SocketTCP *socket) {
+    std::size_t read;
+    socket->Receive((char *)&entityID, sizeof(entityID), read);
+}
+
+pf::Packet::DespawnEntity::DespawnEntity(pf::Entity *entity) {
+    entityID = entity->GetID();
+}
+
+void pf::Packet::DespawnEntity::Send(sf::SocketTCP *socket) {
+    char type = packetType;
+    socket->Send((const char *)&type, sizeof(type));
+    socket->Send((const char *)&entityID, sizeof(entityID));
+}
+
+pf::Packet::CharacterAnimation::CharacterAnimation(sf::SocketTCP *socket) {
+    std::size_t read;
+    socket->Receive((char *)&data, sizeof(data), read);
+    socket->Receive((char *)&frame, sizeof(frame), read);
+}
+
+pf::Packet::CharacterAnimation::CharacterAnimation(pf::Character *character) {
+    pf::Animation *animation = character->GetImage();
+    data = MakeData(character->GetDirection() == pf::Character::RIGHT, animation->IsPlaying(), !animation->IsPlaying());
+    frame = animation->GetCurrentFrame();
+}
+
+void pf::Packet::CharacterAnimation::Send(sf::SocketTCP *socket) {
+    char type = packetType;
+    socket->Send((const char *)&type, sizeof(type));
+    socket->Send((const char *)&data, sizeof(data));
+    socket->Send((const char *)&frame, sizeof(frame));
+}
+
+bool pf::Packet::CharacterAnimation::IsFacingRight() {
+    return data & 0x01;
+}
+
+bool pf::Packet::CharacterAnimation::IsPlaying() {
+    return data & 0x02;
+}
+
+bool pf::Packet::CharacterAnimation::ShouldGotoFrame() {
+    return data & 0x04;
+}
+
+pf::Packet::OtherCharacterAnimation::OtherCharacterAnimation(sf::SocketTCP *socket) {
+    std::size_t read;
+    socket->Receive((char *)&entityID, sizeof(entityID), read);
+    socket->Receive((char *)&data, sizeof(data), read);
+    socket->Receive((char *)&frame, sizeof(frame), read);
+}
+
+pf::Packet::OtherCharacterAnimation::OtherCharacterAnimation(pf::Character *character) {
+    pf::Animation *animation = character->GetImage();
+    entityID = character->GetID();
+    data = MakeData(character->GetDirection() == pf::Character::RIGHT, animation->IsPlaying(), !animation->IsPlaying());
+    frame = animation->GetCurrentFrame();
+}
+
+void pf::Packet::OtherCharacterAnimation::Send(sf::SocketTCP *socket) {
+    char type = packetType;
+    socket->Send((const char *)&type, sizeof(type));
+    socket->Send((const char *)&entityID, sizeof(entityID));
+    socket->Send((const char *)&data, sizeof(data));
+    socket->Send((const char *)&frame, sizeof(frame));
+}
+
+bool pf::Packet::OtherCharacterAnimation::IsFacingRight() {
+    return data & 0x01;
+}
+
+bool pf::Packet::OtherCharacterAnimation::IsPlaying() {
+    return data & 0x02;
+}
+
+bool pf::Packet::OtherCharacterAnimation::ShouldGotoFrame() {
+    return data & 0x04;
 }

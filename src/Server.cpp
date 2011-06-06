@@ -26,6 +26,7 @@
 #include "CharacterSkin.h"
 #include "Character.h"
 #include "Packet.h"
+#include "Animation.h"
 
 pf::Server::Server(unsigned short port) {
     shouldQuit = false;
@@ -87,6 +88,8 @@ pf::Server::Server(unsigned short port) {
                 socketSelector.Add(*clientSocket);
                 clientMap[*clientSocket] = client;
                 
+                pf::Logger::LogInfo("Required resources: %d", requiredResources.size());
+                
             } else {
                 pf::ClientInstance *client = clientMap[socket];
                 size_t read;
@@ -107,13 +110,13 @@ pf::Server::Server(unsigned short port) {
                     
                     clientMap.erase(socket);
                     socketSelector.Remove(socket);
-                    socket.Close();
+                    SendToAll(new pf::Packet::DespawnEntity(client->GetCharacter()), client);
                     delete client;
                     continue;
                 }
                 
                 switch (packetType) {
-                    case pf::Packet::LoginRequest::packetType:
+                    case pf::Packet::LoginRequest::packetType: {
                         // Break if already logged in
                         if (client->GetUsername()) break;
                         
@@ -146,9 +149,8 @@ pf::Server::Server(unsigned short port) {
                             client->EnqueuePacket(new pf::Packet::Property((char *)it->first.c_str(), (char *)it->second.c_str()));
                         
                         // Send resources
-                        for (std::vector<pf::Resource*>::iterator it = requiredResources.begin(); it != requiredResources.end(); it++) {
+                        for (std::vector<pf::Resource*>::iterator it = requiredResources.begin(); it != requiredResources.end(); it++)
                             client->EnqueueResource(*it);
-                        }
                         
                         // Send character skins
                         for (CharacterSkinMap::iterator it = pf::CharacterSkin::GetCharacterSkinMap()->begin();
@@ -163,9 +165,11 @@ pf::Server::Server(unsigned short port) {
                         pf::Packet::SpawnCharacter *spawnPacket = new pf::Packet::SpawnCharacter(client->GetCharacter());
                         SendToAll(spawnPacket, client);
                         
-                        // Spawn other characters
-                        for (ClientMap::iterator it = clientMap.begin(); it != clientMap.end(); it++)
+                        // Spawn all characters
+                        for (ClientMap::iterator it = clientMap.begin(); it != clientMap.end(); it++) {
                             client->EnqueuePacket(new pf::Packet::SpawnCharacter(it->second->GetCharacter()));
+                            client->EnqueuePacket(new pf::Packet::OtherCharacterAnimation(it->second->GetCharacter()));
+                        }
                         
                         // Set client's character
                         client->EnqueuePacket(new pf::Packet::SetCharacter(client->GetCharacter()));
@@ -174,6 +178,29 @@ pf::Server::Server(unsigned short port) {
                         client->BeginLoading();
                         
                         break;
+                    }
+                    case pf::Packet::CharacterAnimation::packetType: {
+                        pf::Packet::CharacterAnimation packet(&socket);
+                        pf::Character *character = client->GetCharacter();
+                        pf::Animation *animation = character->GetImage();
+                        
+                        if (packet.IsFacingRight())
+                            character->FaceRight();
+                        else
+                            character->FaceLeft();
+                        
+                        if (packet.IsPlaying())
+                            animation->Play();
+                        else
+                            animation->Pause();
+                        
+                        if (packet.ShouldGotoFrame())
+                            animation->SetCurrentFrame(packet.frame);
+                        
+                        SendToAll(new pf::Packet::OtherCharacterAnimation(character), client);
+                        
+                        break;
+                    }
                 }
             }
         }
@@ -185,12 +212,6 @@ pf::Server::Server(unsigned short port) {
             // Send resources as needed
             pf::Packet::BasePacket *packet = client->DequeuePacket();
             if (packet) {
-                if (dynamic_cast<pf::Packet::Resource*>(packet))
-                    pf::Logger::LogInfo("Sending resource \"%s\" to client \"%s\"", dynamic_cast<pf::Packet::Resource*>(packet)->GetResource()->GetFilename(), client->GetUsername());
-                else if (dynamic_cast<pf::Packet::SpawnCharacter*>(packet))
-                    pf::Logger::LogInfo("Sending character \"%s\" to client \"%s\"", dynamic_cast<pf::Packet::SpawnCharacter*>(packet)->username->string, client->GetUsername());
-                else if (dynamic_cast<pf::Packet::CharacterSkin*>(packet))
-                    pf::Logger::LogInfo("Sending character skin \"%s\" to client \"%s\"", dynamic_cast<pf::Packet::CharacterSkin*>(packet)->name->string, client->GetUsername());
                 packet->Send(client->GetSocket());
                 if (!client->QueuedPackets() && client->IsLoading()) {
                     client->EndLoading();
@@ -231,6 +252,6 @@ void pf::Server::RequireResource(pf::Resource *resource) {
     
     requiredResources.push_back(resource);
     
-    //for (ClientMap::iterator it = clientMap.begin(); it != clientMap.end(); it++)
-    //    it->second->EnqueueResource(resource);
+    for (ClientMap::iterator it = clientMap.begin(); it != clientMap.end(); it++)
+        it->second->EnqueueResource(resource);
 }

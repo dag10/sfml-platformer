@@ -33,7 +33,6 @@ pf::Character::Character(pf::World *world, pf::CharacterSkin *skin, const char *
     walking = false;
     direction = RIGHT;
     
-    //const int framerate = speed / 15;
     int framerate = speed / skin->GetFramerate();
 
     this->skin = skin;
@@ -77,10 +76,10 @@ pf::Character::Character(pf::World *world, pf::CharacterSkin *skin, const char *
     SetPushable(true);
     SetGravityEnabled(true);
     SetSolid(true);
+    SetIsolateAnimation(true);
 }
 
 pf::Character::~Character() {
-
 }
 
 void pf::Character::Tick(float frametime) {
@@ -95,7 +94,7 @@ void pf::Character::Tick(float frametime) {
     pf::PhysicsEntity::Tick(frametime);
 
     // If stopped moving sideways (hit wall), stop walking
-    if (GetVelocityX() == 0.f)
+    if (GetVelocityX() == 0.f && !isolateAnimation)
         StopWalking();
 }
 
@@ -161,31 +160,48 @@ void pf::Character::WalkLeft() {
 
 void pf::Character::StopWalking() {
     walking = false;
-    SetVelocityX(0.f);
+    if (!isolateAnimation) SetVelocityX(0.f);
     image->Pause();
     image->SetCurrentFrame(0);
 }
 
 void pf::Character::StartWalking() {
     walking = true;
-    SetVelocityX(direction * speed);
+    if (!isolateAnimation) SetVelocityX(direction * speed);
     image->Play();
 }
 
 void pf::Character::FaceRight() {
     direction = RIGHT;
     if (walking)
-        SetVelocityX(speed);
+        SetVelocityX(speed && !isolateAnimation);
     image->FlipX(false);
 }
 
 void pf::Character::FaceLeft() {
     direction = LEFT;
-    if (walking)
+    if (walking && !isolateAnimation)
         SetVelocityX(-speed);
     image->FlipX(true);
 }
 
 pf::CharacterSkin *pf::Character::GetSkin() {
     return skin;
+}
+
+pf::Animation *pf::Character::GetImage() {
+    return image;
+}
+
+bool pf::Character::CanCollideWith(pf::Entity *entity) {
+    pf::Character *character = dynamic_cast<pf::Character*>(entity);
+    
+    if (character)
+        return false;
+    
+    return true;
+}
+
+void pf::Character::SetIsolateAnimation(bool isolateAnimation) {
+    this->isolateAnimation = isolateAnimation;
 }

@@ -292,13 +292,6 @@ bool pf::PhysicsEntity::HitTest(float x, float y) {
 
 void pf::PhysicsEntity::Render(sf::RenderTarget& target) {
     if (!image) return;
-
-    /*
-    if (IsOnGround)
-        image->SetColor(sf::Color::Red);
-    else
-        image->SetColor(sf::Color::White);
-     */
     
     image->SetPosition((int)x, (int)y);
     image->Render(target);

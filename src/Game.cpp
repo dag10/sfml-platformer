@@ -360,7 +360,43 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
                 }
                 case pf::Packet::SetCharacter::packetType: {
                     pf::Packet::SetCharacter packet(socket);
-                    localCharacter = dynamic_cast<pf::Character*>(world->GetEntity(packet.entityID));
+                    pf::Character *newLocalCharacter = dynamic_cast<pf::Character*>(world->GetEntity(packet.entityID));
+                    if (localCharacter == newLocalCharacter)
+                        break;
+                    
+                    if (localCharacter) localCharacter->SetIsolateAnimation(true);
+                    newLocalCharacter->SetIsolateAnimation(false);
+                    localCharacter = newLocalCharacter;
+                    break;
+                }
+                case pf::Packet::DespawnEntity::packetType: {
+                    pf::Packet::DespawnEntity packet(socket);
+                    pf::Entity *entity = world->GetEntity(packet.entityID);
+                    if (entity) delete entity;
+                    break;
+                }
+                case pf::Packet::OtherCharacterAnimation::packetType: {
+                    pf::Packet::OtherCharacterAnimation packet(socket);
+                    pf::Entity *entity = world->GetEntity(packet.entityID);
+                    if (!entity) break;
+                    pf::Character *character = dynamic_cast<pf::Character*>(entity);
+                    if (!character) break;
+                    pf::Animation *animation = character->GetImage();
+                    if (!animation) break;
+                    
+                    if (packet.IsFacingRight())
+                        character->FaceRight();
+                    else
+                        character->FaceLeft();
+                    
+                    if (packet.IsPlaying())
+                        character->StartWalking();
+                    else
+                        character->StopWalking();
+                    
+                    if (packet.ShouldGotoFrame())
+                        animation->SetCurrentFrame(packet.frame);
+                    
                     break;
                 }
             }
@@ -372,6 +408,9 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
         case Screen_Game: {
             // Character controls
             if (localCharacter) {
+                char oldDirection = localCharacter->GetDirection();
+                bool wasWalking = localCharacter->IsWalking();
+                
                 // Moving left, right, or stopping
                 if (input.IsKeyDown(sf::Key::Left))
                     localCharacter->WalkLeft();
@@ -379,6 +418,12 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
                     localCharacter->WalkRight();
                 else if (localCharacter->IsWalking())
                     localCharacter->StopWalking();
+                
+                // Send animation packet
+                if (localCharacter->GetDirection() != oldDirection || 
+                    localCharacter->IsWalking() != wasWalking) {
+                    pf::Packet::CharacterAnimation(localCharacter).Send(socket);
+                }
 
                 // Jumping or swimming upwards
                 if (input.IsKeyDown(sf::Key::Up)

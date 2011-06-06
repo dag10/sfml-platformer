@@ -63,12 +63,16 @@ namespace pf {
             void FaceLeft();
         
             pf::CharacterSkin *GetSkin();
+            pf::Animation *GetImage();
+        
+            void SetIsolateAnimation(bool isolateAnimation);
+        
+            bool CanCollideWith(pf::Entity *entity);
 
         private:
             static sf::Font *nameFont;
         
             sf::Image *spriteSheet;
-            pf::Animation *animationWalking;
             pf::CharacterSkin *skin;
 
             float speed;
@@ -78,6 +82,7 @@ namespace pf {
             sf::String *name;
             sf::Shape *nameBackground;
             bool showName;
+            bool isolateAnimation;
     };
 }; // namespace pf
 

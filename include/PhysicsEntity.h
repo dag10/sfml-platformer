@@ -67,6 +67,8 @@ namespace pf {
 
             bool AlreadyHit(pf::Entity *entity);
             void Push(float offsetX, float offsetY);
+        
+            virtual bool CanCollideWith(pf::Entity *entity) { return true; }
 
         protected:
             pf::Animation *image;

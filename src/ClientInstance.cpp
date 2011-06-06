@@ -35,7 +35,12 @@ pf::ClientInstance::ClientInstance(pf::Server *server, sf::SocketTCP *socket, sf
 }
 
 pf::ClientInstance::~ClientInstance() {
-    
+    if (socket) {
+        socket->Close();
+        delete socket;
+    }
+    delete [] username;
+    delete character;
 }
 
 sf::SocketTCP *pf::ClientInstance::GetSocket() {

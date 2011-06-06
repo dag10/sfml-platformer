@@ -126,6 +126,7 @@ std::vector<pf::Entity*> pf::World::HitsLevel(pf::Entity& entity) {
 
 std::vector<pf::Entity*> pf::World::HitsLevel(float x, float y, float width, float height, pf::Entity *skip) {
     std::vector<pf::Entity*> retVec;
+    pf::PhysicsEntity *physEnt = skip ? dynamic_cast<pf::PhysicsEntity*>(skip) : NULL;
 
     // Starting test tile for top-left of entity
     int baseX = x / TILE_SIZE, baseY = y / TILE_SIZE;
@@ -133,7 +134,7 @@ std::vector<pf::Entity*> pf::World::HitsLevel(float x, float y, float width, flo
     // Loop through all entities and check for collisions
     for (EntityMap::iterator it = entityMap->begin(); it != entityMap->end(); it++) {
         pf::PhysicsEntity *ent = dynamic_cast<pf::PhysicsEntity*>(it->second);
-        if (ent && ent != skip && ent->HitTest(x, y, width, height))
+        if (ent && ent != skip && ent->HitTest(x, y, width, height) && ((!physEnt) || physEnt->CanCollideWith(ent)))
             retVec.push_back((pf::Entity*)ent);
     }
 
@@ -143,7 +144,7 @@ std::vector<pf::Entity*> pf::World::HitsLevel(float x, float y, float width, flo
             if (xy(baseX + i, baseY + j) < 0 || xy(baseX + i, baseY + j) >= this->width * this->height)
                 continue;
             pf::Platform *platform = platforms[xy(baseX + i, baseY + j)];
-            if (platform && platform != skip && platform->HitTest(x, y, width, height))
+            if (platform && platform != skip && platform->HitTest(x, y, width, height) && ((!physEnt) || physEnt->CanCollideWith(platform)))
                 retVec.push_back((pf::Entity*)platform);
         }
     }
@@ -153,6 +154,7 @@ std::vector<pf::Entity*> pf::World::HitsLevel(float x, float y, float width, flo
 
 std::vector<pf::Entity*> pf::World::HitsLevel(float x, float y, pf::Entity *skip) {
     std::vector<pf::Entity*> retVec;
+    pf::PhysicsEntity *physEnt = skip ? dynamic_cast<pf::PhysicsEntity*>(skip) : NULL;
 
     // Starting test tile for top-left of entity
     int baseX = x / TILE_SIZE, baseY = y / TILE_SIZE;
@@ -160,7 +162,7 @@ std::vector<pf::Entity*> pf::World::HitsLevel(float x, float y, pf::Entity *skip
     // Loop through all entities and check for collisions
     for (EntityMap::iterator it = entityMap->begin(); it != entityMap->end(); it++) {
         pf::PhysicsEntity *ent = dynamic_cast<pf::PhysicsEntity*>(it->second);
-        if (ent && ent != skip && ent->HitTest(x, y))
+        if (ent && ent != skip && ent->HitTest(x, y) && ((!physEnt) || physEnt->CanCollideWith(ent)))
             retVec.push_back((pf::Entity*)ent);
     }
 
@@ -170,7 +172,7 @@ std::vector<pf::Entity*> pf::World::HitsLevel(float x, float y, pf::Entity *skip
             if (xy(baseX + i, baseY + j) < 0 || xy(baseX + i, baseY + j) >= this->width * this->height)
                 continue;
             pf::Platform *platform = platforms[xy(baseX + i, baseY + j)];
-            if (platform && platform != skip && platform->HitTest(x, y))
+            if (platform && platform != skip && platform->HitTest(x, y) && ((!physEnt) || physEnt->CanCollideWith(platform)))
                 retVec.push_back((pf::Entity*)platform);
         }
     }
