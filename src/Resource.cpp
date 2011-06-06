@@ -20,11 +20,15 @@
 
 #include "Resource.h"
 #include "Logger.h"
+#include "Server.h"
 #include <fstream>
 #include <sys/stat.h>
 #include <iostream>
 
 pf::ResourceMap *pf::Resource::resources = new pf::ResourceMap();
+#ifdef PLATFORMER_SERVER
+pf::Server *pf::Resource::server = NULL;
+#endif
 
 pf::Resource *pf::Resource::GetResource(char *name) {
     ResourceMap::iterator iter = resources->find(std::string(name));
@@ -74,6 +78,9 @@ pf::Resource::Resource(char *filename, char *data, int length) {
     this->length = length;
     this->data = data;
     resources->insert(std::pair<std::string, pf::Resource*>(std::string(filename), this));
+#ifdef PLATFORMER_SERVER
+    if (server) server->RequireResource(this);
+#endif
 }
 
 pf::Resource::~Resource() {
@@ -93,3 +100,9 @@ char *pf::Resource::GetData() {
 int pf::Resource::GetLength() {
     return length;
 }
+
+#ifdef PLATFORMER_SERVER
+void pf::Resource::SetServer(pf::Server *server) {
+    pf::Resource::server = server;
+}
+#endif

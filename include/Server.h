@@ -22,12 +22,14 @@
 #define SERVER_H
 
 #include <SFML/Network.hpp>
+#include "Packet.h"
 #include <vector>
 #include <map>
 
 namespace pf {
     class World;
     class ClientInstance;
+    class Resource;
     
     typedef std::map<sf::SocketTCP, pf::ClientInstance*> ClientMap;
     typedef std::map<std::string, std::string> PropertyMap;
@@ -38,6 +40,9 @@ namespace pf {
         ~Server();
         
         void Kick(pf::ClientInstance *client, char *message);
+        void SendToAll(pf::Packet::BasePacket *packet);
+        void SendToAll(pf::Packet::BasePacket *packet, pf::ClientInstance *exclude);
+        void RequireResource(pf::Resource *resource);
         
     private:
         sf::SelectorTCP socketSelector;
@@ -47,6 +52,7 @@ namespace pf {
         
         PropertyMap properties;
         ClientMap clientMap;
+        std::vector<pf::Resource*> requiredResources;
         
         bool shouldQuit;
         pf::World *world;

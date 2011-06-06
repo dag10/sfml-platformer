@@ -46,6 +46,7 @@ namespace pf {
             int GetHeight();
 
             int GetID();
+            void SetID(int id);
 
         protected:
             static unsigned int NEXT_ENT_ID;

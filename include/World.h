@@ -28,7 +28,10 @@ namespace pf {
     class Entity;
     class Platform;
     class Resource;
+    class Character;
 
+    typedef std::map<int, pf::Entity*> EntityMap;
+    
     class World : public pf::IRenderable {
         public:
             const static int TILE_SIZE = 16;
@@ -47,10 +50,11 @@ namespace pf {
             std::vector<pf::Entity*> HitsPlatform(float x, float y, float width, float height);
             std::vector<pf::Entity*> HitsPlatform(float x, float y);
 
-            void AddEntity(pf::Entity& entity);
-            pf::Entity *GetEntity(int id);
+            void AddEntity(pf::Entity *entity);
             bool RemoveEntity(pf::Entity& entity);
-            std::map<int, pf::Entity*> *getEntityMap();
+            pf::Entity *GetEntity(int id);
+            EntityMap *getEntityMap();
+            void SpawnCharacter(pf::Character *character);
             
             void RemovePlatform(pf::Platform& platform);
         
@@ -58,13 +62,15 @@ namespace pf {
             int GetPixelHeight();
             int GetWidth();
             int GetHeight();
+            float GetSpawnX();
+            float GetSpawnY();
 
-        protected:
+        private:
+            float spawnX, spawnY;
             int width, height;
             sf::Image *levelImage;
             pf::Platform **platforms;
-            std::vector<pf::Entity*> *entities;
-            std::map<int, pf::Entity*> *entityMap;
+            EntityMap *entityMap;
     };
 }; // namespace pf
 

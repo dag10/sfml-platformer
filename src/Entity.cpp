@@ -25,19 +25,21 @@
 unsigned int pf::Entity::NEXT_ENT_ID = 0;
 
 pf::Entity::Entity(pf::World *world) {
+    id = NEXT_ENT_ID++;
     Init(world, 0, 0, 0, 0);
 }
 
 pf::Entity::Entity(pf::World *world, float x, float y, int width, int height) {
+    id = NEXT_ENT_ID++;
     Init(world, x, y, width, height);
 }
 
 pf::Entity::~Entity() {
-
+    if (world) world->RemoveEntity(*this);
 }
 
 void pf::Entity::Init(pf::World *world, float x, float y, int width, int height) {
-    id = NEXT_ENT_ID++;
+    //id = NEXT_ENT_ID++;
 
     this->world = world;
     SetPosition(x, y);
@@ -70,6 +72,12 @@ void pf::Entity::SetHeight(int height) {
     this->height = height;
 }
 
+void pf::Entity::SetID(int id) {
+    this->id = id;
+    if (id > NEXT_ENT_ID)
+        NEXT_ENT_ID = id + 1;
+}
+
 float pf::Entity::GetX() {
     return x;
 }
@@ -87,5 +95,5 @@ int pf::Entity::GetHeight() {
 }
 
 int pf::Entity::GetID() {
-    return id;
+    return this->id;
 }

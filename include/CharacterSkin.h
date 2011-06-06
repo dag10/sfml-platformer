@@ -1,6 +1,6 @@
 /*
- * Resource.h
- * Manages resource files
+ * CharacterSkin.h
+ * Manages character skins
  * Copyright (c) 2010-2011 Drew Gottlieb
  * 
  * This program is free software: you can redistribute it and/or modify
@@ -18,46 +18,40 @@
  * 
  */
 
-#ifndef RESOURCE_H
-#define RESOURCE_H
+#ifndef CHARACTERSKIN_H
+#define CHARACTERSKIN_H
 
 #include <map>
 #include <string>
 
 namespace pf {
+    class CharacterSkin;
     class Resource;
-#ifdef PLATFORMER_SERVER
-    class Server;
-#endif
+    typedef std::map<std::string, CharacterSkin*> CharacterSkinMap;
     
-    typedef std::map<std::string, Resource*> ResourceMap;
-    
-    class Resource {
+    class CharacterSkin {
     public:
-        Resource(char *filename, char *data, int length);
-        ~Resource();
+        CharacterSkin(char *name, pf::Resource *skin, int framerate, int frames);
+        ~CharacterSkin();
         
-        char *GetFilename();
-        char *GetData();
-        int GetLength();
+        char *GetName();
+        pf::Resource *GetResource();
+        int GetWidth();
+        int GetHeight();
+        int GetFramerate();
+        int GetFrames();
         
-#ifdef PLATFORMER_SERVER
-        static void SetServer(pf::Server *server);
-#endif
+        static CharacterSkin *GetCharacterSkin(char *name);
+        static CharacterSkinMap *GetCharacterSkinMap();
         
-        static Resource *GetResource(char *name);
-        static Resource *GetOrLoadResource(char *name);
+   // private:
+        static CharacterSkinMap *characterSkins;
         
-    private:
-        static ResourceMap *resources;
-#ifdef PLATFORMER_SERVER
-        static pf::Server *server;
-#endif
-        
-        char *filename;
-        char *data;
-        int length;
+        char *name;
+        pf::Resource *skin;
+        int width, height;
+        int framerate, frames;
     };
 }; // namespace pf
 
-#endif // RESOURCE_H
+#endif // CHARACTERSKIN_H

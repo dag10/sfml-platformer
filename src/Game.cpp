@@ -30,6 +30,7 @@
 #include "cpGUI.h"
 #include "Logger.h"
 #include "Packet.h"
+#include "CharacterSkin.h"
 #include <sstream>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
@@ -56,7 +57,9 @@ pf::Game::Game(sf::RenderWindow& renderWindow) {
     zoomSpeed = 11.f;
     viewX = viewY = 0;
     targetZoomFactor = zoomFactor = DEFAULT_ZOOM;
-    followCharacter = false;
+    followCharacter = true;
+    
+    shouldQuit = false;
 }
 
 void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
@@ -124,7 +127,7 @@ void pf::Game::addBox(int x, int y) {
     box->SetGravityEnabled(true);
     box->SetSolid(true);
     box->SetPushable(true);
-    world->AddEntity(*box);
+    world->AddEntity(box);
 }
 
 pf::Game::~Game() {
@@ -281,7 +284,7 @@ void pf::Game::JoinGame() {
     pf::Packet::LoginRequest(playerName).Send(socket);
 }
 
-void pf::Game::Tick(sf::Input& input, float frametime) {
+bool pf::Game::Tick(sf::Input& input, float frametime) {
     if (screen == Screen_Game || screen == Screen_Joining) {
         if (socketSelector->Wait(0.01f)) {
             size_t read;
@@ -290,14 +293,14 @@ void pf::Game::Tick(sf::Input& input, float frametime) {
             
             if (status != sf::Socket::Done) {
                 Disconnect("Connection broken or terminated.");
-                return;
+                return shouldQuit;
             }
             
             switch (packetType) {
                 case pf::Packet::Kick::packetType: {
                     pf::Packet::Kick packet(socket);
                     pf::Logger::LogInfo("Server disconnected. Reason: %s", packet.reason->string);
-                    Disconnect(packet.reason->string);
+                    //Disconnect(packet.reason->string);
                     break;
                 }
                 case pf::Packet::BeginLoad::packetType: {
@@ -331,6 +334,33 @@ void pf::Game::Tick(sf::Input& input, float frametime) {
                         SetJoiningLabelText(packet.value->string, NULL);
                     }
                     
+                    break;
+                }
+                case pf::Packet::CharacterSkin::packetType: {
+                    pf::Packet::CharacterSkin packet(socket);
+                    pf::Logger::LogInfo("Received character skin: %s", packet.GetCharacterSkin()->GetName());
+                    break;
+                }
+                case pf::Packet::SpawnCharacter::packetType: {
+                    pf::Packet::SpawnCharacter packet(socket);
+                    pf::Logger::LogInfo("Spawning character \"%s\" (%d) at (%f, %f)", packet.username->string, packet.entityID, packet.x, packet.y);
+                    pf::Logger::LogInfo("Number of character skins: %d", pf::CharacterSkin::characterSkins->size());
+                    //break;
+                    pf::Character *character = new pf::Character(world, pf::CharacterSkin::GetCharacterSkin(packet.skin->string), packet.username->string);
+                    character->SetID(packet.entityID);
+                    character->SetPosition(packet.x, packet.y);
+                    character->SetGravityEnabled(false);
+                    world->AddEntity(character);
+                    break;
+                }
+                case pf::Packet::StartWorld::packetType: {
+                    pf::Packet::StartWorld packet(socket);
+                    InitWorld();
+                    break;
+                }
+                case pf::Packet::SetCharacter::packetType: {
+                    pf::Packet::SetCharacter packet(socket);
+                    localCharacter = dynamic_cast<pf::Character*>(world->GetEntity(packet.entityID));
                     break;
                 }
             }
@@ -405,6 +435,8 @@ void pf::Game::Tick(sf::Input& input, float frametime) {
             break;
         }
     }
+    
+    return shouldQuit;
 }
 
 void pf::Game::HandleClick(sf::Input& input) {
@@ -436,6 +468,29 @@ sf::Vector2f pf::Game::GetCursorPosition() {
 }
 
 void pf::Game::HandleEvent(sf::Event *event, sf::Input *input) {
+    switch (event->Type) {
+        case sf::Event::KeyPressed:
+            switch (event->Key.Code) {
+                case sf::Key::Escape:
+                    switch (screen) {
+                        case Screen_Game:
+                        case Screen_Joining:
+                            Disconnect("You left the game.");
+                            SetScreen(Screen_Main);
+                            break;
+                        case Screen_Main:
+                            shouldQuit = true;
+                            break;
+                        case Screen_Disconnect:
+                            SetScreen(Screen_Main);
+                    }
+                    break;
+            }
+            break;
+        case sf::Event::Closed:
+            shouldQuit = true;
+            break;
+    }
     switch (screen) {
         case Screen_Game:
             switch (event->Type) {
@@ -497,7 +552,7 @@ void pf::Game::SetScreen(pf::Screen screen) {
     // Switching TO screen
     switch (screen) {
         case Screen_Game:
-            InitGame();
+            //InitGame();
             break;
         case Screen_Main:
             StopGame();
@@ -519,7 +574,8 @@ pf::Screen pf::Game::GetScreen() {
     return screen;
 }
 
-void pf::Game::InitGame() {
+void pf::Game::InitWorld() {
+    if (world) delete world;
     world = new pf::World(pf::Resource::GetResource((char *)properties["level"].c_str()),
                           pf::Resource::GetResource((char *)properties["tileset"].c_str()));
 }

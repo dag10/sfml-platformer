@@ -71,7 +71,8 @@ bool init() {
 bool loop() {
     float frameTime = window.GetFrameTime();
     if (frameTime > 0.15f) frameTime = 0.f;
-    game->Tick(*input, frameTime);
+    if (game->Tick(*input, frameTime))
+        return false;
     
     game->Render(window, window.GetWidth(), window.GetHeight());
 
@@ -92,6 +93,7 @@ bool loop() {
 }
 
 void cleanup() {
+    if (window.IsOpened()) window.Close();
     if (game) {
         delete game;
         game = NULL;
@@ -103,7 +105,7 @@ void handleEvent(sf::Event *event) {
         case sf::Event::KeyPressed:
             switch (event->Key.Code) {
                 case sf::Key::Escape:
-                    window.Close();
+                    //window.Close();
                     break;
                 case sf::Key::F5:
                     showingFPS = !showingFPS;
@@ -111,7 +113,7 @@ void handleEvent(sf::Event *event) {
             }
             break;
         case sf::Event::Closed:
-            window.Close();
+            //window.Close();
             break;
     }
     

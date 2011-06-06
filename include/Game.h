@@ -56,7 +56,7 @@ namespace pf {
             ~Game();
 
             void Render(sf::RenderTarget& target, int renderWidth, int renderHeight);
-            void Tick(sf::Input& input, float frametime);
+            bool Tick(sf::Input& input, float frametime);
             
             void HandleEvent(sf::Event *event, sf::Input *input);
             
@@ -92,7 +92,7 @@ namespace pf {
             PropertyMap properties;
         
             void StopGame();
-            void InitGame();
+            void InitWorld();
             
             static sf::Font *labelFont;
             void InitGUI(sf::RenderWindow& renderWindow);
@@ -109,6 +109,8 @@ namespace pf {
             
             pf::Screen screen;
             sf::Shape *screenBackground;
+        
+            bool shouldQuit;
     };
 }; // namespace pf
 

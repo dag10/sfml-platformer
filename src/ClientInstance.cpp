@@ -20,12 +20,18 @@
 
 #include "ClientInstance.h"
 #include "Packet.h"
+#include "Logger.h"
+#include "Server.h"
+#include "Resource.h"
 
 pf::ClientInstance::ClientInstance(pf::Server *server, sf::SocketTCP *socket, sf::IPAddress *clientIP) {
     this->server = server;
     this->socket = socket;
     this->clientIP = *clientIP;
     this->username = NULL;
+    
+    loading = true;
+    character = NULL;
 }
 
 pf::ClientInstance::~ClientInstance() {
@@ -49,23 +55,69 @@ char *pf::ClientInstance::GetUsername() {
     return username;
 }
 
-void pf::ClientInstance::EnqueueResource(pf::Resource *resource) {
-    resourceQueue.push_back(resource);
+void pf::ClientInstance::EnqueuePacket(pf::Packet::BasePacket *packet) {
+    if (!dynamic_cast<pf::Packet::BasePacket*>(packet))
+        pf::Logger::LogWarning("ERROR ENQUEUEING PACKET!");
+    packetQueue.push(packet);
 }
 
-pf::Resource *pf::ClientInstance::DequeueResource() {
-    if (!resourceQueue.size())
+void pf::ClientInstance::EnqueueResource(pf::Resource *resource) {
+    EnqueuePacket(new pf::Packet::Resource(resource));
+    pf::Logger::LogInfo("Enqueueing resource \"%s\" for client \"%s\"", resource->GetFilename(), username);
+    resouceCount++;
+}
+
+pf::Packet::BasePacket *pf::ClientInstance::DequeuePacket() {
+    if (packetQueue.empty())
         return NULL;
     
-    pf::Resource *resource = resourceQueue.back();
-    resourceQueue.pop_back();
-    return resource;
+    pf::Packet::BasePacket *packet = packetQueue.front();
+    packetQueue.pop();
+    
+    if(dynamic_cast<pf::Packet::Resource*>(packet))
+        resouceCount--;
+    
+    pf::Packet::Kick *kick = dynamic_cast<pf::Packet::Kick*>(packet);
+    if (kick)
+        pf::Logger::LogInfo("[%s] KICK: \"%s\"", GetUsername(), kick->reason->string);
+    
+    return packet;
 }
 
-int pf::ClientInstance::QueuedResources() {
-    return resourceQueue.size();
+int pf::ClientInstance::QueuedPackets() {
+    return packetQueue.size();
 }
 
 void pf::ClientInstance::Kick(char *message) {
+    pf::Logger::LogInfo("Player \"%s\" [%s] kicked: %s", GetUsername(), clientIP.ToString().c_str(), message);
     pf::Packet::Kick(message).Send(socket);
+    wasKicked = true;
+}
+
+bool pf::ClientInstance::WasKicked() {
+    return wasKicked;
+}
+
+void pf::ClientInstance::SetCharacter(pf::Character *character) {
+    if (!this->character)
+        this->character = character;
+}
+
+pf::Character *pf::ClientInstance::GetCharacter() {
+    return character;
+}
+
+bool pf::ClientInstance::IsLoading() {
+    return loading;
+}
+
+void pf::ClientInstance::BeginLoading() {
+    pf::Packet::BeginLoad(resouceCount).Send(socket);
+    loading = true;
+}
+
+void pf::ClientInstance::EndLoading() {
+    pf::Packet::EndLoad().Send(socket);
+    loading = false;
+    resouceCount = 0;
 }

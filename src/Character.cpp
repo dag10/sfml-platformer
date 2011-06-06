@@ -21,25 +21,29 @@
 #include "Character.h"
 #include "Animation.h"
 #include "Resource.h"
+#include "CharacterSkin.h"
 #include <string>
 
 sf::Font *pf::Character::nameFont = 0;
 
-pf::Character::Character(pf::World *world, pf::Resource *spriteResource, const char *name)
+pf::Character::Character(pf::World *world, pf::CharacterSkin *skin, const char *name)
     : pf::PhysicsEntity(world)
 {
     speed = WALK_SPEED;
     walking = false;
     direction = RIGHT;
+    
+    //const int framerate = speed / 15;
+    int framerate = speed / skin->GetFramerate();
 
-    const int framerate = speed / 15;
-
+    this->skin = skin;
     spriteSheet = new sf::Image();
+    pf::Resource *spriteResource = skin->GetResource();
     spriteSheet->LoadFromMemory(spriteResource->GetData(), spriteResource->GetLength());
     spriteSheet->SetSmooth(false);
     spriteSheet->CreateMaskFromColor(sf::Color::Magenta);
 
-    image = new pf::Animation(*spriteSheet, 6, framerate);
+    image = new pf::Animation(*spriteSheet, skin->GetFrames(), framerate);
     image->Pause();
 
     width = image->GetWidth();
@@ -180,4 +184,8 @@ void pf::Character::FaceLeft() {
     if (walking)
         SetVelocityX(-speed);
     image->FlipX(true);
+}
+
+pf::CharacterSkin *pf::Character::GetSkin() {
+    return skin;
 }

@@ -25,7 +25,9 @@
 #include "Entity.h"
 #include "PhysicsEntity.h"
 #include "Platform.h"
+#include "Logger.h"
 #include "Resource.h"
+#include "Character.h"
 #include <vector>
 
 pf::World::World(pf::Resource *levelImageResource, pf::Resource *tilesetResource) {
@@ -69,14 +71,18 @@ pf::World::World(pf::Resource *levelImageResource, pf::Resource *tilesetResource
             }
         }
     }
+    
+    // Load spawn point
+    spawnX = 60;
+    spawnY = 30;
 
     // Initialize entities
-    entities = new std::vector<pf::Entity*>();
+    entityMap = new EntityMap();
 }
 
 void pf::World::Tick(float frametime) {
-    for (int i = 0; i < entities->size(); i++)
-        entities->at(i)->Tick(frametime);
+    for (EntityMap::iterator it = entityMap->begin(); it != entityMap->end(); it++)
+        it->second->Tick(frametime);
 }
 
 void pf::World::Render(sf::RenderTarget& target) {
@@ -92,8 +98,8 @@ void pf::World::Render(sf::RenderTarget& target) {
                     target.Draw((sf::Sprite)*(platforms[xy(x, y)]));
     
     // Draw renderable entities
-    for (int i = 0; i < entities->size(); i++) {
-        pf::IRenderable *ent = dynamic_cast<IRenderable*>(entities->at(i));
+    for (EntityMap::iterator it = entityMap->begin(); it != entityMap->end(); it++) {
+        pf::IRenderable *ent = dynamic_cast<IRenderable*>(it->second);
         if (ent) ent->Render(target);
     }
     
@@ -104,8 +110,8 @@ void pf::World::Render(sf::RenderTarget& target) {
 
 void pf::World::RenderOverlays(sf::RenderTarget& target) {
     // Draw renderable entities
-    for (int i = 0; i < entities->size(); i++) {
-        pf::IRenderable *ent = dynamic_cast<IRenderable*>(entities->at(i));
+    for (EntityMap::iterator it = entityMap->begin(); it != entityMap->end(); it++) {
+        pf::IRenderable *ent = dynamic_cast<IRenderable*>(it->second);
         if (ent) ent->RenderOverlays(target);
     }
 }
@@ -125,10 +131,10 @@ std::vector<pf::Entity*> pf::World::HitsLevel(float x, float y, float width, flo
     int baseX = x / TILE_SIZE, baseY = y / TILE_SIZE;
 
     // Loop through all entities and check for collisions
-    for (int i = 0; i < entities->size(); i++) {
-        pf::PhysicsEntity *ent = dynamic_cast<pf::PhysicsEntity*>(entities->at(i));
+    for (EntityMap::iterator it = entityMap->begin(); it != entityMap->end(); it++) {
+        pf::PhysicsEntity *ent = dynamic_cast<pf::PhysicsEntity*>(it->second);
         if (ent && ent != skip && ent->HitTest(x, y, width, height))
-                retVec.push_back((pf::Entity*)ent);
+            retVec.push_back((pf::Entity*)ent);
     }
 
     // Loop through all tile indices that entity it touching
@@ -152,10 +158,10 @@ std::vector<pf::Entity*> pf::World::HitsLevel(float x, float y, pf::Entity *skip
     int baseX = x / TILE_SIZE, baseY = y / TILE_SIZE;
 
     // Loop through all entities and check for collisions
-    for (int i = 0; i < entities->size(); i++) {
-        pf::PhysicsEntity *ent = dynamic_cast<pf::PhysicsEntity*>(entities->at(i));
+    for (EntityMap::iterator it = entityMap->begin(); it != entityMap->end(); it++) {
+        pf::PhysicsEntity *ent = dynamic_cast<pf::PhysicsEntity*>(it->second);
         if (ent && ent != skip && ent->HitTest(x, y))
-                retVec.push_back((pf::Entity*)ent);
+            retVec.push_back((pf::Entity*)ent);
     }
 
     // Loop through all tile indices that entity it touching
@@ -220,40 +226,37 @@ std::vector<pf::Entity*> pf::World::HitsPlatform(float x, float y) {
     return retVec;
 }
 
-void pf::World::AddEntity(pf::Entity& entity) {
-    if (GetEntity(entity.GetID()))
-        return;
-
-    entities->push_back(&entity);
+void pf::World::AddEntity(pf::Entity *entity) {
+    entityMap->insert(std::pair<int, pf::Entity*>(entity->GetID(), entity));
 }
 
 pf::Entity *pf::World::GetEntity(int id) {
-    for (int i = 0; i < entities->size(); i++)
-        if (entities->at(i)->GetID() == id)
-            return entities->at(i);
-
-    return NULL;
+    EntityMap::iterator iter = entityMap->find(id);
+    
+    if (iter == entityMap->end())
+        return NULL;
+    
+    return iter->second;
 }
 
 bool pf::World::RemoveEntity(pf::Entity& entity) {
-    for (std::vector<pf::Entity*>::iterator it = entities->begin(); it < entities->end(); it++) {
-        if (&entity == (*it)) {
-            entities->erase(it);
-            return true;
-        }
-    }
-    return false;
+    entityMap->erase(entity.GetID());
 }
 
 void pf::World::RemovePlatform(pf::Platform& platform) {
     platforms[xy((int)platform.GetX() / TILE_SIZE, (int)platform.GetY() / TILE_SIZE)] = 0;
 }
 
+void pf::World::SpawnCharacter(pf::Character *character) {
+    AddEntity(character);
+    character->SetPosition(spawnX, spawnY);
+}
+
 pf::World::~World() {
-    if (entities) {
-        entities->empty();
-        delete entities;
-        entities = NULL;
+    if (entityMap) {
+        entityMap->empty();
+        delete entityMap;
+        entityMap = NULL;
     }
     if (levelImage) {
         delete levelImage;
@@ -279,4 +282,12 @@ int pf::World::GetWidth() {
 
 int pf::World::GetHeight() {
     return height;
+}
+
+float pf::World::GetSpawnX() {
+    return spawnX;
+}
+
+float pf::World::GetSpawnY() {
+    return spawnY;
 }

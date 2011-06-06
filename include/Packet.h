@@ -21,6 +21,7 @@
 #ifndef PACKET_H
 #define PACKET_H
 
+#include "Logger.h"
 #include <string>
 
 namespace sf {
@@ -29,9 +30,15 @@ namespace sf {
 
 namespace pf {
     class Resource;
+    class CharacterSkin;
+    class Character;
     
     namespace Packet {
         static const char PROTOCOL_VERSION = 1;
+        
+        struct BasePacket {
+            virtual void Send(sf::SocketTCP *socket) {};
+        };
         
         struct PacketString {
             uint16_t length;
@@ -51,7 +58,7 @@ namespace pf {
             }
         };
         
-        struct LoginRequest {
+        struct LoginRequest : BasePacket {
             static const char packetType = 0x01;
             char clientProtocolVersion;
             PacketString *username;
@@ -69,7 +76,7 @@ namespace pf {
             }
         };
         
-        struct Kick {
+        struct Kick : BasePacket {
             static const char packetType = 0x07;
             PacketString *reason;
             
@@ -85,7 +92,7 @@ namespace pf {
             }
         };
         
-        struct BeginLoad {
+        struct BeginLoad : BasePacket {
             static const char packetType = 0x02;
             uint16_t numResources;
             
@@ -99,7 +106,7 @@ namespace pf {
             ~BeginLoad() {}
         };
         
-        struct EndLoad {
+        struct EndLoad : BasePacket {
             static const char packetType = 0x03;
             
             EndLoad() {}
@@ -110,7 +117,7 @@ namespace pf {
             ~EndLoad() {}
         };
         
-        struct Resource {
+        struct Resource : BasePacket {
             static const char packetType = 0x04;
             PacketString *filename;
             uint32_t length;
@@ -128,7 +135,7 @@ namespace pf {
             }
         };
         
-        struct Property {
+        struct Property : BasePacket {
             static const char packetType = 0x05;
             PacketString *name;
             PacketString *value;
@@ -145,6 +152,89 @@ namespace pf {
                 delete name;
                 delete value;
             }
+        };
+        
+        struct SpawnCharacter : BasePacket {
+            static const char packetType = 0x08;
+            uint32_t entityID;
+            PacketString *username;
+            PacketString *skin;
+            float x, y;
+            
+            SpawnCharacter(int entityID, char *username, char *skin, float x, float y) {
+                this->entityID = entityID;
+                this->username = new PacketString(username);
+                this->skin = new PacketString(skin);
+                this->x = x;
+                this->y = y;
+            }
+            
+            SpawnCharacter(pf::Character *character);
+            
+            SpawnCharacter(sf::SocketTCP *socket);
+            void Send(sf::SocketTCP *socket);
+            
+            ~SpawnCharacter() {
+                delete username;
+                delete skin;
+            }
+        };
+        
+        struct CharacterSkin : BasePacket {
+            static const char packetType = 0x09;
+            PacketString *name;
+            PacketString *resource;
+            uint16_t width, height;
+            char framerate;
+            uint16_t frames;
+            
+            CharacterSkin(char *name, char *resource, unsigned short width, unsigned short height, char framerate, unsigned short frames) {
+                this->name = new PacketString(name);
+                this->resource = new PacketString(resource);
+                this->width = width;
+                this->height = height;
+                this->framerate = framerate;
+                this->frames = frames;
+            }
+            
+            CharacterSkin(pf::CharacterSkin *skin);
+            
+            CharacterSkin(sf::SocketTCP *socket);
+            void Send(sf::SocketTCP *socket);
+            
+            pf::CharacterSkin *GetCharacterSkin();
+            
+            ~CharacterSkin() {
+                delete name;
+                delete resource;
+            }
+        };
+        
+        struct StartWorld : BasePacket {
+            static const char packetType = 0x0B;
+            
+            StartWorld() {}
+            
+            StartWorld(sf::SocketTCP *socket);
+            void Send(sf::SocketTCP *socket);
+            
+            ~StartWorld() {}
+        };
+        
+        struct SetCharacter : BasePacket {
+            static const char packetType = 0x06;
+            uint32_t entityID;
+            
+            SetCharacter(int entityID) {
+                this->entityID = entityID;
+            }
+            
+            SetCharacter(pf::Character *character);
+            
+            SetCharacter(sf::SocketTCP *socket);
+            void Send(sf::SocketTCP *socket);
+            
+            ~SetCharacter() {}
         };
     }; // namespace Packet
 }; // namespace pf

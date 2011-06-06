@@ -65,6 +65,8 @@
 		3A614A371364E1A500A7FE66 /* PhysicsEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A301364E1A500A7FE66 /* PhysicsEntity.cpp */; };
 		3A614A381364E1A500A7FE66 /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A311364E1A500A7FE66 /* Platform.cpp */; };
 		3A614A391364E1A500A7FE66 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A614A321364E1A500A7FE66 /* World.cpp */; };
+		3AA9C950138FE228004F99E2 /* CharacterSkin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AA9C94E138FE228004F99E2 /* CharacterSkin.cpp */; };
+		3AA9C951138FE228004F99E2 /* CharacterSkin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AA9C94E138FE228004F99E2 /* CharacterSkin.cpp */; };
 		3ABE8FAD138C0DD5006D0F43 /* character_02.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 3ABE8FAC138C0DD5006D0F43 /* character_02.bmp */; };
 		3ABE8FAF138C0DFC006D0F43 /* character_02.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3ABE8FAC138C0DD5006D0F43 /* character_02.bmp */; };
 		3ACCDB64138EB80B00C75F0F /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACCDB63138EB80B00C75F0F /* sfml-network.framework */; };
@@ -211,6 +213,8 @@
 		3A614A301364E1A500A7FE66 /* PhysicsEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PhysicsEntity.cpp; path = src/PhysicsEntity.cpp; sourceTree = "<group>"; };
 		3A614A311364E1A500A7FE66 /* Platform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Platform.cpp; path = src/Platform.cpp; sourceTree = "<group>"; };
 		3A614A321364E1A500A7FE66 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = World.cpp; path = src/World.cpp; sourceTree = "<group>"; };
+		3AA9C94C138FE0D9004F99E2 /* CharacterSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterSkin.h; path = include/CharacterSkin.h; sourceTree = "<group>"; };
+		3AA9C94E138FE228004F99E2 /* CharacterSkin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterSkin.cpp; path = src/CharacterSkin.cpp; sourceTree = "<group>"; };
 		3ABE8FAC138C0DD5006D0F43 /* character_02.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = character_02.bmp; sourceTree = "<group>"; };
 		3ACCDB63138EB80B00C75F0F /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "../../../../Library/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
 		3AD6316F138BF46500D5806E /* BouncyParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BouncyParticle.h; path = include/BouncyParticle.h; sourceTree = "<group>"; };
@@ -352,7 +356,6 @@
 			isa = PBXGroup;
 			children = (
 				3AD63170138BF46500D5806E /* cpGUI */,
-				3A22EC49138F05E0007350A3 /* ClientInstance.h */,
 				3A22EC4A138F05E0007350A3 /* Packet.h */,
 				3AD6316F138BF46500D5806E /* BouncyParticle.h */,
 				3AD6317D138BF46500D5806E /* Elevator.h */,
@@ -369,6 +372,8 @@
 				3A614A2A1364E1A500A7FE66 /* World.h */,
 				3A01C06A138D488F00813C5A /* Server.h */,
 				3A01C0B2138D4DEE00813C5A /* Logger.h */,
+				3A22EC49138F05E0007350A3 /* ClientInstance.h */,
+				3AA9C94C138FE0D9004F99E2 /* CharacterSkin.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 				3AEA297213816D400039D314 /* main_server.cpp */,
 				3A01C06B138D48A200813C5A /* Server.cpp */,
 				3A01C0AF138D4A4900813C5A /* ClientInstance.cpp */,
+				3AA9C94E138FE228004F99E2 /* CharacterSkin.cpp */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 				3A01C090138D48C800813C5A /* Resource.cpp in Sources */,
 				3A01C091138D48C800813C5A /* Server.cpp in Sources */,
 				3A01C0B1138D4A4900813C5A /* ClientInstance.cpp in Sources */,
+				3AA9C951138FE228004F99E2 /* CharacterSkin.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +615,7 @@
 				3AD63198138BF47400D5806E /* Resource.cpp in Sources */,
 				3A22EC4D138F05EF007350A3 /* Logger.cpp in Sources */,
 				3A22EC4E138F05EF007350A3 /* Packet.cpp in Sources */,
+				3AA9C950138FE228004F99E2 /* CharacterSkin.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,7 +637,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = PLATFORMER_CLIENT;
+				GCC_PREPROCESSOR_DEFINITIONS = PLATFORMER_SERVER;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Desktop/sfml-platformer";
 				PREBINDING = NO;
@@ -651,7 +659,7 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../Downloads/SFML-1.6-sdk-macosx-ub32+64/lib64\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
-				GCC_PREPROCESSOR_DEFINITIONS = PLATFORMER_CLIENT;
+				GCC_PREPROCESSOR_DEFINITIONS = PLATFORMER_SERVER;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Desktop/sfml-platformer";
 				PREBINDING = NO;

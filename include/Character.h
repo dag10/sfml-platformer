@@ -27,6 +27,7 @@
 namespace pf {
     class Animation;
     class Resource;
+    class CharacterSkin;
 
     class Character : public pf::PhysicsEntity {
         public:
@@ -38,8 +39,7 @@ namespace pf {
             const static int LEFT = -1;
             const static int RIGHT = 1;
         
-            Character(pf::World *world, pf::Resource *spriteResource, const char *name);
-            //Character(pf::World *world, pf::Resource *spriteResource) : name(0), pf::PhysicsEntity(world) {};
+            Character(pf::World *world, pf::CharacterSkin *skin, const char *name);
             ~Character();
 
             void Tick(float frametime);
@@ -61,12 +61,15 @@ namespace pf {
             void StartWalking();
             void FaceRight();
             void FaceLeft();
+        
+            pf::CharacterSkin *GetSkin();
 
         private:
             static sf::Font *nameFont;
         
             sf::Image *spriteSheet;
             pf::Animation *animationWalking;
+            pf::CharacterSkin *skin;
 
             float speed;
             bool walking;

@@ -22,11 +22,17 @@
 #define CLIENTINSTANCE_H
 
 #include <SFML/Network.hpp>
-#include "Server.h"
 #include <vector>
+#include <queue>
 
 namespace pf {
+    namespace Packet {
+        class BasePacket;
+    }
+    
     class Resource;
+    class Character;
+    class Server;
     
     class ClientInstance {
     public:
@@ -38,21 +44,36 @@ namespace pf {
         
         void SetUsername(char *username);
         char *GetUsername();
-        int QueuedResources();
         
         void Kick(char *message);
+        bool WasKicked();
         
+        void EnqueuePacket(pf::Packet::BasePacket *packet);
         void EnqueueResource(pf::Resource *resource);
-        pf::Resource *DequeueResource();
+        pf::Packet::BasePacket *DequeuePacket();
+        int QueuedResources();
+        int QueuedPackets();
+        
+        bool IsLoading();
+        void BeginLoading();
+        void EndLoading();
+        
+        void SetCharacter(pf::Character *character);
+        pf::Character *GetCharacter();
         
     private:
         sf::SocketTCP *socket;
         sf::IPAddress clientIP;
         
         pf::Server *server;
-        std::vector<pf::Resource*> resourceQueue;
+        std::queue<pf::Packet::BasePacket*> packetQueue;
+        int resouceCount;
+        bool loading;
         
         char *username;
+        bool wasKicked;
+        
+        pf::Character *character;
     };
 }; // namespace pf
 

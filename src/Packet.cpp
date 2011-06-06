@@ -20,6 +20,8 @@
 
 #include "Packet.h"
 #include "Resource.h"
+#include "CharacterSkin.h"
+#include "Character.h"
 #include <SFML/Network.hpp>
 
 pf::Packet::PacketString::PacketString(sf::SocketTCP *socket) {
@@ -116,4 +118,88 @@ void pf::Packet::Property::Send(sf::SocketTCP *socket) {
     socket->Send((const char *)&type, sizeof(type));
     name->Send(socket);
     value->Send(socket);
+}
+
+pf::Packet::SpawnCharacter::SpawnCharacter(sf::SocketTCP *socket) {
+    std::size_t read;
+    socket->Receive((char *)&entityID, sizeof(entityID), read);
+    username = new PacketString(socket);
+    skin = new PacketString(socket);
+    socket->Receive((char *)&x, sizeof(x), read);
+    socket->Receive((char *)&y, sizeof(y), read);
+}
+
+pf::Packet::SpawnCharacter::SpawnCharacter(pf::Character *character) {
+    entityID = character->GetID();
+    username = new PacketString(character->GetName());
+    skin = new PacketString(character->GetSkin()->GetName());
+    x = character->GetX();
+    y = character->GetY();
+}
+
+void pf::Packet::SpawnCharacter::Send(sf::SocketTCP *socket) {
+    char type = packetType;
+    socket->Send((const char *)&type, sizeof(type));
+    socket->Send((const char *)&entityID, sizeof(entityID));
+    username->Send(socket);
+    skin->Send(socket);
+    socket->Send((const char *)&x, sizeof(x));
+    socket->Send((const char *)&y, sizeof(y));
+    pf::Logger::LogInfo("SENDING CHARACTER WITH ID: %d", entityID);
+}
+
+pf::Packet::CharacterSkin::CharacterSkin(sf::SocketTCP *socket) {
+    std::size_t read;
+    name = new PacketString(socket);
+    resource = new PacketString(socket);
+    socket->Receive((char *)&width, sizeof(width), read);
+    socket->Receive((char *)&height, sizeof(height), read);
+    socket->Receive((char *)&framerate, sizeof(framerate), read);
+    socket->Receive((char *)&frames, sizeof(frames), read);
+}
+
+pf::Packet::CharacterSkin::CharacterSkin(pf::CharacterSkin *skin) {
+    name = new PacketString(skin->GetName());
+    resource = new PacketString(skin->GetResource()->GetFilename());
+    width = skin->GetWidth();
+    height = skin->GetHeight();
+    framerate = skin->GetFramerate();
+    frames = skin->GetFrames();
+}
+
+pf::CharacterSkin *pf::Packet::CharacterSkin::GetCharacterSkin() {
+    return new pf::CharacterSkin(name->string, pf::Resource::GetOrLoadResource(resource->string), framerate, frames);
+}
+
+void pf::Packet::CharacterSkin::Send(sf::SocketTCP *socket) {
+    char type = packetType;
+    socket->Send((const char *)&type, sizeof(type));
+    name->Send(socket);
+    resource->Send(socket);
+    socket->Send((const char *)&width, sizeof(width));
+    socket->Send((const char *)&height, sizeof(height));
+    socket->Send((const char *)&framerate, sizeof(framerate));
+    socket->Send((const char *)&frames, sizeof(frames));
+}
+
+pf::Packet::StartWorld::StartWorld(sf::SocketTCP *socket) {}
+
+void pf::Packet::StartWorld::Send(sf::SocketTCP *socket) {
+    char type = packetType;
+    socket->Send((const char *)&type, sizeof(type));
+}
+
+pf::Packet::SetCharacter::SetCharacter(sf::SocketTCP *socket) {
+    std::size_t read;
+    socket->Receive((char *)&entityID, sizeof(entityID), read);
+}
+
+pf::Packet::SetCharacter::SetCharacter(pf::Character *character) {
+    entityID = character->GetID();
+}
+
+void pf::Packet::SetCharacter::Send(sf::SocketTCP *socket) {
+    char type = packetType;
+    socket->Send((const char *)&type, sizeof(type));
+    socket->Send((const char *)&entityID, sizeof(entityID));
 }
