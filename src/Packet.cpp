@@ -283,3 +283,42 @@ bool pf::Packet::OtherCharacterAnimation::IsPlaying() {
 bool pf::Packet::OtherCharacterAnimation::ShouldGotoFrame() {
     return data & 0x04;
 }
+
+pf::Packet::TeleportEntity::TeleportEntity(sf::SocketTCP *socket) {
+    std::size_t read;
+    socket->Receive((char *)&entityID, sizeof(entityID), read);
+    socket->Receive((char *)&x, sizeof(x), read);
+    socket->Receive((char *)&y, sizeof(y), read);
+}
+
+pf::Packet::TeleportEntity::TeleportEntity(pf::Entity *entity) {
+    entityID = entity->GetID();
+    x = entity->GetX();
+    y = entity->GetY();
+}
+
+void pf::Packet::TeleportEntity::Send(sf::SocketTCP *socket) {
+    char type = packetType;
+    socket->Send((const char *)&type, sizeof(type));
+    socket->Send((const char *)&entityID, sizeof(entityID));
+    socket->Send((const char *)&x, sizeof(x));
+    socket->Send((const char *)&y, sizeof(y));
+}
+
+pf::Packet::AbsoluteMove::AbsoluteMove(sf::SocketTCP *socket) {
+    std::size_t read;
+    socket->Receive((char *)&x, sizeof(x), read);
+    socket->Receive((char *)&y, sizeof(y), read);
+}
+
+pf::Packet::AbsoluteMove::AbsoluteMove(pf::Entity *entity) {
+    x = entity->GetX();
+    y = entity->GetY();
+}
+
+void pf::Packet::AbsoluteMove::Send(sf::SocketTCP *socket) {
+    char type = packetType;
+    socket->Send((const char *)&type, sizeof(type));
+    socket->Send((const char *)&x, sizeof(x));
+    socket->Send((const char *)&y, sizeof(y));
+}

@@ -201,6 +201,16 @@ pf::Server::Server(unsigned short port) {
                         
                         break;
                     }
+                    case pf::Packet::AbsoluteMove::packetType: {
+                        pf::Packet::AbsoluteMove packet(&socket);
+                        client->GetCharacter()->SetPosition(packet.x, packet.y);
+                        
+                        SendToAll(new pf::Packet::TeleportEntity(client->GetCharacter()), client);
+                        
+                        pf::Logger::LogInfo("Player \"%s\" moved to: (%f, %f)", client->GetUsername(), packet.x, packet.y);
+                        
+                        break;
+                    }
                 }
             }
         }

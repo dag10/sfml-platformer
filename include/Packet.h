@@ -315,6 +315,26 @@ namespace pf {
             ~SetCharacter() {}
         };
         
+        struct TeleportEntity : BasePacket {
+            static const char packetType = 0x0C;
+            uint32_t entityID;
+            float x;
+            float y;
+            
+            TeleportEntity(int entityID, float x, float y) {
+                this->entityID = entityID;
+                this->x = x;
+                this->y = y;
+            }
+            
+            TeleportEntity(pf::Entity *entity);
+            
+            TeleportEntity(sf::SocketTCP *socket);
+            void Send(sf::SocketTCP *socket);
+            
+            ~TeleportEntity() {}
+        };
+        
         struct DespawnEntity : BasePacket {
             static const char packetType = 0x0D;
             uint32_t entityID;
@@ -329,6 +349,24 @@ namespace pf {
             void Send(sf::SocketTCP *socket);
             
             ~DespawnEntity() {}
+        };
+        
+        struct AbsoluteMove : BasePacket {
+            static const char packetType = 0x0F;
+            float x;
+            float y;
+            
+            AbsoluteMove(float x, float y) {
+                this->x = x;
+                this->y = y;
+            }
+            
+            AbsoluteMove(pf::Entity *entity);
+            
+            AbsoluteMove(sf::SocketTCP *socket);
+            void Send(sf::SocketTCP *socket);
+            
+            ~AbsoluteMove() {}
         };
     }; // namespace Packet
 }; // namespace pf

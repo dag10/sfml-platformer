@@ -344,12 +344,9 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
                 case pf::Packet::SpawnCharacter::packetType: {
                     pf::Packet::SpawnCharacter packet(socket);
                     pf::Logger::LogInfo("Spawning character \"%s\" (%d) at (%f, %f)", packet.username->string, packet.entityID, packet.x, packet.y);
-                    pf::Logger::LogInfo("Number of character skins: %d", pf::CharacterSkin::characterSkins->size());
-                    //break;
                     pf::Character *character = new pf::Character(world, pf::CharacterSkin::GetCharacterSkin(packet.skin->string), packet.username->string);
                     character->SetID(packet.entityID);
                     character->SetPosition(packet.x, packet.y);
-                    character->SetGravityEnabled(false);
                     world->AddEntity(character);
                     break;
                 }
@@ -399,6 +396,15 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
                     
                     break;
                 }
+                case pf::Packet::TeleportEntity::packetType: {
+                    pf::Packet::TeleportEntity packet(socket);
+                    pf::Entity *entity = world->GetEntity(packet.entityID);
+                    if (!entity) break;
+                    
+                    entity->SetPosition(packet.x, packet.y);
+                    
+                    break;
+                }
             }
 
         }
@@ -406,10 +412,14 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
     
     switch (screen) {
         case Screen_Game: {
+            float oldX, oldY;
+            
             // Character controls
             if (localCharacter) {
                 char oldDirection = localCharacter->GetDirection();
                 bool wasWalking = localCharacter->IsWalking();
+                oldX = localCharacter->GetX();
+                oldY = localCharacter->GetY();
                 
                 // Moving left, right, or stopping
                 if (input.IsKeyDown(sf::Key::Left))
@@ -452,6 +462,14 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
 
             // Tick world
             world->Tick(frametime);
+            
+            if (localCharacter) {
+                // Send movement packet
+                if (localCharacter->GetX() != oldX || 
+                    localCharacter->GetY() != oldY) {
+                    pf::Packet::AbsoluteMove(localCharacter).Send(socket);
+                }
+            }
             
             break;
             
