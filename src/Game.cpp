@@ -405,6 +405,17 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
                     
                     break;
                 }
+                case pf::Packet::Health::packetType: {
+                    pf::Packet::Health packet(socket);
+                    pf::Entity *entity = world->GetEntity(packet.entityID);
+                    if (!entity) break;
+                    pf::Character *character = dynamic_cast<pf::Character*>(entity);
+                    if (!character) break;
+                    
+                    character->SetHealth(packet.health);
+                    
+                    break;
+                }
             }
 
         }

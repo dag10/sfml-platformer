@@ -83,3 +83,12 @@ int pf::Animation::GetCurrentFrame() {
 void pf::Animation::SetCurrentFrame(int frame) {
     currentFrame = frame;
 }
+
+int pf::Animation::GetFramerate() {
+    return framerate;
+}
+
+void pf::Animation::SetFramerate(int framerate) {
+    if (framerate >= 0)
+        this->framerate = framerate;
+}

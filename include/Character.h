@@ -28,6 +28,10 @@ namespace pf {
     class Animation;
     class Resource;
     class CharacterSkin;
+#ifdef PLATFORMER_SERVER
+    class ClientInstance;
+    class Server;
+#endif
 
     class Character : public pf::PhysicsEntity {
         public:
@@ -54,6 +58,12 @@ namespace pf {
 
             int GetDirection();
             bool IsWalking();
+        
+            float GetHealth();
+            void SetHealth(float health);
+            void ShowHealth();
+            void HideHealth();
+            bool IsShowingHealth();
 
             void WalkRight();
             void WalkLeft();
@@ -61,6 +71,13 @@ namespace pf {
             void StartWalking();
             void FaceRight();
             void FaceLeft();
+        
+#ifdef PLATFORMER_SERVER
+            void SetClient(pf::ClientInstance *client);
+            pf::ClientInstance *GetClient();   
+            void SetServer(pf::Server *server);
+            pf::Server *GetServer();    
+#endif
         
             pf::CharacterSkin *GetSkin();
             pf::Animation *GetImage();
@@ -78,11 +95,21 @@ namespace pf {
             float speed;
             bool walking;
             int direction;
+            float health;
             
             sf::String *name;
             sf::Shape *nameBackground;
+            sf::Shape *healthBackground;
+            sf::Shape *healthBarGreen;
+            sf::Shape *healthBarRed;
             bool showName;
+            bool showHealth;
             bool isolateAnimation;
+        
+#ifdef PLATFORMER_SERVER
+            pf::ClientInstance *client;
+            pf::Server *server;
+#endif
     };
 }; // namespace pf
 

@@ -39,6 +39,8 @@ namespace pf {
             void SetCurrentFrame(int frame);
             int GetWidth();
             int GetHeight();
+            int GetFramerate();
+            void SetFramerate(int framerate);
 
         private:
             int framerate;

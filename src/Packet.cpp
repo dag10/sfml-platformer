@@ -23,6 +23,7 @@
 #include "CharacterSkin.h"
 #include "Animation.h"
 #include "Character.h"
+#include "Logger.h"
 #include <SFML/Network.hpp>
 
 pf::Packet::PacketString::PacketString(sf::SocketTCP *socket) {
@@ -321,4 +322,22 @@ void pf::Packet::AbsoluteMove::Send(sf::SocketTCP *socket) {
     socket->Send((const char *)&type, sizeof(type));
     socket->Send((const char *)&x, sizeof(x));
     socket->Send((const char *)&y, sizeof(y));
+}
+
+pf::Packet::Health::Health(sf::SocketTCP *socket) {
+    std::size_t read;
+    socket->Receive((char *)&entityID, sizeof(entityID), read);
+    socket->Receive((char *)&health, sizeof(health), read);
+}
+
+pf::Packet::Health::Health(pf::Character *character) {
+    entityID = character->GetID();
+    health = (int)character->GetHealth();
+}
+
+void pf::Packet::Health::Send(sf::SocketTCP *socket) {
+    char type = packetType;
+    socket->Send((const char *)&type, sizeof(type));
+    socket->Send((const char *)&entityID, sizeof(entityID));
+    socket->Send((const char *)&health, sizeof(health));
 }

@@ -21,7 +21,6 @@
 #ifndef PACKET_H
 #define PACKET_H
 
-#include "Logger.h"
 #include <string>
 
 namespace sf {
@@ -367,6 +366,24 @@ namespace pf {
             void Send(sf::SocketTCP *socket);
             
             ~AbsoluteMove() {}
+        };
+        
+        struct Health : BasePacket {
+            static const char packetType = 0x10;
+            uint32_t entityID;
+            char health;
+            
+            Health(int entityID, int health) {
+                this->entityID = entityID;
+                this->health = health;
+            }
+            
+            Health(pf::Character *character);
+            
+            Health(sf::SocketTCP *socket);
+            void Send(sf::SocketTCP *socket);
+            
+            ~Health() {}
         };
     }; // namespace Packet
 }; // namespace pf

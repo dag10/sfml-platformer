@@ -210,7 +210,9 @@ void pf::PhysicsEntity::Move(float offsetX, float offsetY) {
                             x = ent->GetX() - width - 0.0f;
                         else
                             x = ent->GetX() + ent->GetWidth() + 0.0f;
-                        veloX = 0.f;
+                        
+                        if (!platform || !platform->IsLiquid())
+                            veloX = 0.f;
                     }
                 }
             }

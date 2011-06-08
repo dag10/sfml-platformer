@@ -27,6 +27,7 @@
 #include "Character.h"
 #include "Packet.h"
 #include "Animation.h"
+#include <SFML/System.hpp>
 
 pf::Server::Server(unsigned short port) {
     shouldQuit = false;
@@ -69,10 +70,15 @@ pf::Server::Server(unsigned short port) {
     // Main loop
     
     pf::Logger::LogInfo("Listening on port %d", port);
+    sf::Clock *clock = new sf::Clock();
+    float frametime;
     while (!shouldQuit) {
-        int readySockets = socketSelector.Wait(0.01f);
+        // Get frame time
+        frametime = clock->GetElapsedTime();
+        clock->Reset();
         
         // Handle incoming connections/data
+        int readySockets = socketSelector.Wait(0.01f);
         for (int i = 0; i < readySockets; i++) {
             sf::SocketTCP socket = socketSelector.GetSocketReady(i);
             
@@ -111,6 +117,7 @@ pf::Server::Server(unsigned short port) {
                     clientMap.erase(socket);
                     socketSelector.Remove(socket);
                     SendToAll(new pf::Packet::DespawnEntity(client->GetCharacter()), client);
+                    world->RemoveEntity(*client->GetCharacter());
                     delete client;
                     continue;
                 }
@@ -142,6 +149,8 @@ pf::Server::Server(unsigned short port) {
                         
                         pf::Character *character = new pf::Character(world, skin, client->GetUsername());
                         client->SetCharacter(character);
+                        character->SetClient(client);
+                        character->SetServer(this);
                         world->SpawnCharacter(client->GetCharacter());
                         
                         // Send properties
@@ -169,6 +178,7 @@ pf::Server::Server(unsigned short port) {
                         for (ClientMap::iterator it = clientMap.begin(); it != clientMap.end(); it++) {
                             client->EnqueuePacket(new pf::Packet::SpawnCharacter(it->second->GetCharacter()));
                             client->EnqueuePacket(new pf::Packet::OtherCharacterAnimation(it->second->GetCharacter()));
+                            client->EnqueuePacket(new pf::Packet::Health(it->second->GetCharacter()));
                         }
                         
                         // Set client's character
@@ -199,6 +209,9 @@ pf::Server::Server(unsigned short port) {
                         
                         SendToAll(new pf::Packet::OtherCharacterAnimation(character), client);
                         
+                        if (!packet.IsFacingRight() && packet.IsPlaying())
+                            character->SetHealth(character->GetHealth() > 10.f ? character->GetHealth() - (50.f * frametime) : 100);
+                        
                         break;
                     }
                     case pf::Packet::AbsoluteMove::packetType: {
@@ -206,8 +219,6 @@ pf::Server::Server(unsigned short port) {
                         client->GetCharacter()->SetPosition(packet.x, packet.y);
                         
                         SendToAll(new pf::Packet::TeleportEntity(client->GetCharacter()), client);
-                        
-                        pf::Logger::LogInfo("Player \"%s\" moved to: (%f, %f)", client->GetUsername(), packet.x, packet.y);
                         
                         break;
                     }
@@ -228,6 +239,9 @@ pf::Server::Server(unsigned short port) {
                 }
             }
         }
+        
+        // Tick the world
+        world->Tick(frametime);
     }
 }
 
