@@ -159,9 +159,9 @@ namespace pf {
             uint32_t entityID;
             PacketString *username;
             PacketString *skin;
-            float x, y;
+            uint16_t x, y;
             
-            SpawnCharacter(int entityID, char *username, char *skin, float x, float y) {
+            SpawnCharacter(int entityID, char *username, char *skin, int x, int y) {
                 this->entityID = entityID;
                 this->username = new PacketString(username);
                 this->skin = new PacketString(skin);
@@ -317,10 +317,9 @@ namespace pf {
         struct TeleportEntity : BasePacket {
             static const char packetType = 0x0C;
             uint32_t entityID;
-            float x;
-            float y;
+            uint16_t x, y;
             
-            TeleportEntity(int entityID, float x, float y) {
+            TeleportEntity(int entityID, int x, int y) {
                 this->entityID = entityID;
                 this->x = x;
                 this->y = y;
@@ -352,10 +351,9 @@ namespace pf {
         
         struct AbsoluteMove : BasePacket {
             static const char packetType = 0x0F;
-            float x;
-            float y;
+            uint16_t x, y;
             
-            AbsoluteMove(float x, float y) {
+            AbsoluteMove(int x, int y) {
                 this->x = x;
                 this->y = y;
             }

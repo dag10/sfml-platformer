@@ -223,7 +223,8 @@ void pf::Packet::DespawnEntity::Send(sf::SocketTCP *socket) {
 pf::Packet::CharacterAnimation::CharacterAnimation(sf::SocketTCP *socket) {
     std::size_t read;
     socket->Receive((char *)&data, sizeof(data), read);
-    socket->Receive((char *)&frame, sizeof(frame), read);
+    if (ShouldGotoFrame())
+        socket->Receive((char *)&frame, sizeof(frame), read);
 }
 
 pf::Packet::CharacterAnimation::CharacterAnimation(pf::Character *character) {
@@ -236,7 +237,8 @@ void pf::Packet::CharacterAnimation::Send(sf::SocketTCP *socket) {
     char type = packetType;
     socket->Send((const char *)&type, sizeof(type));
     socket->Send((const char *)&data, sizeof(data));
-    socket->Send((const char *)&frame, sizeof(frame));
+    if (ShouldGotoFrame())
+        socket->Send((const char *)&frame, sizeof(frame));
 }
 
 bool pf::Packet::CharacterAnimation::IsFacingRight() {
@@ -255,7 +257,8 @@ pf::Packet::OtherCharacterAnimation::OtherCharacterAnimation(sf::SocketTCP *sock
     std::size_t read;
     socket->Receive((char *)&entityID, sizeof(entityID), read);
     socket->Receive((char *)&data, sizeof(data), read);
-    socket->Receive((char *)&frame, sizeof(frame), read);
+    if (ShouldGotoFrame())
+        socket->Receive((char *)&frame, sizeof(frame), read);
 }
 
 pf::Packet::OtherCharacterAnimation::OtherCharacterAnimation(pf::Character *character) {
@@ -270,7 +273,8 @@ void pf::Packet::OtherCharacterAnimation::Send(sf::SocketTCP *socket) {
     socket->Send((const char *)&type, sizeof(type));
     socket->Send((const char *)&entityID, sizeof(entityID));
     socket->Send((const char *)&data, sizeof(data));
-    socket->Send((const char *)&frame, sizeof(frame));
+    if (ShouldGotoFrame())
+        socket->Send((const char *)&frame, sizeof(frame));
 }
 
 bool pf::Packet::OtherCharacterAnimation::IsFacingRight() {
