@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="include\Character.h" open="0" top="0" tabpos="0">
+		<Cursor position="1791" topLine="42" />
+	</File>
+	<File name="include\ClientInstance.h" open="1" top="0" tabpos="3">
+		<Cursor position="1583" topLine="33" />
+	</File>
+	<File name="include\Server.h" open="1" top="0" tabpos="8">
+		<Cursor position="1119" topLine="21" />
+	</File>
+	<File name="include\cfgparser\cfgparser.h" open="1" top="0" tabpos="7">
+		<Cursor position="1328" topLine="12" />
+	</File>
+	<File name="include\cfgparser\configwrapper.h" open="1" top="0" tabpos="4">
+		<Cursor position="1118" topLine="9" />
+	</File>
+	<File name="main_server.cpp" open="1" top="0" tabpos="9">
+		<Cursor position="844" topLine="0" />
+	</File>
+	<File name="src\ClientInstance.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1199" topLine="12" />
+	</File>
+	<File name="src\Packet.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="2440" topLine="39" />
+	</File>
+	<File name="src\Resource.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="742" topLine="12" />
+	</File>
+	<File name="src\Server.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="1350" topLine="35" />
+	</File>
+	<File name="src\World.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="4277" topLine="0" />
+	</File>
+	<File name="src\cfgparser\cfgparser.cc" open="1" top="0" tabpos="5">
+		<Cursor position="17334" topLine="545" />
+	</File>
+	<File name="src\cfgparser\configwrapper.cc" open="1" top="0" tabpos="6">
+		<Cursor position="3663" topLine="99" />
+	</File>
+</CodeBlocks_layout_file>

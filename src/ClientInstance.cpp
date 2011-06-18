@@ -2,20 +2,20 @@
  * ClientInstance.cpp
  * Manages a server's client instance and its networking
  * Copyright (c) 2010-2011 Drew Gottlieb
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  */
 
 #include "ClientInstance.h"
@@ -23,15 +23,17 @@
 #include "Logger.h"
 #include "Server.h"
 #include "Resource.h"
+#include "Character.h"
 
 pf::ClientInstance::ClientInstance(pf::Server *server, sf::SocketTCP *socket, sf::IPAddress *clientIP) {
     this->server = server;
     this->socket = socket;
     this->clientIP = *clientIP;
     this->username = NULL;
-    
+
     loading = true;
     character = NULL;
+    resourceCount = 0;
 }
 
 pf::ClientInstance::~ClientInstance() {
@@ -69,28 +71,33 @@ void pf::ClientInstance::EnqueuePacket(pf::Packet::BasePacket *packet) {
 void pf::ClientInstance::EnqueueResource(pf::Resource *resource) {
     EnqueuePacket(new pf::Packet::Resource(resource));
     pf::Logger::LogInfo("Enqueueing resource \"%s\" for client \"%s\"", resource->GetFilename(), username);
-    resouceCount++;
+    resourceCount++;
+    pf::Logger::LogInfo("RESOURCE COUNT IS NOW: %d", resourceCount);
 }
 
 pf::Packet::BasePacket *pf::ClientInstance::DequeuePacket() {
     if (packetQueue.empty())
         return NULL;
-    
+
     pf::Packet::BasePacket *packet = packetQueue.front();
     packetQueue.pop();
-    
+
     if(dynamic_cast<pf::Packet::Resource*>(packet))
-        resouceCount--;
-    
+        resourceCount--;
+
     pf::Packet::Kick *kick = dynamic_cast<pf::Packet::Kick*>(packet);
     if (kick)
         pf::Logger::LogInfo("[%s] KICK: \"%s\"", GetUsername(), kick->reason->string);
-    
+
     return packet;
 }
 
 int pf::ClientInstance::QueuedPackets() {
     return packetQueue.size();
+}
+
+int pf::ClientInstance::QueuedResources() {
+    return resourceCount;
 }
 
 void pf::ClientInstance::Kick(char *message) {
@@ -117,12 +124,12 @@ bool pf::ClientInstance::IsLoading() {
 }
 
 void pf::ClientInstance::BeginLoading() {
-    pf::Packet::BeginLoad(resouceCount).Send(socket);
+    pf::Packet::BeginLoad(resourceCount).Send(socket);
     loading = true;
 }
 
 void pf::ClientInstance::EndLoading() {
     pf::Packet::EndLoad().Send(socket);
     loading = false;
-    resouceCount = 0;
+    resourceCount = 0;
 }

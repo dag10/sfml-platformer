@@ -1,0 +1,596 @@
+# depslib dependency file v1.0
+1306418510 source:e:\sfml-platformer\main_server.cpp
+	"Server.h"
+	<cstdio>
+	<iostream>
+
+1307374516 e:\sfml-platformer\include\server.h
+	<SFML/Network.hpp>
+	"Packet.h"
+	<vector>
+	<map>
+
+1264625642 e:\projects\code\sfml-1.6\include\sfml\network.hpp
+	<SFML/System.hpp>
+	<SFML/Network/Ftp.hpp>
+	<SFML/Network/Http.hpp>
+	<SFML/Network/IPAddress.hpp>
+	<SFML/Network/Packet.hpp>
+	<SFML/Network/Selector.hpp>
+	<SFML/Network/SocketTCP.hpp>
+	<SFML/Network/SocketUDP.hpp>
+
+1264625642 e:\projects\code\sfml-1.6\include\sfml\system.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Lock.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Randomizer.hpp>
+	<SFML/System/Sleep.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Unicode.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+
+1264625642 e:\projects\code\sfml-1.6\include\sfml\config.hpp
+	<climits>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\clock.hpp
+	<SFML/Config.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\lock.hpp
+	<SFML/System/NonCopyable.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\noncopyable.hpp
+	<SFML/Config.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\mutex.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Win32/Mutex.hpp>
+	<SFML/System/Unix/Mutex.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\win32\mutex.hpp
+	<SFML/System/NonCopyable.hpp>
+	<windows.h>
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\system\unix\mutex.hpp
+	<SFML/System/NonCopyable.hpp>
+	<pthread.h>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\randomizer.hpp
+	<SFML/Config.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\sleep.hpp
+	<SFML/Config.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\thread.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Win32/Thread.hpp>
+	<SFML/System/Unix/Thread.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\win32\thread.hpp
+	<SFML/System/NonCopyable.hpp>
+	<windows.h>
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\system\unix\thread.hpp
+	<SFML/System/NonCopyable.hpp>
+	<pthread.h>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\unicode.hpp
+	<SFML/Config.hpp>
+	<iterator>
+	<locale>
+	<string>
+	<stdlib.h>
+	<SFML/System/Unicode.inl>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\unicode.inl
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\vector2.hpp
+	<SFML/System/Vector2.inl>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\vector2.inl
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\vector3.hpp
+	<SFML/System/Vector3.inl>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\vector3.inl
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\network\ftp.hpp
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Network/SocketTCP.hpp>
+	<string>
+	<vector>
+
+1268939668 e:\projects\code\sfml-1.6\include\sfml\network\sockettcp.hpp
+	<SFML/Network/SocketHelper.hpp>
+	<vector>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\network\sockethelper.hpp
+	<SFML/Config.hpp>
+	<SFML/Network/Win32/SocketHelper.hpp>
+	<SFML/Network/Unix/SocketHelper.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\network\win32\sockethelper.hpp
+	<winsock2.h>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\network\unix\sockethelper.hpp
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<netinet/tcp.h>
+	<arpa/inet.h>
+	<netdb.h>
+	<unistd.h>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\network\http.hpp
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Network/IPAddress.hpp>
+	<SFML/Network/SocketTCP.hpp>
+	<map>
+	<string>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\network\ipaddress.hpp
+	<SFML/Config.hpp>
+	<istream>
+	<ostream>
+	<string>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\network\packet.hpp
+	<SFML/Config.hpp>
+	<string>
+	<vector>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\network\selector.hpp
+	<SFML/Network/SocketUDP.hpp>
+	<SFML/Network/SocketTCP.hpp>
+	<SFML/Network/SelectorBase.hpp>
+	<map>
+	<SFML/Network/Selector.inl>
+
+1268939670 e:\projects\code\sfml-1.6\include\sfml\network\socketudp.hpp
+	<SFML/Network/SocketHelper.hpp>
+	<vector>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\network\selectorbase.hpp
+	<SFML/Config.hpp>
+	<SFML/Network/SocketHelper.hpp>
+	<map>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\network\selector.inl
+
+1307628200 e:\sfml-platformer\include\packet.h
+	<string>
+
+1307548212 source:e:\sfml-platformer\src\animation.cpp
+	"Animation.h"
+
+1307548178 e:\sfml-platformer\include\animation.h
+	<SFML/Graphics.hpp>
+	"IRenderable.h"
+
+1264625642 e:\projects\code\sfml-1.6\include\sfml\graphics.hpp
+	<SFML/Window.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Graphics/PostFX.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/Shape.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/String.hpp>
+	<SFML/Graphics/View.hpp>
+
+1264625642 e:\projects\code\sfml-1.6\include\sfml\window.hpp
+	<SFML/System.hpp>
+	<SFML/Window/Context.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Window/Input.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/Window.hpp>
+	<SFML/Window/WindowListener.hpp>
+	<SFML/Window/WindowStyle.hpp>
+	<SFML/Window/OpenGL.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\window\context.hpp
+	<SFML/Config.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\window\event.hpp
+	<SFML/Config.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\window\input.hpp
+	<SFML/Config.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Window/WindowListener.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\window\windowlistener.hpp
+	<SFML/Config.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\window\videomode.hpp
+	<SFML/Config.hpp>
+	<cstdlib>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\window\window.hpp
+	<SFML/Window/Event.hpp>
+	<SFML/Window/Input.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/WindowHandle.hpp>
+	<SFML/Window/WindowListener.hpp>
+	<SFML/Window/WindowSettings.hpp>
+	<SFML/Window/WindowStyle.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<queue>
+	<string>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\window\windowhandle.hpp
+	<SFML/Config.hpp>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\window\windowsettings.hpp
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\window\windowstyle.hpp
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\window\opengl.hpp
+	<SFML/Config.hpp>
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\graphics\color.hpp
+	<SFML/Config.hpp>
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\graphics\font.hpp
+	<SFML/System/Resource.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Unicode.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<map>
+	<string>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\resource.hpp
+	<set>
+	<SFML/System/Resource.inl>
+	<SFML/System/ResourcePtr.inl>
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\resource.inl
+
+1264625636 e:\projects\code\sfml-1.6\include\sfml\system\resourceptr.inl
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\graphics\glyph.hpp
+	<SFML/Config.hpp>
+	<SFML/Graphics/Rect.hpp>
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\graphics\rect.hpp
+	<algorithm>
+	<SFML/Graphics/Rect.inl>
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\graphics\rect.inl
+
+1268939654 e:\projects\code\sfml-1.6\include\sfml\graphics\image.hpp
+	<SFML/System/Resource.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<string>
+	<vector>
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\graphics\postfx.hpp
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Image.hpp>
+	<istream>
+	<map>
+	<string>
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\graphics\drawable.hpp
+	<SFML/System/Vector2.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Matrix3.hpp>
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\graphics\matrix3.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Vector2.hpp>
+	<math.h>
+	<SFML/Graphics/Matrix3.inl>
+
+1268939656 e:\projects\code\sfml-1.6\include\sfml\graphics\matrix3.inl
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\graphics\renderwindow.hpp
+	<SFML/Graphics/Image.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Window/Window.hpp>
+	<string>
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\graphics\rendertarget.hpp
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/View.hpp>
+	<SFML/Graphics/Rect.hpp>
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\graphics\view.hpp
+	<SFML/Config.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/Matrix3.hpp>
+	<SFML/System/Vector2.hpp>
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\graphics\shape.hpp
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/System/Vector2.hpp>
+	<vector>
+
+1268939652 e:\projects\code\sfml-1.6\include\sfml\graphics\sprite.hpp
+	<SFML/System/Resource.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Rect.hpp>
+
+1264625634 e:\projects\code\sfml-1.6\include\sfml\graphics\string.hpp
+	<SFML/System/Resource.hpp>
+	<SFML/System/Unicode.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<string>
+
+1306246154 e:\sfml-platformer\include\irenderable.h
+	<SFML/Graphics.hpp>
+
+1306246154 source:e:\sfml-platformer\src\bouncyparticle.cpp
+	"BouncyParticle.h"
+
+1306246154 e:\sfml-platformer\include\bouncyparticle.h
+	"Particle.h"
+
+1306246154 e:\sfml-platformer\include\particle.h
+	"PhysicsEntity.h"
+	"IRenderable.h"
+
+1307387136 e:\sfml-platformer\include\physicsentity.h
+	"Entity.h"
+	"IRenderable.h"
+	"World.h"
+	<vector>
+
+1306851302 e:\sfml-platformer\include\entity.h
+
+1306856336 e:\sfml-platformer\include\world.h
+	"IRenderable.h"
+	<vector>
+
+1307548978 source:e:\sfml-platformer\src\character.cpp
+	"Character.h"
+	"Animation.h"
+	"Resource.h"
+	"CharacterSkin.h"
+	"Logger.h"
+	<string>
+	"ClientInstance.h"
+	"Packet.h"
+	"Server.h"
+
+1307546948 e:\sfml-platformer\include\character.h
+	<SFML/Graphics.hpp>
+	"PhysicsEntity.h"
+
+1307630596 e:\sfml-platformer\include\resource.h
+	<map>
+	<string>
+
+1306942350 e:\sfml-platformer\include\characterskin.h
+	<map>
+	<string>
+
+1306337804 e:\sfml-platformer\include\logger.h
+
+1306939876 e:\sfml-platformer\include\clientinstance.h
+	<SFML/Network.hpp>
+	<vector>
+	<queue>
+
+1307111890 source:e:\sfml-platformer\src\characterskin.cpp
+	"CharacterSkin.h"
+	"Resource.h"
+	<SFML/Graphics.hpp>
+
+1307376662 source:e:\sfml-platformer\src\clientinstance.cpp
+	"ClientInstance.h"
+	"Packet.h"
+	"Logger.h"
+	"Server.h"
+	"Resource.h"
+
+1306246154 source:e:\sfml-platformer\src\elevator.cpp
+	"Elevator.h"
+
+1306246154 e:\sfml-platformer\include\elevator.h
+	<SFML/Graphics.hpp>
+	"PhysicsEntity.h"
+
+1307377936 source:e:\sfml-platformer\src\entity.cpp
+	"Entity.h"
+	"World.h"
+
+1307546038 source:e:\sfml-platformer\src\game.cpp
+	"Game.h"
+	"PhysicsEntity.h"
+	"Character.h"
+	"World.h"
+	"Elevator.h"
+	"Animation.h"
+	"BouncyParticle.h"
+	"Platform.h"
+	"Resource.h"
+	"cpGUI.h"
+	"Logger.h"
+	"Packet.h"
+	"CharacterSkin.h"
+	<sstream>
+	<SFML/Window.hpp>
+	<SFML/Graphics.hpp>
+
+1307028736 e:\sfml-platformer\include\game.h
+	<SFML/Graphics.hpp>
+	<SFML/Network.hpp>
+
+1306246154 e:\sfml-platformer\include\platform.h
+	<SFML/Graphics.hpp>
+	"Entity.h"
+
+1306246154 e:\sfml-platformer\include\cpgui\cpgui.h
+	"cpGUI_base.h"
+	"cpCheckBox.h"
+	"cpImageButton.h"
+	"cpSelection-DropDownBox.h"
+	"cpShapeButton.h"
+	"cpTextBox.h"
+	"cpTextInputBox.h"
+
+1306246154 e:\sfml-platformer\include\cpgui\cpgui_base.h
+	<cmath>
+	<cstring>
+	<fstream>
+	<map>
+	<sstream>
+	<vector>
+	<SFML/Graphics.hpp>
+
+1306246154 e:\sfml-platformer\include\cpgui\cpcheckbox.h
+	"cpGUI_base.h"
+	"cpButton.h"
+
+1306246154 e:\sfml-platformer\include\cpgui\cpbutton.h
+	"cpObject.h"
+	"cpGuiContainer.h"
+
+1306246154 e:\sfml-platformer\include\cpgui\cpobject.h
+	"cpGuiContainer.h"
+
+1306246154 e:\sfml-platformer\include\cpgui\cpguicontainer.h
+
+1306246154 e:\sfml-platformer\include\cpgui\cpimagebutton.h
+	"cpGUI_base.h"
+	"cpObject.h"
+
+1306246154 e:\sfml-platformer\include\cpgui\cpselection-dropdownbox.h
+	"cpGUI_base.h"
+	"cpScrollBar.h"
+
+1306246154 e:\sfml-platformer\include\cpgui\cpscrollbar.h
+	"cpGuiContainer.h"
+	"cpButton.h"
+
+1306246154 e:\sfml-platformer\include\cpgui\cpshapebutton.h
+	"cpGUI_base.h"
+	"cpObject.h"
+
+1306246154 e:\sfml-platformer\include\cpgui\cptextbox.h
+	"cpGUI_base.h"
+	"cpObject.h"
+	"cpScrollBar.h"
+
+1306246154 e:\sfml-platformer\include\cpgui\cptextinputbox.h
+	"cpGUI_base.h"
+	"cpGuiContainer.h"
+	"cpObject.h"
+
+1306339798 source:e:\sfml-platformer\src\logger.cpp
+	"Logger.h"
+	<time.h>
+	<iostream>
+	<stdarg.h>
+
+1307628472 source:e:\sfml-platformer\src\packet.cpp
+	"Packet.h"
+	"Resource.h"
+	"CharacterSkin.h"
+	"Animation.h"
+	"Character.h"
+	"Logger.h"
+	<SFML/Network.hpp>
+
+1306246154 source:e:\sfml-platformer\src\particle.cpp
+	"Particle.h"
+	"Animation.h"
+
+1307548684 source:e:\sfml-platformer\src\physicsentity.cpp
+	"PhysicsEntity.h"
+	"Platform.h"
+	"Animation.h"
+	<vector>
+
+1306246154 source:e:\sfml-platformer\src\platform.cpp
+	"Platform.h"
+	"World.h"
+
+1307630490 source:e:\sfml-platformer\src\server.cpp
+	"Server.h"
+	"Logger.h"
+	"World.h"
+	"Resource.h"
+	"ClientInstance.h"
+	"CharacterSkin.h"
+	"Character.h"
+	"Packet.h"
+	"Animation.h"
+	<SFML/System.hpp>
+
+1307387912 source:e:\sfml-platformer\src\world.cpp
+	"World.h"
+	"Tileset.h"
+	"Entity.h"
+	"PhysicsEntity.h"
+	"Platform.h"
+	"Logger.h"
+	"Resource.h"
+	"Character.h"
+	<vector>
+
+1306246154 e:\sfml-platformer\include\tileset.h
+	<SFML/Graphics.hpp>
+
+1306246154 source:e:\sfml-platformer\src\cpgui\cpcheckbox.cpp
+	"cpGUI_base.h"
+	"cpCheckBox.h"
+
+1306246154 source:e:\sfml-platformer\src\cpgui\cpgui_base.cpp
+	"cpGUI_base.h"
+	"cpGuiContainer.h"
+	"cpObject.h"
+	"cpButton.h"
+	"cpScrollBar.h"
+	<stdexcept>
+
+1306246154 source:e:\sfml-platformer\src\cpgui\cpimagebutton.cpp
+	"cpGUI_base.h"
+	"cpImageButton.h"
+
+1306246154 source:e:\sfml-platformer\src\cpgui\cpselection-dropdownbox.cpp
+	"cpGUI_base.h"
+	"cpSelection-DropDownBox.h"
+
+1306246154 source:e:\sfml-platformer\src\cpgui\cpshapebutton.cpp
+	"cpGUI_base.h"
+	"cpShapeButton.h"
+
+1306246154 source:e:\sfml-platformer\src\cpgui\cptextbox.cpp
+	"cpGUI_base.h"
+	"cpTextBox.h"
+	<cstring>
+
+1306937254 source:e:\sfml-platformer\src\cpgui\cptextinputbox.cpp
+	"cpGUI_base.h"
+	"cpTextInputBox.h"
+
+1307630348 source:e:\sfml-platformer\src\resource.cpp
+	"Resource.h"
+	"Logger.h"
+	"Server.h"
+	<fstream>
+	<sys/stat.h>
+	<iostream>
+

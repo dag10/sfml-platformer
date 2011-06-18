@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="include\Character.h" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include\Game.h" open="1" top="0" tabpos="12">
+		<Cursor position="3590" topLine="78" />
+	</File>
+	<File name="include\Packet.h" open="1" top="0" tabpos="8">
+		<Cursor position="2799" topLine="81" />
+	</File>
+	<File name="include\PhysicsEntity.h" open="0" top="0" tabpos="0">
+		<Cursor position="806" topLine="0" />
+	</File>
+	<File name="include\Resource.h" open="1" top="0" tabpos="2">
+		<Cursor position="1305" topLine="22" />
+	</File>
+	<File name="main_client.cpp" open="1" top="0" tabpos="16">
+		<Cursor position="2949" topLine="0" />
+	</File>
+	<File name="src\Character.cpp" open="1" top="0" tabpos="10">
+		<Cursor position="2328" topLine="53" />
+	</File>
+	<File name="src\Elevator.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="886" topLine="0" />
+	</File>
+	<File name="src\Game.cpp" open="1" top="0" tabpos="11">
+		<Cursor position="12854" topLine="321" />
+	</File>
+	<File name="src\Logger.cpp" open="1" top="0" tabpos="9">
+		<Cursor position="848" topLine="8" />
+	</File>
+	<File name="src\Packet.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="3465" topLine="99" />
+	</File>
+	<File name="src\PhysicsEntity.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="0" topLine="41" />
+	</File>
+	<File name="src\Platform.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="1168" topLine="55" />
+	</File>
+	<File name="src\Resource.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="1833" topLine="24" />
+	</File>
+	<File name="src\World.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="src\cpGUI\cpCheckBox.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="0" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

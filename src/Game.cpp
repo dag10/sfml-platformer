@@ -41,13 +41,13 @@ pf::Game::Game(sf::RenderWindow& renderWindow) {
     localCharacter = NULL;
     world = NULL;
     socket = NULL;
-    
+
     // Initial game state
     screen = Screen_Main;
-    
+
     // Initialize GUI
     InitGUI(renderWindow);
-    
+
     // Initialize World and view
     //world = new pf::World(levelImageResource);
     view = new sf::View(sf::FloatRect(0, 0, 0, 0));
@@ -58,7 +58,7 @@ pf::Game::Game(sf::RenderWindow& renderWindow) {
     viewX = viewY = 0;
     targetZoomFactor = zoomFactor = DEFAULT_ZOOM;
     followCharacter = true;
-    
+
     shouldQuit = false;
 }
 
@@ -66,29 +66,35 @@ void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
     pf::Resource *fontResource = pf::Resource::GetOrLoadResource("resources/MIASWFTE.TTF");
     labelFont = new sf::Font();
     labelFont->LoadFromMemory(fontResource->GetData(), fontResource->GetLength(), 30);
-    
+
     // Main Menu
-    
+
     menuContainer = new cp::cpGuiContainer();
-    
+
     nameBox = new cp::cpTextInputBox(&renderWindow, menuContainer, "", 0, 0, 200, 16);
     nameLabel = new sf::String("Username");
     nameLabel->SetColor(sf::Color::White);
     nameLabel->SetSize(16);
     nameLabel->SetCenter(nameLabel->GetRect().GetWidth(), 0);
-    
+
     ipBox = new cp::cpTextInputBox(&renderWindow, menuContainer, "127.0.0.1", 0, 0, 200, 16);
     ipLabel = new sf::String("Server");
     ipLabel->SetColor(sf::Color::White);
     ipLabel->SetSize(16);
     ipLabel->SetCenter(ipLabel->GetRect().GetWidth(), 0);
-    
+
+    portBox = new cp::cpTextInputBox(&renderWindow, menuContainer, "25565", 0, 0, 100, 16);
+    portLabel = new sf::String("Port");
+    portLabel->SetColor(sf::Color::White);
+    portLabel->SetSize(16);
+    portLabel->SetCenter(portLabel->GetRect().GetWidth(), 0);
+
     joinButton = new cp::cpButton(&renderWindow, menuContainer, "Join Game", 0, 0, 50, 16);
-    
+
     // Joining screen
-    
+
     joiningContainer = new cp::cpGuiContainer();
-    
+
     joiningLabel1 = new sf::String();
     joiningLabel1->SetColor(sf::Color::White);
     joiningLabel1->SetSize(24);
@@ -96,11 +102,11 @@ void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
     joiningLabel2->SetColor(sf::Color::White);
     joiningLabel2->SetSize(18);
     SetJoiningLabelText("Connecting...", NULL);
-    
+
     joiningReturnButton = new cp::cpButton(&renderWindow, joiningContainer, "Return to Main Screen");
-    
+
     // Menu background shape/sprite
-    
+
     static sf::Color screenBackgroundFill = sf::Color(100, 100, 100);
     screenBackground = new sf::Shape();
     screenBackground->AddPoint(0, 0, screenBackgroundFill);
@@ -113,7 +119,7 @@ void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
 
 void pf::Game::addBox(int x, int y) {
     static pf::Animation *boxAnimation;
-    
+
     if (!boxAnimation) {
         sf::Image *boxImage = new sf::Image();
         Resource *boxImageResource = Resource::GetOrLoadResource("resources/box.bmp");
@@ -122,7 +128,7 @@ void pf::Game::addBox(int x, int y) {
         //boxImage->CreateMaskFromColor(sf::Color(255, 0, 255));
         boxAnimation = new pf::Animation(*boxImage, 1, 10);
     }
-    
+
     pf::PhysicsEntity *box = new pf::PhysicsEntity(world, boxAnimation, x, y);
     box->SetGravityEnabled(true);
     box->SetSolid(true);
@@ -143,13 +149,13 @@ pf::Game::~Game() {
 
 void pf::Game::SetJoiningLabelText(char *line1, char *line2) {
     sf::FloatRect rect;
-    
+
     if (line1) {
         joiningLabel1->SetText(line1);
         rect = joiningLabel1->GetRect();
         joiningLabel1->SetCenter(rect.GetWidth() / 2, rect.GetHeight() / 2);
     }
-    
+
     if (line2) {
         joiningLabel2->SetText(line2);
         rect = joiningLabel2->GetRect();
@@ -168,7 +174,7 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             target.Clear(sf::Color(100, 149, 237));
             world->Render(target);
             world->RenderOverlays(target);
-            
+
             if (!(localCharacter && followCharacter)) {
                 float widthScale = (float)renderWidth / (float)world->GetPixelWidth();
                 float heightScale = (float)renderHeight / (float)world->GetPixelHeight();
@@ -176,59 +182,67 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             } else {
                 targetZoomFactor = DEFAULT_ZOOM;
             }
-            
+
             break;
-            
+
         case Screen_Main:
             target.SetView(target.GetDefaultView());
             target.Clear(sf::Color::Black);
-            
+
             screenBackground->SetScale(target.GetWidth(), target.GetHeight());
             target.Draw(*screenBackground);
-            
+
             // Render name label
             nameLabel->SetPosition(100, 100);
             target.Draw(*nameLabel);
-            
+
             // Render name box
             nameBox->SetPosition(nameLabel->GetPosition().x + UI_SPACING, nameLabel->GetPosition().y + 2);
             nameBox->Draw();
-            
+
             // Render server label
             ipLabel->SetPosition(nameLabel->GetPosition().x, nameLabel->GetPosition().y + nameLabel->GetRect().GetHeight() + UI_SPACING);
             target.Draw(*ipLabel);
-            
+
             // Render server box
             ipBox->SetPosition(ipLabel->GetPosition().x + UI_SPACING, ipLabel->GetPosition().y + 2);
             ipBox->Draw();
-            
+
+            // Render port label
+            portLabel->SetPosition(ipLabel->GetPosition().x, ipLabel->GetPosition().y + ipLabel->GetRect().GetHeight() + UI_SPACING);
+            target.Draw(*portLabel);
+
+            // Render port box
+            portBox->SetPosition(portLabel->GetPosition().x + UI_SPACING, portLabel->GetPosition().y + 2);
+            portBox->Draw();
+
             // Render join button
-            joinButton->SetPosition(ipBox->GetPosition().x, ipBox->GetPosition().y + ipBox->GetSize().y + UI_SPACING);
+            joinButton->SetPosition(portBox->GetPosition().x, portBox->GetPosition().y + portBox->GetSize().y + UI_SPACING);
             joinButton->SetSize(80, 20);
             joinButton->SetFontSize(14);
             joinButton->Draw();
-            
+
             break;
-            
+
         case Screen_Disconnect:
         case Screen_Joining:
             target.SetView(target.GetDefaultView());
             target.Clear(sf::Color::Black);
-            
+
             screenBackground->SetScale(target.GetWidth(), target.GetHeight());
             target.Draw(*screenBackground);
-            
+
             // Render joining label2
             joiningLabel1->SetPosition(renderWidth / 2, renderHeight / 2 - joiningLabel1->GetRect().GetHeight() * 2);
             joiningLabel2->SetPosition(renderWidth / 2, renderHeight / 2 + joiningLabel2->GetRect().GetHeight());
             target.Draw(*joiningLabel1);
             target.Draw(*joiningLabel2);
-            
+
             // Render return button
             joiningReturnButton->SetPosition((renderWidth / 2) - (joiningReturnButton->GetSize().x / 2),
                                              (renderHeight * 2 / 3) - (joiningReturnButton->GetSize().y / 2));
             joiningReturnButton->Draw();
-            
+
             break;
     }
 }
@@ -236,15 +250,17 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
 void pf::Game::JoinGame() {
     if (screen != Screen_Main)
         return;
-                
+
     // Get username
     const char *tempName = nameBox->GetLabelText().c_str();
-    playerName = new char[strlen(tempName)];
-    strcpy(playerName, tempName);
-    
-    // Get server IP
+    playerName = strlen(tempName) ? new char[strlen(tempName) + 1] : NULL;
+    if (playerName) strcpy(playerName, tempName);
+    delete tempName;
+
+    // Get server IP and port
     serverIP = sf::IPAddress(ipBox->GetLabelText());
-    
+    const char *serverPortString = portBox->GetLabelText().c_str();
+
     // Verify inputs
     if (!playerName || !strlen(playerName)) {
         nameBox->SetFocus(true);
@@ -252,17 +268,21 @@ void pf::Game::JoinGame() {
     } else if (!serverIP.IsValid()) {
         ipBox->SetFocus(true);
         return;
+    } else if (!serverPortString || !strlen(serverPortString)) {
+        portBox->SetFocus(true);
+        return;
     }
-    
+
     // Set port
-    serverPort = 25565;
-    
+    serverPort = atoi(serverPortString);
+    delete serverPortString;
+
     // Set joining label text
     SetJoiningLabelText("", (char *)("Connecting to " + serverIP.ToString() + "...").c_str());
-    
+
     // Change screen to loading screen
     SetScreen(Screen_Joining);
-    
+
     // Connect to server
     socket = new sf::SocketTCP();
     if (socket->Connect(serverPort, serverIP) != sf::Socket::Done) {
@@ -275,11 +295,11 @@ void pf::Game::JoinGame() {
     socketSelector = new sf::SelectorTCP();
     socketSelector->Add(*socket);
     pf::Logger::LogInfo("Connected to %s:%d", serverIP.ToString().c_str(), serverPort);
-    
+
     // Log in
     SetJoiningLabelText(NULL, "Joining game...");
     pf::Logger::LogInfo("Logging in as \"%s\"", playerName);
-    
+
     // Send login packet
     pf::Packet::LoginRequest(playerName).Send(socket);
 }
@@ -290,17 +310,16 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
             size_t read;
             char packetType;
             int status = socket->Receive(&packetType, sizeof(packetType), read);
-            
+
             if (status != sf::Socket::Done) {
                 Disconnect("Connection broken or terminated.");
                 return shouldQuit;
             }
-            
+
             switch (packetType) {
                 case pf::Packet::Kick::packetType: {
                     pf::Packet::Kick packet(socket);
-                    pf::Logger::LogInfo("Server disconnected. Reason: %s", packet.reason->string);
-                    //Disconnect(packet.reason->string);
+                    Disconnect(packet.reason->string);
                     break;
                 }
                 case pf::Packet::BeginLoad::packetType: {
@@ -318,22 +337,23 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
                     break;
                 }
                 case pf::Packet::Resource::packetType: {
-                    pf::Resource *resource = pf::Packet::Resource(socket).GetResource();
-                    pf::Logger::LogInfo("Received resource \"%s\" ( %d bytes )", resource->GetFilename(), resource->GetLength());
-                    resourcesLoaded++;
+                    pf::Packet::Resource packet(socket);
+                    pf::Resource *resource = packet.GetResource();
+                    pf::Logger::LogInfo("Received resource \"%s\" ( %d bytes )", packet.filename->string, resource->GetLength());
                     std::stringstream resourceStatus;
                     resourceStatus << "Downloaded resource " << resourcesLoaded << " of " << resourcesToLoad;
                     SetJoiningLabelText(screen == Screen_Joining ? NULL : (char *)"Loading...", (char *)resourceStatus.str().c_str());
+                    resourcesLoaded++;
                     break;
                 }
                 case pf::Packet::Property::packetType: {
                     pf::Packet::Property packet(socket);
                     properties[packet.name->string] = packet.value->string;
-                    
+
                     if (!strcmp("hostname", packet.name->string)) {
                         SetJoiningLabelText(packet.value->string, NULL);
                     }
-                    
+
                     break;
                 }
                 case pf::Packet::CharacterSkin::packetType: {
@@ -357,13 +377,17 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
                 }
                 case pf::Packet::SetCharacter::packetType: {
                     pf::Packet::SetCharacter packet(socket);
+
+                    if (localCharacter) localCharacter->SetGravityEnabled(false);
                     pf::Character *newLocalCharacter = dynamic_cast<pf::Character*>(world->GetEntity(packet.entityID));
                     if (localCharacter == newLocalCharacter)
                         break;
-                    
+
                     if (localCharacter) localCharacter->SetIsolateAnimation(true);
                     newLocalCharacter->SetIsolateAnimation(false);
                     localCharacter = newLocalCharacter;
+                    localCharacter->SetGravityEnabled(true);
+
                     break;
                 }
                 case pf::Packet::DespawnEntity::packetType: {
@@ -380,29 +404,29 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
                     if (!character) break;
                     pf::Animation *animation = character->GetImage();
                     if (!animation) break;
-                    
+
                     if (packet.IsFacingRight())
                         character->FaceRight();
                     else
                         character->FaceLeft();
-                    
+
                     if (packet.IsPlaying())
                         character->StartWalking();
                     else
                         character->StopWalking();
-                    
+
                     if (packet.ShouldGotoFrame())
                         animation->SetCurrentFrame(packet.frame);
-                    
+
                     break;
                 }
                 case pf::Packet::TeleportEntity::packetType: {
                     pf::Packet::TeleportEntity packet(socket);
                     pf::Entity *entity = world->GetEntity(packet.entityID);
                     if (!entity) break;
-                    
+
                     entity->SetPosition(packet.x, packet.y);
-                    
+
                     break;
                 }
                 case pf::Packet::Health::packetType: {
@@ -411,27 +435,27 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
                     if (!entity) break;
                     pf::Character *character = dynamic_cast<pf::Character*>(entity);
                     if (!character) break;
-                    
+
                     character->SetHealth(packet.health);
-                    
+
                     break;
                 }
             }
 
         }
     }
-    
+
     switch (screen) {
         case Screen_Game: {
             float oldX, oldY;
-            
+
             // Character controls
             if (localCharacter) {
                 char oldDirection = localCharacter->GetDirection();
                 bool wasWalking = localCharacter->IsWalking();
                 oldX = localCharacter->GetX();
                 oldY = localCharacter->GetY();
-                
+
                 // Moving left, right, or stopping
                 if (input.IsKeyDown(sf::Key::Left))
                     localCharacter->WalkLeft();
@@ -439,9 +463,9 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
                     localCharacter->WalkRight();
                 else if (localCharacter->IsWalking())
                     localCharacter->StopWalking();
-                
+
                 // Send animation packet
-                if (localCharacter->GetDirection() != oldDirection || 
+                if (localCharacter->GetDirection() != oldDirection ||
                     localCharacter->IsWalking() != wasWalking) {
                     pf::Packet::CharacterAnimation(localCharacter).Send(socket);
                 }
@@ -451,10 +475,10 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
                     && localCharacter->IsOnGround())
                     localCharacter->SetVelocityY(localCharacter->IsInLiquid() ? -30 : -100);
             }
-            
+
             // Update zoom factor
             zoomFactor += (targetZoomFactor - zoomFactor) / zoomSpeed;
-            
+
             // Update cursor position
             sf::Vector2f halfSize = view->GetHalfSize();
             cursorPosition = sf::Vector2f(input.GetMouseX() / zoomFactor + (viewX - halfSize.x), input.GetMouseY() / zoomFactor + (viewY - halfSize.y));
@@ -473,43 +497,44 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
 
             // Tick world
             world->Tick(frametime);
-            
+
             if (localCharacter) {
                 // Send movement packet
-                if (localCharacter->GetX() != oldX || 
+                if (localCharacter->GetX() != oldX ||
                     localCharacter->GetY() != oldY) {
                     pf::Packet::AbsoluteMove(localCharacter).Send(socket);
                 }
             }
-            
+
             break;
-            
+
         }
         case Screen_Main: {
             // Get GUI widget states
             nameBox->CheckState(&input);
             ipBox->CheckState(&input);
+            portBox->CheckState(&input);
             int joinButtonState = joinButton->CheckState(&input);
-            
+
             // Join button clicked
             if (joinButtonState == cp::CP_ST_MOUSE_LBUTTON_RELEASED)
                 JoinGame();
-            
+
             break;
         }
         case Screen_Joining: {
-        case Screen_Disconnect: 
+        case Screen_Disconnect:
             // Get GUI widget states
             int joiningReturnButtonState = joiningReturnButton->CheckState(&input);
-            
+
             // Return button clicked
             if (joiningReturnButtonState == cp::CP_ST_MOUSE_LBUTTON_RELEASED)
                 SetScreen(Screen_Main);
-            
+
             break;
         }
     }
-    
+
     return shouldQuit;
 }
 
@@ -531,7 +556,7 @@ void pf::Game::HandleClick(sf::Input& input) {
             } else if (input.IsMouseButtonDown(sf::Mouse::Middle)) {
                 localCharacter->SetPosition(cursorPosition.x, cursorPosition.y);
             }*/
-            
+
             break;
         }
     }
@@ -583,6 +608,7 @@ void pf::Game::HandleEvent(sf::Event *event, sf::Input *input) {
         case Screen_Main:
             nameBox->ProcessTextInput(event);
             ipBox->ProcessTextInput(event);
+            portBox->ProcessTextInput(event);
             menuContainer->ProcessKeys(event);
             break;
         case Screen_Joining:
@@ -610,7 +636,7 @@ void pf::Game::Disconnect(char *message) {
 
 void pf::Game::SetScreen(pf::Screen screen) {
     if (screen == this->screen) return;
-    
+
     // Switching FROM screen
     switch (this->screen) {
         case Screen_Game:
@@ -622,7 +648,7 @@ void pf::Game::SetScreen(pf::Screen screen) {
         case Screen_Disconnect:
             break;
     }
-    
+
     // Switching TO screen
     switch (screen) {
         case Screen_Game:
@@ -640,7 +666,7 @@ void pf::Game::SetScreen(pf::Screen screen) {
             joiningReturnButton->Show(true);
             break;
     }
-    
+
     this->screen = screen;
 }
 
@@ -649,6 +675,9 @@ pf::Screen pf::Game::GetScreen() {
 }
 
 void pf::Game::InitWorld() {
+    pf::Logger::LogInfo("Starting World!");
+    pf::Logger::LogInfo("LEVEL: %s", (char *)properties["level"].c_str());
+    pf::Logger::LogInfo("TILESET: %s", (char *)properties["tileset"].c_str());
     if (world) delete world;
     world = new pf::World(pf::Resource::GetResource((char *)properties["level"].c_str()),
                           pf::Resource::GetResource((char *)properties["tileset"].c_str()));

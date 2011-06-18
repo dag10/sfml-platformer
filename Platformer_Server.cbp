@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Platformer Sever" />
+		<Option platforms="Windows;" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Platformer_Server_Debug" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Platformer_Server" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Release\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-DPLATFORMER_SERVER" />
+			<Add directory="..\Projects\Code\SFML-1.6\include" />
+			<Add directory="include" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="resources" />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="-static-libstdc++" />
+			<Add option="-lsfml-graphics" />
+			<Add option="-lsfml-window" />
+			<Add option="-lsfml-network" />
+			<Add option="-lsfml-system" />
+			<Add directory="..\Projects\Code\SFML-1.6\lib" />
+		</Linker>
+		<Unit filename="include\Animation.h" />
+		<Unit filename="include\BouncyParticle.h" />
+		<Unit filename="include\Character.h" />
+		<Unit filename="include\CharacterSkin.h" />
+		<Unit filename="include\ClientInstance.h" />
+		<Unit filename="include\Elevator.h" />
+		<Unit filename="include\Entity.h" />
+		<Unit filename="include\Game.h" />
+		<Unit filename="include\IRenderable.h" />
+		<Unit filename="include\Logger.h" />
+		<Unit filename="include\Packet.h" />
+		<Unit filename="include\Particle.h" />
+		<Unit filename="include\PhysicsEntity.h" />
+		<Unit filename="include\Platform.h" />
+		<Unit filename="include\Resource.h" />
+		<Unit filename="include\Server.h" />
+		<Unit filename="include\Tileset.h" />
+		<Unit filename="include\World.h" />
+		<Unit filename="include\cfgparser\cfgparser.h" />
+		<Unit filename="include\cfgparser\configwrapper.h" />
+		<Unit filename="main_server.cpp" />
+		<Unit filename="src\Animation.cpp" />
+		<Unit filename="src\BouncyParticle.cpp" />
+		<Unit filename="src\Character.cpp" />
+		<Unit filename="src\CharacterSkin.cpp" />
+		<Unit filename="src\ClientInstance.cpp" />
+		<Unit filename="src\Elevator.cpp" />
+		<Unit filename="src\Entity.cpp" />
+		<Unit filename="src\Logger.cpp" />
+		<Unit filename="src\Packet.cpp" />
+		<Unit filename="src\Particle.cpp" />
+		<Unit filename="src\PhysicsEntity.cpp" />
+		<Unit filename="src\Platform.cpp" />
+		<Unit filename="src\Resource.cpp" />
+		<Unit filename="src\Server.cpp" />
+		<Unit filename="src\World.cpp" />
+		<Unit filename="src\cfgparser\cfgparser.cc" />
+		<Unit filename="src\cfgparser\configwrapper.cc" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -2,13 +2,12 @@ SFML Platformer
 
 Description:
 
-   A simple library in development to serve as a framework for making 2D side-scrolling games using the cross-platform SFML multimedia library.
-   This project also includes a simple game with no true purpose as a demonstration of the library. Well actually, it's for testing it.
-   Or rather, the library is this default "game", but is easily customizable. It's all a work in progress and is unfinished.
-   I am currently not working on it either. If you use it at all, learn from it, or make changes to it, I'd *love* to hear about it!
+   A simple cross-platform 2D side-scrolling multiplayer platform game.
 
 Compiling (LINUX):
 
+   !!! TEMPORARILY BROKEN - WORKING ON A NEW MAKEFILE FOR CLIENT AND SERVER TARGETS !!!
+   
    First, go here: http://www.sfml-dev.org/tutorials/1.6/start-linux.php
    Go to the section "Compiling SFML (for advanced users)", and make sure you have all packages required installed.
    As the site suggests, you can run 'sudo apt-get build-dep libsfml'.
@@ -17,16 +16,13 @@ Compiling (LINUX):
 
 Compiling (WINDOWS):
 
+   !!! SHOULD BE 
    For windows development, I use Code::Blocks. I suggest you do the same.
-   To compile this code on Windows using Code::Blocks, create a new bare C++ project in Code::Blocks,
-   add the source and header files in 'src' and 'include', and then follow the instructions here:
-   http://www.sfml-dev.org/tutorials/1.6/start-cb.php
-
-   Note: I temporarily changed all file paths in the code (such as "resources/level_01.bmp") from
-   "resources\\level_01.bmp" to "resources/level_01.bmp" so that it could run on Unix-based systems.
-   To get the program to run on Windows, you may need to change this back.
-   To see an example of what I'm talking about, look at some of the changes near the bottom of this diff:
-   http://projects.minipenguin.com/projects/sfml-platformer/repository/diff?rev=351cce4f8cbc537196deb718519cb7da9579de18&rev_to=2db1b1b966288bd9cd554d483f183369aa431fbc
+   I included two Code::Blocks project files (.cbp) for both the Client and the Server (Platformer_Client.cbp and Platformer_Server.cbp respectively).
+   Please go into "Settings > Compiler and debugger... > Toolchain executables" and set the Compiler's installation directory to where MinGW is installed.
+   Please use the latest MinGW version. Go here to download an installer for the latest MinGW version:
+   http://downloads.sourceforge.net/project/mingw/Automated%20MinGW%20Installer/mingw-get-inst/mingw-get-inst-20110530/mingw-get-inst-20110530.exe?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fmingw%2Ffiles%2F&ts=1308354552&use_mirror=cdnetworks-us-2
+   Please make sure to select something along the lines of "Most recent version/revision" when installing.
 
 Compiling (OSX):
 

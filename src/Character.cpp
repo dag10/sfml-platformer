@@ -39,7 +39,7 @@ pf::Character::Character(pf::World *world, pf::CharacterSkin *skin, const char *
     walking = false;
     direction = RIGHT;
     health = 100;
-    
+
     int framerate = speed / skin->GetFramerate();
 
     this->skin = skin;
@@ -54,13 +54,15 @@ pf::Character::Character(pf::World *world, pf::CharacterSkin *skin, const char *
 
     width = image->GetWidth();
     height = image->GetHeight();
-        
+
+#ifdef PLATFORMER_CLIENT
     if (nameFont == NULL) {
         pf::Resource *fontResource = pf::Resource::GetOrLoadResource("resources/MIASWFTE.TTF");
         nameFont = new sf::Font();
         nameFont->LoadFromMemory(fontResource->GetData(), fontResource->GetLength(), 30);
     }
-    
+#endif
+
     static sf::Color nameBackgroundFill = sf::Color(0, 0, 0, 100);
     nameBackground = new sf::Shape();
     nameBackground->AddPoint(0, 0, nameBackgroundFill);
@@ -68,14 +70,14 @@ pf::Character::Character(pf::World *world, pf::CharacterSkin *skin, const char *
     nameBackground->AddPoint(1, 1, nameBackgroundFill);
     nameBackground->AddPoint(0, 1, nameBackgroundFill);
     nameBackground->EnableFill(true);
-    
+
     healthBackground = new sf::Shape();
     healthBackground->AddPoint(0, 0, nameBackgroundFill);
     healthBackground->AddPoint(1, 0, nameBackgroundFill);
     healthBackground->AddPoint(1, 1, nameBackgroundFill);
     healthBackground->AddPoint(0, 1, nameBackgroundFill);
     healthBackground->EnableFill(true);
-    
+
     static sf::Color healthBarGreenFill = sf::Color(0, 255, 0, 100);
     healthBarGreen = new sf::Shape();
     healthBarGreen->AddPoint(0, 0, healthBarGreenFill);
@@ -83,7 +85,7 @@ pf::Character::Character(pf::World *world, pf::CharacterSkin *skin, const char *
     healthBarGreen->AddPoint(1, 1, healthBarGreenFill);
     healthBarGreen->AddPoint(0, 1, healthBarGreenFill);
     healthBarGreen->EnableFill(true);
-    
+
     static sf::Color healthBarRedFill = sf::Color(255, 0, 0, 100);
     healthBarRed = new sf::Shape();
     healthBarRed->AddPoint(0, 0, healthBarRedFill);
@@ -91,25 +93,27 @@ pf::Character::Character(pf::World *world, pf::CharacterSkin *skin, const char *
     healthBarRed->AddPoint(1, 1, healthBarRedFill);
     healthBarRed->AddPoint(0, 1, healthBarRedFill);
     healthBarRed->EnableFill(true);
-    
+
     this->name = new sf::String();
     this->name->SetSize(6.f);
+#ifdef PLATFORMER_CLIENT
     this->name->SetFont(*nameFont);
-    
+#endif
+
     if (name) {
         SetName(name);
         ShowName();
     } else {
         HideName();
     }
-    ShowHealth();
-    
+    //ShowHealth();
+
     SetPushable(true);
-    SetGravityEnabled(true);
+    SetGravityEnabled(false);
     SetSolid(true);
     SetIsolateAnimation(true);
     health = 100;
-    
+
 #ifdef PLATFORMER_SERVER
     client = NULL;
     server = NULL;
@@ -126,7 +130,7 @@ void pf::Character::Tick(float frametime) {
         speed = SWIM_SPEED;
     else
         speed = WALK_SPEED;
-    
+
     if (walking) image->Play();
     if (walking) image->SetFramerate(speed / skin->GetFramerate());
     pf::PhysicsEntity::Tick(frametime);
@@ -143,14 +147,14 @@ void pf::Character::Render(sf::RenderTarget& target) {
 void pf::Character::RenderOverlays(sf::RenderTarget& target) {
     if (showName) {
         name->SetPosition(x + (width / 2) - (name->GetRect().GetWidth() / 2), y - name->GetRect().GetHeight() - 2);
-        
+
         nameBackground->SetPosition(name->GetPosition());
         nameBackground->Move(0.f, 1.5f);
         target.Draw(*nameBackground);
-        
+
         name->SetColor(sf::Color(50, 50, 50));
         target.Draw(*name);
-        
+
         name->SetColor(sf::Color::White);
         name->Move(0.5f, 0.5f);
         target.Draw(*name);
@@ -160,12 +164,12 @@ void pf::Character::RenderOverlays(sf::RenderTarget& target) {
         healthBackground->Move(0, -8);
         healthBackground->SetScale(nameBackground->GetScale().x, 6);
         target.Draw(*healthBackground);
-        
+
         healthBarRed->SetPosition(healthBackground->GetPosition());
         healthBarRed->Move(1, 1);
         healthBarRed->SetScale(healthBackground->GetScale().x - 2, healthBackground->GetScale().y - 2);
         target.Draw(*healthBarRed);
-        
+
         healthBarGreen->SetPosition(healthBarRed->GetPosition());\
         healthBarGreen->SetScale(healthBarRed->GetScale().x * health / 100, healthBarRed->GetScale().y);
         target.Draw(*healthBarGreen);
@@ -248,10 +252,10 @@ pf::Animation *pf::Character::GetImage() {
 
 bool pf::Character::CanCollideWith(pf::Entity *entity) {
     pf::Character *character = dynamic_cast<pf::Character*>(entity);
-    
+
     if (character)
         return false;
-    
+
     return true;
 }
 

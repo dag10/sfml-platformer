@@ -8233,9 +8233,9 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>329321048.07371402</real>
+		<real>329321277.28172702</real>
 		<string>{7298, 1304}</string>
-		<string>{8107, 0}</string>
+		<string>{7914, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -15200,12 +15200,7 @@
 				<integer>790</integer>
 			</dict>
 			<key>NS.objects</key>
-			<array>
-				<dict>
-					<key>CF$UID</key>
-					<integer>3</integer>
-				</dict>
-			</array>
+			<array/>
 		</dict>
 		<dict>
 			<key>$class</key>
@@ -17539,10 +17534,10 @@
 				</dict>
 			</array>
 		</dict>
-		<real>329321048.07754302</real>
+		<real>329321277.28629398</real>
 		<string>{7298, 1304}</string>
-		<string>{8107, 0}</string>
-		<string>pf::Packet::CharacterAnimation::Send(sf::SocketTCP *socket)</string>
+		<string>{7914, 0}</string>
+		<string>pf::Packet::CharacterAnimation::CharacterAnimation(pf::Character *character)</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>

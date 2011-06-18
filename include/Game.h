@@ -2,20 +2,20 @@
  * Game.h
  * Manages a game session. Contains level, player(s), and entities
  * Copyright (c) 2010-2011 Drew Gottlieb
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  */
 
 #ifndef GAME_H
@@ -37,33 +37,33 @@ namespace pf {
     class PhysicsEntity;
     class Particle;
     class World;
-    
+
     enum Screen {
         Screen_Game,
         Screen_Main,
         Screen_Joining,
         Screen_Disconnect
     };
-    
+
     typedef std::map<std::string, std::string> PropertyMap;
 
     class Game {
         public:
             static const int UI_SPACING = 10;
             static const float DEFAULT_ZOOM = 2.5f;
-        
+
             Game(sf::RenderWindow& renderWindow);
             ~Game();
 
             void Render(sf::RenderTarget& target, int renderWidth, int renderHeight);
             bool Tick(sf::Input& input, float frametime);
-            
+
             void HandleEvent(sf::Event *event, sf::Input *input);
-            
+
             sf::Vector2f GetCursorPosition();
-        
+
             void Disconnect(char *message);
-            
+
             void SetScreen(Screen screen);
             Screen GetScreen();
 
@@ -78,22 +78,22 @@ namespace pf {
             pf::Character *localCharacter;
             float zoomFactor, targetZoomFactor;
             sf::Vector2f cursorPosition;
-            
+
             void HandleClick(sf::Input& input);
             void JoinGame();
-            
+
             char *playerName;
             sf::IPAddress serverIP;
             unsigned short serverPort;
             sf::SocketTCP *socket;
             sf::SelectorTCP *socketSelector;
-        
+
             int resourcesToLoad, resourcesLoaded;
             PropertyMap properties;
-        
+
             void StopGame();
             void InitWorld();
-            
+
             static sf::Font *labelFont;
             void InitGUI(sf::RenderWindow& renderWindow);
             cp::cpGuiContainer *menuContainer;
@@ -101,15 +101,17 @@ namespace pf {
             sf::String *nameLabel;
             cp::cpTextInputBox *ipBox;
             sf::String *ipLabel;
+            cp::cpTextInputBox *portBox;
+            sf::String *portLabel;
             cp::cpButton *joinButton;
             cp::cpGuiContainer *joiningContainer;
             sf::String *joiningLabel1, *joiningLabel2;
             void SetJoiningLabelText(char *line1, char *line2);
             cp::cpButton *joiningReturnButton;
-            
+
             pf::Screen screen;
             sf::Shape *screenBackground;
-        
+
             bool shouldQuit;
     };
 }; // namespace pf
