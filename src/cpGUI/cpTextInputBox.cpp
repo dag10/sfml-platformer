@@ -1,20 +1,20 @@
 //cpGUI - Copyright (c) 2009 Jason Cupp
 //
-//This software is provided 'as-is', without any express or implied warranty. 
-//In no event will the authors be held liable for any damages arising from the 
+//This software is provided 'as-is', without any express or implied warranty.
+//In no event will the authors be held liable for any damages arising from the
 //use of this software.
 //
-//Permission is granted to anyone to use this software for any purpose, including 
-//commercial applications, and to alter it and redistribute it freely, subject to 
+//Permission is granted to anyone to use this software for any purpose, including
+//commercial applications, and to alter it and redistribute it freely, subject to
 //the following restrictions:
 //
 //
-//1. The origin of this software must not be misrepresented; you must not claim 
-//that you wrote the original software. If you use this software in a product, an 
+//1. The origin of this software must not be misrepresented; you must not claim
+//that you wrote the original software. If you use this software in a product, an
 //acknowledgment in the product documentation would be appreciated but is not required.
 //
 //
-//2. Altered source versions must be plainly marked as such, and must not be 
+//2. Altered source versions must be plainly marked as such, and must not be
 //misrepresented as being the original software.
 //
 //
@@ -33,7 +33,7 @@ using namespace cp;
 /// the number of characters that the box can contain.  The
 /// font size is tied to the height of the box, so you can't
 /// change the font size.
-/// 
+///
 /// You can set CP_TXT_LEFT_ALIGN, CP_TXT_RIGHT_ALIGN, or
 /// CP_TXT_CENTER_ALIGN.  This simple text box does not
 /// support text selection, but you can backspace.
@@ -63,7 +63,7 @@ cpTextInputBox::cpTextInputBox(sf::RenderWindow *parent, cpGuiContainer *GUI,
 cpTextInputBox::cpTextInputBox() : cpObject(NULL, NULL, ""){}
 
 /// Updates the look of the text input box.
-/// Computes the text alignement and position of the 
+/// Computes the text alignement and position of the
 /// Caret/cursor.
 void cpTextInputBox::CreateRects(std::string label)
 {
@@ -73,7 +73,7 @@ void cpTextInputBox::CreateRects(std::string label)
 	tempLabel = Label;
 
 	float thickness = 1.f;
-	backRect = sf::Shape::Rectangle(PosX, PosY, PosX+Width, PosY+Height, 
+	backRect = sf::Shape::Rectangle(PosX, PosY, PosX+Width, PosY+Height,
 		backgroundColor, thickness);
 	for(int t=0; t<4; t++)
 		backRect.SetPointOutlineColor(t, outlineColor);
@@ -118,7 +118,7 @@ void cpTextInputBox::Draw()
 /// possible return values are:
 /// CP_ST_NONE, CP_ST_MOUSE_ENTER, CP_ST_MOUSE_EXIT,
 /// CP_ST_MOUSE_IN, CP_ST_LBUTTON_DOWN, CP_ST_LBUTTON_RELEASED.
-/// 
+///
 /// The difference between CP_ST_MOUSE_ENTER & CP_ST_MOUSE_IN
 /// is that IN is active the entire time the mouse is inside the control
 /// and ENTER is only active right when the mouse enters the control
@@ -168,7 +168,7 @@ void cpTextInputBox::ProcessTextInput(sf::Event *evt)
 	if(CheckTextFit())
 		Label.SetText(tempText);
 }
- 
+
 /// Limits the size of the Label to the size of the box
 bool cpTextInputBox::CheckTextFit()
 {
@@ -181,7 +181,7 @@ bool cpTextInputBox::CheckTextFit()
 }
 
 /// Set the width & height dimensions of the text input box.
-/// also reloads the font with the new font size for 
+/// also reloads the font with the new font size for
 /// better text quality
 bool cpTextInputBox::SetSize(float width, float height)
 {
@@ -238,6 +238,7 @@ void cpTextInputBox::SetLabelColor(sf::Color color)
 void cpTextInputBox::SetLabelText(std::string text)
 {
 	cpObject::SetLabelText(text);
-	CreateRects(Label.GetText());
+	tempText = text;
+	CreateRects(text);
 }
 

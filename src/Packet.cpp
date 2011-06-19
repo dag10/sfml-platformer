@@ -346,3 +346,13 @@ void pf::Packet::Health::Send(sf::SocketTCP *socket) {
     socket->Send((const char *)&entityID, sizeof(entityID));
     socket->Send((const char *)&health, sizeof(health));
 }
+
+pf::Packet::Chat::Chat(sf::SocketTCP *socket) {
+    message = new PacketString(socket);
+}
+
+void pf::Packet::Chat::Send(sf::SocketTCP *socket) {
+    char type = packetType;
+    socket->Send((const char *)&type, sizeof(type));
+    message->Send(socket);
+}

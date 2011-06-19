@@ -242,6 +242,15 @@ pf::Server::Server() {
 
                         break;
                     }
+                    case pf::Packet::Chat::packetType: {
+                        pf::Packet::Chat packet(&socket);
+                        const char *message = ((client->GetUsername() + std::string(": ")) + packet.message->string).c_str();
+                        pf::Logger::LogInfo("[CHAT] %s", message);
+                        SendToAll(new pf::Packet::Chat(message));
+                        delete [] message;
+
+                        break;
+                    }
                 }
             }
         }
@@ -250,13 +259,20 @@ pf::Server::Server() {
         for (ClientMap::iterator it = clientMap.begin(); it != clientMap.end(); it++) {
             pf::ClientInstance *client = it->second;
 
-            // Send resources as needed
-            pf::Packet::BasePacket *packet = client->DequeuePacket();
-            if (packet) {
+            // Send packets as needed
+            pf::Packet::BasePacket *packet;
+            while (packet = client->DequeuePacket()) {
+                // Send packet
                 packet->Send(client->GetSocket());
+
+                // If finished loading, end loading
                 if (!client->QueuedPackets() && client->IsLoading()) {
                     client->EndLoading();
                 }
+
+                // If loading, only send one packet per tick
+                // (to avoid lagging server due to sending multiple resource files)
+                if (client->IsLoading()) break;
             }
         }
 

@@ -49,7 +49,6 @@ pf::Game::Game(sf::RenderWindow& renderWindow) {
     InitGUI(renderWindow);
 
     // Initialize World and view
-    //world = new pf::World(levelImageResource);
     view = new sf::View(sf::FloatRect(0, 0, 0, 0));
 
     // Set view variables
@@ -83,13 +82,19 @@ void pf::Game::InitGUI(sf::RenderWindow& renderWindow) {
     ipLabel->SetSize(16);
     ipLabel->SetCenter(ipLabel->GetRect().GetWidth(), 0);
 
-    portBox = new cp::cpTextInputBox(&renderWindow, menuContainer, "25565", 0, 0, 100, 16);
+    portBox = new cp::cpTextInputBox(&renderWindow, menuContainer, "32123", 0, 0, 100, 16);
     portLabel = new sf::String("Port");
     portLabel->SetColor(sf::Color::White);
     portLabel->SetSize(16);
     portLabel->SetCenter(portLabel->GetRect().GetWidth(), 0);
 
     joinButton = new cp::cpButton(&renderWindow, menuContainer, "Join Game", 0, 0, 50, 16);
+
+    // Chat
+
+    chatContainer = new cp::cpGuiContainer();
+
+    chatBox = new cp::cpTextInputBox(&renderWindow, chatContainer, "", 0, 0, renderWindow.GetWidth() - (CHAT_UI_SPACING * 2), 16);
 
     // Joining screen
 
@@ -165,16 +170,53 @@ void pf::Game::SetJoiningLabelText(char *line1, char *line2) {
 
 void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeight) {
     switch (screen) {
-        case Screen_Game:
+        case Screen_Game: {
+        case Screen_Chat:
+            // Set the view
             view->SetFromRect(sf::FloatRect(0, 0, (int)((float)renderWidth / zoomFactor), (int)((float)renderHeight / zoomFactor)));
-
             view->SetCenter(viewX, viewY);
             target.SetView(*view);
 
+            // Clear rendertarget and render world
             target.Clear(sf::Color(100, 149, 237));
             world->Render(target);
             world->RenderOverlays(target);
 
+            // Reset view for UI rendering
+            view->SetFromRect(sf::FloatRect(0, 0, renderWidth, renderHeight));
+
+            // Render chat input box
+            if (screen == Screen_Chat) {
+                chatBox->SetPosition(CHAT_UI_SPACING, renderHeight - chatBox->GetSize().y - CHAT_UI_SPACING);
+                chatBox->SetSize(renderWidth - (CHAT_UI_SPACING * 2), chatBox->GetSize().y);
+                chatBox->Draw();
+            }
+
+            // Render chat messages
+            sf::String *last = NULL;
+            for (ChatMessageQueue::iterator it = chatMessages.begin(); it != chatMessages.end(); it++) {
+                ChatMessage *message = *it;
+                if (message->countdown > 0.f || screen == Screen_Chat) {
+                    if (last)
+                        message->string->SetPosition(chatBox->GetPosition().x, last->GetPosition().y - message->string->GetRect().GetHeight() - CHAT_MESSAGE_SPACING);
+                    else
+                        message->string->SetPosition(chatBox->GetPosition().x, chatBox->GetPosition().y - message->string->GetRect().GetHeight() - CHAT_UI_SPACING);
+
+                    message->string->SetColor(sf::Color(50, 50, 50,
+                                                        (int)((float)255 * ((message->countdown > 1.f  || screen == Screen_Chat) ?
+                                                                            1.f : message->countdown))));
+                    target.Draw(*message->string);
+
+                    message->string->SetColor(sf::Color(255, 255, 255,
+                                                        (int)((float)255 * ((message->countdown > 1.f  || screen == Screen_Chat) ?
+                                                                            1.f : message->countdown))));
+                    message->string->Move(1.f, 1.f);
+                    target.Draw(*message->string);
+                    last = message->string;
+                }
+            }
+
+            // Adjust the view to follow something or zoom
             if (!(localCharacter && followCharacter)) {
                 float widthScale = (float)renderWidth / (float)world->GetPixelWidth();
                 float heightScale = (float)renderHeight / (float)world->GetPixelHeight();
@@ -184,9 +226,11 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             }
 
             break;
+        }
 
-        case Screen_Main:
-            target.SetView(target.GetDefaultView());
+        case Screen_Main: {
+            view->SetFromRect(sf::FloatRect(0, 0, renderWidth, renderHeight));
+            target.SetView(*view);
             target.Clear(sf::Color::Black);
 
             screenBackground->SetScale(target.GetWidth(), target.GetHeight());
@@ -223,10 +267,12 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             joinButton->Draw();
 
             break;
+        }
 
-        case Screen_Disconnect:
+        case Screen_Disconnect: {
         case Screen_Joining:
-            target.SetView(target.GetDefaultView());
+            view->SetFromRect(sf::FloatRect(0, 0, renderWidth, renderHeight));
+            target.SetView(*view);
             target.Clear(sf::Color::Black);
 
             screenBackground->SetScale(target.GetWidth(), target.GetHeight());
@@ -244,6 +290,7 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             joiningReturnButton->Draw();
 
             break;
+        }
     }
 }
 
@@ -305,7 +352,7 @@ void pf::Game::JoinGame() {
 }
 
 bool pf::Game::Tick(sf::Input& input, float frametime) {
-    if (screen == Screen_Game || screen == Screen_Joining) {
+    if (screen == Screen_Game || screen == Screen_Joining || screen == Screen_Chat) {
         if (socketSelector->Wait(0.01f)) {
             size_t read;
             char packetType;
@@ -440,6 +487,16 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
 
                     break;
                 }
+                case pf::Packet::Chat::packetType: {
+                    pf::Packet::Chat packet(socket);
+                    pf::Logger::LogInfo("[CHAT] %s", packet.message->string);
+
+                    chatMessages.push_front(new ChatMessage(packet.message->string));
+                    while (chatMessages.size() > MAX_CHAT_MESSAGES)
+                        chatMessages.pop_back();
+
+                    break;
+                }
             }
 
         }
@@ -447,10 +504,14 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
 
     switch (screen) {
         case Screen_Game: {
-            float oldX, oldY;
+        case Screen_Chat:
+            if (screen == Screen_Chat)
+                chatBox->CheckState(&input);
+
+            int oldX, oldY;
 
             // Character controls
-            if (localCharacter) {
+            if (localCharacter && screen == Screen_Game) {
                 char oldDirection = localCharacter->GetDirection();
                 bool wasWalking = localCharacter->IsWalking();
                 oldX = localCharacter->GetX();
@@ -474,6 +535,13 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
                 if (input.IsKeyDown(sf::Key::Up)
                     && localCharacter->IsOnGround())
                     localCharacter->SetVelocityY(localCharacter->IsInLiquid() ? -30 : -100);
+            }
+
+            // Fade chat messages
+            for (ChatMessageQueue::iterator it = chatMessages.begin(); it != chatMessages.end(); it++) {
+                ChatMessage *message = *it;
+                if (message->countdown > 0.f) message->countdown -= frametime;
+                if (message->countdown < 0.f) message->countdown = 0.f;
             }
 
             // Update zoom factor
@@ -500,8 +568,8 @@ bool pf::Game::Tick(sf::Input& input, float frametime) {
 
             if (localCharacter) {
                 // Send movement packet
-                if (localCharacter->GetX() != oldX ||
-                    localCharacter->GetY() != oldY) {
+                if ((int)localCharacter->GetX() != oldX ||
+                    (int)localCharacter->GetY() != oldY) {
                     pf::Packet::AbsoluteMove(localCharacter).Send(socket);
                 }
             }
@@ -567,29 +635,6 @@ sf::Vector2f pf::Game::GetCursorPosition() {
 }
 
 void pf::Game::HandleEvent(sf::Event *event, sf::Input *input) {
-    switch (event->Type) {
-        case sf::Event::KeyPressed:
-            switch (event->Key.Code) {
-                case sf::Key::Escape:
-                    switch (screen) {
-                        case Screen_Game:
-                        case Screen_Joining:
-                            Disconnect("You left the game.");
-                            SetScreen(Screen_Main);
-                            break;
-                        case Screen_Main:
-                            shouldQuit = true;
-                            break;
-                        case Screen_Disconnect:
-                            SetScreen(Screen_Main);
-                    }
-                    break;
-            }
-            break;
-        case sf::Event::Closed:
-            shouldQuit = true;
-            break;
-    }
     switch (screen) {
         case Screen_Game:
             switch (event->Type) {
@@ -613,6 +658,49 @@ void pf::Game::HandleEvent(sf::Event *event, sf::Input *input) {
             break;
         case Screen_Joining:
         case Screen_Disconnect:
+            break;
+        case Screen_Chat:
+            if (switchingToChat)
+                switchingToChat = false;
+            else
+                chatBox->ProcessTextInput(event);
+            break;
+    }
+
+    switch (event->Type) {
+        case sf::Event::KeyPressed:
+            switch (event->Key.Code) {
+                case sf::Key::Escape:
+                    switch (screen) {
+                        case Screen_Game:
+                        case Screen_Joining:
+                            Disconnect("You left the game.");
+                            SetScreen(Screen_Main);
+                            break;
+                        case Screen_Main:
+                            shouldQuit = true;
+                            break;
+                        case Screen_Disconnect:
+                            SetScreen(Screen_Main);
+                            break;
+                        case Screen_Chat:
+                            SetScreen(Screen_Game);
+                            break;
+                    }
+                    break;
+                case sf::Key::Y:
+                    if (screen == Screen_Game)
+                        SetScreen(Screen_Chat);
+                    break;
+                case sf::Key::Return:
+                    if (screen == Screen_Chat)
+                        SendChat(chatBox->GetLabelText().c_str());
+                        SetScreen(Screen_Game);
+                    break;
+            }
+            break;
+        case sf::Event::Closed:
+            shouldQuit = true;
             break;
     }
 }
@@ -647,6 +735,8 @@ void pf::Game::SetScreen(pf::Screen screen) {
             break;
         case Screen_Disconnect:
             break;
+        case Screen_Chat:
+            break;
     }
 
     // Switching TO screen
@@ -665,6 +755,11 @@ void pf::Game::SetScreen(pf::Screen screen) {
             joiningReturnButton->SetFocus(true);
             joiningReturnButton->Show(true);
             break;
+        case Screen_Chat:
+            chatBox->SetFocus(true);
+            chatBox->SetLabelText("");
+            switchingToChat = true;
+            break;
     }
 
     this->screen = screen;
@@ -681,4 +776,8 @@ void pf::Game::InitWorld() {
     if (world) delete world;
     world = new pf::World(pf::Resource::GetResource((char *)properties["level"].c_str()),
                           pf::Resource::GetResource((char *)properties["tileset"].c_str()));
+}
+
+void pf::Game::SendChat(const char *message) {
+    pf::Packet::Chat(message).Send(socket);
 }

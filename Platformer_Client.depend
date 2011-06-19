@@ -275,7 +275,7 @@
 	"IRenderable.h"
 	<vector>
 
-1308352860 source:e:\sfml-platformer\src\character.cpp
+1308510754 source:e:\sfml-platformer\src\character.cpp
 	"Character.h"
 	"Animation.h"
 	"Resource.h"
@@ -300,7 +300,7 @@
 
 1306337804 e:\sfml-platformer\include\logger.h
 
-1306939876 e:\sfml-platformer\include\clientinstance.h
+1308356608 e:\sfml-platformer\include\clientinstance.h
 	<SFML/Network.hpp>
 	<vector>
 	<queue>
@@ -378,11 +378,11 @@
 
 1264625636 e:\projects\code\sfml-1.6\include\sfml\network\selector.inl
 
-1308349158 e:\sfml-platformer\include\packet.h
+1308378278 e:\sfml-platformer\include\packet.h
 	<cstring>
 	<stdint.h>
 
-1307374516 e:\sfml-platformer\include\server.h
+1308362020 e:\sfml-platformer\include\server.h
 	<SFML/Network.hpp>
 	"Packet.h"
 	<vector>
@@ -411,7 +411,7 @@
 	"Entity.h"
 	"World.h"
 
-1308351566 source:e:\sfml-platformer\src\game.cpp
+1308510140 source:e:\sfml-platformer\src\game.cpp
 	"Game.h"
 	"PhysicsEntity.h"
 	"Character.h"
@@ -429,9 +429,11 @@
 	<SFML/Window.hpp>
 	<SFML/Graphics.hpp>
 
-1308355080 e:\sfml-platformer\include\game.h
+1308514242 e:\sfml-platformer\include\game.h
 	<SFML/Graphics.hpp>
 	<SFML/Network.hpp>
+	<map>
+	<list>
 
 1306246154 e:\sfml-platformer\include\platform.h
 	<SFML/Graphics.hpp>
@@ -501,7 +503,7 @@
 	<stdarg.h>
 	<cstdio>
 
-1307628472 source:e:\sfml-platformer\src\packet.cpp
+1308374330 source:e:\sfml-platformer\src\packet.cpp
 	"Packet.h"
 	"Resource.h"
 	"CharacterSkin.h"
@@ -562,7 +564,7 @@
 	"cpGUI_base.h"
 	"cpCheckBox.h"
 
-1306246154 source:e:\sfml-platformer\src\cpgui\cpgui_base.cpp
+1308510080 source:e:\sfml-platformer\src\cpgui\cpgui_base.cpp
 	"cpGUI_base.h"
 	"cpGuiContainer.h"
 	"cpObject.h"
@@ -587,7 +589,7 @@
 	"cpTextBox.h"
 	<cstring>
 
-1306937254 source:e:\sfml-platformer\src\cpgui\cptextinputbox.cpp
+1308508848 source:e:\sfml-platformer\src\cpgui\cptextinputbox.cpp
 	"cpGUI_base.h"
 	"cpTextInputBox.h"
 

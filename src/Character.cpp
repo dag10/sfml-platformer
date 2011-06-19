@@ -107,6 +107,7 @@ pf::Character::Character(pf::World *world, pf::CharacterSkin *skin, const char *
         HideName();
     }
     //ShowHealth();
+    HideHealth();
 
     SetPushable(true);
     SetGravityEnabled(false);
@@ -271,7 +272,6 @@ void pf::Character::SetHealth(float health) {
     this->health = health;
 #ifdef PLATFORMER_SERVER
     server->SendToAll(new pf::Packet::Health(this));
-    pf::Logger::LogInfo("Setting health for \"%s\" to %f", GetName(), health);
 #endif
 }
 

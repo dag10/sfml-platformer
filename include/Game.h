@@ -24,6 +24,9 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
 
+#include <map>
+#include <list>
+
 namespace cp {
     class cpGuiContainer;
     class cpTextInputBox;
@@ -42,14 +45,34 @@ namespace pf {
         Screen_Game,
         Screen_Main,
         Screen_Joining,
-        Screen_Disconnect
+        Screen_Disconnect,
+        Screen_Chat
+    };
+
+    struct ChatMessage {
+        sf::String *string;
+        float countdown;
+
+        ChatMessage(const char *string) {
+            this->string = new sf::String(string);
+            this->string->SetSize(16.f);
+            countdown = 6;
+        }
+
+        ~ChatMessage() {
+            delete string;
+        }
     };
 
     typedef std::map<std::string, std::string> PropertyMap;
+    typedef std::list<ChatMessage*> ChatMessageQueue;
 
     class Game {
         public:
             static const int UI_SPACING = 10;
+            static const int CHAT_UI_SPACING = 10;
+            static const int CHAT_MESSAGE_SPACING = 5;
+            static const int MAX_CHAT_MESSAGES = 10;
             static const float DEFAULT_ZOOM = 2.5f;
 
             Game(sf::RenderWindow& renderWindow);
@@ -94,6 +117,10 @@ namespace pf {
             void StopGame();
             void InitWorld();
 
+            void SendChat(const char *message);
+            bool switchingToChat;
+            ChatMessageQueue chatMessages;
+
             static sf::Font *labelFont;
             void InitGUI(sf::RenderWindow& renderWindow);
             cp::cpGuiContainer *menuContainer;
@@ -104,6 +131,8 @@ namespace pf {
             cp::cpTextInputBox *portBox;
             sf::String *portLabel;
             cp::cpButton *joinButton;
+            cp::cpGuiContainer *chatContainer;
+            cp::cpTextInputBox *chatBox;
             cp::cpGuiContainer *joiningContainer;
             sf::String *joiningLabel1, *joiningLabel2;
             void SetJoiningLabelText(char *line1, char *line2);

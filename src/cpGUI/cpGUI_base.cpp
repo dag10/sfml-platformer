@@ -548,7 +548,8 @@ int cpObject::CheckState(const sf::Input *input)
 /// Checks to see if mouse pointer is inside control.  Returns true if it is.
 bool cpObject::CheckMouseEntered(const sf::Input *input)
 {
-	sf::Vector2f mousePos = Parent->ConvertCoords(input->GetMouseX(), input->GetMouseY());
+	//sf::Vector2f mousePos = Parent->ConvertCoords(input->GetMouseX(), input->GetMouseY());
+	sf::Vector2f mousePos(input->GetMouseX(), input->GetMouseY());
 	return (mousePos.x >= PosX && mousePos.x <= PosX+Width &&
         mousePos.y >= PosY && mousePos.y <= PosY+Height);
 }

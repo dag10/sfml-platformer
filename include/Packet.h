@@ -384,6 +384,22 @@ namespace pf {
 
             ~Health() {}
         };
+
+        struct Chat : BasePacket {
+            static const char packetType = 0x11;
+            PacketString *message;
+
+            Chat(const char *message) {
+                this->message = new PacketString((char*)message);
+            }
+
+            Chat(sf::SocketTCP *socket);
+            void Send(sf::SocketTCP *socket);
+
+            ~Chat() {
+                delete message;
+            }
+        };
     }; // namespace Packet
 }; // namespace pf
 

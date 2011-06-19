@@ -41,6 +41,7 @@
 		</ResourceCompiler>
 		<Linker>
 			<Add option="-static-libstdc++" />
+			<Add option="-static-libgcc" />
 			<Add option="-lsfml-graphics" />
 			<Add option="-lsfml-window" />
 			<Add option="-lsfml-network" />
