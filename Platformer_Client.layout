@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
-	<File name="include\Entity.h" open="1" top="0" tabpos="5">
+	<File name="include\Entity.h" open="0" top="0" tabpos="5">
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="include\Game.h" open="1" top="0" tabpos="6">
@@ -16,7 +16,7 @@
 	<File name="include\Resource.h" open="1" top="0" tabpos="2">
 		<Cursor position="1305" topLine="22" />
 	</File>
-	<File name="main_client.cpp" open="1" top="0" tabpos="3">
+	<File name="main_client.cpp" open="1" top="1" tabpos="3">
 		<Cursor position="1666" topLine="63" />
 	</File>
 	<File name="src\Character.cpp" open="1" top="0" tabpos="4">
@@ -25,13 +25,13 @@
 	<File name="src\Elevator.cpp" open="0" top="0" tabpos="5">
 		<Cursor position="886" topLine="0" />
 	</File>
-	<File name="src\Game.cpp" open="1" top="1" tabpos="2">
-		<Cursor position="6138" topLine="176" />
+	<File name="src\Game.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="5825" topLine="139" />
 	</File>
 	<File name="src\Logger.cpp" open="0" top="0" tabpos="9">
 		<Cursor position="848" topLine="8" />
 	</File>
-	<File name="src\Packet.cpp" open="0" top="0" tabpos="6">
+	<File name="src\Packet.cpp" open="0" top="0" tabpos="7">
 		<Cursor position="11941" topLine="317" />
 	</File>
 	<File name="src\PhysicsEntity.cpp" open="0" top="0" tabpos="6">

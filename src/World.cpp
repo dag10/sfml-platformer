@@ -49,32 +49,35 @@ pf::World::World(pf::Resource *levelImageResource, pf::Resource *tilesetResource
     if (!tileset) return;
     tileset->CreateMaskFromColor(sf::Color::Magenta);
 
+    // Set default spawn point
+    spawnX = spawnY = TILE_SIZE;
+
     // Create tiles
     for (int x = 0; x < width; x++) {
         for (int y = 0; y < height; y++) {
             platforms[xy(x, y)] = NULL;
             sf::Color levelColor = levelImage->GetPixel(x, y);
-            for (int i = 0; i < TilesetCount; i++) {
-                if (Tileset[i].levelColor == levelColor) {
-                //if (!strcmp(Tileset[i].name, "water")) {
-                    platforms[xy(x, y)] = new pf::Platform(
-                                            this,
-                                            *tileset,
-                                            Tileset[i].coords,
-                                            x * TILE_SIZE,
-                                            y * TILE_SIZE,
-                                            Tileset[i].alpha,
-                                            Tileset[i].liquid);
-                    platforms[xy(x, y)]->SetSolid(Tileset[i].solid);
-                    break;
+            if (Tileset::Spawn == levelColor) {
+                spawnX = x * TILE_SIZE;
+                spawnY = y * TILE_SIZE;
+            } else {
+                for (int i = 0; i < Tileset::Count; i++) {
+                    if (Tileset::Tiles[i].levelColor == levelColor) {
+                        platforms[xy(x, y)] = new pf::Platform(
+                                                this,
+                                                *tileset,
+                                                Tileset::Tiles[i].coords,
+                                                x * TILE_SIZE,
+                                                y * TILE_SIZE,
+                                                Tileset::Tiles[i].alpha,
+                                                Tileset::Tiles[i].liquid);
+                        platforms[xy(x, y)]->SetSolid(Tileset::Tiles[i].solid);
+                        break;
+                    }
                 }
             }
         }
     }
-    
-    // Load spawn point
-    spawnX = 60;
-    spawnY = 30;
 
     // Initialize entities
     entityMap = new EntityMap();
@@ -87,7 +90,7 @@ void pf::World::Tick(float frametime) {
 
 void pf::World::Render(sf::RenderTarget& target) {
     std::vector<pf::Platform*> liquidPlatforms;
-    
+
     // Draw platforms
     for (int x = 0; x < width; x++)
         for (int y = 0; y < height; y++)
@@ -96,13 +99,13 @@ void pf::World::Render(sf::RenderTarget& target) {
                     liquidPlatforms.push_back(platforms[xy(x, y)]);
                 else
                     target.Draw((sf::Sprite)*(platforms[xy(x, y)]));
-    
+
     // Draw renderable entities
     for (EntityMap::iterator it = entityMap->begin(); it != entityMap->end(); it++) {
         pf::IRenderable *ent = dynamic_cast<IRenderable*>(it->second);
         if (ent) ent->Render(target);
     }
-    
+
     // Draw front-most platforms
     for (int i = 0; i < liquidPlatforms.size(); i++)
         target.Draw((sf::Sprite)*(liquidPlatforms.at(i)));
@@ -234,10 +237,10 @@ void pf::World::AddEntity(pf::Entity *entity) {
 
 pf::Entity *pf::World::GetEntity(int id) {
     EntityMap::iterator iter = entityMap->find(id);
-    
+
     if (iter == entityMap->end())
         return NULL;
-    
+
     return iter->second;
 }
 

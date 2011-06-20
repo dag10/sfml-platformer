@@ -186,11 +186,9 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
             view->SetFromRect(sf::FloatRect(0, 0, renderWidth, renderHeight));
 
             // Render chat input box
-            if (screen == Screen_Chat) {
-                chatBox->SetPosition(CHAT_UI_SPACING, renderHeight - chatBox->GetSize().y - CHAT_UI_SPACING);
-                chatBox->SetSize(renderWidth - (CHAT_UI_SPACING * 2), chatBox->GetSize().y);
-                chatBox->Draw();
-            }
+            chatBox->SetPosition(CHAT_UI_SPACING, renderHeight - chatBox->GetSize().y - CHAT_UI_SPACING);
+            chatBox->SetSize(renderWidth - (CHAT_UI_SPACING * 2), chatBox->GetSize().y);
+            if (screen == Screen_Chat) chatBox->Draw();
 
             // Render chat messages
             sf::String *last = NULL;
@@ -203,12 +201,12 @@ void pf::Game::Render(sf::RenderTarget& target, int renderWidth, int renderHeigh
                         message->string->SetPosition(chatBox->GetPosition().x, chatBox->GetPosition().y - message->string->GetRect().GetHeight() - CHAT_UI_SPACING);
 
                     message->string->SetColor(sf::Color(50, 50, 50,
-                                                        (int)((float)255 * ((message->countdown > 1.f  || screen == Screen_Chat) ?
+                                                        (int)((float)255 * ((message->countdown >= 1.f  || screen == Screen_Chat) ?
                                                                             1.f : message->countdown))));
                     target.Draw(*message->string);
 
                     message->string->SetColor(sf::Color(255, 255, 255,
-                                                        (int)((float)255 * ((message->countdown > 1.f  || screen == Screen_Chat) ?
+                                                        (int)((float)255 * ((message->countdown >= 1.f  || screen == Screen_Chat) ?
                                                                             1.f : message->countdown))));
                     message->string->Move(1.f, 1.f);
                     target.Draw(*message->string);
@@ -693,9 +691,10 @@ void pf::Game::HandleEvent(sf::Event *event, sf::Input *input) {
                         SetScreen(Screen_Chat);
                     break;
                 case sf::Key::Return:
-                    if (screen == Screen_Chat)
+                    if (screen == Screen_Chat) {
                         SendChat(chatBox->GetLabelText().c_str());
                         SetScreen(Screen_Game);
+                    }
                     break;
             }
             break;
@@ -742,7 +741,6 @@ void pf::Game::SetScreen(pf::Screen screen) {
     // Switching TO screen
     switch (screen) {
         case Screen_Game:
-            //InitGame();
             break;
         case Screen_Main:
             StopGame();
@@ -779,5 +777,6 @@ void pf::Game::InitWorld() {
 }
 
 void pf::Game::SendChat(const char *message) {
-    pf::Packet::Chat(message).Send(socket);
+    if (strlen(message))
+        pf::Packet::Chat(message).Send(socket);
 }

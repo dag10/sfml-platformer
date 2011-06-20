@@ -32,6 +32,7 @@ pf::ClientInstance::ClientInstance(pf::Server *server, sf::SocketTCP *socket, sf
     this->username = NULL;
 
     loading = true;
+    wasKicked = false;
     character = NULL;
     resourceCount = 0;
 }
@@ -72,7 +73,6 @@ void pf::ClientInstance::EnqueueResource(pf::Resource *resource) {
     EnqueuePacket(new pf::Packet::Resource(resource));
     pf::Logger::LogInfo("Enqueueing resource \"%s\" for client \"%s\"", resource->GetFilename(), username);
     resourceCount++;
-    pf::Logger::LogInfo("RESOURCE COUNT IS NOW: %d", resourceCount);
 }
 
 pf::Packet::BasePacket *pf::ClientInstance::DequeuePacket() {

@@ -35,7 +35,7 @@ namespace pf {
     class Entity;
 
     namespace Packet {
-        static const char PROTOCOL_VERSION = 1;
+        static const char PROTOCOL_VERSION = 2;
 
         struct BasePacket {
             virtual void Send(sf::SocketTCP *socket) {};
