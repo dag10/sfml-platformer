@@ -113,6 +113,7 @@ pf::Character::Character(pf::World *world, pf::CharacterSkin *skin, const char *
     SetGravityEnabled(false);
     SetSolid(true);
     SetIsolateAnimation(true);
+    SetCanUseStairs(true);
     health = 100;
 
 #ifdef PLATFORMER_SERVER

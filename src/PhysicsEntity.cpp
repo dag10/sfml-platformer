@@ -71,9 +71,9 @@ void pf::PhysicsEntity::Init() {
 void pf::PhysicsEntity::Tick(float frametime) {
     static float terminalLiquidX = 5.0f;
     static float terminalLiquidY = 5.0f;
-    
+
     hitEntities->clear();
-    
+
     // Gravity
     if (gravity && !onGround)
         veloY += GRAVITY * frametime;
@@ -81,19 +81,19 @@ void pf::PhysicsEntity::Tick(float frametime) {
     // Bottom surface friction
     if (solid && onGround && veloX != 0)
         veloX *= 0.95;
-    
+
     // Liquid resistance
     if (inLiquid) {
         if (veloX > terminalLiquidX || veloX < -terminalLiquidX) veloX *= 0.8f;
         if (veloY > terminalLiquidY || veloY < -terminalLiquidY) veloY *= 0.8f;
     }
-    
+
     Move(veloX * frametime, veloY * frametime);
 
     // Clip velocity to zero if it's very near
     if (veloX > -0.001f && veloX < 0.001f) veloX = 0.f;
     if (veloY > -0.001f && veloY < 0.001f) veloY = 0.f;
-    
+
     if (image) image->Tick(frametime);
 }
 
@@ -107,16 +107,16 @@ bool pf::PhysicsEntity::AlreadyHit(pf::Entity *entity) {
 
 void pf::PhysicsEntity::Push(float offsetX, float offsetY) {
     if (!pushable) return;
-    
-    Move(offsetX, offsetY);
 
     veloX += offsetX;
     veloY += offsetY;
+
+    Move(offsetX, offsetY);
 }
 
 void pf::PhysicsEntity::Move(float offsetX, float offsetY) {
     inLiquid = false;
-    
+
     if (offsetX != 0.f || offsetY != 0.f) {
         if (solid) {
             if (offsetY < 0.f) onGround = false;
@@ -210,7 +210,7 @@ void pf::PhysicsEntity::Move(float offsetX, float offsetY) {
                             x = ent->GetX() - width - 0.0f;
                         else
                             x = ent->GetX() + ent->GetWidth() + 0.0f;
-                        
+
                         if (!platform || !platform->IsLiquid())
                             veloX = 0.f;
                     }
@@ -294,7 +294,7 @@ bool pf::PhysicsEntity::HitTest(float x, float y) {
 
 void pf::PhysicsEntity::Render(sf::RenderTarget& target) {
     if (!image) return;
-    
+
     image->SetPosition((int)x, (int)y);
     image->Render(target);
 }

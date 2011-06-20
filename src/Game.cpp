@@ -127,7 +127,7 @@ void pf::Game::addBox(int x, int y) {
 
     if (!boxAnimation) {
         sf::Image *boxImage = new sf::Image();
-        Resource *boxImageResource = Resource::GetOrLoadResource("resources/box.bmp");
+        Resource *boxImageResource = Resource::GetOrLoadResource("resources/step.bmp");
         boxImage->LoadFromMemory(boxImageResource->GetData(), boxImageResource->GetLength());
         boxImage->SetSmooth(false);
         //boxImage->CreateMaskFromColor(sf::Color(255, 0, 255));

@@ -4,7 +4,7 @@
 	<File name="include\Entity.h" open="0" top="0" tabpos="5">
 		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="include\Game.h" open="1" top="0" tabpos="6">
+	<File name="include\Game.h" open="1" top="0" tabpos="5">
 		<Cursor position="1938" topLine="48" />
 	</File>
 	<File name="include\Packet.h" open="0" top="0" tabpos="8">
@@ -16,17 +16,17 @@
 	<File name="include\Resource.h" open="1" top="0" tabpos="2">
 		<Cursor position="1305" topLine="22" />
 	</File>
-	<File name="main_client.cpp" open="1" top="1" tabpos="3">
-		<Cursor position="1666" topLine="63" />
+	<File name="main_client.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="1331" topLine="50" />
 	</File>
 	<File name="src\Character.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="1963" topLine="74" />
+		<Cursor position="8242" topLine="265" />
 	</File>
 	<File name="src\Elevator.cpp" open="0" top="0" tabpos="5">
 		<Cursor position="886" topLine="0" />
 	</File>
-	<File name="src\Game.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="5825" topLine="139" />
+	<File name="src\Game.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="29974" topLine="741" />
 	</File>
 	<File name="src\Logger.cpp" open="0" top="0" tabpos="9">
 		<Cursor position="848" topLine="8" />
@@ -34,8 +34,8 @@
 	<File name="src\Packet.cpp" open="0" top="0" tabpos="7">
 		<Cursor position="11941" topLine="317" />
 	</File>
-	<File name="src\PhysicsEntity.cpp" open="0" top="0" tabpos="6">
-		<Cursor position="0" topLine="41" />
+	<File name="src\PhysicsEntity.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="2530" topLine="54" />
 	</File>
 	<File name="src\Platform.cpp" open="0" top="0" tabpos="4">
 		<Cursor position="1168" topLine="55" />
@@ -43,8 +43,8 @@
 	<File name="src\Resource.cpp" open="0" top="0" tabpos="3">
 		<Cursor position="1833" topLine="24" />
 	</File>
-	<File name="src\World.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="0" topLine="0" />
+	<File name="src\World.cpp" open="1" top="0" tabpos="7">
+		<Cursor position="3131" topLine="57" />
 	</File>
 	<File name="src\cpGUI\cpCheckBox.cpp" open="1" top="0" tabpos="1">
 		<Cursor position="0" topLine="0" />
