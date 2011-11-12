@@ -21,7 +21,9 @@ Compiling (WINDOWS):
    I included two Code::Blocks project files (.cbp) for both the Client and the Server (Platformer_Client.cbp and Platformer_Server.cbp respectively).
    Please go into "Settings > Compiler and debugger... > Toolchain executables" and set the Compiler's installation directory to where MinGW is installed.
    Please use the latest MinGW version. Go here to download an installer for the latest MinGW version:
-   http://downloads.sourceforge.net/project/mingw/Automated%20MinGW%20Installer/mingw-get-inst/mingw-get-inst-20110530/mingw-get-inst-20110530.exe?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fmingw%2Ffiles%2F&ts=1308354552&use_mirror=cdnetworks-us-2
+   
+   http://sourceforge.net/projects/mingw/files/
+   (Click on "Download mingw-get-inst")
    Please make sure to select something along the lines of "Most recent version/revision" when installing.
 
 Compiling (OSX):
