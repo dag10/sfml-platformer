@@ -599,3 +599,267 @@
 	<cstdio>
 	<iostream>
 
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\animation.cpp
+	"Animation.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\animation.h
+	<SFML/Graphics.hpp>
+	"IRenderable.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\irenderable.h
+	<SFML/Graphics.hpp>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\bouncyparticle.cpp
+	"BouncyParticle.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\bouncyparticle.h
+	"Particle.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\particle.h
+	"PhysicsEntity.h"
+	"IRenderable.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\physicsentity.h
+	"Entity.h"
+	"IRenderable.h"
+	"World.h"
+	<vector>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\entity.h
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\world.h
+	"IRenderable.h"
+	<vector>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\character.cpp
+	"Character.h"
+	"Animation.h"
+	"Resource.h"
+	"CharacterSkin.h"
+	"Logger.h"
+	<string>
+	"ClientInstance.h"
+	"Packet.h"
+	"Server.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\character.h
+	<SFML/Graphics.hpp>
+	"PhysicsEntity.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\resource.h
+	<map>
+	<string>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\characterskin.h
+	<map>
+	<string>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\logger.h
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\clientinstance.h
+	<SFML/Network.hpp>
+	<vector>
+	<queue>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\packet.h
+	<cstring>
+	<stdint.h>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\server.h
+	<SFML/Network.hpp>
+	"Packet.h"
+	<vector>
+	<map>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\characterskin.cpp
+	"CharacterSkin.h"
+	"Resource.h"
+	<SFML/Graphics.hpp>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\elevator.cpp
+	"Elevator.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\elevator.h
+	<SFML/Graphics.hpp>
+	"PhysicsEntity.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\entity.cpp
+	"Entity.h"
+	"World.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\logger.cpp
+	"Logger.h"
+	<time.h>
+	<iostream>
+	<stdarg.h>
+	<cstdio>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\packet.cpp
+	"Packet.h"
+	"Resource.h"
+	"CharacterSkin.h"
+	"Animation.h"
+	"Character.h"
+	"Logger.h"
+	<SFML/Network.hpp>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\particle.cpp
+	"Particle.h"
+	"Animation.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\physicsentity.cpp
+	"PhysicsEntity.h"
+	"Platform.h"
+	"Animation.h"
+	<vector>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\platform.h
+	<SFML/Graphics.hpp>
+	"Entity.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\platform.cpp
+	"Platform.h"
+	"World.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\resource.cpp
+	"Resource.h"
+	"Logger.h"
+	"Server.h"
+	<fstream>
+	<sys/stat.h>
+	<iostream>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\world.cpp
+	"World.h"
+	"Tileset.h"
+	"Entity.h"
+	"PhysicsEntity.h"
+	"Platform.h"
+	"Logger.h"
+	"Resource.h"
+	"Character.h"
+	<vector>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\tileset.h
+	<SFML/Graphics.hpp>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\main_client.cpp
+	<SFML/Graphics.hpp>
+	"Game.h"
+	<cstdio>
+	<iostream>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\game.h
+	<SFML/Graphics.hpp>
+	<SFML/Network.hpp>
+	<map>
+	<list>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\game.cpp
+	"Game.h"
+	"PhysicsEntity.h"
+	"Character.h"
+	"World.h"
+	"Elevator.h"
+	"Animation.h"
+	"BouncyParticle.h"
+	"Platform.h"
+	"Resource.h"
+	"cpGUI.h"
+	"Logger.h"
+	"Packet.h"
+	"CharacterSkin.h"
+	<sstream>
+	<SFML/Window.hpp>
+	<SFML/Graphics.hpp>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cpgui\cpgui.h
+	"cpGUI_base.h"
+	"cpCheckBox.h"
+	"cpImageButton.h"
+	"cpSelection-DropDownBox.h"
+	"cpShapeButton.h"
+	"cpTextBox.h"
+	"cpTextInputBox.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cpgui\cpgui_base.h
+	<cmath>
+	<cstring>
+	<fstream>
+	<map>
+	<sstream>
+	<vector>
+	<SFML/Graphics.hpp>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cpgui\cpcheckbox.h
+	"cpGUI_base.h"
+	"cpButton.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cpgui\cpbutton.h
+	"cpObject.h"
+	"cpGuiContainer.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cpgui\cpobject.h
+	"cpGuiContainer.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cpgui\cpguicontainer.h
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cpgui\cpimagebutton.h
+	"cpGUI_base.h"
+	"cpObject.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cpgui\cpselection-dropdownbox.h
+	"cpGUI_base.h"
+	"cpScrollBar.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cpgui\cpscrollbar.h
+	"cpGuiContainer.h"
+	"cpButton.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cpgui\cpshapebutton.h
+	"cpGUI_base.h"
+	"cpObject.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cpgui\cptextbox.h
+	"cpGUI_base.h"
+	"cpObject.h"
+	"cpScrollBar.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cpgui\cptextinputbox.h
+	"cpGUI_base.h"
+	"cpGuiContainer.h"
+	"cpObject.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\cpgui\cpcheckbox.cpp
+	"cpGUI_base.h"
+	"cpCheckBox.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\cpgui\cpgui_base.cpp
+	"cpGUI_base.h"
+	"cpGuiContainer.h"
+	"cpObject.h"
+	"cpButton.h"
+	"cpScrollBar.h"
+	<stdexcept>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\cpgui\cpimagebutton.cpp
+	"cpGUI_base.h"
+	"cpImageButton.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\cpgui\cpselection-dropdownbox.cpp
+	"cpGUI_base.h"
+	"cpSelection-DropDownBox.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\cpgui\cpshapebutton.cpp
+	"cpGUI_base.h"
+	"cpShapeButton.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\cpgui\cptextbox.cpp
+	"cpGUI_base.h"
+	"cpTextBox.h"
+	<cstring>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\cpgui\cptextinputbox.cpp
+	"cpGUI_base.h"
+	"cpTextInputBox.h"
+

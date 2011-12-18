@@ -123,10 +123,14 @@ pf::Server::Server() {
 
                 if (status != sf::Socket::Done) {
                     if (status == sf::Socket::Disconnected) {
-                        if (!client->WasKicked())
+                        if (!client->WasKicked()) {
                             pf::Logger::LogInfo("A client disconnected: \"%s\" [%s]",
                                                 (client->GetUsername() ? client->GetUsername() : ""),
                                                 client->GetAddress()->ToString().c_str());
+                            SendToAll(new pf::Packet::Chat((const char*)(std::string("[ Player disconnected: ") + (client->GetUsername() ? client->GetUsername() : "<unknown>") + " ]").c_str()));
+                        } else {
+                            SendToAll(new pf::Packet::Chat((const char*)(std::string("[ Player was kicked: ") + (client->GetUsername() ? client->GetUsername() : "<unknown>") + " ]").c_str()));
+                        }
                     } else {
                         pf::Logger::LogError("Error while receiving from socket. Disconnecting client: \"%s\" [%s]",
                                             (client->GetUsername() ? client->GetUsername() : ""),
@@ -150,6 +154,7 @@ pf::Server::Server() {
                         pf::Packet::LoginRequest packet(&socket);
                         client->SetUsername(packet.username->string);
                         pf::Logger::LogInfo("Player \"%s\" connected from [%s]", client->GetUsername(), client->GetAddress()->ToString().c_str());
+                        SendToAll(new pf::Packet::Chat((const char*)(std::string("[ Player connected: ") + (client->GetUsername() ? client->GetUsername() : "<unknown>") + " ]").c_str()));
 
                         // Kick client if using outdated protocol version
                         if (packet.clientProtocolVersion < pf::Packet::PROTOCOL_VERSION) {

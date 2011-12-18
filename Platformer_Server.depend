@@ -556,3 +556,202 @@
 	<stdio.h>
 	"cfgparser/cfgparser.h"
 
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\main_server.cpp
+	"Server.h"
+	<cstdio>
+	<iostream>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\server.h
+	<SFML/Network.hpp>
+	"Packet.h"
+	<vector>
+	<map>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\packet.h
+	<cstring>
+	<stdint.h>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\animation.cpp
+	"Animation.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\animation.h
+	<SFML/Graphics.hpp>
+	"IRenderable.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\irenderable.h
+	<SFML/Graphics.hpp>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\bouncyparticle.cpp
+	"BouncyParticle.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\bouncyparticle.h
+	"Particle.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\particle.h
+	"PhysicsEntity.h"
+	"IRenderable.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\physicsentity.h
+	"Entity.h"
+	"IRenderable.h"
+	"World.h"
+	<vector>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\entity.h
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\world.h
+	"IRenderable.h"
+	<vector>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\character.cpp
+	"Character.h"
+	"Animation.h"
+	"Resource.h"
+	"CharacterSkin.h"
+	"Logger.h"
+	<string>
+	"ClientInstance.h"
+	"Packet.h"
+	"Server.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\character.h
+	<SFML/Graphics.hpp>
+	"PhysicsEntity.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\resource.h
+	<map>
+	<string>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\characterskin.h
+	<map>
+	<string>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\logger.h
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\clientinstance.h
+	<SFML/Network.hpp>
+	<vector>
+	<queue>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\characterskin.cpp
+	"CharacterSkin.h"
+	"Resource.h"
+	<SFML/Graphics.hpp>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\clientinstance.cpp
+	"ClientInstance.h"
+	"Packet.h"
+	"Logger.h"
+	"Server.h"
+	"Resource.h"
+	"Character.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\elevator.cpp
+	"Elevator.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\elevator.h
+	<SFML/Graphics.hpp>
+	"PhysicsEntity.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\entity.cpp
+	"Entity.h"
+	"World.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\logger.cpp
+	"Logger.h"
+	<time.h>
+	<iostream>
+	<stdarg.h>
+	<cstdio>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\packet.cpp
+	"Packet.h"
+	"Resource.h"
+	"CharacterSkin.h"
+	"Animation.h"
+	"Character.h"
+	"Logger.h"
+	<SFML/Network.hpp>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\particle.cpp
+	"Particle.h"
+	"Animation.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\physicsentity.cpp
+	"PhysicsEntity.h"
+	"Platform.h"
+	"Animation.h"
+	<vector>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\platform.h
+	<SFML/Graphics.hpp>
+	"Entity.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\platform.cpp
+	"Platform.h"
+	"World.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\resource.cpp
+	"Resource.h"
+	"Logger.h"
+	"Server.h"
+	<fstream>
+	<sys/stat.h>
+	<iostream>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\server.cpp
+	"Server.h"
+	"Logger.h"
+	"World.h"
+	"Resource.h"
+	"ClientInstance.h"
+	"CharacterSkin.h"
+	"Character.h"
+	"Packet.h"
+	"Animation.h"
+	<SFML/System.hpp>
+	"cfgparser/cfgparser.h"
+	"cfgparser/configwrapper.h"
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cfgparser\cfgparser.h
+	<string>
+	<vector>
+	<map>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\cfgparser\configwrapper.h
+	<sys/time.h>
+	<string>
+	"cfgparser/cfgparser.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\world.cpp
+	"World.h"
+	"Tileset.h"
+	"Entity.h"
+	"PhysicsEntity.h"
+	"Platform.h"
+	"Logger.h"
+	"Resource.h"
+	"Character.h"
+	<vector>
+
+1318704700 c:\users\drew gottlieb\desktop\sfml-platformer\include\tileset.h
+	<SFML/Graphics.hpp>
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\cfgparser\cfgparser.cc
+	<stdio.h>
+	<ctype.h>
+	<string.h>
+	<errno.h>
+	<stdlib.h>
+	<string>
+	<vector>
+	<algorithm>
+	<set>
+	"cfgparser/cfgparser.h"
+
+1318704700 source:c:\users\drew gottlieb\desktop\sfml-platformer\src\cfgparser\configwrapper.cc
+	<ctype.h>
+	<string>
+	<algorithm>
+	"cfgparser/configwrapper.h"
+

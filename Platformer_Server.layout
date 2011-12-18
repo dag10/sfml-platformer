@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
-	<File name="include\Character.h" open="1" top="0" tabpos="20">
-		<Cursor position="2317" topLine="42" />
+	<File name="include\Animation.h" open="1" top="0" tabpos="17">
+		<Cursor position="812" topLine="0" />
+	</File>
+	<File name="include\Character.h" open="1" top="0" tabpos="13">
+		<Cursor position="1056" topLine="15" />
 	</File>
 	<File name="include\ClientInstance.h" open="1" top="0" tabpos="3">
 		<Cursor position="1583" topLine="33" />
 	</File>
-	<File name="include\Packet.h" open="0" top="0" tabpos="0">
-		<Cursor position="484" topLine="6" />
+	<File name="include\Packet.h" open="1" top="0" tabpos="23">
+		<Cursor position="10898" topLine="365" />
 	</File>
 	<File name="include\Server.h" open="1" top="0" tabpos="8">
-		<Cursor position="1119" topLine="21" />
+		<Cursor position="1557" topLine="21" />
 	</File>
-	<File name="include\Tileset.h" open="1" top="0" tabpos="22">
+	<File name="include\Tileset.h" open="1" top="0" tabpos="15">
 		<Cursor position="1239" topLine="17" />
 	</File>
 	<File name="include\cfgparser\cfgparser.h" open="1" top="0" tabpos="7">
@@ -23,13 +26,16 @@
 		<Cursor position="1118" topLine="9" />
 	</File>
 	<File name="main_server.cpp" open="1" top="0" tabpos="9">
-		<Cursor position="844" topLine="0" />
+		<Cursor position="842" topLine="0" />
 	</File>
-	<File name="src\Character.cpp" open="1" top="0" tabpos="14">
+	<File name="src\Animation.cpp" open="1" top="0" tabpos="16">
+		<Cursor position="794" topLine="0" />
+	</File>
+	<File name="src\Character.cpp" open="1" top="0" tabpos="10">
 		<Cursor position="1963" topLine="90" />
 	</File>
-	<File name="src\ClientInstance.cpp" open="1" top="0" tabpos="19">
-		<Cursor position="1177" topLine="21" />
+	<File name="src\ClientInstance.cpp" open="1" top="0" tabpos="12">
+		<Cursor position="1329" topLine="94" />
 	</File>
 	<File name="src\Logger.cpp" open="0" top="0" tabpos="14">
 		<Cursor position="2068" topLine="53" />
@@ -40,16 +46,16 @@
 	<File name="src\PhysicsEntity.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="10388" topLine="219" />
 	</File>
-	<File name="src\Platform.cpp" open="1" top="0" tabpos="18">
+	<File name="src\Platform.cpp" open="1" top="0" tabpos="11">
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="src\Resource.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="742" topLine="12" />
 	</File>
-	<File name="src\Server.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="11542" topLine="268" />
+	<File name="src\Server.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="3707" topLine="12" />
 	</File>
-	<File name="src\World.cpp" open="1" top="1" tabpos="21">
+	<File name="src\World.cpp" open="1" top="0" tabpos="21">
 		<Cursor position="1729" topLine="39" />
 	</File>
 	<File name="src\cfgparser\cfgparser.cc" open="1" top="0" tabpos="5">
