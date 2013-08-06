@@ -4,7 +4,7 @@ SFML Platformer
 Description
 ---
 
-An incomplete 2D side-scrolling platform game I worked on from 2010-2011 using [SFML](http://www.sfml-dev.org) 1.6.
+An incomplete 2D side-scrolling platform game I worked on from 2010-2011 using [SFML](http://www.sfml-dev.org) 1.6. I'm no longer actively developing it.
 
 It's pretty modular, so it shouldn't be too difficult to make your own singleplayer/multiplayer game modification. Active development is dead, however. Plus there's a few bugs and memory leaks, but overall it's fairly solid.
 
