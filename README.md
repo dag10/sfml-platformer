@@ -8,9 +8,9 @@ An incomplete 2D side-scrolling platform game I worked on from 2010-2011 using [
 
 It's pretty modular, so it shouldn't be too difficult to make your own singleplayer/multiplayer game modification. Active development is dead, however. Plus there's a few bugs and memory leaks, but overall it's fairly solid.
 
-#### For more information and screenshots, check out my related [blog entries](http://minipenguin.com/?cat=32).
+#### For more information and screenshots, check out my related [blog entries](http://old.drewgottlieb.net/?cat=32).
 
-![Screenshot](http://minipenguin.com/wp-content/uploads/2011/06/plat_2.png).
+![Screenshot](http://old.drewgottlieb.net/wp-content/uploads/2011/06/plat_2.png).
 
 Compiling Instructions
 ---
